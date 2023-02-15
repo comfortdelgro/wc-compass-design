@@ -3,7 +3,9 @@ import { CdgIconSize } from '../../shared/core.js';
 export class CdgAvatar extends CdgIconSize {
   constructor() {
     super();
+  }
 
+  connectedCallback() {
     this.classList.add('cdg-avatar');
 
     const type = this.getAttribute('type');

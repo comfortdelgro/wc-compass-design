@@ -3,10 +3,10 @@ export class CdgTabs extends HTMLElement {
 
   constructor() {
     super();
-    this.classList.add('cdg-tabs');
   }
 
   connectedCallback() {
+    this.classList.add('cdg-tabs');
     this.activeTab(this.activeIndex);
     Array.from(this.children).forEach((tab, index) => {
       if (tab && !tab.hasAttribute('disabled')) {

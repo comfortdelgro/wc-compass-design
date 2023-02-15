@@ -26,6 +26,7 @@ const contentMap = {
   icon: './components/icon.html',
   button: './components/button.html',
   inlineLoading: './components/inline-loading.html',
+  pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
@@ -34,6 +35,7 @@ const contentMap = {
 };
 
 const scriptMap = {
+  pagination: './components/pagination.js',
   tabs: './components/tabs.js',
 };
 
