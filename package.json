@@ -5,7 +5,9 @@
   "description": "Webpack + Web Components Compass Design",
   "scripts": {
     "start": "webpack serve --config webpack.config.js --mode development",
-    "build": "webpack build --config webpack.config.js --mode production"
+    "build": "webpack build --config webpack.config.js --mode production",
+    "test": "mocha ***/*.spec.js",
+    "test-watch": "nodemon --exec \"npm test\""
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -14,6 +16,7 @@
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.7.2",
+    "nodemon": "^2.0.20",
     "postcss-loader": "^7.0.2",
     "sass": "^1.58.1",
     "sass-loader": "^13.2.0",
@@ -27,5 +30,8 @@
     "npm": "9.4.0"
   },
   "license": "(Unlicense OR MIT)",
-  "dependencies": {}
+  "dependencies": {
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.8.0"
+  }
 }
