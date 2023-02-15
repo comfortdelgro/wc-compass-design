@@ -4,10 +4,10 @@ export class CdgAccordion extends HTMLElement {
   content;
   constructor() {
     super();
-    this.classList.add('cdg-acordion');
   }
 
   connectedCallback() {
+    this.classList.add('cdg-acordion');
     this.header = this.querySelector('cdg-accordion-header');
     this.content = this.querySelector('cdg-accordion-content');
     this.header &&

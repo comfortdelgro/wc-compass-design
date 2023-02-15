@@ -1,6 +1,9 @@
 export class CdgActionBar extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     this.classList.add('cdg-action-bar');
     this.attachElements();
   }

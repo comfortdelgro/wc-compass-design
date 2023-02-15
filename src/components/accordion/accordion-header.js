@@ -1,4 +1,3 @@
-
 export class CdgAccordionHeader extends HTMLElement {
   isOpen = false;
   wrapper;
@@ -6,11 +5,10 @@ export class CdgAccordionHeader extends HTMLElement {
   title = '';
   constructor() {
     super();
-    this.classList.add('cdg-acordion-header');
-    // this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
+    this.classList.add('cdg-acordion-header');
     this.attachWrapper();
     this.displayTitle();
     this.displayExpandIcon();

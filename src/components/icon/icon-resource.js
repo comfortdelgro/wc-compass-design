@@ -1,4 +1,5 @@
 import arrowDown from '../../images/arrow-down.svg';
+import arrowLeft from '../../images/arrow-left.svg';
 import arrowRight from '../../images/arrow-right.svg';
 import callCenter from '../../images/call-center.svg';
 import clock from '../../images/clock.svg';
@@ -19,6 +20,7 @@ import user from '../../images/user.svg';
 
 export const ICONS_IMAGES = [
   arrowDown,
+  arrowLeft,
   arrowRight,
   callCenter,
   clock,

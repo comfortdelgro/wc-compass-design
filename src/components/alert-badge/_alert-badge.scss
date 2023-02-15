@@ -36,17 +36,17 @@ cdg-alert-badge,
 
   &[type='success'] {
     background: var(--success);
-    color: var(--revert-color);
+    color: var(--revese-color);
   }
 
   &[type='warning'] {
     background: var(--warning);
-    color: var(--revert-color);
+    color: var(--revese-color);
   }
 
   &[type='danger'] {
     background: var(--danger);
-    color: var(--revert-color);
+    color: var(--revese-color);
   }
 
   &[badge-style='chart'] {

@@ -11,6 +11,7 @@ import { CdgAlertContent } from './components/alert/alert-content';
 import { CdgAvatar } from './components/avatar/avatar';
 import { CdgIcon } from './components/icon/icon';
 import { CdgInlineLoading } from './components/inline-loading/inline-loading';
+import { CdgPagination } from './components/pagination/pagination';
 import { CdgPillBadge } from './components/pill-badge/pill-badge';
 import { CdgStatus } from './components/status/status';
 import { CdgTab } from './components/tab/tab';
@@ -28,6 +29,7 @@ customElements.define('cdg-alert-content', CdgAlertContent);
 customElements.define('cdg-avatar', CdgAvatar);
 customElements.define('cdg-icon', CdgIcon);
 customElements.define('cdg-inline-loading', CdgInlineLoading);
+customElements.define('cdg-pagination', CdgPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
 customElements.define('cdg-tab', CdgTab);
@@ -47,6 +49,7 @@ export {
   CdgAvatar,
   CdgIcon,
   CdgInlineLoading,
+  CdgPagination,
   CdgPillBadge,
   CdgStatus,
   CdgTab,
