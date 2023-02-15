@@ -1,6 +1,6 @@
 @mixin darkColors {
   --background: #101010;
-  --revert-color: #323130;
+  --revese-color: #323130;
   --accent: #0142af;
   --danger: #cb2028;
   --info: #009eda;
@@ -12,6 +12,7 @@
   --grey70: #777777;
   --grey80: #888888;
   --grey90: #999999;
+  --grey100: #cccccc;
   --blue10: #1a1f27;
   --danger-hover-background: #1e191a;
   --accent-darker: #012158;
@@ -30,7 +31,7 @@
 
 :root {
   --background: #ffffff;
-  --revert-color: #ffffff;
+  --revese-color: #ffffff;
   --accent: #0142af;
   --danger: #a4262c;
   --info: #009eda;
@@ -42,6 +43,7 @@
   --grey70: #a19f9d;
   --grey80: #605e5c;
   --grey90: #3b3a39;
+  --grey100: #333333;
   --blue10: #e6ecf7;
   --danger-hover-background: #efd9db;
   --accent-darker: #012158;
