@@ -1,0 +1,131 @@
+<h2>Text field</h2>
+
+<h3>Default</h3>
+<div class="sample-section">
+  <input class="cdg-input" placeholder="Type something..." />
+</div>
+
+<div class="sample-section">
+  <input
+    class="cdg-input"
+    placeholder="Type something..."
+    disabled
+    value="You can not input me"
+  />
+</div>
+
+<h3>With label and customize width</h3>
+<div class="sample-section">
+  <label class="cdg-input-group" style="width: 320px">
+    <span class="cdg-input-label">Input me</span>
+    <input class="cdg-input" placeholder="Type something..." />
+  </label>
+</div>
+
+<h3>With helper message</h3>
+<div class="sample-section">
+  <label class="cdg-input-group" style="width: 320px">
+    <span class="cdg-input-label">Input me</span>
+    <input class="cdg-input" placeholder="Type something..." />
+    <span class="cdg-helper-message">Ex: It's awesome</span>
+  </label>
+</div>
+
+<div class="sample-section">
+  <label class="cdg-input-group" style="width: 320px">
+    <span class="cdg-input-label">Disabled input field</span>
+    <input
+      class="cdg-input"
+      placeholder="Type something..."
+      disabled
+      value="You can not input me"
+    />
+    <span class="cdg-helper-message">Ex: It's awesome</span>
+  </label>
+</div>
+
+<h3>Error field <small>and match parent width</small></h3>
+<div class="sample-section">
+  <label class="cdg-input-group error" style="width: 100%">
+    <span class="cdg-input-label">I'm an required field</span>
+    <input class="cdg-input" placeholder="Please input me..." />
+    <span class="cdg-helper-message">This field is required!</span>
+  </label>
+</div>
+
+<h3>With icon on the left</h3>
+<div class="sample-section">
+  <label class="cdg-input-group" style="width: 320px">
+    <span class="cdg-input-label">Input me</span>
+    <div class="cdg-input-with-icon left">
+      <cdg-icon name="user"></cdg-icon>
+      <input class="cdg-input" placeholder="Type something..." />
+    </div>
+    <span class="cdg-helper-message">Ex: It's awesome</span>
+  </label>
+</div>
+
+<h3>Error with icon on the left</h3>
+<div class="sample-section">
+  <label class="cdg-input-group error" style="width: 320px">
+    <span class="cdg-input-label">Input me</span>
+    <div class="cdg-input-with-icon left">
+      <cdg-icon name="user"></cdg-icon>
+      <input class="cdg-input" placeholder="Type something..." />
+    </div>
+    <span class="cdg-helper-message">This field is required!</span>
+  </label>
+</div>
+
+<h3>With icon on the right</h3>
+<div class="sample-section">
+  <label class="cdg-input-group" style="width: 320px">
+    <span class="cdg-input-label">Input me</span>
+    <div class="cdg-input-with-icon right">
+      <input class="cdg-input" placeholder="Type something..." />
+      <cdg-icon name="arrowDown" size="16"></cdg-icon>
+    </div>
+    <span class="cdg-helper-message">Ex: It's awesome</span>
+  </label>
+</div>
+
+<div class="sample-section">
+  <label class="cdg-input-group" style="width: 320px">
+    <span class="cdg-input-label">Input me</span>
+    <div class="cdg-input-with-icon right">
+      <input class="cdg-input" placeholder="Type something..." disabled />
+      <cdg-icon name="arrowDown" size="16"></cdg-icon>
+    </div>
+    <span class="cdg-helper-message">Ex: It's awesome</span>
+  </label>
+</div>
+
+<h3>With icon on both side</h3>
+<div class="sample-section">
+  <label class="cdg-input-group" style="width: 320px">
+    <span class="cdg-input-label">Input me</span>
+    <div class="cdg-input-with-icon left right">
+      <cdg-icon name="user"></cdg-icon>
+      <input class="cdg-input" placeholder="Type something..." />
+      <cdg-icon name="filledArrowDown" size="16"></cdg-icon>
+    </div>
+    <span class="cdg-helper-message">Ex: It's awesome</span>
+  </label>
+</div>
+
+<div class="sample-section">
+  <label class="cdg-input-group" style="width: 320px">
+    <span class="cdg-input-label">Disabled input field</span>
+    <div class="cdg-input-with-icon left right">
+      <cdg-icon name="user"></cdg-icon>
+      <input
+        class="cdg-input"
+        placeholder="Type something..."
+        disabled
+        value="You can not input me"
+      />
+      <cdg-icon name="filledArrowDown" size="16"></cdg-icon>
+    </div>
+    <span class="cdg-helper-message">Ex: It's awesome</span>
+  </label>
+</div>

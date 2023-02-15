@@ -1,0 +1,85 @@
+@mixin darkColors {
+  --background: #101010;
+  --revert-color: #323130;
+  --accent: #0142af;
+  --danger: #cb2028;
+  --info: #009eda;
+  --success: #15aa15;
+  --warning: #efb01d;
+  --grey20: #212121;
+  --grey50: #555555;
+  --grey60: #666666;
+  --grey70: #777777;
+  --grey80: #888888;
+  --grey90: #999999;
+  --blue10: #1a1f27;
+  --danger-hover-background: #1e191a;
+  --accent-darker: #012158;
+  --hover-background: #191c21;
+  --primary-color: #ffffff;
+  --darker-background: #1c1e1e;
+  --disabled-color: #444343;
+  --disabled-background: #212121;
+  --info-background: #ccecf8;
+  --border-color: #2c2b2b;
+  --status-info-background: #0b3545;
+  --status-success-background: #274624;
+  --status-error-background: #4d1b20;
+  --status-warning-background: #493a15;
+}
+
+:root {
+  --background: #ffffff;
+  --revert-color: #ffffff;
+  --accent: #0142af;
+  --danger: #a4262c;
+  --info: #009eda;
+  --success: #107c10;
+  --warning: #95711f;
+  --grey20: #f3f2f1;
+  --grey50: #d2d0ce;
+  --grey60: #c8c6c4;
+  --grey70: #a19f9d;
+  --grey80: #605e5c;
+  --grey90: #3b3a39;
+  --blue10: #e6ecf7;
+  --danger-hover-background: #efd9db;
+  --accent-darker: #012158;
+  --hover-background: #e6ecf7;
+  --primary-color: #323130;
+  --darker-background: #eaebeb;
+  --disabled-color: #d2d0ce;
+  --disabled-background: #edebe9;
+  --info-background: #ccecf8;
+  --border-color: #edebe9;
+  --status-info-background: #ccecf8;
+  --status-success-background: #d1e8cf;
+  --status-error-background: #efd9db;
+  --status-warning-background: #f8db96;
+  --font-family: Poppins, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include darkColors;
+  }
+}
+
+html,
+body {
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  font-size: 16px;
+  line-height: 24px;
+  &.dark {
+    @include darkColors;
+  }
+}
+
+a {
+  color: var(--info);
+  text-decoration: none;
+}

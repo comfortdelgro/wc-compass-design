@@ -1,0 +1,116 @@
+input.cdg-input {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  padding: 8px 16px;
+  height: 44px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: var(--background);
+  &:focus {
+    outline: 2px solid var(--accent);
+  }
+
+  &::placeholder {
+    color: var(--grey50);
+  }
+
+  &[disabled] {
+    color: var(--disabled-color);
+    background-color: var(--disabled-background);
+    cursor: not-allowed;
+  }
+}
+
+.cdg-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  .cdg-input-label {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--grey90);
+  }
+  .cdg-helper-message {
+    font-size: 10px;
+    line-height: 15px;
+    font-weight: 600;
+    color: var(--grey50);
+  }
+  &.error {
+    .cdg-input {
+      border-color: var(--danger);
+      border-width: 2px;
+    }
+    .cdg-helper-message {
+      color: var(--danger);
+    }
+
+    .cdg-input-with-icon {
+      cdg-icon,
+      .cdg-icon {
+        color: var(--danger);
+      }
+
+      &:has(.cdg-input:focus) {
+        cdg-icon,
+        .cdg-icon {
+          color: var(--danger);
+        }
+      }
+    }
+  }
+  &:has(input:disabled) {
+    cursor: not-allowed;
+    .cdg-input,
+    cdg-icon,
+    .cdg-icon {
+      color: var(--disabled-color);
+    }
+
+    .cdg-input {
+      background-color: var(--disabled-background);
+    }
+  }
+}
+
+.cdg-input-with-icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cdg-icon,
+  .cdg-icon {
+    position: absolute;
+    &:first-child {
+      left: 16px;
+    }
+    &:last-child {
+      right: 16px;
+    }
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:focus-within {
+    cdg-icon:first-child,
+    .cdg-icon:first-child {
+      color: var(--accent);
+    }
+  }
+
+  &.left {
+    .cdg-input {
+      padding-left: 48px;
+    }
+  }
+
+  &.right {
+    .cdg-input {
+      padding-right: 48px;
+    }
+  }
+}
