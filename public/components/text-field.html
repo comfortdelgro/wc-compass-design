@@ -5,14 +5,27 @@
   <input class="cdg-input" placeholder="Type something..." />
 </div>
 
+<pre>
+  <code class="language-html">&lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;</code>
+</pre>
+
 <div class="sample-section">
   <input
     class="cdg-input"
     placeholder="Type something..."
     disabled
-    value="You can not input me"
+    value="You cannot input me"
   />
 </div>
+
+<pre>
+  <code class="language-html">&lt;input
+  class=&quot;cdg-input&quot;
+  placeholder=&quot;Type something...&quot;
+  disabled
+  value=&quot;You cannot input me&quot;
+/&gt;</code>
+</pre>
 
 <h3>With label and customize width</h3>
 <div class="sample-section">
@@ -21,6 +34,13 @@
     <input class="cdg-input" placeholder="Type something..." />
   </label>
 </div>
+
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Input me&lt;/span&gt;
+  &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;
+&lt;/label&gt;</code>
+</pre>
 
 <h3>With helper message</h3>
 <div class="sample-section">
@@ -31,6 +51,14 @@
   </label>
 </div>
 
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Input me&lt;/span&gt;
+  &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
+
 <div class="sample-section">
   <label class="cdg-input-group" style="width: 320px">
     <span class="cdg-input-label">Disabled input field</span>
@@ -38,11 +66,24 @@
       class="cdg-input"
       placeholder="Type something..."
       disabled
-      value="You can not input me"
+      value="You cannot input me"
     />
     <span class="cdg-helper-message">Ex: It's awesome</span>
   </label>
 </div>
+
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Disabled input field&lt;/span&gt;
+  &lt;input
+    class=&quot;cdg-input&quot;
+    placeholder=&quot;Type something...&quot;
+    disabled
+    value=&quot;You cannot input me&quot;
+  /&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
 
 <h3>Error field <small>and match parent width</small></h3>
 <div class="sample-section">
@@ -52,6 +93,14 @@
     <span class="cdg-helper-message">This field is required!</span>
   </label>
 </div>
+
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group error&quot; style=&quot;width: 100%&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;I&apos;m an required field&lt;/span&gt;
+  &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Please input me...&quot; /&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;This field is required!&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
 
 <h3>With icon on the left</h3>
 <div class="sample-section">
@@ -65,6 +114,17 @@
   </label>
 </div>
 
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Input me&lt;/span&gt;
+  &lt;div class=&quot;cdg-input-with-icon left&quot;&gt;
+    &lt;cdg-icon name=&quot;user&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
+
 <h3>Error with icon on the left</h3>
 <div class="sample-section">
   <label class="cdg-input-group error" style="width: 320px">
@@ -76,6 +136,17 @@
     <span class="cdg-helper-message">This field is required!</span>
   </label>
 </div>
+
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group error&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Input me&lt;/span&gt;
+  &lt;div class=&quot;cdg-input-with-icon left&quot;&gt;
+    &lt;cdg-icon name=&quot;user&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;This field is required!&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
 
 <h3>With icon on the right</h3>
 <div class="sample-section">
@@ -89,6 +160,17 @@
   </label>
 </div>
 
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Input me&lt;/span&gt;
+  &lt;div class=&quot;cdg-input-with-icon right&quot;&gt;
+    &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;
+    &lt;cdg-icon name=&quot;arrowDown&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
+
 <div class="sample-section">
   <label class="cdg-input-group" style="width: 320px">
     <span class="cdg-input-label">Input me</span>
@@ -99,6 +181,17 @@
     <span class="cdg-helper-message">Ex: It's awesome</span>
   </label>
 </div>
+
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Input me&lt;/span&gt;
+  &lt;div class=&quot;cdg-input-with-icon right&quot;&gt;
+    &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; disabled /&gt;
+    &lt;cdg-icon name=&quot;arrowDown&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
 
 <h3>With icon on both side</h3>
 <div class="sample-section">
@@ -113,6 +206,18 @@
   </label>
 </div>
 
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Input me&lt;/span&gt;
+  &lt;div class=&quot;cdg-input-with-icon left right&quot;&gt;
+    &lt;cdg-icon name=&quot;user&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;input class=&quot;cdg-input&quot; placeholder=&quot;Type something...&quot; /&gt;
+    &lt;cdg-icon name=&quot;filledArrowDown&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
+
 <div class="sample-section">
   <label class="cdg-input-group" style="width: 320px">
     <span class="cdg-input-label">Disabled input field</span>
@@ -122,10 +227,27 @@
         class="cdg-input"
         placeholder="Type something..."
         disabled
-        value="You can not input me"
+        value="You cannot input me"
       />
       <cdg-icon name="filledArrowDown" size="16"></cdg-icon>
     </div>
     <span class="cdg-helper-message">Ex: It's awesome</span>
   </label>
 </div>
+
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-input-group&quot; style=&quot;width: 320px&quot;&gt;
+  &lt;span class=&quot;cdg-input-label&quot;&gt;Disabled input field&lt;/span&gt;
+  &lt;div class=&quot;cdg-input-with-icon left right&quot;&gt;
+    &lt;cdg-icon name=&quot;user&quot;&gt;&lt;/cdg-icon&gt;
+    &lt;input
+      class=&quot;cdg-input&quot;
+      placeholder=&quot;Type something...&quot;
+      disabled
+      value=&quot;You cannot input me&quot;
+    /&gt;
+    &lt;cdg-icon name=&quot;filledArrowDown&quot; size=&quot;16&quot;&gt;&lt;/cdg-icon&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;cdg-helper-message&quot;&gt;Ex: It&apos;s awesome&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
