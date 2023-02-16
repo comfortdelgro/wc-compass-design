@@ -1,7 +1,9 @@
 export class CdgInlineLoading extends HTMLElement {
   constructor() {
     super();
+  }
 
+  connectedCallback() {
     this.classList.add('cdg-inline-loading');
 
     if (this.hasAttribute('size')) {

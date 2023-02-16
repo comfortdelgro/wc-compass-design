@@ -4,6 +4,9 @@ export class CdgAlert extends HTMLElement {
   icon;
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     this.classList.add('cdg-alert');
   }
 }

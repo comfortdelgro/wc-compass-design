@@ -6,10 +6,14 @@ export class CdgIcon extends CdgIconSize {
 
   constructor() {
     super();
-    this.classList.add('cdg-icon');
+  }
 
+  connectedCallback() {
+    this.classList.add('cdg-icon');
     this.name = this.getAttribute('name');
-    this.download('./images/' + toLowerCaseAndDash(this.name) + '.svg');
+    if (this.name) {
+      this.download('./images/' + toLowerCaseAndDash(this.name) + '.svg');
+    }
   }
 
   download(url) {
