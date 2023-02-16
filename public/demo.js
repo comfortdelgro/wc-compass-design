@@ -51,19 +51,23 @@ function activeMenu(hash) {
 }
 
 function handlePageChange(url) {
+  // Remove old script
+  scriptElement.textContent = '';
+
   const lastPrams = url.split('#')[1] || 'default';
   const hash = lastPrams.split('?')[0];
   activeMenu(hash);
 
   downloadHTMLContent(contentMap[hash]).then((data) => {
     content.innerHTML = data;
+    // Wait for content render
+    setTimeout(() => {
+      const script = document.createElement('script');
+      script.setAttribute('src', scriptMap[hash] || '');
+      scriptElement.appendChild(script);
+      hljs.highlightAll();
+    }, 10);
   });
-
-  // Wait for content render
-  setTimeout(() => {
-    scriptElement.setAttribute('src', scriptMap[hash] || '');
-    hljs.highlightAll();
-  }, 100);
 }
 
 window.addEventListener('hashchange', function (event) {
