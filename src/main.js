@@ -16,6 +16,9 @@ import { CdgPillBadge } from './components/pill-badge/pill-badge';
 import { CdgStatus } from './components/status/status';
 import { CdgTab } from './components/tab/tab';
 import { CdgTabs } from './components/tab/tabs';
+import { CdgDropdown } from './components/dropdown/dropdown';
+import { CdgDropdownSelect } from './components/dropdown/dropdown-select';
+import { CdgFloatingContent } from './components/floating-content/floating-content';
 import { CdgActionBar } from './layouts';
 
 import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
@@ -34,6 +37,9 @@ customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
 customElements.define('cdg-tab', CdgTab);
 customElements.define('cdg-tabs', CdgTabs);
+customElements.define('cdg-dropdown', CdgDropdown);
+customElements.define('cdg-dropdown-select', CdgDropdownSelect);
+customElements.define('cdg-floating-content', CdgFloatingContent);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -55,6 +61,7 @@ export {
   CdgTab,
   CdgTabs,
   CdgActionBar,
+  CdgDropdown,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

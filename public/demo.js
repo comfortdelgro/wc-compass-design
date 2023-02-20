@@ -25,6 +25,7 @@ const contentMap = {
   breadcrumbs: './components/breadcrumbs.html',
   icon: './components/icon.html',
   button: './components/button.html',
+  dropdown: './components/dropdown.html',
   inlineLoading: './components/inline-loading.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
