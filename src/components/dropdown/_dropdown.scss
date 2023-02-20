@@ -33,5 +33,10 @@
 
   .cdg-dropdown-select {
     display: none;
+    position: relative;
+    .cdg-floating-content {
+        display: flex;
+        flex-direction: column;
+    }
   }
 }

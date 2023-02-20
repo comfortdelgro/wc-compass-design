@@ -18,6 +18,7 @@ import { CdgTab } from './components/tab/tab';
 import { CdgTabs } from './components/tab/tabs';
 import { CdgDropdown } from './components/dropdown/dropdown';
 import { CdgDropdownSelect } from './components/dropdown/dropdown-select';
+import { CdgDropdownOption } from './components/dropdown/dropdown-option';
 import { CdgFloatingContent } from './components/floating-content/floating-content';
 import { CdgActionBar } from './layouts';
 
@@ -40,6 +41,7 @@ customElements.define('cdg-tabs', CdgTabs);
 customElements.define('cdg-dropdown', CdgDropdown);
 customElements.define('cdg-dropdown-select', CdgDropdownSelect);
 customElements.define('cdg-floating-content', CdgFloatingContent);
+customElements.define('cdg-dropdown-option', CdgDropdownOption);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
