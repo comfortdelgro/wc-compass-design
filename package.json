@@ -1,6 +1,6 @@
 {
   "name": "@comfortdelgro/wc-compass-design",
-  "version": "0.1",
+  "version": "0.1.0",
   "private": true,
   "description": "Webpack + Web Components Compass Design by ComfortDelGro Corporation",
   "scripts": {

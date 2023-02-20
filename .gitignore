@@ -52,5 +52,5 @@ packages/compass-icons/react/
 _image_snapshots_
 
 # dist
-dist/
+# dist/
 external/images/
