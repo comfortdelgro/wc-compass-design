@@ -49,7 +49,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: devMode ? '[name].bundle.js' : '[name].' + version + '.bundle',
+    filename: devMode ? '[name].min.js' : '[name].' + version + '.min',
     chunkFilename: '[name].js',
   },
   plugins: [
@@ -57,8 +57,8 @@ module.exports = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: devMode
-        ? '[name].bundle.css'
-        : '[name].' + version + '.bundle.css',
+        ? '[name].min.css'
+        : '[name].' + version + '.min.css',
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
     }),
   ],
