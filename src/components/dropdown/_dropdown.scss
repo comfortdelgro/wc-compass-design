@@ -30,13 +30,11 @@
       }
     }
   }
+}
 
-  .cdg-dropdown-select {
-    display: none;
-    position: relative;
-    .cdg-floating-content {
-        display: flex;
-        flex-direction: column;
-    }
-  }
+.cdg-dropdown-select {
+  display: none;
+  position: relative;
+  flex-direction: column;
+  padding: 8px 16px;
 }

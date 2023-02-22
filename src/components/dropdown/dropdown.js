@@ -1,6 +1,5 @@
 const template = document.createElement('template');
 template.innerHTML = `
-    <div class="cdg-dropdown-label"></div>
     <button class="cdg-dropdown-button">
         <span class="cdg-dropdown-button-text"></span>
         <cdg-icon name="arrow-down" size="16"></cdg-icon>
@@ -11,7 +10,6 @@ export class CdgDropdown extends HTMLElement {
   isOpen = false;
   _title = 'dropdown';
   _width = '100%';
-  _label = '';
   labelElement;
   buttonElement;
   buttonTextElement;
@@ -46,17 +44,6 @@ export class CdgDropdown extends HTMLElement {
     }
   }
 
-  get label() {
-    return this._label;
-  }
-
-  set label(value) {
-    this._label = value;
-    if (this.labelElement) {
-      this.labelElement.innerHTML = this._label;
-    }
-  }
-
   constructor() {
     super();
     this.prepend(template.content.cloneNode(true));
@@ -76,23 +63,28 @@ export class CdgDropdown extends HTMLElement {
 
     this.contentElement = this.querySelector('cdg-dropdown-select');
     this.contentElement.removeAttribute('opening');
-    this.contentElement.setAttribute('width', this._width);
+    this.contentElement.setAttribute('width', `${this.offsetWidth}px`);
 
-    if (this._label) {
-      this.labelElement = this.querySelector('div.cdg-dropdown-label');
-      this.labelElement.innerHTML = this._label;
-    }
+    this.contentElement.addEventListener('onDropdownSelectClose', () => {
+      this.handleToggle();
+    });
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (attr === 'title' && oldValue !== newValue) {
-      this.title = newValue;
-    }
-    if (attr === 'width' && oldValue !== newValue) {
-      this.width = newValue;
-    }
-    if (attr === 'label' && oldValue !== newValue) {
-      this.label = newValue;
+    if (oldValue === newValue) return;
+    switch (attr) {
+      case 'title':
+        this.title = newValue;
+        break;
+      case 'width':
+        this.width = newValue;
+        break;
+      case 'label':
+        this.label = newValue;
+        break;
+
+      default:
+        break;
     }
   }
 
