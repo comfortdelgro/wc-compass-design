@@ -1,3 +1,14 @@
+@mixin arrowLeft {
+  border-left: 8px solid var(--background);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+@mixin arrowRight {
+  border-left: 8px solid var(--background);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
 .cdg-floating-content {
   display: block;
   visibility: hidden;
@@ -55,9 +66,7 @@
         top: 10%;
         right: -8px;
         border-right: unset;
-        border-left: 8px solid var(--background);
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
+        @include arrowLeft;
       }
     }
 
@@ -67,9 +76,7 @@
         right: -8px;
         transform: translateY(-8px);
         border-right: unset;
-        border-left: 8px solid var(--background);
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
+        @include arrowLeft;
       }
     }
 
@@ -78,9 +85,7 @@
         bottom: 10%;
         right: -8px;
         border-right: unset;
-        border-left: 8px solid var(--background);
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
+        @include arrowLeft;
       }
     }
 
@@ -89,9 +94,7 @@
         top: 10%;
         left: -8px;
         border-left: unset;
-        border-right: 8px solid var(--background);
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
+        @include arrowRight;
       }
     }
 
@@ -101,9 +104,7 @@
         left: -8px;
         transform: translateY(-8px);
         border-left: unset;
-        border-right: 8px solid var(--background);
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
+        @include arrowRight;
       }
     }
 
@@ -112,9 +113,7 @@
         bottom: 10%;
         left: -8px;
         border-left: unset;
-        border-right: 8px solid var(--background);
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
+        @include arrowRight;
       }
     }
 
