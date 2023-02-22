@@ -37,7 +37,7 @@ export class CdgFloatingContent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['opening', 'width', 'placement', 'anchor'];
+    return ['opening', 'placement'];
   }
 
   constructor() {
@@ -49,58 +49,72 @@ export class CdgFloatingContent extends HTMLElement {
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    if (attr === 'placement' && oldValue !== newValue) {
-      this.position = newValue;
-    }
-    if (attr === 'opening' && oldValue !== newValue) {
-      if (newValue) {
-        this.style.visibility = 'visible';
-        this.style.opacity = '1';
-        this.style.height = 'auto';
-        if (this.parentElement) {
-          const anchorElement = this.parentElement.anchorElement;
-          const nearestScrollParent = getScrollParent(anchorElement);
+    if (oldValue === newValue) return;
+    switch (attr) {
+      case 'placement':
+        this.position = newValue;
+        break;
+      case 'opening':
+        if (newValue) {
+          this.style.visibility = 'visible';
+          this.style.opacity = '1';
+          this.style.height = 'auto';
+          if (this.parentElement) {
+            const anchorElement = this.parentElement.anchorElement;
+            const nearestScrollParent = getScrollParent(anchorElement);
 
-          const topPosition = nearestScrollParent
-            ? anchorElement.offsetTop +
-              anchorElement.clientHeight -
-              nearestScrollParent.scrollTop
-            : 0;
+            // New position
+            const topPosition = nearestScrollParent
+              ? anchorElement.offsetTop +
+                anchorElement.clientHeight -
+                nearestScrollParent.scrollTop
+              : 0;
 
-          this.style.top = `${topPosition}px`;
-          document.body.appendChild(this.parentElement);
+            this.style.top = `${topPosition}px`;
+            document.body.appendChild(this.parentElement);
+          }
+        } else {
+          this.style.visibility = 'hidden';
+          this.style.opacity = '0';
+          this.style.height = '0';
+          if (this.parentElement) {
+            document.body.removeChild(this.parentElement);
+          }
         }
-      } else {
-        this.style.visibility = 'hidden';
-        this.style.opacity = '0';
-        this.style.height = '0';
-        if (this.parentElement) {
-          document.body.removeChild(this.parentElement);
-        }
-      }
+        break;
+
+      default:
+        break;
     }
   }
 }
+
+/**
+ * Create a new floating component
+ * @param {HTMLElement} anchorElement root element
+ * @param {boolean} isFullWidth is full-width with root
+ */
 export function createFloating(anchorElement, isFullWidth = false) {
   if (!this.floatingElement) {
     const containerElement = document.createElement('div');
-    const backdropElement = document.createElement('div');
     containerElement.setAttribute('class', 'cdg-floating-content-overlay');
+    containerElement.anchorElement = anchorElement;
+
+    const backdropElement = document.createElement('div');
     backdropElement.setAttribute('class', 'cdg-floating-content-backdrop');
     backdropElement.addEventListener('click', () => {
       this.removeAttribute('opening');
       this.dispatchEvent(new CustomEvent('onDropdownSelectClose'));
     });
-    containerElement.anchorElement = anchorElement;
 
     this.floatingElement = document.createElement('cdg-floating-content');
     this.floatingElement.setAttribute('placement', 'bottom');
 
     const topPosition = anchorElement.offsetTop + anchorElement.clientHeight;
     const leftPosition = anchorElement.offsetLeft;
+
     if (isFullWidth) {
-      this._width = this.parentElement.clientWidth;
-      this.floatingElement.style.width = `${this._width}px`;
+      this.floatingElement.style.width = `${anchorElement.clientWidth}px`;
     }
 
     this.floatingElement.appendChild(this);

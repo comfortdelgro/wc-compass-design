@@ -68,20 +68,7 @@ export class CdgDropdown extends HTMLElement {
 
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue === newValue) return;
-    switch (attr) {
-      case 'title':
-        this.title = newValue;
-        break;
-      case 'width':
-        this.width = newValue;
-        break;
-      case 'label':
-        this.label = newValue;
-        break;
-
-      default:
-        break;
-    }
+    this[attr] = newValue;
   }
 
   handleToggle() {
