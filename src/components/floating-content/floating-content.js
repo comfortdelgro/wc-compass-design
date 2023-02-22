@@ -3,6 +3,18 @@ template.innerHTML = `
     <div class="cdg-floating-content-overlay"></div>
 `;
 
+function getScrollParent(node) {
+  if (node == null) {
+    return null;
+  }
+
+  if (node.scrollHeight > node.clientHeight) {
+    return node;
+  } else {
+    return getScrollParent(node.parentNode);
+  }
+}
+
 export class CdgFloatingContent extends HTMLElement {
   _position = 'bottom';
   containerElement;
@@ -25,7 +37,7 @@ export class CdgFloatingContent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['opening', 'width', 'placement'];
+    return ['opening', 'width', 'placement', 'anchor'];
   }
 
   constructor() {
@@ -45,38 +57,54 @@ export class CdgFloatingContent extends HTMLElement {
         this.style.visibility = 'visible';
         this.style.opacity = '1';
         this.style.height = 'auto';
+        if (this.parentElement) {
+          const nearestScrollParent = getScrollParent(
+            this.parentElement.anchorElement
+          );
+          const topPosition = nearestScrollParent
+            ? this.parentElement.anchorElement.offsetTop +
+              this.parentElement.anchorElement.clientHeight -
+              nearestScrollParent.scrollTop
+            : 0;
+          this.style.top = `${topPosition}px`;
+          document.body.appendChild(this.parentElement);
+        }
       } else {
         this.style.visibility = 'hidden';
         this.style.opacity = '0';
         this.style.height = '0';
+        if (this.parentElement) {
+          document.body.removeChild(this.parentElement);
+        }
       }
     }
   }
 }
-export function createFloating() {
+export function createFloating(anchorElement) {
   if (!this.floatingElement) {
-    this.containerElement = document.createElement('div');
+    const containerElement = document.createElement('div');
     const backdropElement = document.createElement('div');
-    this.containerElement.setAttribute('class', 'cdg-floating-content-overlay');
+    containerElement.setAttribute('class', 'cdg-floating-content-overlay');
     backdropElement.setAttribute('class', 'cdg-floating-content-backdrop');
     backdropElement.addEventListener('click', () => {
       this.removeAttribute('opening');
       this.dispatchEvent(new CustomEvent('onDropdownSelectClose'));
     });
+    containerElement.anchorElement = anchorElement;
 
     this.floatingElement = document.createElement('cdg-floating-content');
     this.floatingElement.setAttribute('placement', 'bottom');
 
-    this._offsetTop = this.parentNode.offsetTop + this.parentNode.clientHeight;
-    this._offsetLeft = this.parentNode.offsetLeft;
+    const topPosition = anchorElement.offsetTop + anchorElement.clientHeight;
+    const leftPosition = anchorElement.offsetLeft;
     this._width = this.parentElement.clientWidth;
 
     this.floatingElement.appendChild(this);
-    this.floatingElement.style.top = `${this._offsetTop}px`;
-    this.floatingElement.style.left = `${this._offsetLeft}px`;
+    this.floatingElement.style.top = `${topPosition}px`;
+    this.floatingElement.style.left = `${leftPosition}px`;
     this.floatingElement.style.width = `${this._width}px`;
 
-    this.containerElement.appendChild(backdropElement);
-    this.containerElement.append(this.floatingElement);
+    containerElement.appendChild(backdropElement);
+    containerElement.append(this.floatingElement);
   }
 }
