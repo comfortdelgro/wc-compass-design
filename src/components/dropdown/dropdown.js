@@ -55,19 +55,26 @@ export class CdgDropdown extends HTMLElement {
     );
     this.buttonTextElement.textContent = this._title;
     this.buttonElement.addEventListener('click', this.handleToggle.bind(this));
+    this.buttonElement.addEventListener('blur', this.handleCloseContent.bind(this));
     this.buttonElement.style.width = this.width;
 
     this.contentElement = this.querySelector('cdg-dropdown-select');
     this.contentElement.removeAttribute('opening');
 
     this.contentElement.addEventListener('onDropdownSelectClose', () => {
-      this.handleToggle();
+      this.handleCloseContent();
     });
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue === newValue) return;
     this[attr] = newValue;
+  }
+
+  handleCloseContent() {
+    this.isOpen = false;
+    this.classList.remove('opening');
+    this.contentElement.removeAttribute('opening');
   }
 
   handleToggle() {
