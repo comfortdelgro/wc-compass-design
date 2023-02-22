@@ -7,7 +7,6 @@ templateClearOption.innerHTML = `
 
 export class CdgDropdownSelect extends HTMLElement {
   floatingElement;
-  selectElement;
 
   static get observedAttributes() {
     return ['opening'];
@@ -15,12 +14,13 @@ export class CdgDropdownSelect extends HTMLElement {
 
   constructor() {
     super();
-    this.selectElement = this.parentNode;
   }
 
   connectedCallback() {
     this.classList.add('cdg-dropdown-select');
-    createFloating.bind(this)(this.selectElement, true);
+    if (!this.floatingElement) {
+      this.floatingElement = createFloating.bind(this)(this.parentNode, true);
+    }
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {

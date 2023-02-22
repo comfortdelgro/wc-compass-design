@@ -59,11 +59,13 @@ export class CdgFloatingContent extends HTMLElement {
           this.style.visibility = 'visible';
           this.style.opacity = '1';
           this.style.height = 'auto';
+
           if (this.parentElement) {
             const anchorElement = this.parentElement.anchorElement;
             const nearestScrollParent = getScrollParent(anchorElement);
 
-            // New position
+            // Set new position
+            // TODO: Set new position by placement value
             const topPosition = nearestScrollParent
               ? anchorElement.offsetTop +
                 anchorElement.clientHeight -
@@ -77,6 +79,7 @@ export class CdgFloatingContent extends HTMLElement {
           this.style.visibility = 'hidden';
           this.style.opacity = '0';
           this.style.height = '0';
+
           if (this.parentElement) {
             document.body.removeChild(this.parentElement);
           }
@@ -91,37 +94,47 @@ export class CdgFloatingContent extends HTMLElement {
 
 /**
  * Create a new floating component
- * @param {HTMLElement} anchorElement root element
- * @param {boolean} isFullWidth is full-width with root
+ * @param {HTMLElement} anchorElement Origin element
+ * @param {boolean} isFullWidth Is full-width with origin
+ * @param {string} position Floating position relative to the origin
+ * @returns {CdgFloatingContent} Floating element
  */
-export function createFloating(anchorElement, isFullWidth = false) {
-  if (!this.floatingElement) {
-    const containerElement = document.createElement('div');
-    containerElement.setAttribute('class', 'cdg-floating-content-overlay');
-    containerElement.anchorElement = anchorElement;
+export function createFloating(
+  anchorElement,
+  isFullWidth = false,
+  position = 'bottom'
+) {
+  // Create overlay for floating
+  const containerElement = document.createElement('div');
+  containerElement.setAttribute('class', 'cdg-floating-content-overlay');
+  containerElement.anchorElement = anchorElement;
 
-    const backdropElement = document.createElement('div');
-    backdropElement.setAttribute('class', 'cdg-floating-content-backdrop');
-    backdropElement.addEventListener('click', () => {
-      this.removeAttribute('opening');
-      this.dispatchEvent(new CustomEvent('onDropdownSelectClose'));
-    });
+  // Create backdrop for floating
+  const backdropElement = document.createElement('div');
+  backdropElement.setAttribute('class', 'cdg-floating-content-backdrop');
+  backdropElement.addEventListener('click', () => {
+    this.removeAttribute('opening');
+    this.dispatchEvent(new CustomEvent('onDropdownSelectClose'));
+  });
 
-    this.floatingElement = document.createElement('cdg-floating-content');
-    this.floatingElement.setAttribute('placement', 'bottom');
+  // Create new floating
+  const floatingElement = document.createElement('cdg-floating-content');
+  floatingElement.setAttribute('placement', position);
 
-    const topPosition = anchorElement.offsetTop + anchorElement.clientHeight;
-    const leftPosition = anchorElement.offsetLeft;
+  // TODO: Set position by placement param
+  const topPosition = anchorElement.offsetTop + anchorElement.clientHeight;
+  const leftPosition = anchorElement.offsetLeft;
 
-    if (isFullWidth) {
-      this.floatingElement.style.width = `${anchorElement.clientWidth}px`;
-    }
-
-    this.floatingElement.appendChild(this);
-    this.floatingElement.style.top = `${topPosition}px`;
-    this.floatingElement.style.left = `${leftPosition}px`;
-
-    containerElement.appendChild(backdropElement);
-    containerElement.append(this.floatingElement);
+  // 100% width of the origin
+  if (isFullWidth) {
+    floatingElement.style.width = `${anchorElement.clientWidth}px`;
   }
+
+  floatingElement.appendChild(this);
+  floatingElement.style.top = `${topPosition}px`;
+  floatingElement.style.left = `${leftPosition}px`;
+
+  containerElement.appendChild(backdropElement);
+  containerElement.append(floatingElement);
+  return floatingElement;
 }
