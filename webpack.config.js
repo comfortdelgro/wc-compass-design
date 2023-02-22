@@ -4,10 +4,9 @@ const PACKAGE = require('./package.json');
 const version = PACKAGE.version;
 
 const devMode = process.env.NODE_ENV !== 'production';
-console.log(process.env.NODE_ENV);
 
 module.exports = {
-  entry: ['./src/main.js'],
+  entry: { main: './src/main.js', docs: './docs/demo.js' },
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -42,6 +41,32 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.html$/,
+        include: [path.resolve(__dirname, 'docs/components')],
+        use: [
+          {
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'components/',
+            },
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.html$/,
+        include: [path.resolve(__dirname, 'docs/pages')],
+        use: [
+          {
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'pages/',
+            },
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {
@@ -56,9 +81,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: devMode
-        ? '[name].min.css'
-        : '[name].' + version + '.min.css',
+      filename: devMode ? '[name].min.css' : '[name].' + version + '.min.css',
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
     }),
   ],
