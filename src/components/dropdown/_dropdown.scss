@@ -18,6 +18,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    &:focus {
+      outline: 2px solid var(--accent);
+    }
     .cdg-dropdown-button-text {
       color: var(--primary-color);
     }

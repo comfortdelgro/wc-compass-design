@@ -48,7 +48,6 @@ export class CdgDropdown extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-dropdown');
-    this.tabIndex = 0;
 
     this.buttonElement = this.querySelector('button.cdg-dropdown-button');
     this.buttonTextElement = this.buttonElement.querySelector(

@@ -3,6 +3,7 @@ template.innerHTML = `
     <div class="cdg-floating-content-overlay"></div>
 `;
 const ARROW_HEIGHT = 8;
+const OUTLINE_HEIGHT = 2;
 
 function getScrollParent(node) {
   if (node == null) {
@@ -38,7 +39,7 @@ export class CdgFloatingContent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['opening', 'placement'];
+    return ['opening', 'placement', 'has-outline'];
   }
 
   constructor() {
@@ -55,6 +56,9 @@ export class CdgFloatingContent extends HTMLElement {
       case 'placement':
         this.position = newValue;
         break;
+      case 'has-outline':
+        this.hasOutline = newValue;
+        break;
       case 'opening':
         if (newValue) {
           this.style.height = 'auto';
@@ -69,7 +73,8 @@ export class CdgFloatingContent extends HTMLElement {
                 this.position,
                 this.clientHeight,
                 this.clientWidth,
-                this.classList.contains('hasArrow')
+                this.classList.contains('hasArrow'),
+                this.hasOutline
               );
 
               this.style.top = `${newPosition.topPosition}px`;
@@ -109,7 +114,8 @@ export function createFloating(
   position = 'bottom',
   rootClass = '',
   isFullWidth = false,
-  hasArrow = false
+  hasArrow = false,
+  hasOutline = false
 ) {
   // Create overlay for floating
   const containerElement = document.createElement('div');
@@ -130,6 +136,7 @@ export function createFloating(
   floatingElement.setAttribute('placement', position);
   floatingElement.classList.add(position);
   hasArrow && floatingElement.classList.add('hasArrow');
+  hasOutline && floatingElement.setAttribute('has-outline', true);
 
   // 100% width of the origin
   if (isFullWidth) {
@@ -147,7 +154,8 @@ function getNewPosition(
   position,
   currentHeight = 0,
   currentWidth = 0,
-  hasArrow = false
+  hasArrow = false,
+  hasOutline = false
 ) {
   let topPosition = 0;
   let leftPosition = 0;
@@ -155,42 +163,67 @@ function getNewPosition(
   const scrollTop = nearestScrollParent?.scrollTop || 0;
   const scrollLeft = nearestScrollParent?.scrollLeft || 0;
   const arrowHeight = hasArrow ? ARROW_HEIGHT : 0;
+  const outlineHeight = hasOutline ? OUTLINE_HEIGHT : 0;
 
   // Set position by placement param
   switch (position) {
     case 'topLeft':
       topPosition =
-        anchorElement.offsetTop - currentHeight - scrollTop - arrowHeight;
+        anchorElement.offsetTop -
+        currentHeight -
+        scrollTop -
+        arrowHeight -
+        outlineHeight;
       leftPosition = anchorElement.offsetLeft - scrollLeft;
       break;
     case 'top':
       topPosition =
-        anchorElement.offsetTop - currentHeight - scrollTop - arrowHeight;
+        anchorElement.offsetTop -
+        currentHeight -
+        scrollTop -
+        arrowHeight -
+        outlineHeight;
       leftPosition =
         anchorElement.offsetLeft + anchorElement.clientWidth / 2 - scrollLeft;
       break;
     case 'topRight':
       topPosition =
-        anchorElement.offsetTop - currentHeight - scrollTop - arrowHeight;
+        anchorElement.offsetTop -
+        currentHeight -
+        scrollTop -
+        arrowHeight -
+        outlineHeight;
       leftPosition =
         anchorElement.offsetLeft + anchorElement.clientWidth - currentWidth;
       break;
     case 'leftTop':
       topPosition = anchorElement.offsetTop - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft - currentWidth - scrollLeft - arrowHeight;
+        anchorElement.offsetLeft -
+        currentWidth -
+        scrollLeft -
+        arrowHeight -
+        outlineHeight;
       break;
     case 'left':
       topPosition =
         anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft - currentWidth - scrollLeft - arrowHeight;
+        anchorElement.offsetLeft -
+        currentWidth -
+        scrollLeft -
+        arrowHeight -
+        outlineHeight;
       break;
     case 'leftBottom':
       topPosition =
         anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft - currentWidth - scrollLeft - arrowHeight;
+        anchorElement.offsetLeft -
+        currentWidth -
+        scrollLeft -
+        arrowHeight -
+        outlineHeight;
       break;
     case 'rightTop':
       topPosition = anchorElement.offsetTop - scrollTop;
@@ -198,7 +231,8 @@ function getNewPosition(
         anchorElement.offsetLeft +
         anchorElement.clientWidth -
         scrollLeft +
-        arrowHeight;
+        arrowHeight +
+        outlineHeight;
       break;
     case 'right':
       topPosition =
@@ -207,7 +241,8 @@ function getNewPosition(
         anchorElement.offsetLeft +
         anchorElement.clientWidth -
         scrollLeft +
-        arrowHeight;
+        arrowHeight +
+        outlineHeight;
       break;
     case 'rightBottom':
       topPosition =
@@ -216,14 +251,16 @@ function getNewPosition(
         anchorElement.offsetLeft +
         anchorElement.clientWidth -
         scrollLeft +
-        arrowHeight;
+        arrowHeight +
+        outlineHeight;
       break;
     case 'bottomLeft':
       topPosition =
         anchorElement.offsetTop +
         anchorElement.clientHeight -
         scrollTop +
-        arrowHeight;
+        arrowHeight +
+        outlineHeight;
       leftPosition = anchorElement.offsetLeft - scrollLeft;
       break;
     case 'bottom':
@@ -231,7 +268,8 @@ function getNewPosition(
         anchorElement.offsetTop +
         anchorElement.clientHeight -
         scrollTop +
-        arrowHeight;
+        arrowHeight +
+        outlineHeight;
       leftPosition =
         anchorElement.offsetLeft + anchorElement.clientWidth / 2 - scrollLeft;
       break;
@@ -240,7 +278,8 @@ function getNewPosition(
         anchorElement.offsetTop +
         anchorElement.clientHeight -
         scrollTop +
-        arrowHeight;
+        arrowHeight +
+        outlineHeight;
       leftPosition =
         anchorElement.offsetLeft + anchorElement.clientWidth - scrollLeft;
       break;

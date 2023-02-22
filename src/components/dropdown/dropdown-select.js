@@ -24,7 +24,8 @@ export class CdgDropdownSelect extends HTMLElement {
         'bottomLeft',
         'cdg-dropdown-select-floating-container',
         true,
-        false
+        false,
+        true
       );
     }
   }
