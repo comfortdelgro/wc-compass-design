@@ -58,14 +58,15 @@ export class CdgFloatingContent extends HTMLElement {
         this.style.opacity = '1';
         this.style.height = 'auto';
         if (this.parentElement) {
-          const nearestScrollParent = getScrollParent(
-            this.parentElement.anchorElement
-          );
+          const anchorElement = this.parentElement.anchorElement;
+          const nearestScrollParent = getScrollParent(anchorElement);
+
           const topPosition = nearestScrollParent
-            ? this.parentElement.anchorElement.offsetTop +
-              this.parentElement.anchorElement.clientHeight -
+            ? anchorElement.offsetTop +
+              anchorElement.clientHeight -
               nearestScrollParent.scrollTop
             : 0;
+
           this.style.top = `${topPosition}px`;
           document.body.appendChild(this.parentElement);
         }
@@ -80,7 +81,7 @@ export class CdgFloatingContent extends HTMLElement {
     }
   }
 }
-export function createFloating(anchorElement) {
+export function createFloating(anchorElement, isFullWidth = false) {
   if (!this.floatingElement) {
     const containerElement = document.createElement('div');
     const backdropElement = document.createElement('div');
@@ -97,12 +98,14 @@ export function createFloating(anchorElement) {
 
     const topPosition = anchorElement.offsetTop + anchorElement.clientHeight;
     const leftPosition = anchorElement.offsetLeft;
-    this._width = this.parentElement.clientWidth;
+    if (isFullWidth) {
+      this._width = this.parentElement.clientWidth;
+      this.floatingElement.style.width = `${this._width}px`;
+    }
 
     this.floatingElement.appendChild(this);
     this.floatingElement.style.top = `${topPosition}px`;
     this.floatingElement.style.left = `${leftPosition}px`;
-    this.floatingElement.style.width = `${this._width}px`;
 
     containerElement.appendChild(backdropElement);
     containerElement.append(this.floatingElement);

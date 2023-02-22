@@ -39,9 +39,6 @@ export class CdgDropdown extends HTMLElement {
     if (this.buttonElement) {
       this.buttonElement.style.width = this._width;
     }
-    if (this.contentElement) {
-      this.contentElement.setAttribute('width', this._width);
-    }
   }
 
   constructor() {
@@ -63,7 +60,6 @@ export class CdgDropdown extends HTMLElement {
 
     this.contentElement = this.querySelector('cdg-dropdown-select');
     this.contentElement.removeAttribute('opening');
-    this.contentElement.setAttribute('width', `${this.offsetWidth}px`);
 
     this.contentElement.addEventListener('onDropdownSelectClose', () => {
       this.handleToggle();
