@@ -4,7 +4,7 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
-    color: var(--grey100);
+    color: var(--primary-color);
     margin-bottom: 4px;
   }
 
@@ -18,7 +18,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    .cdg-dropdown-button-text {
+      color: var(--primary-color);
+    }
     .cdg-icon {
+      color: var(--primary-color);
       transition: transform 0.3s linear;
     }
   }
