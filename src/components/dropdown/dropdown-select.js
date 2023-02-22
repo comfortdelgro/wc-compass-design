@@ -21,8 +21,8 @@ export class CdgDropdownSelect extends HTMLElement {
     if (!this.floatingElement) {
       this.floatingElement = createFloating.bind(this)(
         this.parentNode,
-        true,
-        'bottomLeft'
+        'bottomLeft',
+        true
       );
     }
   }

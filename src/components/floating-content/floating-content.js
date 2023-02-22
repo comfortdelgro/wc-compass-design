@@ -96,14 +96,14 @@ export class CdgFloatingContent extends HTMLElement {
 /**
  * Create a new floating component
  * @param {HTMLElement} anchorElement Origin element
- * @param {boolean} isFullWidth Is full-width with origin
  * @param {string} position Floating position relative to the origin
+ * @param {boolean} isFullWidth Is full-width with origin
  * @returns {CdgFloatingContent} Floating element
  */
 export function createFloating(
   anchorElement,
-  isFullWidth = false,
-  position = 'bottom'
+  position = 'bottom',
+  isFullWidth = false
 ) {
   // Create overlay for floating
   const containerElement = document.createElement('div');
