@@ -56,23 +56,24 @@ export class CdgFloatingContent extends HTMLElement {
         break;
       case 'opening':
         if (newValue) {
-          this.style.visibility = 'visible';
-          this.style.opacity = '1';
           this.style.height = 'auto';
 
           if (this.parentElement) {
             const anchorElement = this.parentElement.anchorElement;
-            const nearestScrollParent = getScrollParent(anchorElement);
+            setTimeout(() => {
+              this.style.visibility = 'visible';
+              this.style.opacity = '1';
+              const newPosition = getNewPosition(
+                anchorElement,
+                this.position,
+                this.clientHeight,
+                this.clientWidth
+              );
 
-            // Set new position
-            // TODO: Set new position by placement value
-            const topPosition = nearestScrollParent
-              ? anchorElement.offsetTop +
-                anchorElement.clientHeight -
-                nearestScrollParent.scrollTop
-              : 0;
+              this.style.top = `${newPosition.topPosition}px`;
+              this.style.left = `${newPosition.leftPosition}px`;
+            }, 0);
 
-            this.style.top = `${topPosition}px`;
             document.body.appendChild(this.parentElement);
           }
         } else {
@@ -120,10 +121,7 @@ export function createFloating(
   // Create new floating
   const floatingElement = document.createElement('cdg-floating-content');
   floatingElement.setAttribute('placement', position);
-
-  // TODO: Set position by placement param
-  const topPosition = anchorElement.offsetTop + anchorElement.clientHeight;
-  const leftPosition = anchorElement.offsetLeft;
+  floatingElement.classList.add(position);
 
   // 100% width of the origin
   if (isFullWidth) {
@@ -131,10 +129,98 @@ export function createFloating(
   }
 
   floatingElement.appendChild(this);
-  floatingElement.style.top = `${topPosition}px`;
-  floatingElement.style.left = `${leftPosition}px`;
+  //   const newPosition = getNewPosition(
+  //     anchorElement,
+  //     position,
+  //     floatingElement.clientHeight
+  //   );
+  //   floatingElement.style.top = `${newPosition.topPosition}px`;
+  //   floatingElement.style.left = `${newPosition.leftPosition}px`;
 
   containerElement.appendChild(backdropElement);
   containerElement.append(floatingElement);
   return floatingElement;
+}
+
+function getNewPosition(
+  anchorElement,
+  position,
+  currentHeight = 0,
+  currentWidth = 0
+) {
+  let topPosition = 0;
+  let leftPosition = 0;
+  const nearestScrollParent = getScrollParent(anchorElement);
+  const scrollTop = nearestScrollParent?.scrollTop || 0;
+  const scrollLeft = nearestScrollParent?.scrollLeft || 0;
+
+  // Set position by placement param
+  switch (position) {
+    case 'topLeft':
+      topPosition = anchorElement.offsetTop - currentHeight - scrollTop;
+      leftPosition = anchorElement.offsetLeft - scrollLeft;
+      break;
+    case 'top':
+      topPosition = anchorElement.offsetTop - currentHeight - scrollTop;
+      leftPosition =
+        anchorElement.offsetLeft + anchorElement.clientWidth / 2 - scrollLeft;
+      break;
+    case 'topRight':
+      topPosition = anchorElement.offsetTop - currentHeight - scrollTop;
+      leftPosition =
+        anchorElement.offsetLeft + anchorElement.clientWidth - currentWidth;
+      break;
+    case 'leftTop':
+      topPosition = anchorElement.offsetTop - scrollTop;
+      leftPosition = anchorElement.offsetLeft - currentWidth - scrollLeft;
+      break;
+    case 'left':
+      topPosition =
+        anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop;
+      leftPosition = anchorElement.offsetLeft - currentWidth - scrollLeft;
+      break;
+    case 'leftBottom':
+      topPosition =
+        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
+      leftPosition = anchorElement.offsetLeft - currentWidth - scrollLeft;
+      break;
+    case 'rightTop':
+      topPosition = anchorElement.offsetTop - scrollTop;
+      leftPosition =
+        anchorElement.offsetLeft + anchorElement.clientWidth - scrollLeft;
+      break;
+    case 'right':
+      topPosition =
+        anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop;
+      leftPosition =
+        anchorElement.offsetLeft + anchorElement.clientWidth - scrollLeft;
+      break;
+    case 'rightBottom':
+      topPosition =
+        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
+      leftPosition =
+        anchorElement.offsetLeft + anchorElement.clientWidth - scrollLeft;
+      break;
+    case 'bottomLeft':
+      topPosition =
+        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
+      leftPosition = anchorElement.offsetLeft - scrollLeft;
+      break;
+    case 'bottom':
+      topPosition =
+        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
+      leftPosition =
+        anchorElement.offsetLeft + anchorElement.clientWidth / 2 - scrollLeft;
+      break;
+    case 'bottomRight':
+      topPosition =
+        anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
+      leftPosition =
+        anchorElement.offsetLeft + anchorElement.clientWidth - scrollLeft;
+      break;
+
+    default:
+      break;
+  }
+  return { topPosition, leftPosition };
 }

@@ -19,7 +19,11 @@ export class CdgDropdownSelect extends HTMLElement {
   connectedCallback() {
     this.classList.add('cdg-dropdown-select');
     if (!this.floatingElement) {
-      this.floatingElement = createFloating.bind(this)(this.parentNode, true);
+      this.floatingElement = createFloating.bind(this)(
+        this.parentNode,
+        true,
+        'bottomLeft'
+      );
     }
   }
 
