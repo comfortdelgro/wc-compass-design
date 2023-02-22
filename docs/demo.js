@@ -1,3 +1,19 @@
+import './pages/home.html';
+import './components/accordion.html';
+import './components/alert.html';
+import './components/alert-badges.html';
+import './components/avatar.html';
+import './components/breadcrumbs.html';
+import './components/icon.html';
+import './components/button.html';
+import './components/inline-loading.html';
+import './components/pagination.html';
+import './components/pill-badges.html';
+import './components/status.html';
+import './components/action-bar.html';
+import './components/tabs.html';
+import './components/text-field.html';
+
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
     fetch(url, { cache: 'no-cache' })
