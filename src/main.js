@@ -16,7 +16,13 @@ import { CdgPillBadge } from './components/pill-badge/pill-badge';
 import { CdgStatus } from './components/status/status';
 import { CdgTab } from './components/tab/tab';
 import { CdgTabs } from './components/tab/tabs';
-import { CdgActionBar } from './layouts';
+import {
+  CdgActionBar,
+  CdgCard,
+  CdgCardHeader,
+  CdgCardBody,
+  CdgCardActions,
+} from './layouts';
 
 import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
 
@@ -34,6 +40,10 @@ customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
 customElements.define('cdg-tab', CdgTab);
 customElements.define('cdg-tabs', CdgTabs);
+customElements.define('cdg-card', CdgCard);
+customElements.define('cdg-card-header', CdgCardHeader);
+customElements.define('cdg-card-body', CdgCardBody);
+customElements.define('cdg-card-actions', CdgCardActions);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
