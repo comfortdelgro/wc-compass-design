@@ -34,3 +34,54 @@ cdg-action-right-group,
 .cdg-action-right-group {
   display: flex;
 }
+
+cdg-card,
+.cdg-card {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  &.raised {
+    box-shadow: var(--shadow-01), var(--shadow-02);
+    background: var(--background);
+  }
+  &:focus {
+    outline-color: var(--accent);
+  }
+}
+
+cdg-card-header,
+.cdg-card-header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  .cdg-button.icon {
+    background: var(--grey10);
+  }
+}
+
+.cdg-card-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+cdg-card-body,
+.cdg-card-body {
+  padding: 1rem;
+  &:not(:first-child) {
+    padding-top: 0;
+  }
+}
+
+cdg-card-actions,
+.cdg-card-actions {
+  display: flex;
+  padding: 1rem;
+  gap: 0.75rem;
+  &:not(:first-child) {
+    padding-top: 0;
+  }
+}

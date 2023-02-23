@@ -6,6 +6,7 @@ import './components/avatar.html';
 import './components/breadcrumbs.html';
 import './components/icon.html';
 import './components/button.html';
+import './components/cards.html';
 import './components/inline-loading.html';
 import './components/pagination.html';
 import './components/pill-badges.html';
@@ -43,6 +44,7 @@ const contentMap = {
   icon: './components/icon.html',
   dropdown: './components/dropdown.html',
   button: './components/button.html',
+  cards: './components/cards.html',
   inlineLoading: './components/inline-loading.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
@@ -50,11 +52,6 @@ const contentMap = {
   actionBar: './components/action-bar.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
-};
-
-const scriptMap = {
-  pagination: './components/pagination.js',
-  tabs: './components/tabs.js',
 };
 
 const content = document.querySelector('#component-content');
@@ -78,11 +75,15 @@ function handlePageChange(url) {
 
   downloadHTMLContent(contentMap[hash]).then((data) => {
     content.innerHTML = data;
+
+    // Make demo script works
+    const scriptElement = content.querySelector('script');
+    if (scriptElement) {
+      eval(scriptElement.innerHTML);
+    }
+
     // Wait for content render
     setTimeout(() => {
-      const script = document.createElement('script');
-      script.setAttribute('src', scriptMap[hash] || '');
-      scriptElement.appendChild(script);
       hljs.highlightAll();
     }, 10);
   });

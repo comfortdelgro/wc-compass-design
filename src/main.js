@@ -20,7 +20,13 @@ import { CdgDropdown } from './components/dropdown/dropdown';
 import { CdgDropdownSelect } from './components/dropdown/dropdown-select';
 import { CdgDropdownOption } from './components/dropdown/dropdown-option';
 import { CdgFloatingContent } from './components/floating-content/floating-content';
-import { CdgActionBar } from './layouts';
+import {
+  CdgActionBar,
+  CdgCard,
+  CdgCardHeader,
+  CdgCardBody,
+  CdgCardActions,
+} from './layouts';
 
 import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
 
@@ -42,6 +48,10 @@ customElements.define('cdg-dropdown', CdgDropdown);
 customElements.define('cdg-dropdown-select', CdgDropdownSelect);
 customElements.define('cdg-floating-content', CdgFloatingContent);
 customElements.define('cdg-dropdown-option', CdgDropdownOption);
+customElements.define('cdg-card', CdgCard);
+customElements.define('cdg-card-header', CdgCardHeader);
+customElements.define('cdg-card-body', CdgCardBody);
+customElements.define('cdg-card-actions', CdgCardActions);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
