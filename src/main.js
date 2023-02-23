@@ -22,6 +22,7 @@ import {
   CdgCardHeader,
   CdgCardBody,
   CdgCardActions,
+  CdgCardCover,
 } from './layouts';
 
 import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
@@ -40,13 +41,14 @@ customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
 customElements.define('cdg-tab', CdgTab);
 customElements.define('cdg-tabs', CdgTabs);
+
+// Layouts
+customElements.define('cdg-action-bar', CdgActionBar);
 customElements.define('cdg-card', CdgCard);
 customElements.define('cdg-card-header', CdgCardHeader);
 customElements.define('cdg-card-body', CdgCardBody);
 customElements.define('cdg-card-actions', CdgCardActions);
-
-// Layouts
-customElements.define('cdg-action-bar', CdgActionBar);
+customElements.define('cdg-card-cover', CdgCardCover);
 
 export {
   CdgAccordion,
@@ -65,6 +67,11 @@ export {
   CdgTab,
   CdgTabs,
   CdgActionBar,
+  CdgCard,
+  CdgCardHeader,
+  CdgCardBody,
+  CdgCardActions,
+  CdgCardCover,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

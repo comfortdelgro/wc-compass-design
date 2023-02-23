@@ -5,8 +5,9 @@ export class CdgCard extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-card');
-    this.classList.add('raised');
     // Make card focusable
-    this.tabIndex = 0;
+    if (!this.hasAttribute('disabled')) {
+      this.tabIndex = 0;
+    }
   }
 }
