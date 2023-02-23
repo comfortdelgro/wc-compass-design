@@ -40,6 +40,7 @@ const contentMap = {
   avatar: './components/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   icon: './components/icon.html',
+  dropdown: './components/dropdown.html',
   button: './components/button.html',
   inlineLoading: './components/inline-loading.html',
   pagination: './components/pagination.html',
