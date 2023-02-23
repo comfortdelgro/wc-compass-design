@@ -26,6 +26,7 @@ import {
   CdgCardHeader,
   CdgCardBody,
   CdgCardActions,
+  CdgCardCover,
 } from './layouts';
 
 import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
@@ -48,13 +49,14 @@ customElements.define('cdg-dropdown', CdgDropdown);
 customElements.define('cdg-dropdown-select', CdgDropdownSelect);
 customElements.define('cdg-floating-content', CdgFloatingContent);
 customElements.define('cdg-dropdown-option', CdgDropdownOption);
+
+// Layouts
+customElements.define('cdg-action-bar', CdgActionBar);
 customElements.define('cdg-card', CdgCard);
 customElements.define('cdg-card-header', CdgCardHeader);
 customElements.define('cdg-card-body', CdgCardBody);
 customElements.define('cdg-card-actions', CdgCardActions);
-
-// Layouts
-customElements.define('cdg-action-bar', CdgActionBar);
+customElements.define('cdg-card-cover', CdgCardCover);
 
 export {
   CdgAccordion,
@@ -74,6 +76,11 @@ export {
   CdgTabs,
   CdgActionBar,
   CdgDropdown,
+  CdgCard,
+  CdgCardHeader,
+  CdgCardBody,
+  CdgCardActions,
+  CdgCardCover,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,
