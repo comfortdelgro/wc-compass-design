@@ -83,6 +83,15 @@
     &.cdg-dropdown-option-selected {
       background-color: var(--grey20);
     }
+    &.cdg-dropdown-option-flex {
+      display: flex;
+      justify-content: space-between;
+      .cdg-dropdown-option-color {
+        height: 24px;
+        width: 24px;
+        border-radius: 4px;
+      }
+    }
   }
 }
 

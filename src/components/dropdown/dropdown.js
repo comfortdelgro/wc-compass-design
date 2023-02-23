@@ -8,7 +8,7 @@ template.innerHTML = `
 
 export class CdgDropdown extends HTMLElement {
   isOpen = false;
-  _placeholder = 'dropdown';
+  _placeholder = '';
   _width = '100%';
   labelElement;
   buttonElement;
@@ -67,16 +67,28 @@ export class CdgDropdown extends HTMLElement {
     });
 
     this.childNodes.forEach((item) => {
+      const isElement = typeof item.hasAttribute === 'function';
+
       // Add event click for each dropdown option
       item.addEventListener('click', (event) => {
         this.handleDropdownOptionClick(event, item);
       });
 
+      if (isElement && this.hasAttribute('multiple')) {
+        item.classList.add('cdg-dropdown-option-flex');
+        const checkbox = document.createElement('input');
+        checkbox.classList.add('cdg-dropdown-option-checkbox');
+        checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', (event) => {
+          event.stopPropagation();
+          event.preventDefault();
+          checkbox.checked = !event.target.checked;
+        });
+        item.appendChild(checkbox);
+      }
+
       // Set selected value to current variable
-      if (
-        typeof item.hasAttribute === 'function' &&
-        item.hasAttribute('selected')
-      ) {
+      if (isElement && item.hasAttribute('selected')) {
         this.displayText.push(item.textContent);
         this.displayValues.push(item.getAttribute('value'));
       }
@@ -101,10 +113,10 @@ export class CdgDropdown extends HTMLElement {
     );
     this.setNewTextButton();
     this.buttonElement.addEventListener('click', this.handleToggle.bind(this));
-    this.buttonElement.addEventListener(
-      'blur',
-      this.handleCloseContent.bind(this)
-    );
+    // this.buttonElement.addEventListener(
+    //   'blur',
+    //   this.handleCloseContent.bind(this)
+    // );
     this.buttonElement.style.width = this.width;
   }
 
@@ -124,6 +136,8 @@ export class CdgDropdown extends HTMLElement {
   }
 
   handleDropdownOptionClick(event, dropdownOption) {
+    const selectedValue = event.target.getAttribute('value');
+    const selectedText = dropdownOption.textContent;
     if (!this.hasAttribute('multiple')) {
       if (!dropdownOption.hasAttribute('selected')) {
         // Remove all previous selected options
@@ -131,19 +145,25 @@ export class CdgDropdown extends HTMLElement {
           .querySelectorAll('cdg-dropdown-option')
           .forEach((b) => b.removeAttribute('selected'));
 
-        this.displayValues = [event.target.getAttribute('value')];
+        this.displayValues = [selectedValue];
         dropdownOption.setAttribute('selected', 'true');
-        this.displayText = [dropdownOption.textContent];
+        this.displayText = [selectedText];
         this.setNewTextButton();
-
-        this.dispatchEvent(
-          new CustomEvent('onChangeValue', {
-            currentValue: this.displayValues[0],
-          })
-        );
+      }
+      this.handleCloseContent();
+    } else {
+      console.log('handleDropdownOptionClick');
+      const checkbox = dropdownOption.querySelector('input[type="checkbox"');
+      if (checkbox) {
+        checkbox.checked = !checkbox.checked;
       }
     }
-    this.handleCloseContent();
+
+    this.dispatchEvent(
+      new CustomEvent('onChangeValue', {
+        currentValue: this.displayValues[0],
+      })
+    );
   }
 
   handleCloseContent() {

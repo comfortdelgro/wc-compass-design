@@ -163,8 +163,12 @@ function getNewPosition(
   let topPosition = 0;
   let leftPosition = 0;
   const nearestScrollParent = getScrollParent(anchorElement);
-  const scrollTop = nearestScrollParent?.scrollTop || 0;
-  const scrollLeft = nearestScrollParent?.scrollLeft || 0;
+  const scrollTop = nearestScrollParent
+    ? nearestScrollParent.scrollTop || 0
+    : 0;
+  const scrollLeft = nearestScrollParent
+    ? nearestScrollParent.scrollLeft || 0
+    : 0;
   const arrowHeight = hasArrow ? ARROW_HEIGHT : 0;
   const outlineHeight = hasOutline ? OUTLINE_HEIGHT : 0;
 
