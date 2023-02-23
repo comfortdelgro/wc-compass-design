@@ -13,6 +13,7 @@ import './components/status.html';
 import './components/action-bar.html';
 import './components/tabs.html';
 import './components/text-field.html';
+import './components/dropdown.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {

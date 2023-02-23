@@ -1,7 +1,6 @@
 export class CdgDropdownOption extends HTMLElement {
-
   static get observedAttributes() {
-    return [];
+    return ['selected'];
   }
 
   constructor() {
@@ -13,9 +12,18 @@ export class CdgDropdownOption extends HTMLElement {
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    // if (attr === 'opening' && oldValue !== newValue) {
-    //   this.floatingElement.setAttribute('opening', newValue);
-    //   this.style.display = newValue ? 'block' : 'none';
-    // }
+    if (oldValue === newValue) return;
+    switch (attr) {
+      case 'selected':
+        if (newValue) {
+          this.classList.add('cdg-dropdown-option-selected');
+        } else {
+          this.classList.remove('cdg-dropdown-option-selected');
+        }
+        break;
+
+      default:
+        break;
+    }
   }
 }

@@ -48,6 +48,9 @@ export class CdgFloatingContent extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-floating-content');
+    this.addEventListener('mousedown', (event) => {
+      event.preventDefault();
+    });
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
