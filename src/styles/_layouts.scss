@@ -42,6 +42,7 @@ cdg-card,
   display: flex;
   flex-direction: column;
   background: var(--background);
+  color: var(--grey100);
 
   &.raised {
     box-shadow: var(--shadow-01), var(--shadow-02);
@@ -78,7 +79,6 @@ cdg-card-header,
   line-height: 1.5rem;
   font-weight: 600;
   flex: 1;
-  color: var(--grey100);
 }
 
 cdg-card-body,
