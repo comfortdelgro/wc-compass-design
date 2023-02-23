@@ -1,69 +1,71 @@
 <h2>Button</h2>
 
+<h3>Usage</h3>
+<pre>
+  <code class="language-html">&lt;button
+    class=&quot;cdg-button {'' | primary | danger | secondary | ghost}&quot;
+    size=&quot;{'' | large | small}&quot;
+    disabled
+    onclick=&quot;alert(&apos;click&apos;)&quot;&gt;
+    // Left icon
+    &lt;cdg-icon name=&quot;callCenter&quot;&gt;&lt;/cdg-icon&gt;
+    Button text
+    // Right icon
+    &lt;cdg-icon name=&quot;arrowDown&quot;&gt;&lt;/cdg-icon&gt;
+    // Or replace everything by
+    &lt;cdg-inline-loading size=&quot;small&quot;&gt;&lt;/cdg-inline-loading&gt;
+&lt;/button&gt;
+</code>
+</pre>
+
 <h3>Large</h3>
 <div class="sample-section">
   <button class="cdg-button" size="large" onclick="alert('Primary click')">
     Primary
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="large"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     Secondary
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="large"
-    type="danger"
     onclick="alert('Danger click')"
   >
     Danger
   </button>
-  <button
-    class="cdg-button"
-    size="large"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="large" onclick="alert('Ghost click')">
     Ghost
   </button>
 </div>
 <div class="sample-section">
   <button class="cdg-button" size="large" disabled>Primary</button>
-  <button class="cdg-button" size="large" type="secondary" disabled>
-    Secondary
-  </button>
-  <button class="cdg-button" size="large" type="danger" disabled>Danger</button>
-  <button class="cdg-button" size="large" type="ghost" disabled>Ghost</button>
+  <button class="cdg-button secondary" size="large" disabled>Secondary</button>
+  <button class="cdg-button danger" size="large" disabled>Danger</button>
+  <button class="cdg-button ghost" size="large" disabled>Ghost</button>
 </div>
 <div class="sample-section">
   <button class="cdg-button" size="large" onclick="alert('Primary click')">
     <cdg-inline-loading size="large"></cdg-inline-loading>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="large"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     <cdg-inline-loading size="large"></cdg-inline-loading>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="large"
-    type="danger"
     onclick="alert('Danger click')"
   >
     <cdg-inline-loading size="large"></cdg-inline-loading>
   </button>
-  <button
-    class="cdg-button"
-    size="large"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="large" onclick="alert('Ghost click')">
     <cdg-inline-loading size="large" g></cdg-inline-loading>
   </button>
 </div>
@@ -71,13 +73,13 @@
   <button class="cdg-button" size="large" disabled>
     <cdg-inline-loading size="large"></cdg-inline-loading>
   </button>
-  <button class="cdg-button" size="large" type="secondary" disabled>
+  <button class="cdg-button secondary" size="large" disabled>
     <cdg-inline-loading size="large"></cdg-inline-loading>
   </button>
-  <button class="cdg-button" size="large" type="danger" disabled>
+  <button class="cdg-button danger" size="large" disabled>
     <cdg-inline-loading size="large"></cdg-inline-loading>
   </button>
-  <button class="cdg-button" size="large" type="ghost" disabled>
+  <button class="cdg-button ghost" size="large" disabled>
     <cdg-inline-loading size="large"></cdg-inline-loading>
   </button>
 </div>
@@ -88,29 +90,22 @@
     Primary
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="large"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="large"
-    type="danger"
     onclick="alert('Danger click')"
   >
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
   </button>
-  <button
-    class="cdg-button"
-    size="large"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="large" onclick="alert('Ghost click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
   </button>
@@ -120,15 +115,15 @@
     <cdg-icon name="callCenter"></cdg-icon>
     Primary
   </button>
-  <button class="cdg-button" size="large" type="secondary" disabled>
+  <button class="cdg-button secondary" size="large" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
   </button>
-  <button class="cdg-button" size="large" type="danger" disabled>
+  <button class="cdg-button danger" size="large" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
   </button>
-  <button class="cdg-button" type="ghost" disabled>
+  <button class="cdg-button ghost" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
   </button>
@@ -140,29 +135,22 @@
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="large"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     Secondary
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="large"
-    type="danger"
     onclick="alert('Danger click')"
   >
     Danger
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button
-    class="cdg-button"
-    size="large"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="large" onclick="alert('Ghost click')">
     Ghost
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
@@ -172,15 +160,15 @@
     Primary
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" size="large" type="secondary" disabled>
+  <button class="cdg-button secondary" size="large" disabled>
     Secondary
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" size="large" type="danger" disabled>
+  <button class="cdg-button danger" size="large" disabled>
     Danger
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" size="large" type="ghost" disabled>
+  <button class="cdg-button ghost" size="large" disabled>
     Ghost
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
@@ -193,9 +181,8 @@
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="large"
-    type="secondary"
     style="width: 280px"
     onclick="alert('Secondary click')"
   >
@@ -204,21 +191,15 @@
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="large"
-    type="danger"
     onclick="alert('Danger click')"
   >
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button
-    class="cdg-button"
-    size="large"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="large" onclick="alert('Ghost click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
     <cdg-icon name="arrowDown"></cdg-icon>
@@ -230,17 +211,17 @@
     Primary
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" size="large" type="secondary" disabled>
+  <button class="cdg-button secondary" size="large" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" size="large" type="danger" disabled>
+  <button class="cdg-button danger" size="large" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" size="large" type="ghost" disabled>
+  <button class="cdg-button ghost" size="large" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
     <cdg-icon name="arrowDown"></cdg-icon>
@@ -252,33 +233,29 @@
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
   <button
-    class="cdg-button icon"
+    class="cdg-button secondary icon"
     size="large"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
   <button
-    class="cdg-button icon"
+    class="cdg-button danger icon"
     size="large"
-    type="danger"
     onclick="alert('Danger click')"
   >
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
   <button
-    class="cdg-button icon"
+    class="cdg-button ghost icon"
     size="large"
-    type="ghost"
     onclick="alert('Ghost click')"
   >
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
   <button
-    class="cdg-button icon"
+    class="cdg-button ghost icon"
     size="large"
-    type="ghost"
     onclick="alert('Ghost click')"
   >
     <cdg-inline-loading size="large"></cdg-inline-loading>
@@ -288,16 +265,16 @@
   <button class="cdg-button icon" size="large" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" size="large" type="secondary" disabled>
+  <button class="cdg-button secondary icon" size="large" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" size="large" type="danger" disabled>
+  <button class="cdg-button danger icon" size="large" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" size="large" type="ghost" disabled>
+  <button class="cdg-button ghost icon" size="large" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" size="large" type="ghost" disabled>
+  <button class="cdg-button ghost icon" size="large" disabled>
     <cdg-inline-loading size="large"></cdg-inline-loading>
   </button>
 </div>
@@ -305,41 +282,31 @@
 <h3>Default</h3>
 <div class="sample-section">
   <button class="cdg-button" onclick="alert('Primary click')">Primary</button>
-  <button
-    class="cdg-button"
-    type="secondary"
-    onclick="alert('Secondary click')"
-  >
+  <button class="cdg-button secondary" onclick="alert('Secondary click')">
     Secondary
   </button>
-  <button class="cdg-button" type="danger" onclick="alert('Danger click')">
+  <button class="cdg-button danger" onclick="alert('Danger click')">
     Danger
   </button>
-  <button class="cdg-button" type="ghost" onclick="alert('Ghost click')">
-    Ghost
-  </button>
+  <button class="cdg-button ghost" onclick="alert('Ghost click')">Ghost</button>
 </div>
 <div class="sample-section">
   <button class="cdg-button" disabled>Primary</button>
-  <button class="cdg-button" type="secondary" disabled>Secondary</button>
-  <button class="cdg-button" type="danger" disabled>Danger</button>
-  <button class="cdg-button" type="ghost" disabled>Ghost</button>
+  <button class="cdg-button secondary" disabled>Secondary</button>
+  <button class="cdg-button danger" disabled>Danger</button>
+  <button class="cdg-button ghost" disabled>Ghost</button>
 </div>
 <div class="sample-section">
   <button class="cdg-button" onclick="alert('Primary click')">
     <cdg-inline-loading></cdg-inline-loading>
   </button>
-  <button
-    class="cdg-button"
-    type="secondary"
-    onclick="alert('Secondary click')"
-  >
+  <button class="cdg-button secondary" onclick="alert('Secondary click')">
     <cdg-inline-loading></cdg-inline-loading>
   </button>
-  <button class="cdg-button" type="danger" onclick="alert('Danger click')">
+  <button class="cdg-button danger" onclick="alert('Danger click')">
     <cdg-inline-loading></cdg-inline-loading>
   </button>
-  <button class="cdg-button" type="ghost" onclick="alert('Ghost click')">
+  <button class="cdg-button ghost" onclick="alert('Ghost click')">
     <cdg-inline-loading></cdg-inline-loading>
   </button>
 </div>
@@ -347,13 +314,13 @@
   <button class="cdg-button" disabled>
     <cdg-inline-loading></cdg-inline-loading>
   </button>
-  <button class="cdg-button" type="secondary" disabled>
+  <button class="cdg-button secondary" disabled>
     <cdg-inline-loading></cdg-inline-loading>
   </button>
-  <button class="cdg-button" type="danger" disabled>
+  <button class="cdg-button danger" disabled>
     <cdg-inline-loading></cdg-inline-loading>
   </button>
-  <button class="cdg-button" type="ghost" disabled>
+  <button class="cdg-button ghost" disabled>
     <cdg-inline-loading></cdg-inline-loading>
   </button>
 </div>
@@ -363,19 +330,15 @@
     <cdg-icon name="callCenter"></cdg-icon>
     Primary
   </button>
-  <button
-    class="cdg-button"
-    type="secondary"
-    onclick="alert('Secondary click')"
-  >
+  <button class="cdg-button secondary" onclick="alert('Secondary click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
   </button>
-  <button class="cdg-button" type="danger" onclick="alert('Danger click')">
+  <button class="cdg-button danger" onclick="alert('Danger click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
   </button>
-  <button class="cdg-button" type="ghost" onclick="alert('Ghost click')">
+  <button class="cdg-button ghost" onclick="alert('Ghost click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
   </button>
@@ -385,15 +348,15 @@
     <cdg-icon name="callCenter"></cdg-icon>
     Primary
   </button>
-  <button class="cdg-button" type="secondary" disabled>
+  <button class="cdg-button secondary" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
   </button>
-  <button class="cdg-button" type="danger" disabled>
+  <button class="cdg-button danger" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
   </button>
-  <button class="cdg-button" type="ghost" disabled>
+  <button class="cdg-button ghost" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
   </button>
@@ -405,19 +368,18 @@
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
-    type="secondary"
+    class="cdg-button secondary"
     style="width: 200px"
     onclick="alert('Secondary click')"
   >
     Secondary
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" type="danger" onclick="alert('Danger click')">
+  <button class="cdg-button danger" onclick="alert('Danger click')">
     Danger
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" type="ghost" onclick="alert('Ghost click')">
+  <button class="cdg-button ghost" onclick="alert('Ghost click')">
     Ghost
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
@@ -427,15 +389,15 @@
     Primary
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" type="secondary" disabled>
+  <button class="cdg-button secondary" disabled>
     Secondary
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" type="danger" disabled>
+  <button class="cdg-button danger" disabled>
     Danger
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" type="ghost" disabled>
+  <button class="cdg-button ghost" disabled>
     Ghost
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
@@ -448,8 +410,7 @@
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
-    type="secondary"
+    class="cdg-button secondary"
     style="width: 240px"
     onclick="alert('Secondary click')"
   >
@@ -457,12 +418,12 @@
     Secondary
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" type="danger" onclick="alert('Danger click')">
+  <button class="cdg-button danger" onclick="alert('Danger click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" type="ghost" onclick="alert('Ghost click')">
+  <button class="cdg-button ghost" onclick="alert('Ghost click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
     <cdg-icon name="arrowDown"></cdg-icon>
@@ -474,17 +435,17 @@
     Primary
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" type="secondary" disabled>
+  <button class="cdg-button secondary" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" type="danger" disabled>
+  <button class="cdg-button danger" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" type="ghost" disabled>
+  <button class="cdg-button ghost" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
     <cdg-icon name="arrowDown"></cdg-icon>
@@ -495,20 +456,16 @@
   <button class="cdg-button icon" onclick="alert('Primary click')">
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button
-    class="cdg-button icon"
-    type="secondary"
-    onclick="alert('Secondary click')"
-  >
+  <button class="cdg-button secondary icon" onclick="alert('Secondary click')">
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" type="danger" onclick="alert('Danger click')">
+  <button class="cdg-button danger icon" onclick="alert('Danger click')">
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" type="ghost" onclick="alert('Ghost click')">
+  <button class="cdg-button ghost icon" onclick="alert('Ghost click')">
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" type="ghost" onclick="alert('Ghost click')">
+  <button class="cdg-button ghost icon" onclick="alert('Ghost click')">
     <cdg-inline-loading></cdg-inline-loading>
   </button>
 </div>
@@ -516,16 +473,16 @@
   <button class="cdg-button icon" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" type="secondary" disabled>
+  <button class="cdg-button secondary icon" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" type="danger" disabled>
+  <button class="cdg-button danger icon" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" type="ghost" disabled>
+  <button class="cdg-button ghost icon" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" type="ghost" disabled>
+  <button class="cdg-button ghost icon" disabled>
     <cdg-inline-loading></cdg-inline-loading>
   </button>
 </div>
@@ -536,64 +493,48 @@
     Primary
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="small"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     Secondary
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="small"
-    type="danger"
     onclick="alert('Danger click')"
   >
     Danger
   </button>
-  <button
-    class="cdg-button"
-    size="small"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="small" onclick="alert('Ghost click')">
     Ghost
   </button>
 </div>
 <div class="sample-section">
   <button class="cdg-button" size="small" disabled>Primary</button>
-  <button class="cdg-button" size="small" type="secondary" disabled>
-    Secondary
-  </button>
-  <button class="cdg-button" size="small" type="danger" disabled>Danger</button>
-  <button class="cdg-button" size="small" type="ghost" disabled>Ghost</button>
+  <button class="cdg-button secondary" size="small" disabled>Secondary</button>
+  <button class="cdg-button danger" size="small" disabled>Danger</button>
+  <button class="cdg-button ghost" size="small" disabled>Ghost</button>
 </div>
 <div class="sample-section">
   <button class="cdg-button" size="small" onclick="alert('Primary click')">
     <cdg-inline-loading size="small"></cdg-inline-loading>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="small"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     <cdg-inline-loading size="small"></cdg-inline-loading>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="small"
-    type="danger"
     onclick="alert('Danger click')"
   >
     <cdg-inline-loading size="small"></cdg-inline-loading>
   </button>
-  <button
-    class="cdg-button"
-    size="small"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="small" onclick="alert('Ghost click')">
     <cdg-inline-loading size="small" g></cdg-inline-loading>
   </button>
 </div>
@@ -601,13 +542,13 @@
   <button class="cdg-button" size="small" disabled>
     <cdg-inline-loading size="small"></cdg-inline-loading>
   </button>
-  <button class="cdg-button" size="small" type="secondary" disabled>
+  <button class="cdg-button secondary" size="small" disabled>
     <cdg-inline-loading size="small"></cdg-inline-loading>
   </button>
-  <button class="cdg-button" size="small" type="danger" disabled>
+  <button class="cdg-button danger" size="small" disabled>
     <cdg-inline-loading size="small"></cdg-inline-loading>
   </button>
-  <button class="cdg-button" size="small" type="ghost" disabled>
+  <button class="cdg-button ghost" size="small" disabled>
     <cdg-inline-loading size="small"></cdg-inline-loading>
   </button>
 </div>
@@ -618,29 +559,22 @@
     Primary
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="small"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="small"
-    type="danger"
     onclick="alert('Danger click')"
   >
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
   </button>
-  <button
-    class="cdg-button"
-    size="small"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="small" onclick="alert('Ghost click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
   </button>
@@ -650,15 +584,15 @@
     <cdg-icon name="callCenter"></cdg-icon>
     Primary
   </button>
-  <button class="cdg-button" size="small" type="secondary" disabled>
+  <button class="cdg-button secondary" size="small" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
   </button>
-  <button class="cdg-button" size="small" type="danger" disabled>
+  <button class="cdg-button danger" size="small" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
   </button>
-  <button class="cdg-button" type="ghost" disabled>
+  <button class="cdg-button ghost" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
   </button>
@@ -670,29 +604,22 @@
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="small"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     Secondary
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="small"
-    type="danger"
     onclick="alert('Danger click')"
   >
     Danger
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button
-    class="cdg-button"
-    size="small"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="small" onclick="alert('Ghost click')">
     Ghost
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
@@ -702,15 +629,15 @@
     Primary
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" size="small" type="secondary" disabled>
+  <button class="cdg-button secondary" size="small" disabled>
     Secondary
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" size="small" type="danger" disabled>
+  <button class="cdg-button danger" size="small" disabled>
     Danger
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
-  <button class="cdg-button" size="small" type="ghost" disabled>
+  <button class="cdg-button ghost" size="small" disabled>
     Ghost
     <cdg-icon name="callCenter"></cdg-icon>
   </button>
@@ -723,9 +650,8 @@
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button secondary"
     size="small"
-    type="secondary"
     style="width: 200px"
     onclick="alert('Secondary click')"
   >
@@ -734,21 +660,15 @@
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
   <button
-    class="cdg-button"
+    class="cdg-button danger"
     size="small"
-    type="danger"
     onclick="alert('Danger click')"
   >
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button
-    class="cdg-button"
-    size="small"
-    type="ghost"
-    onclick="alert('Ghost click')"
-  >
+  <button class="cdg-button ghost" size="small" onclick="alert('Ghost click')">
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
     <cdg-icon name="arrowDown"></cdg-icon>
@@ -760,17 +680,17 @@
     Primary
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" size="small" type="secondary" disabled>
+  <button class="cdg-button secondary" size="small" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Secondary
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" size="small" type="danger" disabled>
+  <button class="cdg-button danger" size="small" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Danger
     <cdg-icon name="arrowDown"></cdg-icon>
   </button>
-  <button class="cdg-button" size="small" type="ghost" disabled>
+  <button class="cdg-button ghost" size="small" disabled>
     <cdg-icon name="callCenter"></cdg-icon>
     Ghost
     <cdg-icon name="arrowDown"></cdg-icon>
@@ -782,33 +702,29 @@
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
   <button
-    class="cdg-button icon"
+    class="cdg-button secondary icon"
     size="small"
-    type="secondary"
     onclick="alert('Secondary click')"
   >
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
   <button
-    class="cdg-button icon"
+    class="cdg-button danger icon"
     size="small"
-    type="danger"
     onclick="alert('Danger click')"
   >
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
   <button
-    class="cdg-button icon"
+    class="cdg-button ghost icon"
     size="small"
-    type="ghost"
     onclick="alert('Ghost click')"
   >
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
   <button
-    class="cdg-button icon"
+    class="cdg-button ghost icon"
     size="small"
-    type="ghost"
     onclick="alert('Ghost click')"
   >
     <cdg-inline-loading size="small"></cdg-inline-loading>
@@ -818,16 +734,16 @@
   <button class="cdg-button icon" size="small" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" size="small" type="secondary" disabled>
+  <button class="cdg-button secondary icon" size="small" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" size="small" type="danger" disabled>
+  <button class="cdg-button danger icon" size="small" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" size="small" type="ghost" disabled>
+  <button class="cdg-button ghost icon" size="small" disabled>
     <cdg-icon name="cloudUpload"></cdg-icon>
   </button>
-  <button class="cdg-button icon" size="small" type="ghost" disabled>
+  <button class="cdg-button ghost icon" size="small" disabled>
     <cdg-inline-loading size="small"></cdg-inline-loading>
   </button>
 </div>

@@ -4,14 +4,14 @@
 <div class="sample-section" style="gap: 16px">
   <cdg-card class="raised" style="width: 320px">
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
   </cdg-card>
   <cdg-card class="raised" style="flex: 1">
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -21,7 +21,7 @@
 <pre>
     <code class="language-html">&lt;cdg-card class=&quot;raised&quot;&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -46,7 +46,59 @@
 <div class="sample-section" style="gap: 16px">
   <cdg-card class="raised" style="width: 320px">
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
+        <cdg-icon name="dots"></cdg-icon>
+      </button>
+    </cdg-card-header>
+    <cdg-card-body>
+      Lorem ipsum dolor sit amet, consectetur adipiscingr
+    </cdg-card-body>
+    <cdg-card-actions>
+      <button class="cdg-button">OK</button>
+      <button class="cdg-button secondary">Cancel</button>
+    </cdg-card-actions>
+  </cdg-card>
+  <cdg-card class="raised" style="flex: 1">
+    <cdg-card-header title="Card title">
+      <button class="cdg-button ghost icon" size="small">
+        <cdg-icon name="dots"></cdg-icon>
+      </button>
+    </cdg-card-header>
+    <cdg-card-body>
+      Lorem ipsum dolor sit amet, consectetur adipiscingr
+    </cdg-card-body>
+    <cdg-card-actions>
+      <button class="cdg-button">OK</button>
+      <button class="cdg-button secondary">Cancel</button>
+    </cdg-card-actions>
+  </cdg-card>
+</div>
+
+<pre>
+    <code class="language-html">&lt;cdg-card class=&quot;raised&quot;&gt;
+    &lt;cdg-card-header title=&quot;Card title&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
+            &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
+        &lt;/button&gt;
+    &lt;/cdg-card-header&gt;
+    &lt;cdg-card-body&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscingr
+    &lt;/cdg-card-body&gt;
+    &lt;cdg-card-actions&gt;
+        &lt;button class=&quot;cdg-button&quot;&gt;OK&lt;/button&gt;
+        &lt;button class=&quot;cdg-button secondary&quot;&gt;Cancel&lt;/button&gt;
+    &lt;/cdg-card-actions&gt;
+&lt;/cdg-card&gt;</code>
+</pre>
+
+<div class="sample-section" style="gap: 16px">
+  <cdg-card class="raised" style="width: 320px">
+    <cdg-card-cover
+      src="https://picsum.photos/300/200"
+      style="height: 200px"
+    ></cdg-card-cover>
+    <cdg-card-header title="Card title">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -59,8 +111,12 @@
     </cdg-card-actions>
   </cdg-card>
   <cdg-card class="raised" style="flex: 1">
+    <cdg-card-cover
+      src="https://picsum.photos/600/400"
+      style="height: 200px"
+    ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -76,8 +132,12 @@
 
 <pre>
     <code class="language-html">&lt;cdg-card class=&quot;raised&quot;&gt;
+    &lt;cdg-card-cover
+        src=&quot;https://picsum.photos/600/400&quot;
+        style=&quot;height: 200px&quot;
+    &gt;&lt;/cdg-card-cover&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -98,67 +158,7 @@
       style="height: 200px"
     ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
-        <cdg-icon name="dots"></cdg-icon>
-      </button>
-    </cdg-card-header>
-    <cdg-card-body>
-      Lorem ipsum dolor sit amet, consectetur adipiscingr
-    </cdg-card-body>
-    <cdg-card-actions>
-      <button class="cdg-button">OK</button>
-      <button class="cdg-button" type="secondary">Cancel</button>
-    </cdg-card-actions>
-  </cdg-card>
-  <cdg-card class="raised" style="flex: 1">
-    <cdg-card-cover
-      src="https://picsum.photos/600/400"
-      style="height: 200px"
-    ></cdg-card-cover>
-    <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
-        <cdg-icon name="dots"></cdg-icon>
-      </button>
-    </cdg-card-header>
-    <cdg-card-body>
-      Lorem ipsum dolor sit amet, consectetur adipiscingr
-    </cdg-card-body>
-    <cdg-card-actions>
-      <button class="cdg-button">OK</button>
-      <button class="cdg-button" type="secondary">Cancel</button>
-    </cdg-card-actions>
-  </cdg-card>
-</div>
-
-<pre>
-    <code class="language-html">&lt;cdg-card class=&quot;raised&quot;&gt;
-    &lt;cdg-card-cover
-        src=&quot;https://picsum.photos/600/400&quot;
-        style=&quot;height: 200px&quot;
-    &gt;&lt;/cdg-card-cover&gt;
-    &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
-            &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
-        &lt;/button&gt;
-    &lt;/cdg-card-header&gt;
-    &lt;cdg-card-body&gt;
-        Lorem ipsum dolor sit amet, consectetur adipiscingr
-    &lt;/cdg-card-body&gt;
-    &lt;cdg-card-actions&gt;
-        &lt;button class=&quot;cdg-button&quot;&gt;OK&lt;/button&gt;
-        &lt;button class=&quot;cdg-button&quot; type=&quot;secondary&quot;&gt;Cancel&lt;/button&gt;
-    &lt;/cdg-card-actions&gt;
-&lt;/cdg-card&gt;</code>
-</pre>
-
-<div class="sample-section" style="gap: 16px">
-  <cdg-card class="raised" style="width: 320px">
-    <cdg-card-cover
-      src="https://picsum.photos/300/200"
-      style="height: 200px"
-    ></cdg-card-cover>
-    <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -169,7 +169,7 @@
       style="height: 200px"
     ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -183,7 +183,7 @@
         style=&quot;height: 200px&quot;
     &gt;&lt;/cdg-card-cover&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -197,7 +197,7 @@
       style="height: 200px"
     ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -211,7 +211,7 @@
       style="height: 200px"
     ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -228,7 +228,7 @@
         style=&quot;height: 200px&quot;
     &gt;&lt;/cdg-card-cover&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -239,18 +239,18 @@
 </pre>
 
 <h3>Default</h3>
-<section style="background: #eee; padding: 20px">
+<section style="background: var(--grey10); padding: 20px">
   <div class="sample-section" style="gap: 16px">
     <cdg-card style="width: 320px">
       <cdg-card-header title="Card title">
-        <button class="cdg-button icon" type="ghost" size="small">
+        <button class="cdg-button ghost icon" size="small">
           <cdg-icon name="dots"></cdg-icon>
         </button>
       </cdg-card-header>
     </cdg-card>
     <cdg-card style="flex: 1">
       <cdg-card-header title="Card title">
-        <button class="cdg-button icon" type="ghost" size="small">
+        <button class="cdg-button ghost icon" size="small">
           <cdg-icon name="dots"></cdg-icon>
         </button>
       </cdg-card-header>
@@ -260,7 +260,7 @@
   <pre>
     <code class="language-html">&lt;cdg-card&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -270,7 +270,7 @@
   <div class="sample-section" style="gap: 16px">
     <cdg-card style="width: 320px">
       <cdg-card-header title="Card title">
-        <button class="cdg-button icon" type="ghost" size="small">
+        <button class="cdg-button ghost icon" size="small">
           <cdg-icon name="dots"></cdg-icon>
         </button>
       </cdg-card-header>
@@ -284,7 +284,7 @@
     </cdg-card>
     <cdg-card style="flex: 1">
       <cdg-card-header title="Card title">
-        <button class="cdg-button icon" type="ghost" size="small">
+        <button class="cdg-button ghost icon" size="small">
           <cdg-icon name="dots"></cdg-icon>
         </button>
       </cdg-card-header>
@@ -301,7 +301,7 @@
   <pre>
     <code class="language-html">&lt;cdg-card&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -320,7 +320,7 @@
 <div class="sample-section" style="gap: 16px">
   <cdg-card class="raised" style="width: 320px" disabled>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small" disabled>
+      <button class="cdg-button ghost icon" size="small" disabled>
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -330,7 +330,7 @@
 <pre>
     <code class="language-html">&lt;cdg-card class=&quot;raised&quot; style=&quot;width: 320px&quot; disabled&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot; disabled&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot; disabled&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -340,7 +340,7 @@
 <div class="sample-section" style="gap: 16px">
   <cdg-card class="raised" style="width: 320px" disabled>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small" disabled>
+      <button class="cdg-button ghost icon" size="small" disabled>
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -357,7 +357,7 @@
 <pre>
     <code class="language-html">&lt;cdg-card class=&quot;raised&quot; disabled&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot; disabled&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot; disabled&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -378,7 +378,7 @@
       style="height: 200px"
     ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small" disabled>
+      <button class="cdg-button ghost icon" size="small" disabled>
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -396,7 +396,7 @@
       style="height: 200px"
     ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small" disabled>
+      <button class="cdg-button ghost icon" size="small" disabled>
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -417,7 +417,7 @@
         style=&quot;height: 200px&quot;
     &gt;&lt;/cdg-card-cover&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot; disabled&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot; disabled&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -435,14 +435,14 @@
 <div class="sample-section" style="gap: 16px">
   <a href="#cards" class="cdg-card raised" style="width: 320px">
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
   </a>
   <a href="#cards" class="cdg-card raised" style="flex: 1">
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -452,7 +452,7 @@
 <pre>
     <code class="language-html">&lt;a href=&quot;#cards&quot; class=&quot;cdg-card raised&quot;&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -462,7 +462,7 @@
 <div class="sample-section" style="gap: 16px">
   <a href="#cards" class="cdg-card raised" style="width: 320px">
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -472,7 +472,7 @@
   </a>
   <a href="#cards" class="cdg-card raised" style="flex: 1">
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -485,7 +485,7 @@
 <pre>
     <code class="language-html">&lt;a href=&quot;#cards&quot; class=&quot;cdg-card raised&quot;&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
@@ -502,7 +502,7 @@
       style="height: 200px"
     ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -520,7 +520,7 @@
       style="height: 200px"
     ></cdg-card-cover>
     <cdg-card-header title="Card title">
-      <button class="cdg-button icon" type="ghost" size="small">
+      <button class="cdg-button ghost icon" size="small">
         <cdg-icon name="dots"></cdg-icon>
       </button>
     </cdg-card-header>
@@ -541,7 +541,7 @@
         style=&quot;height: 200px&quot;
     &gt;&lt;/cdg-card-cover&gt;
     &lt;cdg-card-header title=&quot;Card title&quot;&gt;
-        &lt;button class=&quot;cdg-button icon&quot; type=&quot;ghost&quot; size=&quot;small&quot;&gt;
+        &lt;button class=&quot;cdg-button ghost icon&quot; size=&quot;small&quot;&gt;
             &lt;cdg-icon name=&quot;dots&quot;&gt;&lt;/cdg-icon&gt;
         &lt;/button&gt;
     &lt;/cdg-card-header&gt;
