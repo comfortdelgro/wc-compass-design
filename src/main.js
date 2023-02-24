@@ -22,6 +22,12 @@ import {
   CdgCardHeader,
   CdgCardBody,
   CdgCardActions,
+  CdgTable,
+  CdgTableHead,
+  CdgTableBody,
+  CdgTableCell,
+  CdgTableHeaderCell,
+  CdgTableRow,
 } from './layouts';
 
 import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
@@ -46,7 +52,12 @@ customElements.define('cdg-card-body', CdgCardBody);
 customElements.define('cdg-card-actions', CdgCardActions);
 
 // Layouts
-customElements.define('cdg-action-bar', CdgActionBar);
+customElements.define('cdg-table', CdgTable);
+customElements.define('cdg-table-head', CdgTableHead);
+customElements.define('cdg-table-body', CdgTableBody);
+customElements.define('cdg-table-cell', CdgTableCell);
+customElements.define('cdg-table-header-cell', CdgTableHeaderCell);
+customElements.define('cdg-table-row', CdgTableRow);
 
 export {
   CdgAccordion,
@@ -65,6 +76,12 @@ export {
   CdgTab,
   CdgTabs,
   CdgActionBar,
+  CdgTable,
+  CdgTableHead,
+  CdgTableBody,
+  CdgTableCell,
+  CdgTableHeaderCell,
+  CdgTableRow,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

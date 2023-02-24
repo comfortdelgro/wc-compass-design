@@ -14,6 +14,7 @@ import './components/status.html';
 import './components/action-bar.html';
 import './components/tabs.html';
 import './components/text-field.html';
+import './components/table.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -50,6 +51,7 @@ const contentMap = {
   actionBar: './components/action-bar.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
+  table: './components/table.html',
 };
 
 const content = document.querySelector('#component-content');
