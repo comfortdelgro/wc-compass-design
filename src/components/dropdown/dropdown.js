@@ -82,6 +82,7 @@ export class CdgDropdown extends HTMLElement {
       if (isElement) {
         const checkbox = document.createElement('input');
         if (this._isMultiple) {
+          item.setAttribute('multiple', 'true');
           item.classList.add('cdg-dropdown-option-flex');
           checkbox.classList.add('cdg-dropdown-option-checkbox');
           checkbox.type = 'checkbox';

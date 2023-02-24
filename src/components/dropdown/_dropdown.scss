@@ -118,12 +118,21 @@
     font-size: 14px;
     line-height: 21px;
     color: var(--grey100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     &:hover {
       background-color: var(--grey20);
     }
     &.cdg-dropdown-option-selected {
       background-color: var(--grey20);
+
+      .cdg-icon-color-dropdown {
+        color: var(--accent);
+        width: 14px;
+        height: 14px;
+      }
     }
     &.cdg-dropdown-option-flex {
       display: flex;
@@ -132,6 +141,15 @@
         height: 24px;
         width: 24px;
         border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--background);
+
+        .cdg-icon {
+          width: 14px;
+          height: 14px;
+        }
       }
     }
   }
