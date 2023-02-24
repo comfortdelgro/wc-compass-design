@@ -1,3 +1,5 @@
+import { isElement } from '../../main';
+
 const template = document.createElement('template');
 template.innerHTML = `
     <button class="cdg-dropdown-button">
@@ -22,7 +24,7 @@ export class CdgDropdown extends HTMLElement {
   _placeholder = '';
   _width = '100%';
   labelElement;
-  buttonElement;
+  displayInputElement;
   buttonTextElement;
   contentElement;
   _isMultiple = false;
@@ -38,7 +40,8 @@ export class CdgDropdown extends HTMLElement {
 
   set placeholder(value) {
     this._placeholder = value;
-    if (this.buttonElement) {
+    if (this.displayInputElement) {
+      this.buttonTextElement.classList.add('placeholder');
       this.buttonTextElement.textContent = this._placeholder;
     }
   }
@@ -49,8 +52,8 @@ export class CdgDropdown extends HTMLElement {
 
   set width(value) {
     this._width = value;
-    if (this.buttonElement) {
-      this.buttonElement.style.width = this._width;
+    if (this.displayInputElement) {
+      this.displayInputElement.style.width = this._width;
     }
   }
 
@@ -58,6 +61,7 @@ export class CdgDropdown extends HTMLElement {
     super();
     this.prepend(template.content.cloneNode(true));
     this.contentElement = document.createElement('cdg-dropdown-select');
+    this.contentElement.setAttribute('multiple', 'true');
     this._isMultiple = this.hasAttribute('multiple');
 
     this.contentElement.addEventListener(
@@ -71,15 +75,13 @@ export class CdgDropdown extends HTMLElement {
     );
 
     this.childNodes.forEach((item) => {
-      const isElement = typeof item.hasAttribute === 'function';
-
       // Add event click for each dropdown option
       item.addEventListener('click', (event) => {
         this.handleDropdownOptionClick(event, item);
       });
 
       // Set selected value to current variable
-      if (isElement) {
+      if (isElement(item)) {
         const checkbox = document.createElement('input');
         if (this._isMultiple) {
           item.setAttribute('multiple', 'true');
@@ -116,17 +118,20 @@ export class CdgDropdown extends HTMLElement {
     this.classList.add('cdg-dropdown');
     this._isMultiple && this.classList.add('cdg-dropdown-multiple');
 
-    this.buttonElement = this.querySelector('button.cdg-dropdown-button');
-    this.buttonTextElement = this.buttonElement.querySelector(
+    this.displayInputElement = this.querySelector('button.cdg-dropdown-button');
+    this.buttonTextElement = this.displayInputElement.querySelector(
       'div.cdg-dropdown-button-text'
     );
-    this.setNewTextButton(false);
-    this.buttonElement.addEventListener('click', this.handleToggle.bind(this));
-    this.buttonElement.addEventListener(
+    this.displayInputElement.addEventListener(
+      'click',
+      this.handleToggle.bind(this)
+    );
+    this.displayInputElement.addEventListener(
       'blur',
       this.handleCloseContent.bind(this)
     );
-    this.buttonElement.style.width = this.width;
+    this.displayInputElement.style.width = this.width;
+    this.setNewTextButton(false);
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -156,6 +161,7 @@ export class CdgDropdown extends HTMLElement {
 
   setNewTextButton(dispatchEvent = true) {
     if (this.selectedItems.length > 0) {
+      this.buttonTextElement.classList.remove('placeholder');
       if (this._isMultiple) {
         this.buttonTextElement.innerHTML = '';
         this.selectedItems.forEach((item) => {
@@ -176,6 +182,7 @@ export class CdgDropdown extends HTMLElement {
       }
     } else {
       if (this._placeholder) {
+        this.buttonTextElement.classList.add('placeholder');
         this.buttonTextElement.textContent = this._placeholder;
       }
     }
@@ -255,10 +262,32 @@ export class CdgDropdown extends HTMLElement {
     if (this.isOpen) {
       this.classList.add('opening');
       this.contentElement.setAttribute('opening', 'true');
+      this.addEventListener('keydown', this.handleKeydown.bind(this));
     } else {
+      this.removeEventListener('keydown', this.handleKeydown.bind(this));
       this.classList.remove('opening');
       this.contentElement.removeAttribute('opening');
     }
     this.dispatchEvent(new CustomEvent('onToggle', { isOpen: this.isOpen }));
+  }
+
+  handleKeydown(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (
+      !this.hasAttribute('multiple') &&
+      (event.key === 'ArrowUp' || event.key === 'ArrowDown')
+    ) {
+      const currentSelected = this.contentElement.querySelector(
+        'cdg-dropdown-option[selected="true"]'
+      );
+      // if (
+      //   event.key === 'ArrowUp' &&
+      //   currentSelected &&
+      //   isElement(currentSelected.previousSibling)
+      // ) {
+      //   console.log('test');
+      // }
+    }
   }
 }

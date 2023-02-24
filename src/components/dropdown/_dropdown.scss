@@ -1,7 +1,7 @@
 .cdg-dropdown {
   &.cdg-dropdown-multiple {
     .cdg-dropdown-button {
-      height: 44px;
+      min-height: 44px;
     }
   }
 
@@ -36,6 +36,9 @@
       font-size: 14px;
       line-height: 21px;
       color: var(--grey100);
+      &.placeholder {
+        color: var(--placeholder);
+      }
 
       .cdg-dropdown-button-selected-item {
         display: flex;

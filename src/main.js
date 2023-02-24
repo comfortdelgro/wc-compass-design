@@ -29,7 +29,11 @@ import {
   CdgCardCover,
 } from './layouts';
 
-import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
+import {
+  downloadSVGContent,
+  toLowerCaseAndDash,
+  isElement,
+} from './shared/utilities';
 
 customElements.define('cdg-accordion', CdgAccordion);
 customElements.define('cdg-accordion-header', CdgAccordionHeader);
@@ -84,4 +88,5 @@ export {
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,
+  isElement,
 };
