@@ -1,10 +1,21 @@
 const template = document.createElement('template');
 template.innerHTML = `
     <button class="cdg-dropdown-button">
-        <span class="cdg-dropdown-button-text"></span>
-        <cdg-icon name="arrow-down" size="16"></cdg-icon>
+        <div class="cdg-dropdown-button-text"></div>
+        <cdg-icon name="arrow-down" class="cdg-dropdown-button-icon" size="16"></cdg-icon>
     </button>
 `;
+
+function createSelectedItem(value, text) {
+  const templateSelectedItem = document.createElement('template');
+  templateSelectedItem.innerHTML = `
+      <button class="cdg-dropdown-button-selected-item">
+          <span class="cdg-dropdown-button-selected-item-text">${text}</span>
+          <cdg-icon name="close" size="10" class="cdg-dropdown-button-selected-item-icon" data-value="${value}"></cdg-icon>
+      </button>
+  `;
+  return templateSelectedItem;
+}
 
 export class CdgDropdown extends HTMLElement {
   isOpen = false;
@@ -14,8 +25,8 @@ export class CdgDropdown extends HTMLElement {
   buttonElement;
   buttonTextElement;
   contentElement;
-  displayText = [];
-  displayValues = [];
+  _isMultiple = false;
+  selectedItems = [];
 
   static get observedAttributes() {
     return ['placeholder', 'width', 'multiple'];
@@ -47,24 +58,17 @@ export class CdgDropdown extends HTMLElement {
     super();
     this.prepend(template.content.cloneNode(true));
     this.contentElement = document.createElement('cdg-dropdown-select');
+    this._isMultiple = this.hasAttribute('multiple');
 
     this.contentElement.addEventListener(
       'onDropdownSelectClose',
       this.handleCloseContent.bind(this)
     );
 
-    this.contentElement.addEventListener('onDropdownClear', () => {
-      const dropdownOptions = this.contentElement.querySelectorAll(
-        'cdg-dropdown-option'
-      );
-      dropdownOptions.forEach((item) => {
-        item.removeAttribute('selected');
-      });
-      if (this._placeholder) {
-        this.buttonTextElement.textContent = this._placeholder;
-      }
-      this.handleCloseContent();
-    });
+    this.contentElement.addEventListener(
+      'onDropdownClear',
+      this.handleClearButtonClick.bind(this)
+    );
 
     this.childNodes.forEach((item) => {
       const isElement = typeof item.hasAttribute === 'function';
@@ -74,23 +78,26 @@ export class CdgDropdown extends HTMLElement {
         this.handleDropdownOptionClick(event, item);
       });
 
-      if (isElement && this.hasAttribute('multiple')) {
-        item.classList.add('cdg-dropdown-option-flex');
-        const checkbox = document.createElement('input');
-        checkbox.classList.add('cdg-dropdown-option-checkbox');
-        checkbox.type = 'checkbox';
-        checkbox.addEventListener('change', (event) => {
-          event.stopPropagation();
-          event.preventDefault();
-          checkbox.checked = !event.target.checked;
-        });
-        item.appendChild(checkbox);
-      }
-
       // Set selected value to current variable
-      if (isElement && item.hasAttribute('selected')) {
-        this.displayText.push(item.textContent);
-        this.displayValues.push(item.getAttribute('value'));
+      if (isElement) {
+        const checkbox = document.createElement('input');
+        if (this._isMultiple) {
+          item.classList.add('cdg-dropdown-option-flex');
+          checkbox.classList.add('cdg-dropdown-option-checkbox');
+          checkbox.type = 'checkbox';
+          checkbox.addEventListener('change', (event) => {
+            event.preventDefault();
+          });
+          item.appendChild(checkbox);
+        }
+
+        if (item.hasAttribute('selected')) {
+          checkbox.checked = true;
+          this.selectedItems.push({
+            value: item.getAttribute('value'),
+            text: item.textContent,
+          });
+        }
       }
       this.contentElement.appendChild(item);
     });
@@ -106,17 +113,18 @@ export class CdgDropdown extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-dropdown');
+    this._isMultiple && this.classList.add('cdg-dropdown-multiple');
 
     this.buttonElement = this.querySelector('button.cdg-dropdown-button');
     this.buttonTextElement = this.buttonElement.querySelector(
-      'span.cdg-dropdown-button-text'
+      'div.cdg-dropdown-button-text'
     );
-    this.setNewTextButton();
+    this.setNewTextButton(false);
     this.buttonElement.addEventListener('click', this.handleToggle.bind(this));
-    // this.buttonElement.addEventListener(
-    //   'blur',
-    //   this.handleCloseContent.bind(this)
-    // );
+    this.buttonElement.addEventListener(
+      'blur',
+      this.handleCloseContent.bind(this)
+    );
     this.buttonElement.style.width = this.width;
   }
 
@@ -125,45 +133,114 @@ export class CdgDropdown extends HTMLElement {
     this[attr] = newValue;
   }
 
-  setNewTextButton() {
-    if (this.displayText.length > 0) {
-      this.buttonTextElement.textContent = this.displayText.join(',');
+  handleClearButtonClick() {
+    const dropdownOptions = this.contentElement.querySelectorAll(
+      'cdg-dropdown-option'
+    );
+    dropdownOptions.forEach((item) => {
+      item.removeAttribute('selected');
+      if (this._isMultiple) {
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        checkbox.checked = false;
+      }
+    });
+
+    this.selectedItems = [];
+    this.setNewTextButton();
+
+    if (!this._isMultiple) {
+      this.handleCloseContent();
+    }
+  }
+
+  setNewTextButton(dispatchEvent = true) {
+    if (this.selectedItems.length > 0) {
+      if (this._isMultiple) {
+        this.buttonTextElement.innerHTML = '';
+        this.selectedItems.forEach((item) => {
+          this.buttonTextElement.append(
+            createSelectedItem(item.value, item.text).content.cloneNode(true)
+          );
+          const icon = this.buttonTextElement.querySelector(
+            `cdg-icon.cdg-dropdown-button-selected-item-icon[data-value="${item.value}"]`
+          );
+          if (icon) {
+            icon.addEventListener('click', (event) => {
+              this.handleIconRemoveItemClick(event, item);
+            });
+          }
+        });
+      } else {
+        this.buttonTextElement.textContent = this.selectedItems[0].text;
+      }
     } else {
       if (this._placeholder) {
         this.buttonTextElement.textContent = this._placeholder;
       }
     }
+
+    if (dispatchEvent) {
+      this.dispatchEvent(
+        new CustomEvent('onchangevalue', {
+          currentValue: this.selectedItems.map((item) => item.value),
+        })
+      );
+    }
+  }
+
+  handleIconRemoveItemClick(event, item) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.selectedItems = this.selectedItems.filter(
+      (selectedItem) => selectedItem.value !== item.value
+    );
+    const dropdownItem = this.contentElement.querySelector(
+      `cdg-dropdown-option[value="${item.value}"]`
+    );
+    dropdownItem.classList.remove('cdg-dropdown-option-selected');
+    dropdownItem.removeAttribute('selected');
+    const checkbox = dropdownItem.querySelector('input[type="checkbox"]');
+    checkbox.checked = false;
+    this.setNewTextButton();
   }
 
   handleDropdownOptionClick(event, dropdownOption) {
     const selectedValue = event.target.getAttribute('value');
     const selectedText = dropdownOption.textContent;
-    if (!this.hasAttribute('multiple')) {
+    if (!this._isMultiple) {
       if (!dropdownOption.hasAttribute('selected')) {
         // Remove all previous selected options
         document
           .querySelectorAll('cdg-dropdown-option')
           .forEach((b) => b.removeAttribute('selected'));
 
-        this.displayValues = [selectedValue];
         dropdownOption.setAttribute('selected', 'true');
-        this.displayText = [selectedText];
-        this.setNewTextButton();
+        this.selectedItems = [{ value: selectedValue, text: selectedText }];
       }
       this.handleCloseContent();
     } else {
-      console.log('handleDropdownOptionClick');
       const checkbox = dropdownOption.querySelector('input[type="checkbox"');
       if (checkbox) {
-        checkbox.checked = !checkbox.checked;
+        if (event.target !== dropdownOption) {
+          checkbox.checked = checkbox.checked;
+        } else {
+          checkbox.checked = !checkbox.checked;
+        }
+        if (checkbox.checked) {
+          this.selectedItems.push({ value: selectedValue, text: selectedText });
+          dropdownOption.setAttribute('selected', 'true');
+          dropdownOption.classList.add('cdg-dropdown-option-selected');
+        } else {
+          const selectedIndex = this.selectedItems.findIndex(
+            (item) => item.value == selectedValue
+          );
+          this.selectedItems.splice(selectedIndex, 1);
+          dropdownOption.classList.remove('cdg-dropdown-option-selected');
+          dropdownOption.removeAttribute('selected');
+        }
       }
     }
-
-    this.dispatchEvent(
-      new CustomEvent('onChangeValue', {
-        currentValue: this.displayValues[0],
-      })
-    );
+    this.setNewTextButton();
   }
 
   handleCloseContent() {
