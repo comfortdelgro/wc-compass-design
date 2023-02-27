@@ -5,6 +5,13 @@
     }
   }
 
+  &.disabled {
+    .cdg-dropdown-button {
+      background-color: var(--disabled-color);
+      pointer-events: none;
+    }
+  }
+
   .cdg-dropdown-label {
     font-style: normal;
     font-weight: 600;
