@@ -1,0 +1,74 @@
+<h2>Radios</h2>
+<p>
+  We reuse the default input radio control to have it own behaviors. Just follow
+  the html structure with <code>cdg-radio</code> class name.<br />
+  For more implementation document please refer:
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio"
+    target="
+  "
+    >mdn web docs</a
+  >
+</p>
+
+<h3>Default</h3>
+<div class="sample-section">
+  <label class="cdg-radio">
+    <input type="radio" name="sample2" />
+    <span>I'm the one</span>
+  </label>
+  <label class="cdg-radio">
+    <input type="radio" name="sample2" checked />
+    <span>I'm two</span>
+  </label>
+  <label class="cdg-radio">
+    <input type="radio" name="sample2" />
+    <span>I'm the last</span>
+  </label>
+</div>
+
+<pre>
+    <code class="language-html">&lt;label class=&quot;cdg-radio&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; /&gt;
+  &lt;span&gt;I&apos;m the one&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class=&quot;cdg-radio&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; checked /&gt;
+  &lt;span&gt;I&apos;m two&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class=&quot;cdg-radio&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sample2&quot; /&gt;
+  &lt;span&gt;I&apos;m the last&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
+
+<h3>Disabled</h3>
+<div class="sample-section">
+  <label class="cdg-radio">
+    <input type="radio" name="sample3" checked disabled />
+    <span>I'm the one</span>
+  </label>
+  <label class="cdg-radio">
+    <input type="radio" name="sample3" disabled />
+    <span>I'm two</span>
+  </label>
+  <label class="cdg-radio">
+    <input type="radio" name="sample3" disabled />
+    <span>I'm the last</span>
+  </label>
+</div>
+
+<pre>
+  <code class="language-html">&lt;label class=&quot;cdg-radio&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; checked disabled /&gt;
+  &lt;span&gt;I&apos;m the one&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class=&quot;cdg-radio&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; disabled /&gt;
+  &lt;span&gt;I&apos;m two&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class=&quot;cdg-radio&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sample3&quot; disabled /&gt;
+  &lt;span&gt;I&apos;m the last&lt;/span&gt;
+&lt;/label&gt;</code>
+</pre>
