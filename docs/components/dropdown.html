@@ -2,9 +2,9 @@
 
 <div>
   <label class="cdg-input-group">
-    <span class="cdg-input-label">Input me</span>
-    <cdg-dropdown placeholder="placeholder" header-title="Filter title">
-      <cdg-dropdown-option value="1" selected="true"
+    <span class="cdg-input-label">Single dropdown</span>
+    <cdg-dropdown placeholder="Select an item" header-title="Filter title">
+      <cdg-dropdown-option value="1"
         >Test content dropdown 1</cdg-dropdown-option
       >
       <cdg-dropdown-option value="2" current-color="black"
@@ -18,8 +18,8 @@
 
   <div style="height: 50px"></div>
 
-  <label class="cdg-input-group" style="width: 350px;">
-    <span class="cdg-input-label">Input me</span>
+  <label class="cdg-input-group" style="width: 350px">
+    <span class="cdg-input-label">Multiple dropdown</span>
     <cdg-dropdown
       multiple
       header-title="Filter multiple"
@@ -35,5 +35,13 @@
     </cdg-dropdown>
   </label>
 </div>
+
+<div style="height: 50px"></div>
+
+<label class="cdg-input-group" style="width: 350px">
+  <span class="cdg-input-label">Loading dropdown</span>
+  <cdg-dropdown placeholder="-- Select an item --" is-loading="true">
+  </cdg-dropdown>
+</label>
 
 <div style="height: 2000px"></div>

@@ -29,9 +29,11 @@ export class CdgDropdown extends HTMLElement {
   contentElement;
   _isMultiple = false;
   selectedItems = [];
+  loadingElement;
+  dropdownOptionElements;
 
   static get observedAttributes() {
-    return ['placeholder', 'width', 'multiple'];
+    return ['placeholder', 'width', 'multiple', 'is-loading'];
   }
 
   get placeholder() {
@@ -63,6 +65,9 @@ export class CdgDropdown extends HTMLElement {
     this.contentElement = document.createElement('cdg-dropdown-select');
     this.contentElement.setAttribute('multiple', 'true');
     this._isMultiple = this.hasAttribute('multiple');
+    this.loadingElement = document.createElement('cdg-icon');
+    this.loadingElement.setAttribute('name', 'spinner');
+    this.loadingElement.setAttribute('size', '16');
 
     this.contentElement.addEventListener(
       'onDropdownSelectClose',
@@ -112,6 +117,9 @@ export class CdgDropdown extends HTMLElement {
       );
     }
     this.appendChild(this.contentElement);
+    this.dropdownOptionElements = this.contentElement.querySelectorAll(
+      'cdg-dropdown-option'
+    );
   }
 
   connectedCallback() {
@@ -137,6 +145,23 @@ export class CdgDropdown extends HTMLElement {
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue === newValue) return;
     this[attr] = newValue;
+    if (attr === 'is-loading' && this.loadingElement) {
+      if (newValue) {
+        // Hide all option items
+        this.dropdownOptionElements.forEach((item) => {
+          this.contentElement.removeChild(item);
+        });
+        this.contentElement.classList.add('isLoading');
+        this.contentElement.appendChild(this.loadingElement);
+      } else {
+        // Add option items again
+        this.dropdownOptionElements.forEach((item) => {
+          this.contentElement.appendChild(item);
+        });
+        this.contentElement.classList.remove('isLoading');
+        this.contentElement.removeChild(this.loadingElement);
+      }
+    }
   }
 
   handleClearButtonClick() {
@@ -161,6 +186,9 @@ export class CdgDropdown extends HTMLElement {
 
   setNewTextButton(dispatchEvent = true) {
     if (this.selectedItems.length > 0) {
+      if (this._isMultiple) {
+        this.displayInputElement.classList.add('has-value');
+      }
       this.buttonTextElement.classList.remove('placeholder');
       if (this._isMultiple) {
         this.buttonTextElement.innerHTML = '';
@@ -181,6 +209,9 @@ export class CdgDropdown extends HTMLElement {
         this.buttonTextElement.textContent = this.selectedItems[0].text;
       }
     } else {
+      if (this._isMultiple) {
+        this.displayInputElement.classList.remove('has-value');
+      }
       if (this._placeholder) {
         this.buttonTextElement.classList.add('placeholder');
         this.buttonTextElement.textContent = this._placeholder;
