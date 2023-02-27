@@ -18,6 +18,7 @@ import './components/tabs.html';
 import './components/text-field.html';
 import './components/dropdown.html';
 import './components/popover.html';
+import './components/toggle.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -58,6 +59,7 @@ const contentMap = {
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   popover: './components/popover.html',
+  toggle: './components/toggle.html',
 };
 
 const content = document.querySelector('#component-content');
