@@ -218,10 +218,16 @@ export class CdgDropdown extends HTMLElement {
       }
     }
 
+    const returnData = this._isMultiple
+      ? this.selectedItems.map((item) => item.value)
+      : this.selectedItems.length
+      ? this.selectedItems[0].value
+      : null;
+
     if (dispatchEvent) {
       this.dispatchEvent(
         new CustomEvent('onchangevalue', {
-          currentValue: this.selectedItems.map((item) => item.value),
+          detail: returnData,
         })
       );
     }
