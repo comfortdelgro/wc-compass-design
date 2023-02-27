@@ -31,6 +31,7 @@ export class CdgDropdownSelect extends HTMLElement {
     if (!this.floatingElement) {
       this.floatingElement = createFloating.bind(this)(
         this.parentNode,
+        null,
         'bottomLeft',
         'cdg-dropdown-select-floating-container',
         true,

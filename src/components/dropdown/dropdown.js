@@ -29,9 +29,11 @@ export class CdgDropdown extends HTMLElement {
   contentElement;
   _isMultiple = false;
   selectedItems = [];
+  loadingElement;
+  dropdownOptionElements;
 
   static get observedAttributes() {
-    return ['placeholder', 'width', 'multiple'];
+    return ['placeholder', 'width', 'multiple', 'is-loading'];
   }
 
   get placeholder() {
@@ -63,6 +65,9 @@ export class CdgDropdown extends HTMLElement {
     this.contentElement = document.createElement('cdg-dropdown-select');
     this.contentElement.setAttribute('multiple', 'true');
     this._isMultiple = this.hasAttribute('multiple');
+    this.loadingElement = document.createElement('cdg-icon');
+    this.loadingElement.setAttribute('name', 'spinner');
+    this.loadingElement.setAttribute('size', '16');
 
     this.contentElement.addEventListener(
       'onDropdownSelectClose',
@@ -112,6 +117,9 @@ export class CdgDropdown extends HTMLElement {
       );
     }
     this.appendChild(this.contentElement);
+    this.dropdownOptionElements = this.contentElement.querySelectorAll(
+      'cdg-dropdown-option'
+    );
   }
 
   connectedCallback() {
@@ -137,6 +145,23 @@ export class CdgDropdown extends HTMLElement {
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue === newValue) return;
     this[attr] = newValue;
+    if (attr === 'is-loading' && this.loadingElement) {
+      if (newValue) {
+        // Hide all option items
+        this.dropdownOptionElements.forEach((item) => {
+          this.contentElement.removeChild(item);
+        });
+        this.contentElement.classList.add('isLoading');
+        this.contentElement.appendChild(this.loadingElement);
+      } else {
+        // Add option items again
+        this.dropdownOptionElements.forEach((item) => {
+          this.contentElement.appendChild(item);
+        });
+        this.contentElement.classList.remove('isLoading');
+        this.contentElement.removeChild(this.loadingElement);
+      }
+    }
   }
 
   handleClearButtonClick() {
@@ -161,6 +186,9 @@ export class CdgDropdown extends HTMLElement {
 
   setNewTextButton(dispatchEvent = true) {
     if (this.selectedItems.length > 0) {
+      if (this._isMultiple) {
+        this.displayInputElement.classList.add('has-value');
+      }
       this.buttonTextElement.classList.remove('placeholder');
       if (this._isMultiple) {
         this.buttonTextElement.innerHTML = '';
@@ -181,16 +209,25 @@ export class CdgDropdown extends HTMLElement {
         this.buttonTextElement.textContent = this.selectedItems[0].text;
       }
     } else {
+      if (this._isMultiple) {
+        this.displayInputElement.classList.remove('has-value');
+      }
       if (this._placeholder) {
         this.buttonTextElement.classList.add('placeholder');
         this.buttonTextElement.textContent = this._placeholder;
       }
     }
 
+    const returnData = this._isMultiple
+      ? this.selectedItems.map((item) => item.value)
+      : this.selectedItems.length
+      ? this.selectedItems[0].value
+      : null;
+
     if (dispatchEvent) {
       this.dispatchEvent(
         new CustomEvent('onchangevalue', {
-          currentValue: this.selectedItems.map((item) => item.value),
+          detail: returnData,
         })
       );
     }
@@ -280,22 +317,35 @@ export class CdgDropdown extends HTMLElement {
       const currentSelected = this.contentElement.querySelector(
         'cdg-dropdown-option[selected="true"]'
       );
-      if (event.key === ' ' || event.key === 'Enter') {
-        this.handleToggle();
-        return;
-      }
-      if (
-        event.key === 'ArrowUp' &&
-        currentSelected &&
-        isElement(currentSelected.previousSibling)
-      ) {
-        this.handleSelectSingleItem(currentSelected.previousSibling);
-      } else if (
-        event.key === 'ArrowDown' &&
-        currentSelected &&
-        isElement(currentSelected.nextSibling)
-      ) {
-        this.handleSelectSingleItem(currentSelected.nextSibling);
+      if (!currentSelected) {
+        const nodes = this.contentElement.querySelectorAll(
+          'cdg-dropdown-option'
+        );
+        if (nodes.length > 0) {
+          const first = nodes[0];
+          const last = nodes[nodes.length - 1];
+          if (event.key === 'ArrowDown') {
+            first.setAttribute('selected', 'true');
+          } else if (event.key === 'ArrowUp') {
+            last.setAttribute('selected', 'true');
+          }
+        }
+      } else {
+        if (event.key === ' ' || event.key === 'Enter') {
+          this.handleToggle();
+          return;
+        }
+        if (
+          event.key === 'ArrowUp' &&
+          isElement(currentSelected.previousSibling)
+        ) {
+          this.handleSelectSingleItem(currentSelected.previousSibling);
+        } else if (
+          event.key === 'ArrowDown' &&
+          isElement(currentSelected.nextSibling)
+        ) {
+          this.handleSelectSingleItem(currentSelected.nextSibling);
+        }
       }
     }
   }
