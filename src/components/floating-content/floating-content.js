@@ -28,14 +28,8 @@ export class CdgFloatingContent extends HTMLElement {
 
   set position(value) {
     this._position = value;
-    switch (this._position) {
-      case 'bottom':
-        this.classList.add('bottom');
-        break;
-
-      default:
-        break;
-    }
+    this.classList = 'cdg-floating-content';
+    this.classList.add(this._position);
   }
 
   static get observedAttributes() {
@@ -65,6 +59,8 @@ export class CdgFloatingContent extends HTMLElement {
       case 'opening':
         if (newValue) {
           this.style.height = 'auto';
+          this.eventScroll = this.handleWindowScroll.bind(this);
+          window.addEventListener('scroll', this.eventScroll, true);
 
           if (this.parentElement) {
             const anchorElement = this.parentElement.anchorElement;
@@ -87,6 +83,7 @@ export class CdgFloatingContent extends HTMLElement {
             document.body.appendChild(this.parentElement);
           }
         } else {
+          window.removeEventListener('scroll', this.eventScroll, true);
           this.style.visibility = 'hidden';
           this.style.opacity = '0';
           this.style.height = '0';
@@ -101,11 +98,32 @@ export class CdgFloatingContent extends HTMLElement {
         break;
     }
   }
+
+  handleWindowScroll() {
+    if (
+      this.parentElement &&
+      this.hasAttribute('opening') &&
+      this.getAttribute('opening')
+    ) {
+      const newPosition = getNewPosition(
+        this.parentElement.anchorElement,
+        this.position,
+        this.clientHeight,
+        this.clientWidth,
+        this.classList.contains('hasArrow'),
+        this.hasOutline
+      );
+
+      this.style.top = `${newPosition.topPosition}px`;
+      this.style.left = `${newPosition.leftPosition}px`;
+    }
+  }
 }
 
 /**
  * Create a new floating component
  * @param {HTMLElement} anchorElement Origin element
+ * @param {HTMLElement} contentElement Content popup
  * @param {string} position Floating position relative to the origin
  * @param {string} rootClass Add class to overlay
  * @param {boolean} isFullWidth Is full-width with origin
@@ -114,11 +132,13 @@ export class CdgFloatingContent extends HTMLElement {
  */
 export function createFloating(
   anchorElement,
+  contentElement = null,
   position = 'bottom',
   rootClass = '',
   isFullWidth = false,
   hasArrow = false,
-  hasOutline = false
+  hasOutline = false,
+  hasbackdrop = true
 ) {
   // Create overlay for floating
   const containerElement = document.createElement('div');
@@ -126,13 +146,16 @@ export function createFloating(
   containerElement.anchorElement = anchorElement;
   rootClass && containerElement.classList.add(rootClass);
 
-  // Create backdrop for floating
-  const backdropElement = document.createElement('div');
-  backdropElement.setAttribute('class', 'cdg-floating-content-backdrop');
-  backdropElement.addEventListener('click', () => {
-    this.removeAttribute('opening');
-    this.dispatchEvent(new CustomEvent('onDropdownSelectClose'));
-  });
+  let backdropElement;
+  if (hasbackdrop) {
+    // Create backdrop for floating
+    backdropElement = document.createElement('div');
+    backdropElement.setAttribute('class', 'cdg-floating-content-backdrop');
+    backdropElement.addEventListener('click', () => {
+      this.removeAttribute('opening');
+      this.dispatchEvent(new CustomEvent('onDropdownSelectClose'));
+    });
+  }
 
   // Create new floating
   const floatingElement = document.createElement('cdg-floating-content');
@@ -146,8 +169,10 @@ export function createFloating(
     floatingElement.style.width = `${anchorElement.clientWidth}px`;
   }
 
-  floatingElement.appendChild(this);
-  containerElement.appendChild(backdropElement);
+  floatingElement.appendChild(contentElement || this);
+  if (hasbackdrop) {
+    containerElement.appendChild(backdropElement);
+  }
   containerElement.append(floatingElement);
   return floatingElement;
 }
