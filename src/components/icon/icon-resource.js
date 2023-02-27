@@ -16,6 +16,7 @@ import outlineTrash from '../../images/outline-trash.svg';
 import paste from '../../images/paste.svg';
 import search from '../../images/search.svg';
 import ticks from '../../images/ticks.svg';
+import tick from '../../images/tick.svg';
 import user from '../../images/user.svg';
 
 export const ICONS_IMAGES = [
@@ -37,5 +38,6 @@ export const ICONS_IMAGES = [
   paste,
   search,
   ticks,
+  tick,
   user,
 ];

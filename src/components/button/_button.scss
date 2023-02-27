@@ -51,7 +51,7 @@ cdg-button,
     padding: 0 2px;
   }
 
-  &[type='secondary'] {
+  &.secondary {
     background-color: var(--background);
     border: 1px solid var(--accent);
     color: var(--accent);
@@ -62,7 +62,7 @@ cdg-button,
     }
   }
 
-  &[type='danger'] {
+  &.danger {
     background-color: var(--background);
     border: 1px solid var(--danger);
     color: var(--danger);
@@ -73,7 +73,7 @@ cdg-button,
     }
   }
 
-  &[type='ghost'] {
+  &.ghost {
     background-color: transparent;
     border: 1px solid transparent;
     color: var(--primary-color);
@@ -139,14 +139,14 @@ cdg-button,
     border: 1px solid var(--disabled-background);
     color: var(--disabled-color);
     cursor: not-allowed;
-    &[type='primary'],
-    &[type='danger'],
-    &[type='secondary'],
-    &[type='ghost'],
-    &[type='primary']:hover,
-    &[type='danger']:hover,
-    &[type='secondary']:hover,
-    &[type='ghost']:hover {
+    &.primary,
+    &.danger,
+    &.secondary,
+    &.ghost,
+    &.primary:hover,
+    &.danger:hover,
+    &.secondary:hover,
+    &.ghost:hover {
       background-color: var(--disabled-background);
       border: 1px solid var(--disabled-background);
       color: var(--disabled-color);
