@@ -1,6 +1,9 @@
 # wc-compass-design
 This is a simple package of common styles, common component based on compass design: [ComfortDelGro's design](https://www.figma.com/file/JSiK3cmMmxTt8qhR3dty8t/Workbench-Design-System?node-id=120%3A25943&t=08iEBJR8xKRDExfe-1).
 
+#### Quick links
+[Web Component Compass Design](https://comfortdelgro.github.io/wc-compass-design/)
+
 ## Getting started
 
 ### Start

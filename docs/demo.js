@@ -14,6 +14,7 @@ import './components/status.html';
 import './components/action-bar.html';
 import './components/tabs.html';
 import './components/text-field.html';
+import './components/dropdown.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -41,6 +42,7 @@ const contentMap = {
   avatar: './components/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   icon: './components/icon.html',
+  dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
   inlineLoading: './components/inline-loading.html',
