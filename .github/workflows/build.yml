@@ -1,4 +1,4 @@
-name: Build Web components
+name: Build Web components 1
 on:
   push:
     branches:
