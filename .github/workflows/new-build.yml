@@ -14,3 +14,7 @@ jobs:
         run: npm install
       - name: Build project assets
         run: npm run build
+      - name: Upload artifact
+        run: actions/upload-pages-artifact
+      - name: Deploy to GitHub Pages
+        run: actions/deploy-pages
