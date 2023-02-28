@@ -3,6 +3,9 @@ export class CdgTableHead extends HTMLElement {
     super();
     this.setAttribute('role','thead')
   }
+  connectedCallback() {
+    this.classList.add('cdg-talbe-head');
+  }
 }
 
 

@@ -3,6 +3,8 @@ export class CdgTableHeaderCell extends HTMLElement {
     super();
     this.setAttribute('role','th')
   }
+  connectedCallback() {
+    this.classList.add('cdg-talbe-header-cell');
+  }
 }
-
 

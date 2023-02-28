@@ -3,6 +3,9 @@ export class CdgTableCell extends HTMLElement {
     super();
     this.setAttribute('role','td')
   }
+  connectedCallback() {
+    this.classList.add('cdg-talbe-cell');
+  }
 }
 
 

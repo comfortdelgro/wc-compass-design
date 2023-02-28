@@ -28,6 +28,8 @@ import {
   CdgTableCell,
   CdgTableHeaderCell,
   CdgTableRow,
+  CdgSortingAsc,
+  CdgSortingDesc,
 } from './layouts';
 
 import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
@@ -58,6 +60,8 @@ customElements.define('cdg-table-body', CdgTableBody);
 customElements.define('cdg-table-cell', CdgTableCell);
 customElements.define('cdg-table-header-cell', CdgTableHeaderCell);
 customElements.define('cdg-table-row', CdgTableRow);
+customElements.define('cdg-sorting-asc', CdgSortingAsc);
+customElements.define('cdg-sorting-desc', CdgSortingDesc);
 
 export {
   CdgAccordion,
@@ -82,6 +86,8 @@ export {
   CdgTableCell,
   CdgTableHeaderCell,
   CdgTableRow,
+  CdgSortingAsc,
+  CdgSortingDesc,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

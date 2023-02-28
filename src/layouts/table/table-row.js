@@ -3,5 +3,8 @@ export class CdgTableRow extends HTMLElement {
     super();
     this.setAttribute('role','tr')
   }
+  connectedCallback() {
+    this.classList.add('cdg-talbe-row');
+  }
 }
 

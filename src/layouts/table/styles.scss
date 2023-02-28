@@ -36,6 +36,10 @@
   text-align: left;
   position: "relative";
   font-size: 0.875rem;
+  display: 'flex';
+  min-height: '30px';
+  justify-content: 'space-between';
+  align-items: 'center';
 }
 
 /* tbody */
