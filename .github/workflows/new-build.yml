@@ -14,8 +14,12 @@ jobs:
         run: npm install
       - name: Build project assets
         run: npm run build
-      - name: Move folder dist to docs
-        run: cd docs && mkdir dist && cp -r dist/* dist
+
+      - name: Copy files to docs folder
+        run: |
+            mkdir -p docs/dist
+            cp -R dist/* docs/dist
+
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
