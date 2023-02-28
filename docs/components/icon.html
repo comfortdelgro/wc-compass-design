@@ -65,37 +65,64 @@
 </pre>
 
 <h3>Name</h3>
-<div class="grid-sample-section">
+<div class="grid-sample-section" id="icon-grid">
   <div class="icon-sample">
-    <cdg-icon name="callCenter"></cdg-icon>
-    <span class="icon-name">callCenter</span>
-  </div>
-  <div class="icon-sample">
-    <cdg-icon name="close"></cdg-icon>
-    <span class="icon-name">close</span>
-  </div>
-  <div class="icon-sample">
-    <cdg-icon name="exclamation"></cdg-icon>
-    <span class="icon-name">exclamation</span>
-  </div>
-  <div class="icon-sample">
-    <cdg-icon name="info"></cdg-icon>
-    <span class="icon-name">info</span>
-  </div>
-  <div class="icon-sample">
-    <cdg-icon name="ticks"></cdg-icon>
-    <span class="icon-name">ticks</span>
-  </div>
-  <div class="icon-sample">
-    <cdg-icon name="tick"></cdg-icon>
-    <span class="icon-name">tick</span>
-  </div>
-  <div class="icon-sample">
-    <cdg-icon name="user"></cdg-icon>
-    <span class="icon-name">user</span>
+    <cdg-icon name="addUser"></cdg-icon>
+    <span class="icon-name">addUser</span>
   </div>
 </div>
 
 <pre>
     <code class="language-html">&lt;cdg-icon name=&quot;{Place icon name here}&quot; size=&quot;24&quot;&gt;&lt;/cdg-icon&gt;</code>
 </pre>
+
+<script>
+  const iconList = `addGroup,
+addUser,
+arrowDown,
+arrowLeft,
+arrowRight,
+callCenter,
+clock,
+close,
+cloudUpload,
+copy,
+customerService,
+dots,
+exclamation,
+filledArrowDown,
+filledArrowUp,
+info,
+outlineAddGroup,
+outlineAddUser,
+outlineTick,
+outlineTrash,
+outlineUserGroupSettings,
+paste,
+profileCard,
+profile,
+search,
+ticks,
+tick,
+user,
+userGroup,
+spinner`.split(',');
+
+  function createIcon(name) {
+    const iconTemplate = `<cdg-icon name="{{name}}"></cdg-icon>
+    <span class="icon-name">{{name}}</span>`;
+
+    const icon = iconTemplate.replace(/{{name}}/g, name);
+    const template = document.createElement('div');
+    template.classList.add('icon-sample');
+    template.innerHTML = icon;
+
+    return template;
+  }
+
+  const iconGrid = document.querySelector('#icon-grid');
+
+  for (let icon of iconList) {
+    iconGrid.appendChild(createIcon(icon.trim()));
+  }
+</script>
