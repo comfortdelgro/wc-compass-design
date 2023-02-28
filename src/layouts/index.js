@@ -10,3 +10,4 @@ export { CdgTableRow } from './table/table-row';
 export { CdgTableHeaderCell } from './table/table-header-cell';
 export { CdgTableCell } from './table/table-cell';
 export { CdgSortingAsc,CdgSortingDesc } from './table/table-sorting-indicator';
+export { CdgCardCover } from './card/card-cover';

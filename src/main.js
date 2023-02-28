@@ -16,6 +16,12 @@ import { CdgPillBadge } from './components/pill-badge/pill-badge';
 import { CdgStatus } from './components/status/status';
 import { CdgTab } from './components/tab/tab';
 import { CdgTabs } from './components/tab/tabs';
+import { CdgDropdown } from './components/dropdown/dropdown';
+import { CdgDropdownSelect } from './components/dropdown/dropdown-select';
+import { CdgDropdownOption } from './components/dropdown/dropdown-option';
+import { CdgFloatingContent } from './components/floating-content/floating-content';
+import { CdgPopover } from './components/popover/popover';
+import { CdgPopoverContent } from './components/popover/popover-content';
 import {
   CdgActionBar,
   CdgCard,
@@ -30,9 +36,14 @@ import {
   CdgTableRow,
   CdgSortingAsc,
   CdgSortingDesc,
+  CdgCardCover,
 } from './layouts';
 
-import { downloadSVGContent, toLowerCaseAndDash } from './shared/utilities';
+import {
+  downloadSVGContent,
+  toLowerCaseAndDash,
+  isElement,
+} from './shared/utilities';
 
 customElements.define('cdg-accordion', CdgAccordion);
 customElements.define('cdg-accordion-header', CdgAccordionHeader);
@@ -48,6 +59,15 @@ customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
 customElements.define('cdg-tab', CdgTab);
 customElements.define('cdg-tabs', CdgTabs);
+customElements.define('cdg-dropdown', CdgDropdown);
+customElements.define('cdg-dropdown-select', CdgDropdownSelect);
+customElements.define('cdg-floating-content', CdgFloatingContent);
+customElements.define('cdg-dropdown-option', CdgDropdownOption);
+customElements.define('cdg-popover', CdgPopover);
+customElements.define('cdg-popover-content', CdgPopoverContent);
+
+// Layouts
+customElements.define('cdg-action-bar', CdgActionBar);
 customElements.define('cdg-card', CdgCard);
 customElements.define('cdg-card-header', CdgCardHeader);
 customElements.define('cdg-card-body', CdgCardBody);
@@ -62,6 +82,7 @@ customElements.define('cdg-table-header-cell', CdgTableHeaderCell);
 customElements.define('cdg-table-row', CdgTableRow);
 customElements.define('cdg-sorting-asc', CdgSortingAsc);
 customElements.define('cdg-sorting-desc', CdgSortingDesc);
+customElements.define('cdg-card-cover', CdgCardCover);
 
 export {
   CdgAccordion,
@@ -88,7 +109,14 @@ export {
   CdgTableRow,
   CdgSortingAsc,
   CdgSortingDesc,
+  CdgDropdown,
+  CdgCard,
+  CdgCardHeader,
+  CdgCardBody,
+  CdgCardActions,
+  CdgCardCover,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,
+  isElement,
 };

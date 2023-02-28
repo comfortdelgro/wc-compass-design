@@ -42,6 +42,7 @@ body {
 .sidebar {
   width: 250px;
   border-right: 1px solid var(--border-color);
+  overflow: auto;
 }
 
 .doc-container {
@@ -102,6 +103,12 @@ pre,
 code {
   margin: 0;
 }
+code {
+  color: #b91313;
+  background: #ffeaea;
+  border-radius: 4px;
+  padding: 0 4px;
+}
 
 pre code.hljs {
   border-radius: 10px;
@@ -118,4 +125,12 @@ pre code.hljs {
 .grid-sample-section {
   display: grid;
   grid-template-columns: repeat(auto-fill, 120px);
+}
+
+.menu-section {
+  font-size: 12px;
+  color: var(--grey60);
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 20px;
 }

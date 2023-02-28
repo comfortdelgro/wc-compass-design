@@ -4,17 +4,22 @@ import './components/alert.html';
 import './components/alert-badges.html';
 import './components/avatar.html';
 import './components/breadcrumbs.html';
+import './components/checkboxes.html';
 import './components/icon.html';
 import './components/button.html';
 import './components/cards.html';
 import './components/inline-loading.html';
 import './components/pagination.html';
 import './components/pill-badges.html';
+import './components/radios.html';
 import './components/status.html';
 import './components/action-bar.html';
 import './components/tabs.html';
 import './components/text-field.html';
 import './components/table.html';
+import './components/dropdown.html';
+import './components/popover.html';
+import './components/toggle.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -41,17 +46,22 @@ const contentMap = {
   alertBadges: './components/alert-badges.html',
   avatar: './components/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
+  checkboxes: './components/checkboxes.html',
   icon: './components/icon.html',
+  dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
   inlineLoading: './components/inline-loading.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
+  radios: './components/radios.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   table: './components/table.html',
+  popover: './components/popover.html',
+  toggle: './components/toggle.html',
 };
 
 const content = document.querySelector('#component-content');

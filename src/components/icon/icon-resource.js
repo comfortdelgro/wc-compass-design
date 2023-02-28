@@ -16,7 +16,9 @@ import outlineTrash from '../../images/outline-trash.svg';
 import paste from '../../images/paste.svg';
 import search from '../../images/search.svg';
 import ticks from '../../images/ticks.svg';
+import tick from '../../images/tick.svg';
 import user from '../../images/user.svg';
+import spinner from '../../images/spinner.svg';
 
 export const ICONS_IMAGES = [
   arrowDown,
@@ -37,5 +39,7 @@ export const ICONS_IMAGES = [
   paste,
   search,
   ticks,
+  tick,
   user,
+  spinner,
 ];
