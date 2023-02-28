@@ -1,33 +1,33 @@
-name: Build Web components
-on:
-  push:
-    branches:
-      - main
-jobs:
-  build:
-    name: Build project
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install NPM dependencies
-        run: npm install
-      - name: Build project assets
-        run: npm run build
-      - name: Config user
-        run: |
-            git config --global user.email "tudq3@fsoft.com.vn"
-            git config --global user.name "fpt-tom-du"
-      - name: check for changes
-        run: git status
-      - name: stage changed files
-        run: git add .
-      - name: commit changed files
-        run: git commit -am "Automated report"
-      - name: fetch from main
-        run: git fetch origin main
-      - name: push code to main
-        run: git push
+# name: Build Web components
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   build:
+#     name: Build project
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#       - name: Install NPM dependencies
+#         run: npm install
+#       - name: Build project assets
+#         run: npm run build
+#       - name: Config user
+#         run: |
+#             git config --global user.email "tudq3@fsoft.com.vn"
+#             git config --global user.name "fpt-tom-du"
+#       - name: check for changes
+#         run: git status
+#       - name: stage changed files
+#         run: git add .
+#       - name: commit changed files
+#         run: git commit -am "Automated report"
+#       - name: fetch from main
+#         run: git fetch origin main
+#       - name: push code to main
+#         run: git push
       # - name: Upload artifact
       #   uses: actions/upload-artifact@master
       #   with:
