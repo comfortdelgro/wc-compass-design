@@ -2,15 +2,15 @@ name: Build Web components
 on:
   push:
     branches:
-      - develop
+      - test-build
 jobs:
   build-project:
     name: Build project
     runs-on: unbuntu-latest
     steps:
-      name: Checkout code
-      uses: actions/checkout@v2
-      name: Install NPM dependencies
-      run: npm install
-      name: Build project assets
-      run: npm run build
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install NPM dependencies
+        run: npm install
+      - name: Build project assets
+        run: npm run build
