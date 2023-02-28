@@ -2,7 +2,7 @@ name: Build Web components
 on:
   push:
     branches:
-      - test-build
+      - main
 jobs:
   build-project:
     name: Build project
