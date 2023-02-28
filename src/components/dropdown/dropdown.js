@@ -33,7 +33,7 @@ export class CdgDropdown extends HTMLElement {
   dropdownOptionElements;
 
   static get observedAttributes() {
-    return ['placeholder', 'width', 'multiple', 'is-loading'];
+    return ['placeholder', 'width', 'multiple', 'is-loading', 'disabled'];
   }
 
   get placeholder() {
@@ -130,10 +130,12 @@ export class CdgDropdown extends HTMLElement {
     this.buttonTextElement = this.displayInputElement.querySelector(
       'div.cdg-dropdown-button-text'
     );
-    this.displayInputElement.addEventListener(
-      'click',
-      this.handleToggle.bind(this)
-    );
+    if (!this.test) {
+      this.test = this.handleToggle.bind(this);
+    }
+    if (!this.hasAttribute('disabled')) {
+      this.displayInputElement.addEventListener('click', this.test, true);
+    }
     this.displayInputElement.addEventListener(
       'blur',
       this.handleCloseContent.bind(this)
@@ -160,6 +162,20 @@ export class CdgDropdown extends HTMLElement {
         });
         this.contentElement.classList.remove('isLoading');
         this.contentElement.removeChild(this.loadingElement);
+      }
+    } else if (attr === 'disabled') {
+      if (this.hasAttribute('disabled')) {
+        this.classList.add('disabled');
+        this.displayInputElement &&
+          this.displayInputElement.removeEventListener(
+            'click',
+            this.test,
+            true
+          );
+      } else {
+        this.classList.remove('disabled');
+        this.displayInputElement &&
+          this.displayInputElement.addEventListener('click', this.test, true);
       }
     }
   }
