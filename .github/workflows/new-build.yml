@@ -15,10 +15,11 @@ jobs:
       - name: Build project assets
         run: npm run build
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@master
         with:
           name: static-site
           path: dist/
+          if-no-files-found: error
   # Deploy job
   deploy:
     # Add a dependency to the build job
@@ -37,6 +38,12 @@ jobs:
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@master
+      - uses: actions/configure-pages@v1
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: .
+      - id: deployment
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
