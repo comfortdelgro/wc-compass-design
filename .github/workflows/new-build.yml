@@ -27,10 +27,11 @@ jobs:
           name: static-site
           path: docs/
           if-no-files-found: error
-  # Deploy job
   deploy:
     # Add a dependency to the build job
     needs: build
+    name: Build project
+    runs-on: ubuntu-latest
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
@@ -42,8 +43,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.2
-      with:
-        branch: gh-pages
-        folder: docs
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.2
+        with:
+          branch: gh-pages
+          folder: docs
