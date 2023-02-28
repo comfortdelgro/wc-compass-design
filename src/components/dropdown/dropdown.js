@@ -166,7 +166,6 @@ export class CdgDropdown extends HTMLElement {
     } else if (attr === 'disabled') {
       if (this.hasAttribute('disabled')) {
         this.classList.add('disabled');
-        console.log('removeEventListener');
         this.displayInputElement &&
           this.displayInputElement.removeEventListener(
             'click',
@@ -175,7 +174,6 @@ export class CdgDropdown extends HTMLElement {
           );
       } else {
         this.classList.remove('disabled');
-        console.log('addEventListener');
         this.displayInputElement &&
           this.displayInputElement.addEventListener('click', this.test, true);
       }
