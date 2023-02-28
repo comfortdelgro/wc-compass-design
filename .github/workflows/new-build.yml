@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.PAT }}
       - name: Install NPM dependencies
         run: npm install
       - name: Build project assets
