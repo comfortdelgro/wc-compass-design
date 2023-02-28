@@ -23,6 +23,7 @@ import { CdgDropdownOption } from './components/dropdown/dropdown-option';
 import { CdgFloatingContent } from './components/floating-content/floating-content';
 import { CdgPopover } from './components/popover/popover';
 import { CdgPopoverContent } from './components/popover/popover-content';
+import { CdgProgress } from './components/progress/progress';
 import {
   CdgActionBar,
   CdgCard,
@@ -59,6 +60,7 @@ customElements.define('cdg-floating-content', CdgFloatingContent);
 customElements.define('cdg-dropdown-option', CdgDropdownOption);
 customElements.define('cdg-popover', CdgPopover);
 customElements.define('cdg-popover-content', CdgPopoverContent);
+customElements.define('cdg-progress', CdgProgress);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -92,6 +94,7 @@ export {
   CdgCardBody,
   CdgCardActions,
   CdgCardCover,
+  CdgProgress,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

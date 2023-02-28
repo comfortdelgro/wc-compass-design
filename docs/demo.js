@@ -19,6 +19,7 @@ import './components/tabs.html';
 import './components/text-field.html';
 import './components/dropdown.html';
 import './components/popover.html';
+import './components/progress.html';
 import './components/toggle.html';
 
 function downloadHTMLContent(url) {
@@ -61,6 +62,7 @@ const contentMap = {
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   popover: './components/popover.html',
+  progress: './components/progress.html',
   toggle: './components/toggle.html',
 };
 
