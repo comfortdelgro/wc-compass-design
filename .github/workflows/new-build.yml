@@ -1,62 +1,50 @@
-# name: Build Web components
-# on:
-#   push:
-#     branches:
-#       - main
-# jobs:
-#   build:
-#     name: Build project
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-#       - name: Install NPM dependencies
-#         run: npm install
-#       - name: Build project assets
-#         run: npm run build
-#       - name: Config user
-#         run: |
-#             git config --global user.email "tudq3@fsoft.com.vn"
-#             git config --global user.name "fpt-tom-du"
-#       - name: check for changes
-#         run: git status
-#       - name: stage changed files
-#         run: git add .
-#       - name: commit changed files
-#         run: git commit -am "Automated report"
-#       - name: fetch from main
-#         run: git fetch origin main
-#       - name: push code to main
-#         run: git push
-      # - name: Upload artifact
-      #   uses: actions/upload-artifact@master
-      #   with:
-      #     name: static-site
-      #     path: dist/
-      #     if-no-files-found: error
-  # # Deploy job
-  # deploy:
-  #   # Add a dependency to the build job
-  #   needs: build
+name: Build Web components
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install NPM dependencies
+        run: npm install
+      - name: Build project assets
+        run: npm run build
+      - name: Move folder dist to docs
+        run: cd docs && mkdir dist && cp -r dist/* dist
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: static-site
+          path: docs/
+          if-no-files-found: error
+  # Deploy job
+  deploy:
+    # Add a dependency to the build job
+    needs: build
 
-  #   # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-  #   permissions:
-  #     pages: write # to deploy to Pages
-  #     id-token: write # to verify the deployment originates from an appropriate source
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
 
-  #   # Deploy to the github-pages environment
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-  #   # Specify runner + deployment step
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/download-artifact@master
-  #     - uses: actions/configure-pages@v1
-  #     - uses: actions/upload-pages-artifact@v1
-  #       with:
-  #         path: .
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v1
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@master
+      - uses: actions/configure-pages@v1
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
