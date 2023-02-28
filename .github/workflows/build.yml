@@ -27,13 +27,7 @@ jobs:
           name: static-site
           path: docs/
           if-no-files-found: error
-  deploy:
-    # Add a dependency to the build job
-    needs: build
-    name: Deploy project
-    runs-on: ubuntu-latest
-
-    steps:
+          
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
