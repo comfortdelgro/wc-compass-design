@@ -125,6 +125,7 @@ pre code.hljs {
 .grid-sample-section {
   display: grid;
   grid-template-columns: repeat(auto-fill, 120px);
+  row-gap: 40px;
 }
 
 .menu-section {

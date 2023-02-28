@@ -11,6 +11,7 @@ import { CdgAlertContent } from './components/alert/alert-content';
 import { CdgAvatar } from './components/avatar/avatar';
 import { CdgIcon } from './components/icon/icon';
 import { CdgInlineLoading } from './components/inline-loading/inline-loading';
+import { CdgLoading } from './components/loading/loading';
 import { CdgPagination } from './components/pagination/pagination';
 import { CdgPillBadge } from './components/pill-badge/pill-badge';
 import { CdgStatus } from './components/status/status';
@@ -22,6 +23,7 @@ import { CdgDropdownOption } from './components/dropdown/dropdown-option';
 import { CdgFloatingContent } from './components/floating-content/floating-content';
 import { CdgPopover } from './components/popover/popover';
 import { CdgPopoverContent } from './components/popover/popover-content';
+import { CdgProgress } from './components/progress/progress';
 import {
   CdgActionBar,
   CdgCard,
@@ -46,6 +48,7 @@ customElements.define('cdg-alert-content', CdgAlertContent);
 customElements.define('cdg-avatar', CdgAvatar);
 customElements.define('cdg-icon', CdgIcon);
 customElements.define('cdg-inline-loading', CdgInlineLoading);
+customElements.define('cdg-loading', CdgLoading);
 customElements.define('cdg-pagination', CdgPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
@@ -57,6 +60,7 @@ customElements.define('cdg-floating-content', CdgFloatingContent);
 customElements.define('cdg-dropdown-option', CdgDropdownOption);
 customElements.define('cdg-popover', CdgPopover);
 customElements.define('cdg-popover-content', CdgPopoverContent);
+customElements.define('cdg-progress', CdgProgress);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -77,6 +81,7 @@ export {
   CdgAvatar,
   CdgIcon,
   CdgInlineLoading,
+  CdgLoading,
   CdgPagination,
   CdgPillBadge,
   CdgStatus,
@@ -89,6 +94,7 @@ export {
   CdgCardBody,
   CdgCardActions,
   CdgCardCover,
+  CdgProgress,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,
