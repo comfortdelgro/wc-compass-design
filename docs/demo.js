@@ -9,6 +9,7 @@ import './components/icon.html';
 import './components/button.html';
 import './components/cards.html';
 import './components/inline-loading.html';
+import './components/loading.html';
 import './components/pagination.html';
 import './components/pill-badges.html';
 import './components/radios.html';
@@ -51,6 +52,7 @@ const contentMap = {
   button: './components/button.html',
   cards: './components/cards.html',
   inlineLoading: './components/inline-loading.html',
+  loading: './components/loading.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
   radios: './components/radios.html',
