@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
       - name: Install NPM dependencies
         run: npm install
       - name: Build project assets
@@ -23,11 +25,11 @@ jobs:
       - name: stage changed files
         run: git add .
       - name: commit changed files
-        run: git commit -m "Add new version for dist folder"
+          git commit -am "Automated report"
       - name: fetch from main
         run: git fetch origin main
       - name: push code to main
-        run: git push origin HEAD:main
+          git push
       # - name: Upload artifact
       #   uses: actions/upload-artifact@master
       #   with:
