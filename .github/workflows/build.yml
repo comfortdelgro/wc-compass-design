@@ -6,8 +6,10 @@ on:
 jobs:
   build-project:
     name: Build project
-    runs-on: unbuntu-latest
+    runs-on: [self-hosted,rpi]
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Install NPM dependencies
         run: npm install
       - name: Build project assets
