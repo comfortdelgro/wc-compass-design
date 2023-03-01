@@ -16,6 +16,7 @@ import './components/pill-badges.html';
 import './components/radios.html';
 import './components/status.html';
 import './components/action-bar.html';
+import './components/sub-header.html';
 import './components/tabs.html';
 import './components/text-field.html';
 import './components/dropdown.html';
@@ -61,6 +62,7 @@ const contentMap = {
   radios: './components/radios.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
+  subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   popover: './components/popover.html',

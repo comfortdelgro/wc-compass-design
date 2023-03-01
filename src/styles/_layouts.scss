@@ -145,6 +145,7 @@ cdg-page-header-row,
   gap: 16px;
 }
 
+.cdg-sub-header-actions,
 cdg-page-actions,
 .cdg-page-actions {
   display: flex;
@@ -181,4 +182,32 @@ cdg-page-actions,
       background: rgba(255, 255, 255, 0.1);
     }
   }
+}
+
+cdg-sub-header,
+.cdg-sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cdg-sub-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cdg-sub-header-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--grey100);
+}
+
+.cdg-sub-header-description {
+  color: var(--grey70);
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
 }

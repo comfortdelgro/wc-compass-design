@@ -8,3 +8,4 @@ export { CdgPageTitle } from './page-header/page-title';
 export { CdgPageHeader } from './page-header/page-header';
 export { CdgPageActions } from './page-header/page-actions';
 export { CdgPageHeaderRow } from './page-header/page-header-row';
+export { CdgSubHeader } from './page-header/sub-header';
