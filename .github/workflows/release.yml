@@ -32,17 +32,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
-          release_name: Release ${{ steps.get_version.outputs.version }}
+          release_name: Release ${{ steps.get_version.outputs.version }} 1
           body: |
             Release ${{ steps.get_version.outputs.version }}
           draft: false
           prerelease: false
-
-      - name: Download the artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: source-build
-          path: ./
 
       - name: Upload release assets
         uses: actions/upload-artifact@v2
