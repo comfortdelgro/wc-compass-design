@@ -24,7 +24,7 @@ jobs:
       - name: Copy files to docs folder
         run: |
           cp -p dist/{main.min.js,docs.min.js,main.min.css} docs/
-          cp -r dist/images docs/images/
+          cp -r dist/images docs/
 
       - name: Upload artifact
         uses: actions/upload-artifact@master
