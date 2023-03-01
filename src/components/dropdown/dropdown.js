@@ -63,6 +63,7 @@ export class CdgDropdown extends HTMLElement {
     console.log('dropdown....');
     console.log('dropdown....111');
     console.log('dropdown....222');
+    console.log('dropdown....333');
     super();
     this.prepend(template.content.cloneNode(true));
     this.contentElement = document.createElement('cdg-dropdown-select');
