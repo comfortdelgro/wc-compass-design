@@ -48,7 +48,7 @@ jobs:
       - name: Download the artifact
         uses: actions/download-artifact@v1
         with:
-          name: my-artifact
+          name: source-build
           path: ./
 
       - name: Upload assets
