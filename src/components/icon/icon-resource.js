@@ -14,6 +14,9 @@ import exclamation from '../../images/exclamation.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
 import info from '../../images/info.svg';
+import menu from '../../images/menu.svg';
+import notification from '../../images/notification.svg';
+import organization from '../../images/organization.svg';
 import outlineAddGroup from '../../images/outline-add-group.svg';
 import outlineAddUser from '../../images/outline-add-user.svg';
 import outlineTick from '../../images/outline-tick.svg';
@@ -22,6 +25,7 @@ import outlineUserGroupSettings from '../../images/outline-user-group-settings.s
 import paste from '../../images/paste.svg';
 import profileCard from '../../images/profile-card.svg';
 import profile from '../../images/profile.svg';
+import question from '../../images/question.svg';
 import search from '../../images/search.svg';
 import ticks from '../../images/ticks.svg';
 import tick from '../../images/tick.svg';
@@ -29,6 +33,8 @@ import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
 import spinner from '../../images/spinner.svg';
+
+import wLogo from '../../images/w-logo.svg';
 
 export const ICONS_IMAGES = [
   addGroup,
@@ -47,6 +53,9 @@ export const ICONS_IMAGES = [
   filledArrowDown,
   filledArrowUp,
   info,
+  menu,
+  notification,
+  organization,
   outlineAddGroup,
   outlineAddUser,
   outlineTick,
@@ -55,6 +64,7 @@ export const ICONS_IMAGES = [
   paste,
   profileCard,
   profile,
+  question,
   search,
   ticks,
   tick,
@@ -62,4 +72,5 @@ export const ICONS_IMAGES = [
   userGroup,
   user,
   spinner,
+  wLogo,
 ];

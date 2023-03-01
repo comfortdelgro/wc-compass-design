@@ -9,3 +9,5 @@ export { CdgPageHeader } from './page-header/page-header';
 export { CdgPageActions } from './page-header/page-actions';
 export { CdgPageHeaderRow } from './page-header/page-header-row';
 export { CdgSubHeader } from './page-header/sub-header';
+export { CdgNavbar } from './navbar/navbar';
+export { CdgPortalNavbar } from './portal-navbar/portal-navbar';

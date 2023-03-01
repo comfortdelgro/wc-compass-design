@@ -36,6 +36,8 @@ import {
   CdgPageHeader,
   CdgPageHeaderRow,
   CdgPageActions,
+  CdgNavbar,
+  CdgPortalNavbar,
 } from './layouts';
 
 import {
@@ -54,11 +56,6 @@ customElements.define('cdg-avatar', CdgAvatar);
 customElements.define('cdg-icon', CdgIcon);
 customElements.define('cdg-inline-loading', CdgInlineLoading);
 customElements.define('cdg-loading', CdgLoading);
-customElements.define('cdg-page-title', CdgPageTitle);
-customElements.define('cdg-page-header', CdgPageHeader);
-customElements.define('cdg-page-header-row', CdgPageHeaderRow);
-customElements.define('cdg-page-actions', CdgPageActions);
-customElements.define('cdg-sub-header', CdgSubHeader);
 customElements.define('cdg-pagination', CdgPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
@@ -79,6 +76,13 @@ customElements.define('cdg-card-header', CdgCardHeader);
 customElements.define('cdg-card-body', CdgCardBody);
 customElements.define('cdg-card-actions', CdgCardActions);
 customElements.define('cdg-card-cover', CdgCardCover);
+customElements.define('cdg-page-title', CdgPageTitle);
+customElements.define('cdg-page-header', CdgPageHeader);
+customElements.define('cdg-page-header-row', CdgPageHeaderRow);
+customElements.define('cdg-page-actions', CdgPageActions);
+customElements.define('cdg-sub-header', CdgSubHeader);
+customElements.define('cdg-navbar', CdgNavbar);
+customElements.define('cdg-portal-navbar', CdgPortalNavbar);
 
 export {
   CdgAccordion,
@@ -108,6 +112,7 @@ export {
   CdgCardBody,
   CdgCardActions,
   CdgCardCover,
+  CdgNavbar,
   CdgProgress,
   downloadSVGContent,
   toLowerCaseAndDash,
