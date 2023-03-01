@@ -10,10 +10,13 @@ import cloudUpload from '../../images/cloud-upload.svg';
 import copy from '../../images/copy.svg';
 import customerService from '../../images/customer-service.svg';
 import dots from '../../images/dots.svg';
-import exclamation from '../../images/exclamation.svg';
+import exclamation from '../../images/facebook.svg';
+import facebook from '../../images/exclamation.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
+import globe from '../../images/globe.svg';
 import info from '../../images/info.svg';
+import instagram from '../../images/instagram.svg';
 import menu from '../../images/menu.svg';
 import notification from '../../images/notification.svg';
 import organization from '../../images/organization.svg';
@@ -29,12 +32,14 @@ import question from '../../images/question.svg';
 import search from '../../images/search.svg';
 import ticks from '../../images/ticks.svg';
 import tick from '../../images/tick.svg';
+import twitter from '../../images/twitter.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
 import spinner from '../../images/spinner.svg';
 
 import wLogo from '../../images/w-logo.svg';
+import zigLogo from '../../images/zig-logo.svg';
 
 export const ICONS_IMAGES = [
   addGroup,
@@ -50,9 +55,12 @@ export const ICONS_IMAGES = [
   customerService,
   dots,
   exclamation,
+  facebook,
   filledArrowDown,
   filledArrowUp,
+  globe,
   info,
+  instagram,
   menu,
   notification,
   organization,
@@ -68,9 +76,11 @@ export const ICONS_IMAGES = [
   search,
   ticks,
   tick,
+  twitter,
   userGroupSettings,
   userGroup,
   user,
   spinner,
   wLogo,
+  zigLogo,
 ];

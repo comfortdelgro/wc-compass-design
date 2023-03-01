@@ -5,6 +5,7 @@ import './components/alert-badges.html';
 import './components/avatar.html';
 import './components/breadcrumbs.html';
 import './components/checkboxes.html';
+import './components/footer.html';
 import './components/icon.html';
 import './components/button.html';
 import './components/cards.html';
@@ -51,6 +52,7 @@ const contentMap = {
   avatar: './components/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
+  footer: './components/footer.html',
   icon: './components/icon.html',
   dropdown: './components/dropdown.html',
   button: './components/button.html',
