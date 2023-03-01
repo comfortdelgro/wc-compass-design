@@ -111,3 +111,74 @@ cdg-card-cover,
   height: 100%;
   object-fit: cover;
 }
+
+cdg-page-title,
+.cdg-page-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--grey110);
+  small {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--grey70);
+    font-weight: 400;
+  }
+}
+
+cdg-page-header,
+.cdg-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 48px;
+}
+
+cdg-page-header-row,
+.cdg-page-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+cdg-page-actions,
+.cdg-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reverse-blue {
+  --primary-color: #ffffff;
+  --disabled-color: #777777;
+  --grey110: #cccccc;
+  &cdg-page-header,
+  &.cdg-page-header {
+    background: var(--accent);
+  }
+
+  cdg-icon,
+  .cdg-icon,
+  a {
+    color: var(--grey70);
+  }
+
+  cdg-button,
+  .cdg-button {
+    background: #ffffff;
+    color: var(--accent);
+  }
+
+  cdg-button.secondary,
+  .cdg-button.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}

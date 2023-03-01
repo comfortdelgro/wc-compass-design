@@ -4,3 +4,7 @@ export { CdgCardHeader } from './card/card-header';
 export { CdgCardBody } from './card/card-body';
 export { CdgCardActions } from './card/card-actions';
 export { CdgCardCover } from './card/card-cover';
+export { CdgPageTitle } from './page-header/page-title';
+export { CdgPageHeader } from './page-header/page-header';
+export { CdgPageActions } from './page-header/page-actions';
+export { CdgPageHeaderRow } from './page-header/page-header-row';

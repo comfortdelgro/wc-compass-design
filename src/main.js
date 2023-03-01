@@ -12,6 +12,10 @@ import { CdgAvatar } from './components/avatar/avatar';
 import { CdgIcon } from './components/icon/icon';
 import { CdgInlineLoading } from './components/inline-loading/inline-loading';
 import { CdgLoading } from './components/loading/loading';
+import { CdgPageTitle } from './layouts/page-header/page-title';
+import { CdgPageHeader } from './layouts/page-header/page-header';
+import { CdgPageHeaderRow } from './layouts/page-header/page-header-row';
+import { CdgPageActions } from './layouts/page-header/page-actions';
 import { CdgPagination } from './components/pagination/pagination';
 import { CdgPillBadge } from './components/pill-badge/pill-badge';
 import { CdgStatus } from './components/status/status';
@@ -49,6 +53,10 @@ customElements.define('cdg-avatar', CdgAvatar);
 customElements.define('cdg-icon', CdgIcon);
 customElements.define('cdg-inline-loading', CdgInlineLoading);
 customElements.define('cdg-loading', CdgLoading);
+customElements.define('cdg-page-title', CdgPageTitle);
+customElements.define('cdg-page-header', CdgPageHeader);
+customElements.define('cdg-page-header-row', CdgPageHeaderRow);
+customElements.define('cdg-page-actions', CdgPageActions);
 customElements.define('cdg-pagination', CdgPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
@@ -83,6 +91,10 @@ export {
   CdgInlineLoading,
   CdgLoading,
   CdgPagination,
+  CdgPageTitle,
+  CdgPageHeader,
+  CdgPageHeaderRow,
+  CdgPageActions,
   CdgPillBadge,
   CdgStatus,
   CdgTab,
