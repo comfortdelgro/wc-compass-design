@@ -17,13 +17,6 @@ jobs:
       - name: Build component
         run: npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: source-build
-          path: dist/
-          if-no-files-found: error
-
       - name: Commit and push changes
         run: |
           git config user.name "fpt-tom-du"
@@ -51,13 +44,9 @@ jobs:
           name: source-build
           path: ./
 
-      - name: Upload assets
-        id: upload-assets
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload release assets
+        uses: actions/upload-artifact@v2
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: source-build.zip
-          asset_name: source-build.zip
-          asset_content_type: application/zip
+          name: release
+          path: dist/
+          if-no-files-found: error
