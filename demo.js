@@ -10,11 +10,13 @@ import './components/button.html';
 import './components/cards.html';
 import './components/inline-loading.html';
 import './components/loading.html';
+import './components/page-header.html';
 import './components/pagination.html';
 import './components/pill-badges.html';
 import './components/radios.html';
 import './components/status.html';
 import './components/action-bar.html';
+import './components/sub-header.html';
 import './components/tabs.html';
 import './components/text-field.html';
 import './components/dropdown.html';
@@ -54,11 +56,13 @@ const contentMap = {
   cards: './components/cards.html',
   inlineLoading: './components/inline-loading.html',
   loading: './components/loading.html',
+  pageHeader: './components/page-header.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
   radios: './components/radios.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
+  subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   popover: './components/popover.html',
