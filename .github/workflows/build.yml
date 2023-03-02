@@ -21,6 +21,14 @@ jobs:
       - name: Build project assets
         run: npm run build
 
+      - name: Commit and push changes
+        run: |
+          git config user.name "fpt-tom-du"
+          git config user.email "tudq3@fsoft.com.vn"
+          git add .
+          git commit -m "Update dist folder"
+          git push origin main
+
       - name: Copy files to docs folder
         run: |
           cp -p dist/{main.min.js,docs.min.js,main.min.css} docs/
