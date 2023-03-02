@@ -144,6 +144,7 @@ cdg-nav-rail,
 .cdg-nav-rail-foot {
   display: flex;
   flex-direction: column;
+  padding-bottom: 16px;
 }
 
 .cdg-nav-rail-body {
@@ -176,6 +177,10 @@ cdg-nav-rail,
   &.active {
     border-left: 3px solid var(--accent);
     color: var(--accent);
+    &:hover {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 
   span {
