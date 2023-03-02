@@ -7,16 +7,21 @@ import callCenter from '../../images/call-center.svg';
 import clock from '../../images/clock.svg';
 import close from '../../images/close.svg';
 import cloudUpload from '../../images/cloud-upload.svg';
+import compassLogo from '../../images/compass-logo.svg';
 import copy from '../../images/copy.svg';
 import customerService from '../../images/customer-service.svg';
+import dashboard from '../../images/dashboard.svg';
 import dots from '../../images/dots.svg';
 import exclamation from '../../images/facebook.svg';
 import facebook from '../../images/exclamation.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
 import globe from '../../images/globe.svg';
+import grid from '../../images/grid.svg';
+import home from '../../images/home.svg';
 import info from '../../images/info.svg';
 import instagram from '../../images/instagram.svg';
+import job from '../../images/job.svg';
 import menu from '../../images/menu.svg';
 import notification from '../../images/notification.svg';
 import organization from '../../images/organization.svg';
@@ -30,6 +35,7 @@ import profileCard from '../../images/profile-card.svg';
 import profile from '../../images/profile.svg';
 import question from '../../images/question.svg';
 import search from '../../images/search.svg';
+import taxi from '../../images/taxi.svg';
 import ticks from '../../images/ticks.svg';
 import tick from '../../images/tick.svg';
 import twitter from '../../images/twitter.svg';
@@ -51,16 +57,21 @@ export const ICONS_IMAGES = [
   clock,
   close,
   cloudUpload,
+  compassLogo,
   copy,
   customerService,
+  dashboard,
   dots,
   exclamation,
   facebook,
   filledArrowDown,
   filledArrowUp,
   globe,
+  grid,
+  home,
   info,
   instagram,
+  job,
   menu,
   notification,
   organization,
@@ -74,6 +85,7 @@ export const ICONS_IMAGES = [
   profile,
   question,
   search,
+  taxi,
   ticks,
   tick,
   twitter,

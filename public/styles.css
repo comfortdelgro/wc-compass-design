@@ -9,8 +9,13 @@ body {
 
 body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: auto;
+}
+
+body cdg-nav-rail .workbench-title,
+body .cdg-nav-rail .workbench-title {
+  font-size: 20px;
 }
 
 .sidebar a {
@@ -36,7 +41,30 @@ body {
 .page-content {
   flex: 1;
   display: flex;
+  flex-direction: column;
   overflow: auto;
+  position: relative;
+  z-index: 0;
+}
+
+.cdg-nav-rail-header {
+  gap: 12px;
+}
+
+cdg-nav-rail .cdg-nav-rail-inner,
+.cdg-nav-rail .cdg-nav-rail-inner {
+  padding-bottom: 0;
+}
+
+.cdg-nav-rail cdg-avatar,
+.cdg-nav-rail .cdg-avatar {
+  color: #ffffff;
+  background-color: var(--grey80);
+}
+
+.cdg-nav-rail .active cdg-avatar,
+.cdg-nav-rail .active .cdg-avatar {
+  background-color: var(--accent);
 }
 
 .sidebar {

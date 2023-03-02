@@ -215,3 +215,12 @@ cdg-sub-header,
 .cdg-separator {
   flex: 1;
 }
+
+cdg-divider,
+.cdg-divider {
+  border-bottom: 1px solid var(--border-color);
+  &.vertical {
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+  }
+}

@@ -38,6 +38,7 @@ import {
   CdgPageActions,
   CdgNavbar,
   CdgPortalNavbar,
+  CdgNavRail,
 } from './layouts';
 
 import {
@@ -83,6 +84,7 @@ customElements.define('cdg-page-actions', CdgPageActions);
 customElements.define('cdg-sub-header', CdgSubHeader);
 customElements.define('cdg-navbar', CdgNavbar);
 customElements.define('cdg-portal-navbar', CdgPortalNavbar);
+customElements.define('cdg-nav-rail', CdgNavRail);
 
 export {
   CdgAccordion,

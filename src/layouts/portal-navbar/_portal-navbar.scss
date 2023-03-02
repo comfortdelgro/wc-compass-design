@@ -9,7 +9,7 @@ cdg-portal-navbar,
     color: #ffffff;
     cdg-button,
     .cdg-button {
-      &.activated {
+      &.active {
         background: var(--blue80);
         border-color: var(--blue80);
         color: #ffffff;
@@ -57,7 +57,7 @@ cdg-portal-navbar,
 
   cdg-button,
   .cdg-button {
-    &.activated {
+    &.active {
       color: var(--accent);
       background-color: var(--hover-background);
       border-color: var(--hover-background);
