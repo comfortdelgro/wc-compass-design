@@ -39,6 +39,8 @@ import {
   CdgNavbar,
   CdgPortalNavbar,
   CdgNavRail,
+  CdgWizards,
+  CdgWizardStep,
 } from './layouts';
 
 import {
@@ -85,6 +87,8 @@ customElements.define('cdg-sub-header', CdgSubHeader);
 customElements.define('cdg-navbar', CdgNavbar);
 customElements.define('cdg-portal-navbar', CdgPortalNavbar);
 customElements.define('cdg-nav-rail', CdgNavRail);
+customElements.define('cdg-wizards', CdgWizards);
+customElements.define('cdg-wizard-step', CdgWizardStep);
 
 export {
   CdgAccordion,
@@ -114,8 +118,13 @@ export {
   CdgCardBody,
   CdgCardActions,
   CdgCardCover,
+  CdgSubHeader,
+  CdgPortalNavbar,
   CdgNavbar,
   CdgProgress,
+  CdgNavRail,
+  CdgWizards,
+  CdgWizardStep,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

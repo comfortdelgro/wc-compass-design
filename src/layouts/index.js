@@ -12,3 +12,5 @@ export { CdgSubHeader } from './page-header/sub-header';
 export { CdgNavbar } from './navbar/navbar';
 export { CdgPortalNavbar } from './portal-navbar/portal-navbar';
 export { CdgNavRail } from './nav-rail/nav-rail';
+export { CdgWizards } from './wizards/wizards';
+export { CdgWizardStep } from './wizards/wizard-step';

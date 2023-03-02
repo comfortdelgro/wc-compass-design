@@ -26,6 +26,7 @@ import './components/dropdown.html';
 import './components/popover.html';
 import './components/progress.html';
 import './components/toggle.html';
+import './components/wizards.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -74,6 +75,7 @@ const contentMap = {
   popover: './components/popover.html',
   progress: './components/progress.html',
   toggle: './components/toggle.html',
+  wizards: './components/wizards.html',
 };
 
 const content = document.querySelector('#component-content');
