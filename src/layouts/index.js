@@ -11,3 +11,4 @@ export { CdgPageHeaderRow } from './page-header/page-header-row';
 export { CdgSubHeader } from './page-header/sub-header';
 export { CdgNavbar } from './navbar/navbar';
 export { CdgPortalNavbar } from './portal-navbar/portal-navbar';
+export { CdgNavRail } from './nav-rail/nav-rail';

@@ -11,6 +11,7 @@ import './components/button.html';
 import './components/cards.html';
 import './components/inline-loading.html';
 import './components/loading.html';
+import './components/nav-rail.html';
 import './components/navbar.html';
 import './components/page-header.html';
 import './components/pagination.html';
@@ -59,6 +60,7 @@ const contentMap = {
   cards: './components/cards.html',
   inlineLoading: './components/inline-loading.html',
   loading: './components/loading.html',
+  navRail: './components/nav-rail.html',
   navbar: './components/navbar.html',
   pageHeader: './components/page-header.html',
   pagination: './components/pagination.html',
@@ -80,9 +82,16 @@ const scriptElement = document.querySelector('#sample-script');
 let activatedMenu = null;
 
 function activeMenu(hash) {
-  activatedMenu && activatedMenu.classList.remove('active');
-  activatedMenu = document.querySelector('[href="#' + hash + '"]');
-  activatedMenu && activatedMenu.classList.add('active');
+  if (activatedMenu) {
+    activatedMenu.forEach((element) => {
+      element.classList.remove('active');
+    });
+  }
+
+  activatedMenu = document.querySelectorAll('[href="#' + hash + '"]');
+  activatedMenu.forEach((element) => {
+    element.classList.add('active');
+  });
 }
 
 function handlePageChange(url) {

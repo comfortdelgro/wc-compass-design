@@ -7,6 +7,7 @@ cdg-icon,
   color: currentColor;
   background-repeat: no-repeat;
   background-position: center;
+  flex-shrink: 0;
 
   svg {
     width: 100%;
