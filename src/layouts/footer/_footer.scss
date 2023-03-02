@@ -11,26 +11,26 @@ footer.cdg-footer-section {
     color: var(--accent);
   }
 
+  // This mode will not changes color when switch to dark or light theme
+  &.primary,
   &.reverse {
-    background-color: var(--grey100);
+    background-color: #333333;
     color: #ffffff;
     .zig-logo {
       color: #ffffff;
     }
 
-    .cdg-footer-connect {
-      .cdg-socials-group {
-        a {
-          color: #ffffff;
-        }
-      }
+    cdg-button.link,
+    .cdg-button.link,
+    .cdg-footer-connect .cdg-socials-group a,
+    .cdg-footer-links a,
+    .cdg-footer-column a {
+      color: #ffffff;
     }
+  }
 
-    .cdg-footer-links {
-      a {
-        color: #ffffff;
-      }
-    }
+  &.primary {
+    background-color: var(--accent);
   }
 
   .mobile-language {
