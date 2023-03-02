@@ -29,5 +29,11 @@
     "node": "16.19.0",
     "npm": "9.4.0"
   },
-  "license": "(Unlicense OR MIT)"
+  "license": "(Unlicense OR MIT)",
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.4",
+    "@fullcalendar/daygrid": "^6.1.4",
+    "@fullcalendar/interaction": "^6.1.4",
+    "@fullcalendar/multimonth": "^6.1.4"
+  }
 }

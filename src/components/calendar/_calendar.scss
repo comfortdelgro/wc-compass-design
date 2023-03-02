@@ -1,0 +1,33 @@
+.cdg-calendar {
+  position: relative;
+
+  &.double-calendar-view {
+    .fc-header-toolbar {
+      position: absolute;
+      width: 100%;
+      z-index: 10;
+    }
+  }
+
+  .fc-view-harness {
+    .fc-multimonth {
+      height: fit-content;
+      border: none;
+      .fc-multimonth-month {
+        height: fit-content;
+      }
+    }
+  }
+
+  .fc-day {
+    &.active-selected-date {
+      background-color: var(--accent) !important;
+      .fc-daygrid-day-number {
+        color: var(--revese-color);
+      }
+    }
+    &.selected-date {
+      background-color: var(--grey20);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<h2>Calendar</h2>
+
+<h3>Single</h3>
+<cdg-calendar id="test-cdg-calendar"></cdg-calendar>
+
+<h3>Double</h3>
+<cdg-calendar id="test-cdg-calendar-double" double></cdg-calendar>
+
+<script>
+  const el = document.getElementById('test-cdg-calendar-double');
+  el.addEventListener('onDateChange', function (params) {
+    console.log(params.detail);
+  });
+  const el1 = document.getElementById('test-cdg-calendar');
+  el1.setAttribute('date', new Date(2023, 2, 3, 0, 0, 0).toString());
+  el1.addEventListener('onDateChange', function (params) {
+    console.log(params.detail);
+  });
+</script>
