@@ -5,7 +5,7 @@
   display: table;
   box-sizing: border-box;
   text-indent: initial;
-  border: 1px solid #f5f5f6;
+  border: 1px solid #F5F5F6;
   width: 100%;
   table-layout: fixed;
 }
@@ -24,19 +24,19 @@
   display: table-row;
   vertical-align: inherit;
   border-color: inherit;
-  background: #f5f5f6;
+  background: var(--table-header-background);
 }
 
 /* th */
 .cdg-table-head-cell {
   border: 1px solid #ddd;
-  padding: 0.875rem 0.75rem;
+  padding: var(--spacing-3_5) var(--spacing-3);
   display: table-cell;
   vertical-align: inherit;
   font-weight: 600;
   text-align: left;
   position: relative;
-  font-size: 0.875rem;
+  font-size: var(--spacing-3_5);
   cursor: pointer;
 }
 .cdg-talbe-header-cell-contents {
@@ -59,7 +59,7 @@
   display: table-row;
   vertical-align: inherit;
   border-color: inherit;
-  background: #ffffff;
+  background: var(--primary-color);
   background-color: transparent;
   border-left-width: 2px;
   border-left-style: solid;
@@ -68,10 +68,10 @@
   transition: all 250ms ease;
 }
 
-/* even odd diffirent border */
-.cdg-table-row:nth-child(even) {
-  background-color: #f2f2f2;
-}
+// /* even odd diffirent border */
+// .cdg-table-row:nth-child(even) {
+//   background-color: var(--table-row-even);
+// }
 
 /* td */
 .cdg-table-cell {
@@ -80,6 +80,6 @@
   text-align: left;
   display: table-cell;
   vertical-align: inherit;
-  font-size: 0.875rem;
-  padding: 0.875rem 0.75rem;
+  font-size: var(--spacing-3_5);
+  padding: var(--spacing-3_5) var(--spacing-3);
 }

@@ -1,4 +1,3 @@
-import './styles.scss';
 import { removeParam } from './utils';
 
 export class CdgTable extends HTMLElement {

@@ -1,6 +1,9 @@
 export class CdgSortingAsc extends HTMLElement {
   constructor() {
     super();
+  }
+  connectedCallback() {
+    this.classList.add('cdg-sorting-asc');
     // Create a new SVG element
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('width', '24');
@@ -34,13 +37,13 @@ export class CdgSortingAsc extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(svg);
   }
-  connectedCallback() {
-    this.classList.add('cdg-sorting-asc');
-  }
 }
 export class CdgSortingDesc extends HTMLElement {
   constructor() {
     super();
+  }
+  connectedCallback() {
+    this.classList.add('cdg-sorting-desc');
     // Create a new SVG element
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('width', '24');
@@ -73,8 +76,5 @@ export class CdgSortingDesc extends HTMLElement {
     // Append the SVG to the Custom Element's shadow DOM
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(svg);
-  }
-  connectedCallback() {
-    this.classList.add('cdg-sorting-desc');
   }
 }
