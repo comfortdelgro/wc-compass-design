@@ -229,6 +229,7 @@ label.cdg-radio {
     height: 16px;
     top: 50%;
     transform: translateY(-50%);
+    flex-shrink: 0;
     appearance: none;
   }
 
