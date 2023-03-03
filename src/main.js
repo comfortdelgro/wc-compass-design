@@ -41,6 +41,9 @@ import {
   CdgNavRail,
   CdgWizards,
   CdgWizardStep,
+  CdgDashboardSideCard,
+  CdgCardActivity,
+  CdgGroupAvatar,
 } from './layouts';
 
 import {
@@ -89,6 +92,9 @@ customElements.define('cdg-portal-navbar', CdgPortalNavbar);
 customElements.define('cdg-nav-rail', CdgNavRail);
 customElements.define('cdg-wizards', CdgWizards);
 customElements.define('cdg-wizard-step', CdgWizardStep);
+customElements.define('cdg-dashboard-side-card', CdgDashboardSideCard);
+customElements.define('cdg-card-activity', CdgCardActivity);
+customElements.define('cdg-group-avatar', CdgGroupAvatar);
 
 export {
   CdgAccordion,
@@ -125,6 +131,9 @@ export {
   CdgNavRail,
   CdgWizards,
   CdgWizardStep,
+  CdgDashboardSideCard,
+  CdgCardActivity,
+  CdgGroupAvatar,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,
