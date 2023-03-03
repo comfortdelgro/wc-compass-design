@@ -9,6 +9,13 @@ export class CdgTableHeaderCell extends HTMLElement {
   }
   connectedCallback() {
     this.classList.add('cdg-talbe-header-cell');
+    const contents = document.createElement('div')
+    contents.classList.add('cdg-talbe-header-cell-contents')
+    this.appendChild(contents)
+    // add label to header cell
+    const label = this.getAttribute('label');
+    contents.innerHTML = label
+    // add event onclick
     this.addEventListener('click', () => {
       const sortDir = this.getNextSortDir();
       const url = new URL(window.location.href);
@@ -35,7 +42,7 @@ export class CdgTableHeaderCell extends HTMLElement {
         searchParams.set('columnId', headerCellId);
 
         // Add appropriate sorting icon based on sort direction
-        this.insertAdjacentHTML(
+        contents.insertAdjacentHTML(
           'beforeend',
           sortDir === 'asc' ? ascSortIcon : descSortIcon
         );
