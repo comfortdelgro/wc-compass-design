@@ -5,21 +5,29 @@ import './components/alert-badges.html';
 import './components/avatar.html';
 import './components/breadcrumbs.html';
 import './components/checkboxes.html';
+import './components/footer.html';
 import './components/icon.html';
 import './components/button.html';
 import './components/cards.html';
 import './components/inline-loading.html';
+import './components/loading.html';
+import './components/nav-rail.html';
+import './components/navbar.html';
+import './components/page-header.html';
 import './components/pagination.html';
 import './components/pill-badges.html';
 import './components/radios.html';
 import './components/status.html';
 import './components/action-bar.html';
+import './components/sub-header.html';
 import './components/tabs.html';
 import './components/text-field.html';
 import './components/table.html';
 import './components/dropdown.html';
 import './components/popover.html';
+import './components/progress.html';
 import './components/toggle.html';
+import './components/wizards.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -47,21 +55,29 @@ const contentMap = {
   avatar: './components/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
+  footer: './components/footer.html',
   icon: './components/icon.html',
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
   inlineLoading: './components/inline-loading.html',
+  loading: './components/loading.html',
+  navRail: './components/nav-rail.html',
+  navbar: './components/navbar.html',
+  pageHeader: './components/page-header.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
   radios: './components/radios.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
+  subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
   table: './components/table.html',
   popover: './components/popover.html',
+  progress: './components/progress.html',
   toggle: './components/toggle.html',
+  wizards: './components/wizards.html',
 };
 
 const content = document.querySelector('#component-content');
@@ -70,9 +86,16 @@ const scriptElement = document.querySelector('#sample-script');
 let activatedMenu = null;
 
 function activeMenu(hash) {
-  activatedMenu && activatedMenu.classList.remove('active');
-  activatedMenu = document.querySelector('[href="#' + hash + '"]');
-  activatedMenu && activatedMenu.classList.add('active');
+  if (activatedMenu) {
+    activatedMenu.forEach((element) => {
+      element.classList.remove('active');
+    });
+  }
+
+  activatedMenu = document.querySelectorAll('[href="#' + hash + '"]');
+  activatedMenu.forEach((element) => {
+    element.classList.add('active');
+  });
 }
 
 function handlePageChange(url) {

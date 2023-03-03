@@ -11,6 +11,7 @@ import { CdgAlertContent } from './components/alert/alert-content';
 import { CdgAvatar } from './components/avatar/avatar';
 import { CdgIcon } from './components/icon/icon';
 import { CdgInlineLoading } from './components/inline-loading/inline-loading';
+import { CdgLoading } from './components/loading/loading';
 import { CdgPagination } from './components/pagination/pagination';
 import { CdgPillBadge } from './components/pill-badge/pill-badge';
 import { CdgStatus } from './components/status/status';
@@ -22,6 +23,7 @@ import { CdgDropdownOption } from './components/dropdown/dropdown-option';
 import { CdgFloatingContent } from './components/floating-content/floating-content';
 import { CdgPopover } from './components/popover/popover';
 import { CdgPopoverContent } from './components/popover/popover-content';
+import { CdgProgress } from './components/progress/progress';
 import {
   CdgActionBar,
   CdgCard,
@@ -37,6 +39,16 @@ import {
   CdgSortingAsc,
   CdgSortingDesc,
   CdgCardCover,
+  CdgSubHeader,
+  CdgPageTitle,
+  CdgPageHeader,
+  CdgPageHeaderRow,
+  CdgPageActions,
+  CdgNavbar,
+  CdgPortalNavbar,
+  CdgNavRail,
+  CdgWizards,
+  CdgWizardStep,
 } from './layouts';
 
 import {
@@ -54,6 +66,7 @@ customElements.define('cdg-alert-content', CdgAlertContent);
 customElements.define('cdg-avatar', CdgAvatar);
 customElements.define('cdg-icon', CdgIcon);
 customElements.define('cdg-inline-loading', CdgInlineLoading);
+customElements.define('cdg-loading', CdgLoading);
 customElements.define('cdg-pagination', CdgPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
@@ -65,6 +78,7 @@ customElements.define('cdg-floating-content', CdgFloatingContent);
 customElements.define('cdg-dropdown-option', CdgDropdownOption);
 customElements.define('cdg-popover', CdgPopover);
 customElements.define('cdg-popover-content', CdgPopoverContent);
+customElements.define('cdg-progress', CdgProgress);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -83,6 +97,16 @@ customElements.define('cdg-table-row', CdgTableRow);
 customElements.define('cdg-sorting-asc', CdgSortingAsc);
 customElements.define('cdg-sorting-desc', CdgSortingDesc);
 customElements.define('cdg-card-cover', CdgCardCover);
+customElements.define('cdg-page-title', CdgPageTitle);
+customElements.define('cdg-page-header', CdgPageHeader);
+customElements.define('cdg-page-header-row', CdgPageHeaderRow);
+customElements.define('cdg-page-actions', CdgPageActions);
+customElements.define('cdg-sub-header', CdgSubHeader);
+customElements.define('cdg-navbar', CdgNavbar);
+customElements.define('cdg-portal-navbar', CdgPortalNavbar);
+customElements.define('cdg-nav-rail', CdgNavRail);
+customElements.define('cdg-wizards', CdgWizards);
+customElements.define('cdg-wizard-step', CdgWizardStep);
 
 export {
   CdgAccordion,
@@ -95,7 +119,12 @@ export {
   CdgAvatar,
   CdgIcon,
   CdgInlineLoading,
+  CdgLoading,
   CdgPagination,
+  CdgPageTitle,
+  CdgPageHeader,
+  CdgPageHeaderRow,
+  CdgPageActions,
   CdgPillBadge,
   CdgStatus,
   CdgTab,
@@ -115,6 +144,13 @@ export {
   CdgCardBody,
   CdgCardActions,
   CdgCardCover,
+  CdgSubHeader,
+  CdgPortalNavbar,
+  CdgNavbar,
+  CdgProgress,
+  CdgNavRail,
+  CdgWizards,
+  CdgWizardStep,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

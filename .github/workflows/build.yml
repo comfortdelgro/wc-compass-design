@@ -1,0 +1,48 @@
+name: Build docs to branch gh-pages
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "30 11 * * *"
+    - cron: "0 17 * * *"
+
+jobs:
+  build:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Build project assets
+        run: npm run build
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "fpt-tom-du"
+          git config user.email "tudq3@fsoft.com.vn"
+          git add .
+          git commit -m "Update dist folder"
+          git push origin main
+
+      - name: Copy files to docs folder
+        run: |
+          cp -p dist/{main.min.js,docs.min.js,main.min.css} docs/
+          cp -r dist/images docs/
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: static-site
+          path: docs/
+          if-no-files-found: error
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.2
+        with:
+          branch: gh-pages
+          folder: docs

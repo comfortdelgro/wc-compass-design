@@ -5,7 +5,9 @@
   "description": "Webpack + Web Components Compass Design by ComfortDelGro Corporation",
   "scripts": {
     "start": "webpack serve --config webpack.config.js --mode development",
-    "build": "webpack build --config webpack.config.js --mode production"
+    "build": "webpack build --config webpack.config.js --mode production",
+    "deploy": "npm run build && cp -p dist/{main.min.js,docs.min.js,main.min.css} docs/ && gh-pages -d docs -b gh-pages",
+    "deploy-window": "npm run build && copy dist\\main.min.js docs\\ && copy dist\\docs.min.js docs\\ && copy dist\\main.min.css docs\\ && gh-pages -d docs -b gh-pages"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -13,6 +15,7 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
+    "gh-pages": "^5.0.0",
     "mini-css-extract-plugin": "^2.7.2",
     "postcss-loader": "^7.0.2",
     "sass": "^1.58.1",
@@ -26,6 +29,5 @@
     "node": "16.19.0",
     "npm": "9.4.0"
   },
-  "license": "(Unlicense OR MIT)",
-  "dependencies": {}
+  "license": "(Unlicense OR MIT)"
 }

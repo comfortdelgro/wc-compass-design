@@ -19,44 +19,153 @@
     </script>
   </head>
   <body>
-    <header class="doc-header">
-      <h1>Web Component Compass Design</h1>
-      <div class="docs-tool">
-        <button class="cdg-button" onclick="toggleDark()">Toggle dark</button>
+    <cdg-nav-rail class="auto-collapse">
+      <div class="cdg-nav-rail-header">
+        <div class="cdg-nav-row">
+          <cdg-icon
+            class="workbench-logo"
+            name="compassLogo"
+            size="50"
+          ></cdg-icon>
+          <span class="workbench-title">Compass.Design</span>
+        </div>
+        <cdg-divider></cdg-divider>
       </div>
-    </header>
+      <div class="cdg-nav-rail-body">
+        <a href="#home" class="cdg-nav-item">
+          <cdg-icon name="home"></cdg-icon>
+          <span>Home</span>
+        </a>
+        <a href="#accordion" class="cdg-nav-item">
+          <cdg-avatar name="Accordion" size="24"></cdg-avatar>
+          <span>Accordion</span>
+        </a>
+        <a href="#actionBar" class="cdg-nav-item">
+          <cdg-avatar name="Action Bar" size="24"></cdg-avatar>
+          <span>Action Bar</span>
+        </a>
+        <a href="#alert" class="cdg-nav-item">
+          <cdg-avatar name="Alert" size="24"></cdg-avatar>
+          <span>Alert</span>
+        </a>
+        <a href="#breadcrumbs" class="cdg-nav-item">
+          <cdg-avatar name="Breadcrumbs" size="24"></cdg-avatar>
+          <span>Breadcrumbs</span>
+        </a>
+        <a href="#cards" class="cdg-nav-item">
+          <cdg-avatar name="Cards" size="24"></cdg-avatar>
+          <span>Cards</span>
+        </a>
+        <a href="#pageHeader" class="cdg-nav-item">
+          <cdg-avatar name="Page Header" size="24"></cdg-avatar>
+          <span>Page Header</span>
+        </a>
+        <a href="#subHeader" class="cdg-nav-item">
+          <cdg-avatar name="Sub Header" size="24"></cdg-avatar>
+          <span>Sub Header</span>
+        </a>
+        <a href="#navRail" class="cdg-nav-item">
+          <cdg-avatar name="Nav Rail" size="24"></cdg-avatar>
+          <span>Nav Rail</span>
+        </a>
+        <a href="#navbar" class="cdg-nav-item">
+          <cdg-avatar name="Navbar" size="24"></cdg-avatar>
+          <span>Navbar</span>
+        </a>
+        <a href="#table" class="cdg-nav-item">
+          <cdg-avatar name="Table" size="24"></cdg-avatar>
+          <span>Table</span>
+        </a>
+        <a href="#footer" class="cdg-nav-item">
+          <cdg-avatar name="Footer" size="24"></cdg-avatar>
+          <span>Footer</span>
+        </a>
+        <cdg-divider></cdg-divider>
+        <a href="#checkboxes" class="cdg-nav-item">
+          <cdg-avatar name="Checkboxes" size="24"></cdg-avatar>
+          <span>Checkboxes</span>
+        </a>
+        <a href="#dropdown" class="cdg-nav-item">
+          <cdg-avatar name="Dropdown" size="24"></cdg-avatar>
+          <span>Dropdown</span>
+        </a>
+        <a href="#textField" class="cdg-nav-item">
+          <cdg-avatar name="Text Field" size="24"></cdg-avatar>
+          <span>Text Field</span>
+        </a>
+        <a href="#radios" class="cdg-nav-item">
+          <cdg-avatar name="Radios" size="24"></cdg-avatar>
+          <span>Radios</span>
+        </a>
+        <a href="#toggle" class="cdg-nav-item">
+          <cdg-avatar name="Toggle" size="24"></cdg-avatar>
+          <span>Toggle</span>
+        </a>
+        <cdg-divider></cdg-divider>
+        <a href="#avatar" class="cdg-nav-item">
+          <cdg-avatar name="Avatar" size="24"></cdg-avatar>
+          <span>Avatar</span>
+        </a>
+        <a href="#alertBadges" class="cdg-nav-item">
+          <cdg-avatar name="Alert Badges" size="24"></cdg-avatar>
+          <span>Alert Badges</span>
+        </a>
+        <a href="#button" class="cdg-nav-item">
+          <cdg-avatar name="Button" size="24"></cdg-avatar>
+          <span>Button</span>
+        </a>
+        <a href="#icon" class="cdg-nav-item">
+          <cdg-avatar name="Icon" size="24"></cdg-avatar>
+          <span>Icon</span>
+        </a>
+        <a href="#inlineLoading" class="cdg-nav-item">
+          <cdg-avatar name="Inline Loading" size="24"></cdg-avatar>
+          <span>Inline Loading</span>
+        </a>
+        <a href="#loading" class="cdg-nav-item">
+          <cdg-avatar name="Loading" size="24"></cdg-avatar>
+          <span>Loading</span>
+        </a>
+        <a href="#pagination" class="cdg-nav-item">
+          <cdg-avatar name="Pagination" size="24"></cdg-avatar>
+          <span>Pagination</span>
+        </a>
+        <a href="#pillBadges" class="cdg-nav-item">
+          <cdg-avatar name="Pill Badges" size="24"></cdg-avatar>
+          <span>Pill Badges</span>
+        </a>
+        <a href="#status" class="cdg-nav-item">
+          <cdg-avatar name="Status" size="24"></cdg-avatar>
+          <span>Status</span>
+        </a>
+        <a href="#tabs" class="cdg-nav-item">
+          <cdg-avatar name="Tabs" size="24"></cdg-avatar>
+          <span>Tabs</span>
+        </a>
+        <a href="#popover" class="cdg-nav-item">
+          <cdg-avatar name="Popover" size="24"></cdg-avatar>
+          <span>Popover</span>
+        </a>
+        <a href="#progress" class="cdg-nav-item">
+          <cdg-avatar name="Progress" size="24"></cdg-avatar>
+          <span>Progress</span>
+        </a>
+        <a href="#wizards" class="cdg-nav-item">
+          <cdg-avatar name="Wizards" size="24"></cdg-avatar>
+          <span>Wizards</span>
+        </a>
+      </div>
+    </cdg-nav-rail>
     <div class="page-content">
-      <div class="sidebar">
-        <a class="component-item" href="#home">Home</a>
-        <div class="menu-section">Layouts</div>
-        <a class="component-item" href="#accordion">Accordion</a>
-        <a class="component-item" href="#actionBar">Action Bar</a>
-        <a class="component-item" href="#alert">Alert</a>
-        <a class="component-item" href="#breadcrumbs">Breadcrumbs</a>
-        <a class="component-item" href="#button">Button</a>
-        <a class="component-item" href="#cards">Cards</a>
-
-        <div class="menu-section">Form Controls</div>
-        <a class="component-item" href="#checkboxes">Checkboxes</a>
-        <a class="component-item" href="#dropdown">Dropdown</a>
-        <a class="component-item" href="#textField">Text Field</a>
-        <a class="component-item" href="#radios">Radios</a>
-        <a class="component-item" href="#toggle">Toggle</a>
-
-        <div class="menu-section">Components</div>
-        <a class="component-item" href="#avatar">Avatar</a>
-        <a class="component-item" href="#alertBadges">Alert Badges</a>
-        <a class="component-item" href="#button">Button</a>
-        <a class="component-item" href="#icon">Icon</a>
-        <a class="component-item" href="#inlineLoading">Inline Loading</a>
-        <a class="component-item" href="#pagination">Pagination</a>
-        <a class="component-item" href="#pillBadges">Pill Badges</a>
-        <a class="component-item" href="#status">Status</a>
-        <a class="component-item" href="#tabs">Tabs</a>
-        <a class="component-item" href="#textField">Text Field</a>
-        <a class="component-item" href="#table">Table</a>
-        <a class="component-item" href="#popover">Popover</a>
-      </div>
+      <cdg-portal-navbar class="primary">
+        <div class="portal-title">Compass Design</div>
+        <div class="cdg-separator"></div>
+        <div class="cdg-portal-nav-actions">
+          <button class="cdg-button ghost" size="small" onclick="toggleDark()">
+            Toggle Dark
+          </button>
+        </div>
+      </cdg-portal-navbar>
       <div id="component-content" class="doc-container"></div>
       <div id="sample-script"></div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
