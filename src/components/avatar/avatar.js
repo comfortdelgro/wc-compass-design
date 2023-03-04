@@ -1,6 +1,32 @@
 import { CdgIconSize } from '../../shared/core.js';
 
 export class CdgAvatar extends CdgIconSize {
+  static get observedAttributes() {
+    return ['size', 'name'];
+  }
+
+  get name() {
+    return this.getAttribute('name');
+  }
+
+  set name(name) {
+    this.setAttribute('name', name);
+  }
+
+  get size() {
+    return Number(this.getAttribute('size'));
+  }
+
+  set size(size) {
+    this.setAttribute('size', size);
+  }
+
+  get useFullName() {
+    return this.hasAttribute('useFullName');
+  }
+
+  nameElement;
+
   constructor() {
     super();
   }
@@ -15,8 +41,20 @@ export class CdgAvatar extends CdgIconSize {
 
     if (this.hasAttribute('imageSrc')) {
       this.displayAsImage();
-    } else if (this.hasAttribute('name')) {
+    } else if (this.name) {
       this.displayAsLetters();
+    }
+  }
+
+  attributeChangedCallback(attr, oldValue, newValue) {
+    if (attr === 'size') {
+      this.addCustomSize();
+    } else if (attr === 'name') {
+      if (this.nameElement && !this.hasAttribute('imageSrc')) {
+        this.nameElement.textContent = this.useFullName
+          ? this.name
+          : this.getShortName(this.name);
+      }
     }
   }
 
@@ -54,16 +92,16 @@ export class CdgAvatar extends CdgIconSize {
     }
     `;
 
-    const text = this.getShortName(this.getAttribute('name'));
+    const text = this.useFullName ? this.name : this.getShortName(this.name);
 
-    const nameElement = document.createElement('span');
-    nameElement.classList.add('avatar-text');
-    nameElement.textContent = text;
-    nameElement.alt = this.hasAttribute('alt')
+    this.nameElement = document.createElement('span');
+    this.nameElement.classList.add('avatar-text');
+    this.nameElement.textContent = text;
+    this.nameElement.alt = this.hasAttribute('alt')
       ? this.getAttribute('alt')
       : 'Avatar image';
 
-    this.shadowRoot.append(style, nameElement);
+    this.shadowRoot.append(style, this.nameElement);
   }
 
   getShortName(name) {

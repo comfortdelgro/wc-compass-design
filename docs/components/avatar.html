@@ -1,4 +1,8 @@
 <h2>Avatar</h2>
+<p>
+  Avatars help to distinguish between different entity types (person,
+  organization, user, team).
+</p>
 
 <h3>Image Avatar</h3>
 <div class="sample-avatar-section">
@@ -74,6 +78,20 @@
 &lt;cdg-avatar size=&quot;16&quot; name=&quot;Le Tuan Minh&quot;&gt;&lt;/cdg-avatar&gt;</code>
 </pre>
 
+<h3>Use your own characters</h3>
+
+<div class="sample-avatar-section">
+  <cdg-avatar size="48" name="A" useFullName></cdg-avatar>
+  <cdg-avatar size="48" name="BB" useFullName></cdg-avatar>
+  <cdg-avatar size="48" name="CCC" useFullName></cdg-avatar>
+</div>
+
+<pre>
+  <code class="language-html">&lt;cdg-avatar size=&quot;48&quot; name=&quot;A&quot; useFullName&gt;&lt;/cdg-avatar&gt;
+&lt;cdg-avatar size=&quot;48&quot; name=&quot;BB&quot; useFullName&gt;&lt;/cdg-avatar&gt;
+&lt;cdg-avatar size=&quot;48&quot; name=&quot;CCC&quot; useFullName&gt;&lt;/cdg-avatar&gt;</code>
+</pre>
+
 <h3>Icon avatar</h3>
 <div class="sample-avatar-section">
   <cdg-avatar size="48" type="icon" alt="User icon">
@@ -113,4 +131,35 @@
 &lt;cdg-avatar size=&quot;16&quot; type=&quot;icon&quot; alt=&quot;User icon&quot;&gt;
   &lt;cdg-icon name=&quot;user&quot; size=&quot;8&quot;&gt;&lt;/cdg-icon&gt;
 &lt;/cdg-avatar&gt;</code>
+</pre>
+
+<h3>Group avatar</h3>
+<div class="sample-avatar-section">
+  <cdg-group-avatar more="99">
+    <cdg-avatar size="32" imageSrc="https://i.pravatar.cc/32?1"></cdg-avatar>
+    <cdg-avatar size="32" imageSrc="https://i.pravatar.cc/32?2"></cdg-avatar>
+    <cdg-avatar size="32" imageSrc="https://i.pravatar.cc/32?3"></cdg-avatar>
+    <cdg-avatar size="32" imageSrc="https://i.pravatar.cc/32?4"></cdg-avatar>
+  </cdg-group-avatar>
+</div>
+
+<pre>
+  <code class="language-html">&lt;cdg-group-avatar more=&quot;99&quot;&gt;
+    &lt;cdg-avatar
+        size=&quot;32&quot;
+        imageSrc=&quot;https://i.pravatar.cc/32?1&quot;
+        &gt;&lt;/cdg-avatar&gt;
+    &lt;cdg-avatar
+        size=&quot;32&quot;
+        imageSrc=&quot;https://i.pravatar.cc/32?2&quot;
+        &gt;&lt;/cdg-avatar&gt;
+    &lt;cdg-avatar
+        size=&quot;32&quot;
+        imageSrc=&quot;https://i.pravatar.cc/32?3&quot;
+        &gt;&lt;/cdg-avatar&gt;
+    &lt;cdg-avatar
+        size=&quot;32&quot;
+        imageSrc=&quot;https://i.pravatar.cc/32?4&quot;
+        &gt;&lt;/cdg-avatar&gt;
+&lt;/cdg-group-avatar&gt;</code>
 </pre>
