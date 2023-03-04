@@ -24,6 +24,7 @@ import { CdgFloatingContent } from './components/floating-content/floating-conte
 import { CdgPopover } from './components/popover/popover';
 import { CdgPopoverContent } from './components/popover/popover-content';
 import { CdgProgress } from './components/progress/progress';
+import { CdgDatePicker } from './components/datepicker/datepicker';
 import {
   CdgActionBar,
   CdgCard,
@@ -71,6 +72,7 @@ customElements.define('cdg-dropdown-option', CdgDropdownOption);
 customElements.define('cdg-popover', CdgPopover);
 customElements.define('cdg-popover-content', CdgPopoverContent);
 customElements.define('cdg-progress', CdgProgress);
+customElements.define('cdg-datepicker', CdgDatePicker);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
