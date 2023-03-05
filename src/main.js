@@ -30,6 +30,14 @@ import {
   CdgCardHeader,
   CdgCardBody,
   CdgCardActions,
+  CdgTable,
+  CdgTableHead,
+  CdgTableBody,
+  CdgTableCell,
+  CdgTableHeaderCell,
+  CdgTableRow,
+  CdgSortingAsc,
+  CdgSortingDesc,
   CdgCardCover,
   CdgSubHeader,
   CdgPageTitle,
@@ -81,6 +89,16 @@ customElements.define('cdg-card', CdgCard);
 customElements.define('cdg-card-header', CdgCardHeader);
 customElements.define('cdg-card-body', CdgCardBody);
 customElements.define('cdg-card-actions', CdgCardActions);
+
+// Layouts
+customElements.define('cdg-table', CdgTable);
+customElements.define('cdg-table-head', CdgTableHead);
+customElements.define('cdg-table-body', CdgTableBody);
+customElements.define('cdg-table-cell', CdgTableCell);
+customElements.define('cdg-table-header-cell', CdgTableHeaderCell);
+customElements.define('cdg-table-row', CdgTableRow);
+customElements.define('cdg-sorting-asc', CdgSortingAsc);
+customElements.define('cdg-sorting-desc', CdgSortingDesc);
 customElements.define('cdg-card-cover', CdgCardCover);
 customElements.define('cdg-page-title', CdgPageTitle);
 customElements.define('cdg-page-header', CdgPageHeader);
@@ -118,6 +136,14 @@ export {
   CdgTab,
   CdgTabs,
   CdgActionBar,
+  CdgTable,
+  CdgTableHead,
+  CdgTableBody,
+  CdgTableCell,
+  CdgTableHeaderCell,
+  CdgTableRow,
+  CdgSortingAsc,
+  CdgSortingDesc,
   CdgDropdown,
   CdgCard,
   CdgCardHeader,
