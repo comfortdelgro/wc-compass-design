@@ -28,27 +28,39 @@ const templateHeader = document.createElement('template');
 templateHeader.innerHTML = `
   <section class="calendar-month-header">
     <section class="calendar-month-header-selectors">
-      <span id="previous-month-selector" class="previous-month-selector"> < </span>
+      <button id="previous-month-selector" class="previous-month-selector">
+        <cdg-icon name="arrowLeft" size="16"></cdg-icon>
+      </button>
       <!-- <span id="present-month-selector">Today</span> -->
-      <span id="next-month-selector" class="next-month-selector">></span>
+      <button id="next-month-selector" class="next-month-selector">
+        <cdg-icon name="arrowRight" size="16"></cdg-icon>
+      </button>
     </section>
   </section>
 `;
 
-function createDayLayout() {
+function createDayLayout(monthDivId = 'calendar-month') {
+  // Container
   const monthDiv = document.createElement('div');
   monthDiv.classList.add('calendar-month');
-  monthDiv.setAttribute('id', 'calendar-month');
+  monthDiv.setAttribute('id', monthDivId);
   const contentMonthDiv = document.createElement('div');
   contentMonthDiv.classList.add('content-month');
   contentMonthDiv.setAttribute('id', 'content-month');
-  const monthTitleDiv = document.createElement('div');
+
+  // Title
+  const monthTitleContainer = document.createElement('div');
+  monthTitleContainer.classList.add('content-month-title-container');
+  const monthTitleDiv = document.createElement('button');
   monthTitleDiv.classList.add('content-month-title');
+  monthTitleContainer.appendChild(monthTitleDiv);
+
+  // List of contents
   const daysWeekOl = document.createElement('ol');
   daysWeekOl.classList.add('day-of-week');
   const calendarDaysOl = document.createElement('ol');
   calendarDaysOl.classList.add('days-grid');
-  contentMonthDiv.appendChild(monthTitleDiv);
+  contentMonthDiv.appendChild(monthTitleContainer);
   contentMonthDiv.appendChild(daysWeekOl);
   contentMonthDiv.appendChild(calendarDaysOl);
   monthDiv.appendChild(contentMonthDiv);
@@ -57,15 +69,23 @@ function createDayLayout() {
 }
 
 function createMultipYearLayout() {
+  // Container
   const yearDiv = document.createElement('div');
   yearDiv.classList.add('calendar-multi-year');
   const contentYearDiv = document.createElement('div');
   contentYearDiv.classList.add('content-multi-year');
-  const yearTitleDiv = document.createElement('div');
+
+  // Title
+  const yearTitleContainer = document.createElement('div');
+  yearTitleContainer.classList.add('content-year-title-container');
+  const yearTitleDiv = document.createElement('button');
   yearTitleDiv.classList.add('content-year-title');
+  yearTitleContainer.appendChild(yearTitleDiv);
+
+  // List of contents
   const yearsOl = document.createElement('ol');
   yearsOl.classList.add('years-container');
-  contentYearDiv.appendChild(yearTitleDiv);
+  contentYearDiv.appendChild(yearTitleContainer);
   contentYearDiv.appendChild(yearsOl);
   yearDiv.appendChild(contentYearDiv);
 
@@ -73,22 +93,32 @@ function createMultipYearLayout() {
 }
 
 function createMonthLayout() {
+  // Container
   const monthDiv = document.createElement('div');
   monthDiv.classList.add('calendar-month-layout');
   const contentMonthDiv = document.createElement('div');
   contentMonthDiv.classList.add('content-month-layout');
-  const monthTitleDiv = document.createElement('div');
+
+  // Title
+  const monthTitleContainer = document.createElement('div');
+  monthTitleContainer.classList.add('content-month-title-container');
+  const monthTitleDiv = document.createElement('button');
   monthTitleDiv.classList.add('content-month-layout-title');
+  monthTitleContainer.appendChild(monthTitleDiv);
+
+  // List of contents
   const monthsOl = document.createElement('ol');
   monthsOl.classList.add('month-layout-container');
   MONTHS.forEach((item) => {
     const monthItem = document.createElement('li');
+    const monthButton = document.createElement('button');
     monthItem.classList.add('month-item');
-    monthItem.textContent = item.text;
-    monthItem.setAttribute('value', item.value);
+    monthButton.textContent = item.text;
+    monthButton.setAttribute('value', item.value);
+    monthItem.appendChild(monthButton);
     monthsOl.appendChild(monthItem);
   });
-  contentMonthDiv.appendChild(monthTitleDiv);
+  contentMonthDiv.appendChild(monthTitleContainer);
   contentMonthDiv.appendChild(monthsOl);
   monthDiv.appendChild(contentMonthDiv);
 
@@ -126,16 +156,17 @@ export class CdgDatePicker extends HTMLElement {
 
     this.isDouble = this.hasAttribute('double');
     if (this.isDouble) {
-      this.style.width = '630px';
-      this.containerElement.appendChild(createDayLayout());
+      this.containerElement.style.width = '630px';
+      this.containerElement.appendChild(createDayLayout('calendar-month-1'));
     } else {
-      this.style.width = '327px';
+      this.containerElement.style.width = '327px';
     }
     this.render();
   }
 
   connectedCallback() {
     this.classList.add('cdg-datepicker');
+    this.isDouble && this.classList.add('cdg-datepicker-double');
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -143,23 +174,26 @@ export class CdgDatePicker extends HTMLElement {
   }
 
   createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
-    const calendarDaysElements = this.getElementsByClassName('days-grid');
+    const calendarMonthElements = this.getElementsByClassName('calendar-month');
 
-    for (let index = 0; index < calendarDaysElements.length; index++) {
-      const calendarDaysElement = calendarDaysElements.item(index);
+    for (let index = 0; index < calendarMonthElements.length; index++) {
+      const calendarMonthElement = calendarMonthElements.item(index);
+      const calendarDaysElement =
+        calendarMonthElement.querySelector('.days-grid');
       const currentMonth = Number(month) + index;
-      this.contentMonthTitleElement = this.calendarMonthElement.querySelector(
+      const contentMonthTitleElement = calendarMonthElement.querySelector(
         '.content-month-title'
       );
-      if (this.contentMonthTitleElement) {
-        this.contentMonthTitleElement.innerText = dayjs(
+
+      if (contentMonthTitleElement) {
+        contentMonthTitleElement.innerText = dayjs(
           new Date(year, currentMonth - 1)
         ).format('MMMM YYYY');
         if (!this.isDouble && index === 0) {
           if (!this.titleDayClickFn) {
             this.titleDayClickFn = this.handleTitleDayClick.bind(this);
           }
-          this.contentMonthTitleElement.addEventListener(
+          contentMonthTitleElement.addEventListener(
             'click',
             this.titleDayClickFn
           );
@@ -196,11 +230,13 @@ export class CdgDatePicker extends HTMLElement {
 
   appendDay(day, calendarDaysElement) {
     const dayElement = document.createElement('li');
+    const monthButton = document.createElement('button');
     const dayElementClassList = dayElement.classList;
     dayElementClassList.add('calendar-day');
-    const dayOfMonthElement = document.createElement('span');
-    dayOfMonthElement.innerText = day.dayOfMonth;
-    dayElement.appendChild(dayOfMonthElement);
+    monthButton.innerText = day.dayOfMonth;
+    monthButton.setAttribute('value', day.date);
+    dayElement.appendChild(monthButton);
+    monthButton.addEventListener('click', this.handleDayClick.bind(this));
     calendarDaysElement.appendChild(dayElement);
     if (!day.isCurrentMonth) {
       dayElementClassList.add('calendar-day--not-current');
@@ -208,6 +244,14 @@ export class CdgDatePicker extends HTMLElement {
     if (day.date === TODAY) {
       dayElementClassList.add('calendar-day--today');
     }
+  }
+
+  handleDayClick(event) {
+    this.dispatchEvent(
+      new CustomEvent('ondateclick', {
+        detail: event.target.getAttribute('value'),
+      })
+    );
   }
 
   handleTitleDayClick() {
@@ -221,14 +265,10 @@ export class CdgDatePicker extends HTMLElement {
     this.rangeYear = Math.floor(
       this.selectedMonth.format('YYYY') / DISPLAY_YEARS_LENGTH
     );
-    const currentYear = `${this.rangeYear * DISPLAY_YEARS_LENGTH} - ${
-      (this.rangeYear + 1) * DISPLAY_YEARS_LENGTH - 1
-    }`;
     const contentYearTitleElement = this.multiYearView.querySelector(
       '.content-year-title'
     );
     if (contentYearTitleElement) {
-      contentYearTitleElement.innerHTML = currentYear;
       contentYearTitleElement.addEventListener(
         'click',
         this.handleContentYearTitleClick.bind(this)
@@ -259,7 +299,12 @@ export class CdgDatePicker extends HTMLElement {
     for (let index = 0; index < DISPLAY_YEARS_LENGTH; index++) {
       const yearText = index + this.rangeYear * DISPLAY_YEARS_LENGTH;
       const yearElement = document.createElement('li');
-      yearElement.innerText = yearText;
+      const monthButton = document.createElement('button');
+      if (Number(this.selectedMonth.format('YYYY')) === yearText) {
+        monthButton.classList.add('selected-year');
+      }
+      monthButton.innerText = yearText;
+      yearElement.appendChild(monthButton);
       yearElement.addEventListener(
         'click',
         this.handleYearItemClick.bind(this)
@@ -299,7 +344,17 @@ export class CdgDatePicker extends HTMLElement {
       if (!this.monthItemClickFn) {
         this.monthItemClickFn = this.handleMonthItemClick.bind(this);
       }
+      const currentComponent = this;
       contentMonthItemElements.forEach((item) => {
+        const value =
+          item.getAttribute('value') ||
+          item.querySelector('button').getAttribute('value');
+        if (
+          Number(currentComponent.selectedMonth.format('M')) - 1 ===
+          Number(value)
+        ) {
+          item.classList.add('selected-month');
+        }
         item.addEventListener('click', this.monthItemClickFn);
       });
     }
@@ -310,7 +365,10 @@ export class CdgDatePicker extends HTMLElement {
     this.mode = 'day';
     this.calendarMonthElement.removeChild(this.monthView);
     this.calendarMonthElement.appendChild(this.dayView);
-    this.createCalendar(this.selectedYear);
+    this.createCalendar(
+      this.selectedMonth.format('YYYY'),
+      this.selectedMonth.format('M')
+    );
   }
 
   handleMonthItemClick(event) {
@@ -462,6 +520,7 @@ export class CdgDatePicker extends HTMLElement {
         }
         break;
       case 'year':
+        console.log('handlePreviousButtonClick');
         this.rangeYear = this.rangeYear - 1;
         this.createYear();
         break;

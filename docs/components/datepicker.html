@@ -1,13 +1,18 @@
 <h2>Datepicker</h2>
 
 <h3>Single picker</h3>
-<label class="cdg-input-group">
-  <span class="cdg-input-label">Single picker</span>
-  <cdg-datepicker></cdg-datepicker>
-</label>
+<div class="cdg-datepicker-container">
+  <cdg-datepicker id="test-datepicker"></cdg-datepicker>
+</div>
 
-<!-- <h3>Double picker</h3>
-<label class="cdg-input-group">
-  <span class="cdg-input-label">Double picker</span>
+<h3>Double picker</h3>
+<div class="cdg-datepicker-container">
   <cdg-datepicker double></cdg-datepicker>
-</label> -->
+</div>
+
+<script>
+  const test = document.querySelector('#test-datepicker');
+  test.addEventListener('ondateclick', function (event) {
+    console.log(event.detail);
+  });
+</script>
