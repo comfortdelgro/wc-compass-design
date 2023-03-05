@@ -20,16 +20,26 @@ export class CdgGroupAvatar extends HTMLElement {
   connectedCallback() {
     this.classList.add('cdg-group-avatar');
 
-    this.moreAvatar = document.createElement('cdg-avatar');
-    this.moreAvatar.setAttribute('size', 32);
-    this.moreAvatar.setAttribute('useFullName', true);
-    this.moreAvatar.setAttribute('name', '+' + this.more);
-    this.appendChild(this.moreAvatar);
+    if (this.more) {
+      this.addMoreAvatar();
+    }
   }
 
   attributeChangedCallback(attr) {
-    if (attr === 'more' && this.moreAvatar) {
+    if (attr === 'more' && this.more) {
+      this.addMoreAvatar();
+    }
+  }
+
+  addMoreAvatar() {
+    if (this.moreAvatar) {
       this.moreAvatar.setAttribute('name', '+' + this.more);
+    } else {
+      this.moreAvatar = document.createElement('cdg-avatar');
+      this.moreAvatar.setAttribute('size', 32);
+      this.moreAvatar.setAttribute('useFullName', true);
+      this.moreAvatar.setAttribute('name', '+' + this.more);
+      this.appendChild(this.moreAvatar);
     }
   }
 }
