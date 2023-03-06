@@ -35,73 +35,45 @@ export class CdgAvatar extends CdgIconSize {
     this.classList.add('cdg-avatar');
 
     const type = this.getAttribute('type');
-    if (!type || type !== 'icon') {
-      this.attachShadow({ mode: 'open' }); // sets and returns 'this.shadowRoot'
-    }
-
     if (this.hasAttribute('imageSrc')) {
       this.displayAsImage();
-    } else if (this.name) {
-      this.displayAsLetters();
     }
+    this.nameElement = this.querySelector('.avatar-text');
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
     if (attr === 'size') {
       this.addCustomSize();
     } else if (attr === 'name') {
-      if (this.nameElement && !this.hasAttribute('imageSrc')) {
-        this.nameElement.textContent = this.useFullName
-          ? this.name
-          : this.getShortName(this.name);
-      }
+      this.nameElement = this.querySelector('.avatar-text');
+      this.addName();
     }
   }
 
   displayAsImage() {
-    // Create some CSS to apply to the shadow DOM
-    const style = document.createElement('style');
-    style.textContent = `
-        .avatar-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    `;
-
     const img = document.createElement('img');
     img.classList.add('avatar-image');
     img.src = this.getAttribute('imageSrc');
     img.alt = this.hasAttribute('alt')
       ? this.getAttribute('alt')
       : 'Avatar image';
-    this.shadowRoot.append(style, img);
+    this.appendChild(img);
   }
 
-  displayAsLetters() {
-    // Create some CSS to apply to the shadow DOM
-    const style = document.createElement('style');
-    style.textContent = `
-    .avatar-text {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-    }
-    `;
-
+  addName() {
     const text = this.useFullName ? this.name : this.getShortName(this.name);
+    if (this.nameElement) {
+      this.nameElement.textContent = text;
+    } else {
+      this.nameElement = document.createElement('span');
+      this.nameElement.classList.add('avatar-text');
+      this.nameElement.textContent = text;
+      this.nameElement.alt = this.hasAttribute('alt')
+        ? this.getAttribute('alt')
+        : 'Avatar image';
 
-    this.nameElement = document.createElement('span');
-    this.nameElement.classList.add('avatar-text');
-    this.nameElement.textContent = text;
-    this.nameElement.alt = this.hasAttribute('alt')
-      ? this.getAttribute('alt')
-      : 'Avatar image';
-
-    this.shadowRoot.append(style, this.nameElement);
+      this.appendChild(this.nameElement);
+    }
   }
 
   getShortName(name) {

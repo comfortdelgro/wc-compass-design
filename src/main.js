@@ -26,6 +26,8 @@ import { CdgPopoverContent } from './components/popover/popover-content';
 import { CdgProgress } from './components/progress/progress';
 import { CdgCalendar } from './components/calendar/calendar';
 import { CdgDatePicker } from './components/datepicker/datepicker';
+import { CdgListview } from './components/list-view/list-view';
+import { CdgListItem } from './components/list-view/list-item';
 import {
   CdgActionBar,
   CdgCard,
@@ -86,6 +88,8 @@ customElements.define('cdg-popover-content', CdgPopoverContent);
 customElements.define('cdg-progress', CdgProgress);
 customElements.define('cdg-calendar', CdgCalendar);
 customElements.define('cdg-datepicker', CdgDatePicker);
+customElements.define('cdg-list-view', CdgListview);
+customElements.define('cdg-list-item', CdgListItem);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -164,6 +168,8 @@ export {
   CdgDashboardSideCard,
   CdgCardActivity,
   CdgGroupAvatar,
+  CdgListview,
+  CdgListItem,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,
