@@ -1,9 +1,22 @@
 <h2>Datepicker</h2>
 
-<input type="text">
-<h3>Default</h3>
+<h3>Single</h3>
 <div>
-  <cdg-datepicker />
+  <cdg-datepicker start-title="Single Datepicker" />
 </div>
 
-<div style="height: 2000px;"></div>
+<h3>Double</h3>
+<div>
+  <cdg-datepicker double start-title="Start" end-title="End" />
+</div>
+
+<script>
+  const datepickers = document.querySelectorAll('cdg-datepicker');
+  datepickers.forEach((datepicker) => {
+    datepicker.addEventListener('onDateChange', function (event) {
+      console.log('onDateChange: ', event.detail);
+    });
+  });
+</script>
+
+<div style="height: 2000px"></div>
