@@ -73,7 +73,7 @@ cdg-nav-rail,
     }
 
     .cdg-nav-item .item-arrow,
-    .cdg-nav-item span,
+    .cdg-nav-item span:not(.avatar-text),
     .module-info,
     .workbench-title {
       display: none;
@@ -91,7 +91,7 @@ cdg-nav-rail,
       }
 
       .cdg-nav-item .item-arrow,
-      .cdg-nav-item span,
+      .cdg-nav-item span:not(.avatar-text),
       .module-info,
       .workbench-title {
         position: relative;
