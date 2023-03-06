@@ -163,7 +163,7 @@ export class CdgCalendar extends HTMLElement {
   bottomSelectedDetailElement;
 
   static get observedAttributes() {
-    return [];
+    return ['selectedStartDate', 'selectedEndDate'];
   }
 
   constructor() {
