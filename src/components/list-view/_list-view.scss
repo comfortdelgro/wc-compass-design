@@ -12,7 +12,15 @@
   position: relative;
   cursor: pointer;
 
-  &:hover {
+  &.dragging-hidden {
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    height: 0;
+    padding: 0;
+  }
+
+  &:not(.dragging):hover {
     background-color: var(--blue10);
   }
 
@@ -24,15 +32,11 @@
     }
   }
 
-  &.dragging-hidden {
-    opacity: 0;
-    pointer-events: none;
-    overflow: hidden;
-    height: 0;
-    padding: 0;
-  }
-
   &.dragging {
+    // To not handle any events from children
+    * {
+      pointer-events: none;
+    }
   }
 
   &.dragenter {
@@ -41,25 +45,20 @@
   &[draggable] {
     padding-left: 42px;
   }
-
-  // To not handle any events from children
-  * {
-    pointer-events: none;
-  }
 }
 
 .cdg-list-draggable-icon {
   position: absolute;
   width: 3px;
   height: 3px;
-  background: var(--grey90);
+  background: currentColor;
   border-radius: 4px;
   z-index: 1;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  box-shadow: 6px 0 0 var(--grey90), 0px 6px 0 var(--grey90),
-    6px -6px 0 var(--grey90), 6px 6px 0 var(--grey90), 0 -6px 0 var(--grey90);
+  box-shadow: 6px 0 0 currentColor, 0px 6px 0 currentColor,
+    6px -6px 0 currentColor, 6px 6px 0 currentColor, 0 -6px 0 currentColor;
 }
 
 .cdg-list-item-title {
@@ -105,6 +104,15 @@
   .cdg-list-item {
     border-radius: 0;
   }
+
+  &.dragging {
+    .cdg-list-item:hover,
+    .cdg-list-item:active {
+      background-color: var(--background);
+      color: var(--grey90);
+    }
+  }
+
   &[draggable] {
     .cdg-list-item {
       cursor: pointer;

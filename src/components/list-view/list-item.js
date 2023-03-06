@@ -21,7 +21,7 @@ export class CdgListItem extends HTMLElement {
 
   set draggable(draggable) {
     if (draggable) {
-      this.setAttribute('draggable', null);
+      this.setAttribute('draggable', true);
     } else {
       this.removeAttribute('draggable');
     }
@@ -36,6 +36,7 @@ export class CdgListItem extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-list-item');
+    this.tabIndex = 0;
   }
 
   attributeChangedCallback(attr) {
@@ -67,6 +68,10 @@ export class CdgListItem extends HTMLElement {
     this.draggableIcon = document.createElement('div');
     this.draggableIcon.classList.add('cdg-list-draggable-icon');
     this.prepend(this.draggableIcon);
+  }
+
+  removeEvents() {
+    this.removeEventListener('dragstart', this.handleDrag.bind(this));
   }
 
   removeDragIcon() {
@@ -109,14 +114,15 @@ export class CdgListItem extends HTMLElement {
     this.classList.add('dragging');
     setTimeout(() => {
       this.classList.add('dragging-hidden');
+      this.placeholderPosition = 'down';
+      this.dispatchEvent(
+        new CustomEvent('dragthrough', { detail: this.placeholderPosition })
+      );
     });
-    this.placeholderPosition = 'down';
-    this.dispatchEvent(
-      new CustomEvent('dragthrough', { detail: this.placeholderPosition })
-    );
   }
 
   handleDragOver(event) {
+    event.preventDefault();
     const bound = this.getBoundingClientRect();
     const position = event.pageY < bound.top + bound.height / 2 ? 'up' : 'down';
     if (position !== this.placeholderPosition) {
@@ -127,21 +133,17 @@ export class CdgListItem extends HTMLElement {
     }
   }
 
-  handleDragEnter(event) {
+  handleDragEnter() {
     this.classList.add('dragenter');
   }
 
-  handleDragLeave(event) {
+  handleDragLeave() {
     this.classList.remove('dragenter');
   }
 
-  handleEnd(event) {
+  handleEnd() {
     this.classList.remove('dragging');
     this.classList.remove('dragging-hidden');
     this.removeAttribute('style');
-  }
-
-  removeEvents() {
-    this.removeEventListener('dragstart', this.handleDrag.bind(this));
   }
 }
