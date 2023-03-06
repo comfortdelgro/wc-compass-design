@@ -1,7 +1,10 @@
-.cdg-datepicker-container {
+.cdg-calendar-container {
   display: flex;
+  background: var(--background);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  width: fit-content;
 
-  .cdg-datepicker {
+  .cdg-calendar {
     position: relative;
     ol,
     li {
@@ -10,10 +13,8 @@
       list-style: none;
     }
 
-    &.cdg-datepicker-double {
+    &.cdg-calendar-double {
       .calendar-container {
-        background: var(--background);
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
         .content-month-title-container {
           button {
             cursor: auto;
@@ -29,12 +30,6 @@
           }
         }
       }
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      background: unset;
     }
 
     .calendar-month-header-selectors {
@@ -64,9 +59,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
 
+      button {
+        cursor: pointer;
+        border: none;
+        background: unset;
+      }
+
       .calendar-month {
-        background: var(--background);
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
         border-radius: 4px;
         padding: 16px;
 
@@ -122,6 +121,12 @@
           .calendar-day {
             position: relative;
             height: 32px;
+            button {
+              &:hover {
+                background-color: var(--grey20);
+                border-radius: 4px;
+              }
+            }
           }
           .calendar-day--not-current {
             button {
@@ -233,6 +238,41 @@
       width: 100%;
       & > * {
         cursor: pointer;
+      }
+    }
+  }
+
+  .calendar-month-bottom {
+    padding: 16px;
+    .calendar-month-bottom-selectors {
+      display: flex;
+      justify-content: space-between;
+      .month-selector-clear {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        border-radius: 4px;
+        padding: 4px 10px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+      .month-selector-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        .month-selector-detail {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 21px;
+          color: var(--primary-color);
+        }
+        .month-selector-today {
+          padding: 4px 10px;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 18px;
+        }
       }
     }
   }

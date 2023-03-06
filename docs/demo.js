@@ -29,7 +29,7 @@ import './components/popover.html';
 import './components/progress.html';
 import './components/toggle.html';
 import './components/wizards.html';
-import './components/datepicker.html';
+import './components/calendar.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -81,7 +81,7 @@ const contentMap = {
   progress: './components/progress.html',
   toggle: './components/toggle.html',
   wizards: './components/wizards.html',
-  datepicker: './components/datepicker.html',
+  calendar: './components/calendar.html',
 };
 
 const content = document.querySelector('#component-content');

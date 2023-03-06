@@ -39,6 +39,24 @@ templateHeader.innerHTML = `
   </section>
 `;
 
+const templateBottom = document.createElement('template');
+templateBottom.innerHTML = `
+  <section class="calendar-month-bottom">
+    <section class="calendar-month-bottom-selectors">
+      <button id="month-selector-clear" class="month-selector-clear">
+        Clear
+      </button>
+      <div class="month-selector-right">
+        <div id="month-selector-detail" class="month-selector-detail">
+        </div>
+        <button id="month-selector-today" class="month-selector-today cdg-button">
+          Today
+        </button>
+      </div>
+    </section>
+  </section>
+`;
+
 function createDayLayout(monthDivId = 'calendar-month') {
   // Container
   const monthDiv = document.createElement('div');
@@ -125,7 +143,7 @@ function createMonthLayout() {
   return monthDiv;
 }
 
-export class CdgDatePicker extends HTMLElement {
+export class CdgCalendar extends HTMLElement {
   selectedMonth = dayjs(new Date(INITIAL_YEAR, INITIAL_MONTH - 1, 1));
   mode = 'day';
   containerElement;
@@ -138,6 +156,11 @@ export class CdgDatePicker extends HTMLElement {
   monthView;
 
   isDouble;
+
+  hasBottom;
+  bottomElement;
+  todayElement;
+  bottomSelectedDetailElement;
 
   static get observedAttributes() {
     return [];
@@ -162,11 +185,37 @@ export class CdgDatePicker extends HTMLElement {
       this.containerElement.style.width = '327px';
     }
     this.render();
+
+    this.hasBottom = this.hasAttribute('has-bottom');
+    if (this.hasBottom) {
+      this.append(templateBottom.content.cloneNode(true));
+      this.bottomElement = this.querySelector('.calendar-month-bottom');
+      this.todayElement = this.bottomElement.querySelector(
+        '.month-selector-today'
+      );
+      this.todayElement.addEventListener(
+        'click',
+        this.handleTodayClick.bind(this)
+      );
+      if (this.isDouble) {
+        this.bottomSelectedDetailElement = this.bottomElement.querySelector(
+          '#month-selector-detail'
+        );
+      }
+    }
+  }
+
+  handleTodayClick() {
+    this.selectedMonth = dayjs(new Date(INITIAL_YEAR, INITIAL_MONTH - 1, 1));
+    this.createCalendar(
+      this.selectedMonth.format('YYYY'),
+      this.selectedMonth.format('M')
+    );
   }
 
   connectedCallback() {
-    this.classList.add('cdg-datepicker');
-    this.isDouble && this.classList.add('cdg-datepicker-double');
+    this.classList.add('cdg-calendar');
+    this.isDouble && this.classList.add('cdg-calendar-double');
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -486,12 +535,6 @@ export class CdgDatePicker extends HTMLElement {
         this.handlePreviousButtonClick.bind(this)
       );
     }
-    // this
-    //   .getElementById("present-month-selector")
-    //   .addEventListener("click", function () {
-    //     this.selectedMonth = dayjs(new Date(INITIAL_YEAR, INITIAL_MONTH - 1, 1));
-    //     createCalendar(this.selectedMonth.format("YYYY"), this.selectedMonth.format("M"));
-    //   });
     const nextMonthSelector = this.querySelector('.next-month-selector');
     if (nextMonthSelector) {
       nextMonthSelector.addEventListener(
