@@ -12,6 +12,10 @@
     />
     <link rel="stylesheet" href="./main.min.css" />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekday.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekOfYear.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/customParseFormat.js"></script>
     <script>
       function toggleDark() {
         document.body.classList.toggle('dark');
@@ -89,9 +93,17 @@
           <span>Footer</span>
         </a>
         <cdg-divider></cdg-divider>
+        <a href="#calendar" class="cdg-nav-item">
+          <cdg-avatar name="calendar" size="24"></cdg-avatar>
+          <span>Calendar</span>
+        </a>
         <a href="#checkboxes" class="cdg-nav-item">
           <cdg-avatar name="Checkboxes" size="24"></cdg-avatar>
           <span>Checkboxes</span>
+        </a>
+        <a href="#datepicker" class="cdg-nav-item">
+          <cdg-avatar name="datepicker" size="24"></cdg-avatar>
+          <span>Datepicker</span>
         </a>
         <a href="#dropdown" class="cdg-nav-item">
           <cdg-avatar name="Dropdown" size="24"></cdg-avatar>
