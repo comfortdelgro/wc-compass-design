@@ -163,7 +163,7 @@ export class CdgCalendar extends HTMLElement {
   bottomSelectedDetailElement;
 
   static get observedAttributes() {
-    return ['start-date', 'end-date'];
+    return ['start-date', 'end-date', 'open'];
   }
 
   constructor() {
@@ -240,6 +240,15 @@ export class CdgCalendar extends HTMLElement {
       case 'end-date':
         this.endDate = new Date(newValue);
         this.renderSelectedDate();
+        break;
+      case 'open':
+        if (newValue) {
+          this.selectedMonth = dayjs(this.startDate);
+          this.createCalendar(
+            this.selectedMonth.format('YYYY'),
+            this.selectedMonth.format('M')
+          );
+        }
         break;
 
       default:
@@ -613,6 +622,7 @@ export class CdgCalendar extends HTMLElement {
     switch (this.mode) {
       case 'day':
         this.selectedMonth = dayjs(this.selectedMonth).subtract(1, 'month');
+
         this.createCalendar(
           this.selectedMonth.format('YYYY'),
           this.selectedMonth.format('M')
@@ -628,7 +638,6 @@ export class CdgCalendar extends HTMLElement {
         }
         break;
       case 'year':
-        console.log('handlePreviousButtonClick');
         this.rangeYear = this.rangeYear - 1;
         this.createYear();
         break;
@@ -642,6 +651,7 @@ export class CdgCalendar extends HTMLElement {
     switch (this.mode) {
       case 'day':
         this.selectedMonth = dayjs(this.selectedMonth).add(1, 'month');
+
         this.createCalendar(
           this.selectedMonth.format('YYYY'),
           this.selectedMonth.format('M')
