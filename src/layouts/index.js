@@ -60,6 +60,7 @@ customElements.define('cdg-group-avatar', CdgGroupAvatar);
 customElements.define('cdg-carousel', CdgCarousel);
 customElements.define('cdg-carousel-scroller', CdgCarouselScroller);
 customElements.define('cdg-slide', CdgSlide);
+customElements.define('cdg-dots-indicator', CdgDotsIndicator);
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
