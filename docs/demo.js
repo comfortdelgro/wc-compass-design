@@ -10,6 +10,7 @@ import './components/footer.html';
 import './components/icon.html';
 import './components/button.html';
 import './components/cards.html';
+import './components/carousel.html';
 import './components/inline-loading.html';
 import './components/list-view.html';
 import './components/loading.html';
@@ -65,6 +66,7 @@ const contentMap = {
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
+  carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
   listView: './components/list-view.html',
   loading: './components/loading.html',

@@ -1,0 +1,23 @@
+cdg-carousel,
+.cdg-carousel {
+  display: flex;
+  width: 100%;
+}
+
+.cdg-carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+cdg-carousel-scroller,
+.cdg-carousel-scroller {
+  display: flex;
+  &:not(.resizing) {
+    @extend %smoothTransition;
+  }
+}
+
+cdg-slide,
+.cdg-slide {
+  flex: 1;
+}
