@@ -24,12 +24,24 @@ import { CdgFloatingContent } from './components/floating-content/floating-conte
 import { CdgPopover } from './components/popover/popover';
 import { CdgPopoverContent } from './components/popover/popover-content';
 import { CdgProgress } from './components/progress/progress';
+import { CdgCalendar } from './components/calendar/calendar';
+import { CdgDatePicker } from './components/datepicker/datepicker';
+import { CdgListview } from './components/list-view/list-view';
+import { CdgListItem } from './components/list-view/list-item';
 import {
   CdgActionBar,
   CdgCard,
   CdgCardHeader,
   CdgCardBody,
   CdgCardActions,
+  CdgTable,
+  CdgTableHead,
+  CdgTableBody,
+  CdgTableCell,
+  CdgTableHeaderCell,
+  CdgTableRow,
+  CdgSortingAsc,
+  CdgSortingDesc,
   CdgCardCover,
   CdgSubHeader,
   CdgPageTitle,
@@ -41,6 +53,9 @@ import {
   CdgNavRail,
   CdgWizards,
   CdgWizardStep,
+  CdgDashboardSideCard,
+  CdgCardActivity,
+  CdgGroupAvatar,
 } from './layouts';
 
 import {
@@ -71,6 +86,10 @@ customElements.define('cdg-dropdown-option', CdgDropdownOption);
 customElements.define('cdg-popover', CdgPopover);
 customElements.define('cdg-popover-content', CdgPopoverContent);
 customElements.define('cdg-progress', CdgProgress);
+customElements.define('cdg-calendar', CdgCalendar);
+customElements.define('cdg-datepicker', CdgDatePicker);
+customElements.define('cdg-list-view', CdgListview);
+customElements.define('cdg-list-item', CdgListItem);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -78,6 +97,16 @@ customElements.define('cdg-card', CdgCard);
 customElements.define('cdg-card-header', CdgCardHeader);
 customElements.define('cdg-card-body', CdgCardBody);
 customElements.define('cdg-card-actions', CdgCardActions);
+
+// Layouts
+customElements.define('cdg-table', CdgTable);
+customElements.define('cdg-table-head', CdgTableHead);
+customElements.define('cdg-table-body', CdgTableBody);
+customElements.define('cdg-table-cell', CdgTableCell);
+customElements.define('cdg-table-header-cell', CdgTableHeaderCell);
+customElements.define('cdg-table-row', CdgTableRow);
+customElements.define('cdg-sorting-asc', CdgSortingAsc);
+customElements.define('cdg-sorting-desc', CdgSortingDesc);
 customElements.define('cdg-card-cover', CdgCardCover);
 customElements.define('cdg-page-title', CdgPageTitle);
 customElements.define('cdg-page-header', CdgPageHeader);
@@ -89,6 +118,9 @@ customElements.define('cdg-portal-navbar', CdgPortalNavbar);
 customElements.define('cdg-nav-rail', CdgNavRail);
 customElements.define('cdg-wizards', CdgWizards);
 customElements.define('cdg-wizard-step', CdgWizardStep);
+customElements.define('cdg-dashboard-side-card', CdgDashboardSideCard);
+customElements.define('cdg-card-activity', CdgCardActivity);
+customElements.define('cdg-group-avatar', CdgGroupAvatar);
 
 export {
   CdgAccordion,
@@ -112,6 +144,14 @@ export {
   CdgTab,
   CdgTabs,
   CdgActionBar,
+  CdgTable,
+  CdgTableHead,
+  CdgTableBody,
+  CdgTableCell,
+  CdgTableHeaderCell,
+  CdgTableRow,
+  CdgSortingAsc,
+  CdgSortingDesc,
   CdgDropdown,
   CdgCard,
   CdgCardHeader,
@@ -125,6 +165,11 @@ export {
   CdgNavRail,
   CdgWizards,
   CdgWizardStep,
+  CdgDashboardSideCard,
+  CdgCardActivity,
+  CdgGroupAvatar,
+  CdgListview,
+  CdgListItem,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

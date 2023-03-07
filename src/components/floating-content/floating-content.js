@@ -197,6 +197,8 @@ function getNewPosition(
   const arrowHeight = hasArrow ? ARROW_HEIGHT : 0;
   const outlineHeight = hasOutline ? OUTLINE_HEIGHT : 0;
 
+  const boundLeft = anchorElement.getBoundingClientRect().left;
+
   // Set position by placement param
   switch (position) {
     case 'topLeft':
@@ -206,7 +208,7 @@ function getNewPosition(
         scrollTop -
         arrowHeight -
         outlineHeight;
-      leftPosition = anchorElement.offsetLeft - scrollLeft;
+      leftPosition = boundLeft - scrollLeft;
       break;
     case 'top':
       topPosition =
@@ -215,8 +217,7 @@ function getNewPosition(
         scrollTop -
         arrowHeight -
         outlineHeight;
-      leftPosition =
-        anchorElement.offsetLeft + anchorElement.clientWidth / 2 - scrollLeft;
+      leftPosition = boundLeft + anchorElement.clientWidth / 2 - scrollLeft;
       break;
     case 'topRight':
       topPosition =
@@ -225,42 +226,29 @@ function getNewPosition(
         scrollTop -
         arrowHeight -
         outlineHeight;
-      leftPosition =
-        anchorElement.offsetLeft + anchorElement.clientWidth - currentWidth;
+      leftPosition = boundLeft + anchorElement.clientWidth - currentWidth;
       break;
     case 'leftTop':
       topPosition = anchorElement.offsetTop - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft -
-        currentWidth -
-        scrollLeft -
-        arrowHeight -
-        outlineHeight;
+        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight;
       break;
     case 'left':
       topPosition =
         anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft -
-        currentWidth -
-        scrollLeft -
-        arrowHeight -
-        outlineHeight;
+        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight;
       break;
     case 'leftBottom':
       topPosition =
         anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft -
-        currentWidth -
-        scrollLeft -
-        arrowHeight -
-        outlineHeight;
+        boundLeft - currentWidth - scrollLeft - arrowHeight - outlineHeight;
       break;
     case 'rightTop':
       topPosition = anchorElement.offsetTop - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft +
+        boundLeft +
         anchorElement.clientWidth -
         scrollLeft +
         arrowHeight +
@@ -270,7 +258,7 @@ function getNewPosition(
       topPosition =
         anchorElement.offsetTop + anchorElement.clientHeight / 2 - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft +
+        boundLeft +
         anchorElement.clientWidth -
         scrollLeft +
         arrowHeight +
@@ -280,7 +268,7 @@ function getNewPosition(
       topPosition =
         anchorElement.offsetTop + anchorElement.clientHeight - scrollTop;
       leftPosition =
-        anchorElement.offsetLeft +
+        boundLeft +
         anchorElement.clientWidth -
         scrollLeft +
         arrowHeight +
@@ -293,7 +281,7 @@ function getNewPosition(
         scrollTop +
         arrowHeight +
         outlineHeight;
-      leftPosition = anchorElement.offsetLeft - scrollLeft;
+      leftPosition = boundLeft - scrollLeft;
       break;
     case 'bottom':
       topPosition =
@@ -302,8 +290,7 @@ function getNewPosition(
         scrollTop +
         arrowHeight +
         outlineHeight;
-      leftPosition =
-        anchorElement.offsetLeft + anchorElement.clientWidth / 2 - scrollLeft;
+      leftPosition = boundLeft + anchorElement.clientWidth / 2 - scrollLeft;
       break;
     case 'bottomRight':
       topPosition =
@@ -312,8 +299,7 @@ function getNewPosition(
         scrollTop +
         arrowHeight +
         outlineHeight;
-      leftPosition =
-        anchorElement.offsetLeft + anchorElement.clientWidth - scrollLeft;
+      leftPosition = boundLeft + anchorElement.clientWidth - scrollLeft;
       break;
 
     default:

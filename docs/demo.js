@@ -5,11 +5,13 @@ import './components/alert-badges.html';
 import './components/avatar.html';
 import './components/breadcrumbs.html';
 import './components/checkboxes.html';
+import './components/dashboard-side-card.html';
 import './components/footer.html';
 import './components/icon.html';
 import './components/button.html';
 import './components/cards.html';
 import './components/inline-loading.html';
+import './components/list-view.html';
 import './components/loading.html';
 import './components/nav-rail.html';
 import './components/navbar.html';
@@ -22,11 +24,14 @@ import './components/action-bar.html';
 import './components/sub-header.html';
 import './components/tabs.html';
 import './components/text-field.html';
+import './components/table.html';
 import './components/dropdown.html';
 import './components/popover.html';
 import './components/progress.html';
 import './components/toggle.html';
 import './components/wizards.html';
+import './components/calendar.html';
+import './components/datepicker.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -54,12 +59,14 @@ const contentMap = {
   avatar: './components/avatar.html',
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
+  dashboardSideCard: './components/dashboard-side-card.html',
   footer: './components/footer.html',
   icon: './components/icon.html',
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
   inlineLoading: './components/inline-loading.html',
+  listView: './components/list-view.html',
   loading: './components/loading.html',
   navRail: './components/nav-rail.html',
   navbar: './components/navbar.html',
@@ -72,10 +79,13 @@ const contentMap = {
   subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
+  table: './components/table.html',
   popover: './components/popover.html',
   progress: './components/progress.html',
   toggle: './components/toggle.html',
   wizards: './components/wizards.html',
+  calendar: './components/calendar.html',
+  datepicker: './components/datepicker.html',
 };
 
 const content = document.querySelector('#component-content');
