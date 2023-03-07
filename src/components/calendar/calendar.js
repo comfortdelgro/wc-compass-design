@@ -243,15 +243,15 @@ export class CdgCalendar extends HTMLElement {
 
     switch (attr) {
       case 'start-date':
-        this.startDate = new Date(newValue);
+        this.startDate = newValue ? new Date(newValue) : null;
         this.renderSelectedDate();
         break;
       case 'end-date':
-        this.endDate = new Date(newValue);
+        this.endDate = newValue ? new Date(newValue) : null;
         this.renderSelectedDate();
         break;
       case 'open':
-        if (newValue) {
+        if (newValue && this.startDate) {
           this.selectedMonth = dayjs(this.startDate);
           this.createCalendar(
             this.selectedMonth.format('YYYY'),

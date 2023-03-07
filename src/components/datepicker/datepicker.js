@@ -206,8 +206,10 @@ export class CdgDatePicker extends HTMLElement {
 
   handleInputBlur(event) {
     const isValidDate = dayjs(event.target.value, this.format, true).isValid();
+    const isStartDateInput =
+      event.target.getAttribute('data-type') === 'start-date';
     if (isValidDate) {
-      this.setDataForCalendar(event);
+      this.setDataForCalendar(event, isStartDateInput);
     } else {
       const oldValue = isStartDateInput
         ? this.selectedStartDate
@@ -220,10 +222,8 @@ export class CdgDatePicker extends HTMLElement {
     }
   }
 
-  setDataForCalendar(event) {
+  setDataForCalendar(event, isStartDateInput) {
     const valueDate = new Date(event.target.value);
-    const isStartDateInput =
-      event.target.getAttribute('data-type') === 'start-date';
     if (isStartDateInput) {
       this.selectedStartDate = valueDate;
       if (this.selectedStartDate > this.selectedEndDate) {
