@@ -104,6 +104,9 @@ function activeMenu(hash) {
   activatedMenu.forEach((element) => {
     element.classList.add('active');
   });
+
+  // Close menu
+  document.querySelector('cdg-nav-rail').open = false;
 }
 
 function handlePageChange(url) {
