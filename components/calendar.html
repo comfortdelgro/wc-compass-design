@@ -1,0 +1,18 @@
+<h2>Calendar</h2>
+
+<h3>Single picker</h3>
+<div class="cdg-calendar-container">
+  <cdg-calendar id="test-calendar" has-bottom></cdg-calendar>
+</div>
+
+<h3>Double picker</h3>
+<div class="cdg-calendar-container">
+  <cdg-calendar double has-bottom></cdg-calendar>
+</div>
+
+<script>
+  const test = document.querySelector('#test-calendar');
+  test.addEventListener('ondateclick', function (event) {
+    console.log(event.detail);
+  });
+</script>
