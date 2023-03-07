@@ -121,6 +121,32 @@ export class CdgDatePicker extends HTMLElement {
 
     // Create calendar
     this.append(createCalendar(this.isDouble).content.cloneNode(true));
+    this.bindCalendarEventHandler();
+
+    if (this.hasAttribute('format')) {
+      this.format = this.getAttribute('format');
+    }
+  }
+
+  connectedCallback() {
+    this.classList.add('cdg-datepicker');
+    this.bindInputsHandler();
+
+    if (!this.floatingElement) {
+      this.floatingElement = createFloating.bind(this)(
+        this.anchorElement,
+        this.calendarContainerElement,
+        'bottomLeft',
+        'cdg-popover-floating-container',
+        false,
+        false,
+        true,
+        false
+      );
+    }
+  }
+
+  bindCalendarEventHandler() {
     this.calendarContainerElement = this.querySelector(
       '.cdg-calendar-container'
     );
@@ -134,10 +160,9 @@ export class CdgDatePicker extends HTMLElement {
       'onClearClick',
       this.handleClearClick.bind(this)
     );
+  }
 
-    if (this.hasAttribute('format')) {
-      this.format = this.getAttribute('format');
-    }
+  bindInputsHandler() {
     if (!this.anchorElement) {
       this.anchorElement = this.querySelector(
         '.cdg-datepicker-input-container'
@@ -157,22 +182,6 @@ export class CdgDatePicker extends HTMLElement {
         });
         inputElement.addEventListener('blur', this.handleInputBlur.bind(this));
       }
-    }
-  }
-
-  connectedCallback() {
-    this.classList.add('cdg-datepicker');
-    if (!this.floatingElement) {
-      this.floatingElement = createFloating.bind(this)(
-        this.anchorElement,
-        this.calendarContainerElement,
-        'bottomLeft',
-        'cdg-popover-floating-container',
-        false,
-        false,
-        true,
-        false
-      );
     }
   }
 
@@ -197,23 +206,8 @@ export class CdgDatePicker extends HTMLElement {
 
   handleInputBlur(event) {
     const isValidDate = dayjs(event.target.value, this.format, true).isValid();
-    const isStartDateInput =
-      event.target.getAttribute('data-type') === 'start-date';
     if (isValidDate) {
-      const valueDate = new Date(event.target.value);
-      if (isStartDateInput) {
-        this.selectedStartDate = valueDate;
-        if (this.selectedStartDate > this.selectedEndDate) {
-          this.selectedEndDate = null;
-        }
-      } else {
-        if (this.selectedStartDate > valueDate) {
-          this.selectedEndDate = null;
-          this.selectedStartDate = valueDate;
-        } else {
-          this.selectedEndDate = valueDate;
-        }
-      }
+      this.setDataForCalendar(event);
     } else {
       const oldValue = isStartDateInput
         ? this.selectedStartDate
@@ -226,27 +220,39 @@ export class CdgDatePicker extends HTMLElement {
     }
   }
 
+  setDataForCalendar(event) {
+    const valueDate = new Date(event.target.value);
+    const isStartDateInput =
+      event.target.getAttribute('data-type') === 'start-date';
+    if (isStartDateInput) {
+      this.selectedStartDate = valueDate;
+      if (this.selectedStartDate > this.selectedEndDate) {
+        this.selectedEndDate = null;
+      }
+    } else {
+      if (this.selectedStartDate > valueDate) {
+        this.selectedEndDate = null;
+        this.selectedStartDate = valueDate;
+      } else {
+        this.selectedEndDate = valueDate;
+      }
+    }
+  }
+
   handleClearClick() {
     this.selectedStartDate = null;
+    let detail = {
+      startDate: null,
+      endDate: null,
+    };
     if (this.isDouble) {
       this.selectedEndDate = null;
-      this.dispatchEvent(
-        new CustomEvent('onDateChange', {
-          detail: {
-            startDate: null,
-            endDate: null,
-          },
-        })
-      );
     } else {
-      this.dispatchEvent(
-        new CustomEvent('onDateChange', {
-          detail: {
-            date: null,
-          },
-        })
-      );
+      detail = {
+        date: null,
+      };
     }
+    this.emitDateChange(detail);
   }
 
   handleDateClick(event) {
@@ -256,13 +262,9 @@ export class CdgDatePicker extends HTMLElement {
       this.floatingElement.removeAttribute('opening');
       this.calendarElement.removeAttribute('open', 'true');
 
-      this.dispatchEvent(
-        new CustomEvent('onDateChange', {
-          detail: {
-            date: this.selectedStartDate,
-          },
-        })
-      );
+      this.emitDateChange({
+        date: this.selectedStartDate,
+      });
       return;
     }
     if (this.selectedStartDate && this.selectedEndDate) {
@@ -271,25 +273,33 @@ export class CdgDatePicker extends HTMLElement {
       return;
     }
 
-    if (
-      !this.selectedStartDate ||
-      (this.selectedStartDate &&
-        selectedDate.getTime() < this.selectedStartDate.getTime())
-    ) {
+    if (this.isLessThanStartDate(selectedDate)) {
       this.selectedStartDate = selectedDate;
     } else {
       this.selectedEndDate = selectedDate;
       this.floatingElement.removeAttribute('opening');
       this.calendarElement.removeAttribute('open', 'true');
 
-      this.dispatchEvent(
-        new CustomEvent('onDateChange', {
-          detail: {
-            startDate: this.selectedStartDate,
-            endDate: this.selectedEndDate,
-          },
-        })
-      );
+      this.emitDateChange({
+        startDate: this.selectedStartDate,
+        endDate: this.selectedEndDate,
+      });
     }
+  }
+
+  isLessThanStartDate(date) {
+    return (
+      !this.selectedStartDate ||
+      (this.selectedStartDate &&
+        date.getTime() < this.selectedStartDate.getTime())
+    );
+  }
+
+  emitDateChange(detail) {
+    this.dispatchEvent(
+      new CustomEvent('onDateChange', {
+        detail,
+      })
+    );
   }
 }

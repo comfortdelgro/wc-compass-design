@@ -68,9 +68,12 @@ function createDayLayout(monthDivId = 'calendar-month') {
 
   // Title
   const monthTitleContainer = document.createElement('div');
-  monthTitleContainer.classList.add('content-month-title-container');
+  monthTitleContainer.classList.add(
+    'content-month-title-container',
+    'calendar-title-container'
+  );
   const monthTitleDiv = document.createElement('button');
-  monthTitleDiv.classList.add('content-month-title');
+  monthTitleDiv.classList.add('content-month-title', 'title');
   monthTitleContainer.appendChild(monthTitleDiv);
 
   // List of contents
@@ -95,14 +98,17 @@ function createMultipYearLayout() {
 
   // Title
   const yearTitleContainer = document.createElement('div');
-  yearTitleContainer.classList.add('content-year-title-container');
+  yearTitleContainer.classList.add(
+    'content-year-title-container',
+    'calendar-title-container'
+  );
   const yearTitleDiv = document.createElement('button');
-  yearTitleDiv.classList.add('content-year-title');
+  yearTitleDiv.classList.add('content-year-title', 'title');
   yearTitleContainer.appendChild(yearTitleDiv);
 
   // List of contents
   const yearsOl = document.createElement('ol');
-  yearsOl.classList.add('years-container');
+  yearsOl.classList.add('years-container', 'calendar-layout-container');
   contentYearDiv.appendChild(yearTitleContainer);
   contentYearDiv.appendChild(yearsOl);
   yearDiv.appendChild(contentYearDiv);
@@ -119,14 +125,17 @@ function createMonthLayout() {
 
   // Title
   const monthTitleContainer = document.createElement('div');
-  monthTitleContainer.classList.add('content-month-title-container');
+  monthTitleContainer.classList.add(
+    'content-month-title-container',
+    'calendar-title-container'
+  );
   const monthTitleDiv = document.createElement('button');
-  monthTitleDiv.classList.add('content-month-layout-title');
+  monthTitleDiv.classList.add('content-month-layout-title', 'title');
   monthTitleContainer.appendChild(monthTitleDiv);
 
   // List of contents
   const monthsOl = document.createElement('ol');
-  monthsOl.classList.add('month-layout-container');
+  monthsOl.classList.add('month-layout-container', 'calendar-layout-container');
   MONTHS.forEach((item) => {
     const monthItem = document.createElement('li');
     const monthButton = document.createElement('button');
