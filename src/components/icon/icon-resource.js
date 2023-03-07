@@ -43,6 +43,11 @@ import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
 import spinner from '../../images/spinner.svg';
+import documentPDF from '../../images/document-pdf.svg';
+import documentWord from '../../images/document-word.svg';
+import documentExcel from '../../images/document-excel.svg';
+import documentSpreadSheet from '../../images/document-spreadsheet.svg';
+import documentInvoice from '../../images/document-invoice.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -93,6 +98,11 @@ export const ICONS_IMAGES = [
   userGroup,
   user,
   spinner,
+  documentPDF,
+  documentExcel,
+  documentWord,
+  documentSpreadSheet,
+  documentInvoice,
   wLogo,
   zigLogo,
 ];
