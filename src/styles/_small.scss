@@ -86,4 +86,10 @@
   .cdg-promotion-container {
     inset: 12px;
   }
+
+  cdg-modal,
+  .cdg-modal {
+    width: auto;
+    max-width: calc(100vw - 40px);
+  }
 }
