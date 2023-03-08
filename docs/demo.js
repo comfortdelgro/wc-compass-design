@@ -27,6 +27,7 @@ import './components/sub-header.html';
 import './components/tabs.html';
 import './components/text-field.html';
 import './components/table.html';
+import './components/dialog.html';
 import './components/dropdown.html';
 import './components/popover.html';
 import './components/progress.html';
@@ -64,6 +65,7 @@ const contentMap = {
   dashboardSideCard: './components/dashboard-side-card.html',
   footer: './components/footer.html',
   icon: './components/icon.html',
+  dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',

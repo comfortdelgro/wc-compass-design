@@ -33,9 +33,6 @@ cdg-modal,
 
 cdg-modal-header,
 .cdg-modal-header {
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: 600;
   padding: 16px;
   display: flex;
   gap: 16px;
@@ -71,7 +68,50 @@ cdg-modal-actions,
   }
 }
 
+.cdg-dialog-title,
 .cdg-modal-title {
   margin: 0;
   flex: 1;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+cdg-dialog,
+.cdg-dialog {
+  background: var(--background);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 8px;
+  max-width: 480px;
+}
+
+.cdg-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cdg-dialog-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  &.center {
+    justify-content: center;
+  }
+  &.end {
+    justify-content: flex-end;
+  }
+  .cdg-button.secondary.cancel {
+    color: var(--grey80);
+    border-color: transparent;
+  }
+}
+
+.cdg-dialog-message {
+  margin: 0;
+  color: var(--grey80);
 }
