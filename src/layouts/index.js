@@ -28,6 +28,15 @@ import { CdgPortalNavbar } from './portal-navbar/portal-navbar';
 import { CdgNavRail } from './nav-rail/nav-rail';
 import { CdgWizards } from './wizards/wizards';
 import { CdgWizardStep } from './wizards/wizard-step';
+import { CdgModal } from './modal/modal';
+import { CdgModalHeader } from './modal/modal-header';
+import { CdgModalBody } from './modal/modal-body';
+import { CdgModalActions } from './modal/modal-actions';
+import { CdgDialogAlert } from './modal/dialog-alert';
+import { CdgDialogConfirm } from './modal/dialog-confirm';
+import { CdgDialogConfirmCustom } from './modal/dialog-confirm-custom';
+import { CdgDialogWarning } from './modal/dialog-warning';
+import { CdgDialogActions } from './modal/dialog-actions';
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -61,6 +70,15 @@ customElements.define('cdg-carousel', CdgCarousel);
 customElements.define('cdg-carousel-scroller', CdgCarouselScroller);
 customElements.define('cdg-slide', CdgSlide);
 customElements.define('cdg-dots-indicator', CdgDotsIndicator);
+customElements.define('cdg-modal', CdgModal);
+customElements.define('cdg-modal-header', CdgModalHeader);
+customElements.define('cdg-modal-body', CdgModalBody);
+customElements.define('cdg-modal-actions', CdgModalActions);
+customElements.define('cdg-dialog-alert', CdgDialogAlert);
+customElements.define('cdg-dialog-confirm', CdgDialogConfirm);
+customElements.define('cdg-dialog-confirm-custom', CdgDialogConfirmCustom);
+customElements.define('cdg-dialog-warning', CdgDialogWarning);
+customElements.define('cdg-dialog-actions', CdgDialogActions);
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
@@ -94,4 +112,13 @@ export const LAYOUT_COMPONENTS = [
   CdgNavRail,
   CdgWizards,
   CdgWizardStep,
+  CdgModal,
+  CdgModalHeader,
+  CdgModalBody,
+  CdgModalActions,
+  CdgDialogAlert,
+  CdgDialogActions,
+  CdgDialogWarning,
+  CdgDialogConfirm,
+  CdgDialogConfirmCustom,
 ];

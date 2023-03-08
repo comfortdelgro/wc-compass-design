@@ -14,6 +14,7 @@ import './components/carousel.html';
 import './components/inline-loading.html';
 import './components/list-view.html';
 import './components/loading.html';
+import './components/modal.html';
 import './components/nav-rail.html';
 import './components/navbar.html';
 import './components/page-header.html';
@@ -26,6 +27,7 @@ import './components/sub-header.html';
 import './components/tabs.html';
 import './components/text-field.html';
 import './components/table.html';
+import './components/dialog.html';
 import './components/dropdown.html';
 import './components/popover.html';
 import './components/progress.html';
@@ -63,6 +65,7 @@ const contentMap = {
   dashboardSideCard: './components/dashboard-side-card.html',
   footer: './components/footer.html',
   icon: './components/icon.html',
+  dialog: './components/dialog.html',
   dropdown: './components/dropdown.html',
   button: './components/button.html',
   cards: './components/cards.html',
@@ -70,6 +73,7 @@ const contentMap = {
   inlineLoading: './components/inline-loading.html',
   listView: './components/list-view.html',
   loading: './components/loading.html',
+  modal: './components/modal.html',
   navRail: './components/nav-rail.html',
   navbar: './components/navbar.html',
   pageHeader: './components/page-header.html',
