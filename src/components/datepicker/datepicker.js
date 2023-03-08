@@ -221,8 +221,7 @@ export class CdgDatePicker extends HTMLElement {
           currentComponent.floatingElement.setAttribute('opening', 'true');
           currentComponent.calendarElement.setAttribute('open', 'true');
           setTimeout(() => {
-            // currentComponent.floatingElement.style.opacity = 1;
-            currentComponent.floatingElement.style.height = 'auto';
+            currentComponent.floatingElement.style.opacity = 1;
           }, 300);
         });
         inputElement.addEventListener('blur', this.handleInputBlur.bind(this));
@@ -301,12 +300,10 @@ export class CdgDatePicker extends HTMLElement {
       event.target.value = oldValue ? oldDate : '';
     }
     if (!this.anchorElement.contains(event.relatedTarget)) {
-      // this.floatingElement.style.opacity = 0;
-      this.floatingElement.style.setProperty('height', '0', 'important');
-      // this.floatingElement.style.height = '0 !important';
+      this.floatingElement.style.opacity = 0;
       setTimeout(() => {
-        // this.floatingElement.removeAttribute('opening');
-        // this.calendarElement.removeAttribute('open');
+        this.floatingElement.removeAttribute('opening');
+        this.calendarElement.removeAttribute('open');
       }, 300);
     }
   }
