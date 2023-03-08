@@ -3,7 +3,7 @@ import { createFloating } from '../floating-content/floating-content';
 const customParseFormat = window.dayjs_plugin_customParseFormat;
 dayjs.extend(customParseFormat);
 
-function createInputs(isDouble, startTitle = '', endTitle = '') {
+function createInputs(isDouble, disabled, startTitle = '', endTitle = '') {
   const template = document.createElement('template');
   template.innerHTML = `
 <div class="cdg-datepicker-input-container">
@@ -11,7 +11,9 @@ function createInputs(isDouble, startTitle = '', endTitle = '') {
         <label class="cdg-input-group" style="width: 197px">
             <span class="cdg-input-label">${startTitle}</span>
             <div class="cdg-input-with-icon right">
-                <input class="cdg-input" data-type="start-date" />
+                <input class="cdg-input" data-type="start-date" ${
+                  disabled ? 'disabled' : ''
+                } />
                 <cdg-icon name="filledArrowDown" size="16"></cdg-icon>
             </div>
         </label>
@@ -23,7 +25,9 @@ function createInputs(isDouble, startTitle = '', endTitle = '') {
             <label class="cdg-input-group" style="width: 197px">
                 <span class="cdg-input-label">${endTitle}</span>
                 <div class="cdg-input-with-icon right">
-                    <input class="cdg-input" data-type="end-date" />
+                    <input class="cdg-input" data-type="end-date" ${
+                      disabled ? 'disabled' : ''
+                    } />
                     <cdg-icon name="filledArrowDown" size="16"></cdg-icon>
                 </div>
             </label>
@@ -35,11 +39,18 @@ function createInputs(isDouble, startTitle = '', endTitle = '') {
   return template;
 }
 
-function createCalendar(isDouble) {
+function createCalendar(isDouble, format, min, max) {
   const templateCalendar = document.createElement('template');
   templateCalendar.innerHTML = `
     <div class="cdg-calendar-container">
-        <cdg-calendar has-bottom ${isDouble ? 'double' : ''}></cdg-calendar>
+        <cdg-calendar
+        has-bottom
+        ${isDouble ? 'double' : ''}
+        format="${format}"
+        ${min ? `min=${min}` : ''}
+        ${max ? `max=${max}` : ''}
+        >
+        </cdg-calendar>
     </div>
     `;
   return templateCalendar;
@@ -73,13 +84,23 @@ export class CdgDatePicker extends HTMLElement {
         dayjs(value).format('YYYY-MM-DD')
       );
       if (!this.isDouble) return;
-      this.inputContentElements.item(1).querySelector('input').focus();
+      if (
+        this.floatingElement &&
+        this.floatingElement.hasAttribute('opening')
+      ) {
+        this.inputContentElements.item(1).querySelector('input').focus();
+      }
     } else {
       this.inputContentElements.item(0).querySelector('input').value = '';
       this.calendarElement.setAttribute('start-date', '');
       if (!this.isDouble) return;
       this.inputContentElements.item(1).querySelector('input').value = '';
-      this.inputContentElements.item(0).querySelector('input').focus();
+      if (
+        this.floatingElement &&
+        this.floatingElement.hasAttribute('opening')
+      ) {
+        this.inputContentElements.item(0).querySelector('input').focus();
+      }
     }
   }
 
@@ -104,33 +125,53 @@ export class CdgDatePicker extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['format', 'double'];
+    return [
+      'format',
+      'double',
+      'start-date',
+      'date',
+      'end-date',
+      'min',
+      'max',
+      'disabled',
+    ];
   }
 
   constructor() {
     super();
     this.isDouble = !!this.hasAttribute('double');
+    this.disabled = this.getAttribute('disabled') === 'true';
     // Create inputs
     this.append(
       createInputs(
         this.isDouble,
+        this.disabled,
         this.getAttribute('start-title') || '',
         this.getAttribute('end-title') || ''
       ).content.cloneNode(true)
     );
 
-    // Create calendar
-    this.append(createCalendar(this.isDouble).content.cloneNode(true));
-    this.bindCalendarEventHandler();
-
     if (this.hasAttribute('format')) {
       this.format = this.getAttribute('format');
     }
+
+    this.min = this.getAttribute('min');
+    this.max = this.getAttribute('max');
+    // Create calendar
+    this.append(
+      createCalendar(
+        this.isDouble,
+        this.format,
+        this.min,
+        this.max
+      ).content.cloneNode(true)
+    );
+    this.bindCalendarEventHandler();
+    this.bindInputsHandler();
   }
 
   connectedCallback() {
     this.classList.add('cdg-datepicker');
-    this.bindInputsHandler();
 
     if (!this.floatingElement) {
       this.floatingElement = createFloating.bind(this)(
@@ -167,10 +208,10 @@ export class CdgDatePicker extends HTMLElement {
       this.anchorElement = this.querySelector(
         '.cdg-datepicker-input-container'
       );
-      const currentComponent = this;
       this.inputContentElements = this.anchorElement.querySelectorAll(
         '.cdg-datepicker-input-content'
       );
+      const currentComponent = this;
       for (let index = 0; index < this.inputContentElements.length; index++) {
         const inputContentElement = this.inputContentElements.item(index);
         const inputElement = inputContentElement.querySelector('input');
@@ -192,11 +233,38 @@ export class CdgDatePicker extends HTMLElement {
     switch (attr) {
       case 'start-date':
       case 'date':
-        this.selectedStartDate = new Date(newValue);
+        this.selectedStartDate = this.convertToDay(newValue);
         break;
 
       case 'end-date':
-        this.selectedEndDate = new Date(newValue);
+        this.selectedEndDate = this.convertToDay(newValue);
+        break;
+      case 'min':
+        newValue &&
+          this.calendarElement.setAttribute(
+            'min',
+            dayjs(newValue, this.format)
+          );
+        break;
+
+      case 'max':
+        newValue &&
+          this.calendarElement.setAttribute(
+            'max',
+            dayjs(newValue, this.format)
+          );
+        break;
+
+      case 'disabled':
+        for (let index = 0; index < this.inputContentElements.length; index++) {
+          const element = this.inputContentElements.item(index);
+          const input = element.querySelector('input');
+          if (newValue) {
+            input.setAttribute('disabled', 'disabled');
+          } else {
+            input.removeAttribute('disabled');
+          }
+        }
         break;
 
       default:
@@ -204,15 +272,29 @@ export class CdgDatePicker extends HTMLElement {
     }
   }
 
+  convertToDay(str) {
+    if (!str) return null;
+    const isValidDate = dayjs(str, this.format).isValid();
+    const newDateValue = isValidDate ? new Date(str) : null;
+    return newDateValue;
+  }
+
   handleInputBlur(event) {
     const isValidDate = dayjs(event.target.value, this.format, true).isValid();
+    const isStartDateInput =
+      event.target.getAttribute('data-type') === 'start-date';
     if (isValidDate) {
-      this.setDataForCalendar(event);
+      this.setDataForCalendar(event, isStartDateInput);
     } else {
       const oldValue = isStartDateInput
         ? this.selectedStartDate
         : this.selectedEndDate;
-      event.target.value = oldValue ? dayjs(oldValue).format(this.format) : '';
+      const oldDate = dayjs(oldValue).isValid()
+        ? dayjs(oldValue).format(this.format)
+        : dayjs(oldValue, this.format).isValid()
+        ? dayjs(oldValue, this.format)
+        : '';
+      event.target.value = oldValue ? oldDate : '';
     }
     if (!this.anchorElement.contains(event.relatedTarget)) {
       this.floatingElement.removeAttribute('opening');
@@ -220,10 +302,9 @@ export class CdgDatePicker extends HTMLElement {
     }
   }
 
-  setDataForCalendar(event) {
-    const valueDate = new Date(event.target.value);
-    const isStartDateInput =
-      event.target.getAttribute('data-type') === 'start-date';
+  setDataForCalendar(event, isStartDateInput) {
+    if (!event.target) return;
+    const valueDate = new Date(dayjs(event.target.value, this.format));
     if (isStartDateInput) {
       this.selectedStartDate = valueDate;
       if (this.selectedStartDate > this.selectedEndDate) {

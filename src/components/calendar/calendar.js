@@ -165,6 +165,7 @@ export class CdgCalendar extends HTMLElement {
   monthView;
 
   isDouble;
+  format = 'YYYY-MM-DD';
 
   hasBottom;
   bottomElement;
@@ -172,12 +173,16 @@ export class CdgCalendar extends HTMLElement {
   bottomSelectedDetailElement;
 
   static get observedAttributes() {
-    return ['start-date', 'end-date', 'open'];
+    return ['start-date', 'end-date', 'open', 'min', 'max'];
   }
 
   constructor() {
     super();
     this.append(templateHeader.content.cloneNode(true));
+
+    if (this.hasAttribute('format')) {
+      this.format = this.getAttribute('format');
+    }
 
     this.containerElement = document.createElement('div');
     this.containerElement.classList.add('calendar-container');
@@ -187,15 +192,15 @@ export class CdgCalendar extends HTMLElement {
     this.calendarMonthElement = this.querySelector('#calendar-month');
 
     this.isDouble = this.hasAttribute('double');
-    if (this.isDouble) {
-      this.containerElement.style.width = '630px';
-      this.containerElement.appendChild(createDayLayout('calendar-month-1'));
-    } else {
-      this.containerElement.style.width = '327px';
-    }
-    this.render();
 
     this.hasBottom = this.hasAttribute('has-bottom');
+    this.createBottomLayout();
+    this.min = this.getAttribute('min');
+    this.max = this.getAttribute('max');
+    this.renderLayout();
+  }
+
+  createBottomLayout() {
     if (this.hasBottom) {
       this.append(templateBottom.content.cloneNode(true));
       this.bottomElement = this.querySelector('.calendar-month-bottom');
@@ -240,18 +245,19 @@ export class CdgCalendar extends HTMLElement {
 
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue === newValue) return;
+    this[attr] = newValue;
 
     switch (attr) {
       case 'start-date':
-        this.startDate = new Date(newValue);
+        this.startDate = newValue ? new Date(newValue) : null;
         this.renderSelectedDate();
         break;
       case 'end-date':
-        this.endDate = new Date(newValue);
+        this.endDate = newValue ? new Date(newValue) : null;
         this.renderSelectedDate();
         break;
       case 'open':
-        if (newValue) {
+        if (newValue && this.startDate) {
           this.selectedMonth = dayjs(this.startDate);
           this.createCalendar(
             this.selectedMonth.format('YYYY'),
@@ -267,6 +273,17 @@ export class CdgCalendar extends HTMLElement {
 
   renderSelectedDate() {
     const calendarMonthElements = this.getElementsByClassName('calendar-month');
+    if (this.isDouble) {
+      this.bottomSelectedDetailElement.textContent = `${
+        this.startDate
+          ? dayjs(this.startDate).format(this.format.replace(/-/g, '/'))
+          : ''
+      } - ${
+        this.endDate
+          ? dayjs(this.endDate).format(this.format.replace(/-/g, '/'))
+          : ''
+      }`;
+    }
     for (let index = 0; index < calendarMonthElements.length; index++) {
       const calendarMonthElement = calendarMonthElements.item(index);
       const daysLi = calendarMonthElement.querySelectorAll('.calendar-day');
@@ -280,22 +297,6 @@ export class CdgCalendar extends HTMLElement {
           date: new Date(dayValue),
         });
       });
-    }
-  }
-  renderCell(params) {
-    if (!this.startDate) return;
-    const isStartDate = params.date.getTime() === this.startDate.getTime();
-    const isEndDate =
-      this.endDate && params.date.getTime() === this.endDate.getTime();
-    const isInRange =
-      this.endDate &&
-      params.date.getTime() > this.startDate.getTime() &&
-      params.date.getTime() < this.endDate.getTime();
-
-    if (isStartDate || isEndDate) {
-      params.el.classList.add('active-selected-date');
-    } else if (isInRange) {
-      params.el.classList.add('selected-date');
     }
   }
 
@@ -375,6 +376,31 @@ export class CdgCalendar extends HTMLElement {
     }
     if (day.date === TODAY) {
       dayElementClassList.add('calendar-day--today');
+    }
+  }
+
+  renderCell(params) {
+    if (this.min || this.max) {
+      const isDisable =
+        (this.min && params.date.getTime() < new Date(this.min).getTime()) ||
+        (this.max && params.date.getTime() > new Date(this.max).getTime());
+      if (isDisable) {
+        params.el.setAttribute('disabled', 'disabled');
+      }
+    }
+    if (!this.startDate) return;
+    const isStartDate = params.date.getTime() === this.startDate.getTime();
+    const isEndDate =
+      this.endDate && params.date.getTime() === this.endDate.getTime();
+    const isInRange =
+      this.endDate &&
+      params.date.getTime() > this.startDate.getTime() &&
+      params.date.getTime() < this.endDate.getTime();
+
+    if (isStartDate || isEndDate) {
+      params.el.classList.add('active-selected-date');
+    } else if (isInRange) {
+      params.el.classList.add('selected-date');
     }
   }
 
@@ -685,7 +711,14 @@ export class CdgCalendar extends HTMLElement {
     }
   }
 
-  render() {
+  renderLayout() {
+    if (this.isDouble) {
+      this.containerElement.style.width = '630px';
+      this.containerElement.appendChild(createDayLayout('calendar-month-1'));
+    } else {
+      this.containerElement.style.width = '327px';
+    }
+
     const daysOfWeekElements = this.getElementsByClassName('day-of-week');
     for (let index = 0; index < daysOfWeekElements.length; index++) {
       const daysOfWeekElement = daysOfWeekElements.item(index);
