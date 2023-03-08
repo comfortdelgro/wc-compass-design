@@ -1,26 +1,97 @@
-export { CdgGroupAvatar } from './group-avatar/group-avatar';
-export { CdgActionBar } from './action-bar/action-bar';
-export { CdgCard } from './card/card';
-export { CdgCardHeader } from './card/card-header';
-export { CdgCardBody } from './card/card-body';
-export { CdgCardActions } from './card/card-actions';
-export { CdgTable } from './table/table';
-export { CdgTableBody } from './table/table-body';
-export { CdgTableHead } from './table/table-header';
-export { CdgTableRow } from './table/table-row';
-export { CdgTableHeaderCell } from './table/table-header-cell';
-export { CdgTableCell } from './table/table-cell';
-export { CdgSortingAsc,CdgSortingDesc } from './table/table-sorting-indicator';
-export { CdgCardCover } from './card/card-cover';
-export { CdgDashboardSideCard } from './dashboard-side-card/dashboard-side-card';
-export { CdgCardActivity } from './dashboard-side-card/side-card-activity';
-export { CdgPageTitle } from './page-header/page-title';
-export { CdgPageHeader } from './page-header/page-header';
-export { CdgPageActions } from './page-header/page-actions';
-export { CdgPageHeaderRow } from './page-header/page-header-row';
-export { CdgSubHeader } from './page-header/sub-header';
-export { CdgNavbar } from './navbar/navbar';
-export { CdgPortalNavbar } from './portal-navbar/portal-navbar';
-export { CdgNavRail } from './nav-rail/nav-rail';
-export { CdgWizards } from './wizards/wizards';
-export { CdgWizardStep } from './wizards/wizard-step';
+import { CdgGroupAvatar } from './group-avatar/group-avatar';
+import { CdgActionBar } from './action-bar/action-bar';
+import { CdgCarousel } from './carousel/carousel';
+import { CdgCarouselScroller } from './carousel/carousel-scroller';
+import { CdgDotsIndicator } from './carousel/dots-indicator';
+import { CdgSlide } from './carousel/slide';
+import { CdgCard } from './card/card';
+import { CdgCardHeader } from './card/card-header';
+import { CdgCardBody } from './card/card-body';
+import { CdgCardActions } from './card/card-actions';
+import { CdgTable } from './table/table';
+import { CdgTableBody } from './table/table-body';
+import { CdgTableHead } from './table/table-header';
+import { CdgTableRow } from './table/table-row';
+import { CdgTableHeaderCell } from './table/table-header-cell';
+import { CdgTableCell } from './table/table-cell';
+import { CdgSortingAsc, CdgSortingDesc } from './table/table-sorting-indicator';
+import { CdgCardCover } from './card/card-cover';
+import { CdgDashboardSideCard } from './dashboard-side-card/dashboard-side-card';
+import { CdgCardActivity } from './dashboard-side-card/side-card-activity';
+import { CdgPageTitle } from './page-header/page-title';
+import { CdgPageHeader } from './page-header/page-header';
+import { CdgPageActions } from './page-header/page-actions';
+import { CdgPageHeaderRow } from './page-header/page-header-row';
+import { CdgSubHeader } from './page-header/sub-header';
+import { CdgNavbar } from './navbar/navbar';
+import { CdgPortalNavbar } from './portal-navbar/portal-navbar';
+import { CdgNavRail } from './nav-rail/nav-rail';
+import { CdgWizards } from './wizards/wizards';
+import { CdgWizardStep } from './wizards/wizard-step';
+
+// Layouts
+customElements.define('cdg-action-bar', CdgActionBar);
+customElements.define('cdg-card', CdgCard);
+customElements.define('cdg-card-header', CdgCardHeader);
+customElements.define('cdg-card-body', CdgCardBody);
+customElements.define('cdg-card-actions', CdgCardActions);
+customElements.define('cdg-table', CdgTable);
+customElements.define('cdg-table-head', CdgTableHead);
+customElements.define('cdg-table-body', CdgTableBody);
+customElements.define('cdg-table-cell', CdgTableCell);
+customElements.define('cdg-table-header-cell', CdgTableHeaderCell);
+customElements.define('cdg-table-row', CdgTableRow);
+customElements.define('cdg-sorting-asc', CdgSortingAsc);
+customElements.define('cdg-sorting-desc', CdgSortingDesc);
+customElements.define('cdg-card-cover', CdgCardCover);
+customElements.define('cdg-page-title', CdgPageTitle);
+customElements.define('cdg-page-header', CdgPageHeader);
+customElements.define('cdg-page-header-row', CdgPageHeaderRow);
+customElements.define('cdg-page-actions', CdgPageActions);
+customElements.define('cdg-sub-header', CdgSubHeader);
+customElements.define('cdg-navbar', CdgNavbar);
+customElements.define('cdg-portal-navbar', CdgPortalNavbar);
+customElements.define('cdg-nav-rail', CdgNavRail);
+customElements.define('cdg-wizards', CdgWizards);
+customElements.define('cdg-wizard-step', CdgWizardStep);
+customElements.define('cdg-dashboard-side-card', CdgDashboardSideCard);
+customElements.define('cdg-card-activity', CdgCardActivity);
+customElements.define('cdg-group-avatar', CdgGroupAvatar);
+customElements.define('cdg-carousel', CdgCarousel);
+customElements.define('cdg-carousel-scroller', CdgCarouselScroller);
+customElements.define('cdg-slide', CdgSlide);
+customElements.define('cdg-dots-indicator', CdgDotsIndicator);
+
+export const LAYOUT_COMPONENTS = [
+  CdgGroupAvatar,
+  CdgActionBar,
+  CdgCarousel,
+  CdgCarouselScroller,
+  CdgDotsIndicator,
+  CdgSlide,
+  CdgCard,
+  CdgCardHeader,
+  CdgCardBody,
+  CdgCardActions,
+  CdgTable,
+  CdgTableBody,
+  CdgTableHead,
+  CdgTableRow,
+  CdgTableHeaderCell,
+  CdgTableCell,
+  CdgSortingAsc,
+  CdgSortingDesc,
+  CdgCardCover,
+  CdgDashboardSideCard,
+  CdgCardActivity,
+  CdgPageTitle,
+  CdgPageHeader,
+  CdgPageActions,
+  CdgPageHeaderRow,
+  CdgSubHeader,
+  CdgNavbar,
+  CdgPortalNavbar,
+  CdgNavRail,
+  CdgWizards,
+  CdgWizardStep,
+];

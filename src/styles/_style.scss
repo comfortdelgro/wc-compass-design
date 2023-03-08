@@ -10,7 +10,7 @@
   --grey10: #191919;
   --grey20: #212121;
   --grey30: #313131;
-  --grey40: #e1dfdd;
+  --grey40: #444444;
   --grey50: #555555;
   --grey60: #666666;
   --grey70: #777777;
@@ -37,7 +37,8 @@
   --status-warning-background: #493a15;
   --shadow-01: 0px 0.3px 0.9px rgba(255, 255, 255, 0.05);
   --shadow-02: 0px 1.6px 3.6px rgba(255, 255, 255, 0.08);
-  --shadow-03: 0px 0.6px 1.8px rgba(255, 255, 255, 0.1), 0px 3.2px 7.2px rgba(255, 255, 255, 0.13);
+  --shadow-03: 0px 0.6px 1.8px rgba(255, 255, 255, 0.1),
+    0px 3.2px 7.2px rgba(255, 255, 255, 0.13);
 }
 
 :root {
@@ -83,10 +84,12 @@
   --status-warning-background: #f8db96;
   --shadow-01: 0px 0.3px 0.9px rgba(0, 0, 0, 0.1);
   --shadow-02: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13);
-  --shadow-03: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1), 0px 3.2px 7.2px rgba(0, 0, 0, 0.13);
-  --font-family: Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+  --shadow-03: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1),
+    0px 3.2px 7.2px rgba(0, 0, 0, 0.13);
+  --font-family: Poppins, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
   // spacing
   --spacing-0_5: 0.125rem;
   --spacing-1: 0.25rem;

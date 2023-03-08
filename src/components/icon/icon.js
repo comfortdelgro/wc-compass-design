@@ -1,5 +1,5 @@
 import { CdgIconSize } from '../../shared/core.js';
-import { downloadSVGContent, toLowerCaseAndDash } from '../../main.js';
+import { downloadSVGContent, toLowerCaseAndDash } from '../../shared/utilities';
 
 export class CdgIcon extends CdgIconSize {
   name = '';
