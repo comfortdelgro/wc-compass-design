@@ -163,3 +163,14 @@ pre code.hljs {
   text-transform: uppercase;
   padding: 10px 20px;
 }
+
+@media screen and (max-width: 767px) {
+  .doc-container {
+    padding: 0 12px;
+  }
+
+  .sample-section.reverse {
+    padding: 12px;
+    background: var(--grey10);
+  }
+}

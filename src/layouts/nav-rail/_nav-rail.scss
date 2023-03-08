@@ -79,6 +79,7 @@ cdg-nav-rail,
       display: none;
     }
 
+    &[open='true'],
     &:hover {
       .cdg-nav-rail-inner {
         width: 270px;
