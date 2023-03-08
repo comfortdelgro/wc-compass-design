@@ -1,6 +1,6 @@
 export class CdgCarouselScroller extends HTMLElement {
   static get observedAttributes() {
-    return ['current'];
+    return ['current', 'position'];
   }
 
   get current() {
@@ -9,6 +9,14 @@ export class CdgCarouselScroller extends HTMLElement {
 
   set current(current) {
     this.setAttribute('current', current);
+  }
+
+  get position() {
+    return Number(this.getAttribute('position')) || 0;
+  }
+
+  set position(position) {
+    this.setAttribute('position', position);
   }
 
   sizingTimer;
@@ -28,8 +36,21 @@ export class CdgCarouselScroller extends HTMLElement {
   }
 
   attributeChangedCallback(attr) {
-    if (attr === 'current') {
-      this.updatePosition();
+    switch (attr) {
+      case 'current':
+        this.position = this.parentElement.clientWidth * this.current;
+        this.updatePosition();
+        this.dispatchEvent(
+          new CustomEvent('updatePosition', { detail: this.position })
+        );
+        break;
+
+      case 'position':
+        this.updatePosition();
+        break;
+
+      default:
+        break;
     }
   }
 
@@ -53,12 +74,12 @@ export class CdgCarouselScroller extends HTMLElement {
 
     this.style.width =
       this.parentElement.clientWidth * this.children.length + 'px';
+
+    this.parentElement.clientWidth * this.current;
     this.updatePosition();
   }
 
   updatePosition() {
-    this.style.transform = `translate3d(-${
-      this.parentElement.clientWidth * this.current
-    }px, 0, 0)`;
+    this.style.transform = `translate3d(-${this.position}px, 0, 0)`;
   }
 }

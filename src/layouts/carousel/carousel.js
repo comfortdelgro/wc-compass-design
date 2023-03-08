@@ -1,3 +1,5 @@
+import { Pointer } from '../../shared/pointer';
+
 const ARROW_RIGHT = `<cdg-icon name="arrowRight" size="32"></cdg-icon>`;
 const ARROW_LEFT = `<cdg-icon name="arrowLeft" size="32"></cdg-icon>`;
 const ARROW_RIGHT_TEXT = `Next`;
@@ -37,6 +39,9 @@ export class CdgCarousel extends HTMLElement {
   btnNext;
   btnPrev;
 
+  pointer = new Pointer();
+  scrollerPosition = 0;
+
   constructor() {
     super();
   }
@@ -54,6 +59,10 @@ export class CdgCarousel extends HTMLElement {
     this.container.classList.add('cdg-carousel-container');
 
     this.scroller = document.createElement('cdg-carousel-scroller');
+    this.scroller.addEventListener(
+      'updatePosition',
+      this.handleUpdatePositon.bind(this)
+    );
 
     this.indicator = document.createElement('cdg-dots-indicator');
     this.indicator.addEventListener('dotClick', this.handleDotClick.bind(this));
@@ -82,7 +91,10 @@ export class CdgCarousel extends HTMLElement {
   }
 
   listenEvents() {
-    this.addEventListener('pointerdown', this.handlePointerDown.bind(this));
+    this.scroller.addEventListener(
+      'pointerdown',
+      this.handlePointerDown.bind(this)
+    );
   }
 
   createButton() {
@@ -146,6 +158,10 @@ export class CdgCarousel extends HTMLElement {
     this.current = (this.length + (this.current - 1)) % this.length;
   }
 
+  handleUpdatePositon(event) {
+    this.scrollerPosition = event.detail;
+  }
+
   handleDotClick(event) {
     const target = event.detail || 0;
     this.stop();
@@ -153,7 +169,16 @@ export class CdgCarousel extends HTMLElement {
   }
 
   handlePointerDown(event) {
+    // Stop the auto play
+    this.stop();
+
+    // Stop transition timer
+    this.scroller.style.transition = 'none';
+
     this.setPointerCapture(event.pointerId);
+    this.pointer = new Pointer();
+    this.pointer.start({ x: event.pageX, y: event.pageY });
+
     this.addEventListener('pointermove', this.handlePointerMove);
     this.addEventListener('pointerup', this.handlePointerUp, {
       once: true,
@@ -163,11 +188,25 @@ export class CdgCarousel extends HTMLElement {
     });
   }
 
-  handlePointerMove() {
-    console.log('pointermove');
+  handlePointerMove(event) {
+    this.pointer.update({ x: event.pageX, y: event.pageY });
+    this.scroller.position = this.scrollerPosition - this.pointer.distance.x;
   }
 
   handlePointerUp() {
     this.removeEventListener('pointermove', this.handlePointerMove);
+
+    // Make it transition smoother again
+    this.scroller.style.transition = 'all 0.3s ease-in-out';
+
+    if (Math.abs(this.pointer.distance.x) / this.clientWidth > 0.2) {
+      if (this.pointer.distance.x < 0) {
+        this.next();
+      } else {
+        this.prev();
+      }
+    } else {
+      this.scroller.position = this.scrollerPosition;
+    }
   }
 }
