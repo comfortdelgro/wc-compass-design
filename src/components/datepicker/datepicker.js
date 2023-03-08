@@ -178,7 +178,7 @@ export class CdgDatePicker extends HTMLElement {
         this.anchorElement,
         this.calendarContainerElement,
         'bottomLeft',
-        'cdg-popover-floating-container',
+        'cdg-datepicker-floating-container',
         false,
         false,
         true,
@@ -220,6 +220,9 @@ export class CdgDatePicker extends HTMLElement {
         inputElement.addEventListener('focus', function () {
           currentComponent.floatingElement.setAttribute('opening', 'true');
           currentComponent.calendarElement.setAttribute('open', 'true');
+          setTimeout(() => {
+            currentComponent.floatingElement.style.opacity = 1;
+          }, 300);
         });
         inputElement.addEventListener('blur', this.handleInputBlur.bind(this));
       }
@@ -297,8 +300,11 @@ export class CdgDatePicker extends HTMLElement {
       event.target.value = oldValue ? oldDate : '';
     }
     if (!this.anchorElement.contains(event.relatedTarget)) {
-      this.floatingElement.removeAttribute('opening');
-      this.calendarElement.removeAttribute('open', 'true');
+      this.floatingElement.style.opacity = 0;
+      setTimeout(() => {
+        this.floatingElement.removeAttribute('opening');
+        this.calendarElement.removeAttribute('open');
+      }, 300);
     }
   }
 
