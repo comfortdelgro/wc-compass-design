@@ -1,7 +1,45 @@
 cdg-carousel,
 .cdg-carousel {
   display: flex;
+  flex-direction: column;
   width: 100%;
+  &[mobileMode] {
+    .cdg-promotion-title {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .cdg-promotion-container {
+      inset: 12px;
+    }
+
+    .cdg-promotion-description {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .cdg-carousel-navigation {
+      display: none;
+    }
+
+    .cdg-carousel-controllers {
+      bottom: 16px;
+      left: 12px;
+      right: 12px;
+    }
+
+    .cdg-mobile-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      .cdg-button {
+        border-radius: 0;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 16px 24px;
+      }
+    }
+  }
 }
 
 .cdg-carousel-container {

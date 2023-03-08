@@ -27,6 +27,12 @@ export class CdgCarouselScroller extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-carousel-scroller');
+
+    const clonedActions = this.querySelector('.cdg-mobile-actions');
+    if (clonedActions) {
+      this.removeChild(clonedActions);
+    }
+
     this.listenEvents();
     this.updateViewResize();
   }
@@ -75,11 +81,17 @@ export class CdgCarouselScroller extends HTMLElement {
     this.style.width =
       this.parentElement.clientWidth * this.children.length + 'px';
 
-    this.parentElement.clientWidth * this.current;
+    this.position = this.parentElement.clientWidth * this.current;
     this.updatePosition();
   }
 
   updatePosition() {
-    this.style.transform = `translate3d(-${this.position}px, 0, 0)`;
+    // To not let slide moves on start and end
+    if (
+      this.position >= 0 &&
+      this.position <= this.clientWidth - this.parentElement.clientWidth
+    ) {
+      this.style.transform = `translate3d(-${this.position}px, 0, 0)`;
+    }
   }
 }

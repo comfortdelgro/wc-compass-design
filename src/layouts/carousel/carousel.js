@@ -7,7 +7,7 @@ const ARROW_LEFT_TEXT = `Prev`;
 
 export class CdgCarousel extends HTMLElement {
   static get observedAttributes() {
-    return ['current', 'useArrow'];
+    return ['current', 'useArrow', 'autoSwitch'];
   }
 
   get current() {
@@ -24,6 +24,14 @@ export class CdgCarousel extends HTMLElement {
 
   set useArrow(useArrow) {
     this.setAttribute('useArrow', useArrow);
+  }
+
+  get autoSwitch() {
+    return this.getAttribute('autoSwitch') === 'true';
+  }
+
+  set autoSwitch(autoSwitch) {
+    this.setAttribute('autoSwitch', autoSwitch);
   }
 
   get length() {
@@ -50,7 +58,7 @@ export class CdgCarousel extends HTMLElement {
     this.classList.add('cdg-carousel');
     this.wrapContent();
     if (!this.hasAttribute('current')) {
-      this.autoPlay();
+      this.switchSlide();
     }
   }
 
@@ -71,9 +79,8 @@ export class CdgCarousel extends HTMLElement {
     this.controller = document.createElement('div');
     this.controller.classList.add('cdg-carousel-controllers');
 
+    const actions = this.querySelector('.cdg-mobile-actions');
     this.scroller.innerHTML = this.innerHTML;
-    this.indicator.length = this.length;
-    this.indicator.current = this.current;
 
     this.controller.appendChild(this.indicator);
     this.container.appendChild(this.scroller);
@@ -82,6 +89,13 @@ export class CdgCarousel extends HTMLElement {
     this.textContent = '';
 
     this.appendChild(this.container);
+    if (actions) {
+      this.appendChild(actions);
+    }
+
+    // Should get length after mobile actions has removed
+    this.indicator.length = this.length;
+    this.indicator.current = this.current;
 
     // Init first state of scroller
     this.scroller.current = this.current;
@@ -127,19 +141,33 @@ export class CdgCarousel extends HTMLElement {
   }
 
   attributeChangedCallback(attr) {
-    if (attr === 'current') {
-      this.scroller.current = this.current;
-      this.indicator.current = this.current;
-      this.autoPlay();
+    switch (attr) {
+      case 'current':
+        this.scroller.current = this.current;
+        this.indicator.current = this.current;
+        this.switchSlide();
+        break;
+      case 'autoSwitch':
+        if (this.autoSwitch) {
+          this.switchSlide();
+        } else {
+          this.stop();
+        }
+        break;
+
+      default:
+        break;
     }
   }
 
-  autoPlay() {
+  switchSlide() {
     this.stop();
-    this.timer = setTimeout(() => {
-      this.current = (this.current + 1) % this.length;
-      this.autoPlay();
-    }, 3000);
+    if (this.autoSwitch) {
+      this.timer = setTimeout(() => {
+        this.current = (this.current + 1) % this.length;
+        this.switchSlide();
+      }, 3000);
+    }
   }
 
   stop() {
