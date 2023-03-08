@@ -14,6 +14,7 @@ import './components/carousel.html';
 import './components/inline-loading.html';
 import './components/list-view.html';
 import './components/loading.html';
+import './components/modal.html';
 import './components/nav-rail.html';
 import './components/navbar.html';
 import './components/page-header.html';
@@ -70,6 +71,7 @@ const contentMap = {
   inlineLoading: './components/inline-loading.html',
   listView: './components/list-view.html',
   loading: './components/loading.html',
+  modal: './components/modal.html',
   navRail: './components/nav-rail.html',
   navbar: './components/navbar.html',
   pageHeader: './components/page-header.html',

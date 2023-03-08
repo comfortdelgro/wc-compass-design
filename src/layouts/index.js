@@ -28,6 +28,10 @@ import { CdgPortalNavbar } from './portal-navbar/portal-navbar';
 import { CdgNavRail } from './nav-rail/nav-rail';
 import { CdgWizards } from './wizards/wizards';
 import { CdgWizardStep } from './wizards/wizard-step';
+import { CdgModal } from './modal/modal';
+import { CdgModalHeader } from './modal/modal-header';
+import { CdgModalBody } from './modal/modal-body';
+import { CdgModalActions } from './modal/modal-actions';
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -61,6 +65,10 @@ customElements.define('cdg-carousel', CdgCarousel);
 customElements.define('cdg-carousel-scroller', CdgCarouselScroller);
 customElements.define('cdg-slide', CdgSlide);
 customElements.define('cdg-dots-indicator', CdgDotsIndicator);
+customElements.define('cdg-modal', CdgModal);
+customElements.define('cdg-modal-header', CdgModalHeader);
+customElements.define('cdg-modal-body', CdgModalBody);
+customElements.define('cdg-modal-actions', CdgModalActions);
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
@@ -94,4 +102,8 @@ export const LAYOUT_COMPONENTS = [
   CdgNavRail,
   CdgWizards,
   CdgWizardStep,
+  CdgModal,
+  CdgModalHeader,
+  CdgModalBody,
+  CdgModalActions,
 ];
