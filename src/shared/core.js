@@ -1,8 +1,29 @@
 export class CdgIconSize extends HTMLElement {
+  static get observedAttributes() {
+    return ['size'];
+  }
+
+  get size() {
+    return Number(this.getAttribute('size')) || 24;
+  }
+
+  set size(size) {
+    this.setAttribute('size', size);
+  }
+
   constructor() {
     super();
+  }
 
-    this.addCustomSize();
+  attributeChangedCallback(attr) {
+    switch (attr) {
+      case 'size':
+        this.addCustomSize();
+        break;
+
+      default:
+        break;
+    }
   }
 
   addCustomSize() {

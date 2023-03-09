@@ -31,6 +31,7 @@ import './components/dialog.html';
 import './components/dropdown.html';
 import './components/popover.html';
 import './components/progress.html';
+import './components/timeline.html';
 import './components/toggle.html';
 import './components/wizards.html';
 import './components/calendar.html';
@@ -90,6 +91,7 @@ const contentMap = {
   popover: './components/popover.html',
   progress: './components/progress.html',
   toggle: './components/toggle.html',
+  timeline: './components/timeline.html',
   wizards: './components/wizards.html',
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',

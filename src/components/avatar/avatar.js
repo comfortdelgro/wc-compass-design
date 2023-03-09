@@ -44,7 +44,7 @@ export class CdgAvatar extends CdgIconSize {
   attributeChangedCallback(attr, oldValue, newValue) {
     if (attr === 'size') {
       this.addCustomSize();
-    } else if (attr === 'name') {
+    } else if (attr === 'name' && !this.hasAttribute('imageSrc')) {
       this.nameElement = this.querySelector('.avatar-text');
       this.addName();
     }
