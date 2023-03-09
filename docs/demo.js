@@ -26,15 +26,18 @@ import './components/action-bar.html';
 import './components/sub-header.html';
 import './components/tabs.html';
 import './components/text-field.html';
+import './components/sub-nav.html';
 import './components/table.html';
 import './components/dialog.html';
 import './components/dropdown.html';
 import './components/popover.html';
 import './components/progress.html';
+import './components/timeline.html';
 import './components/toggle.html';
 import './components/wizards.html';
 import './components/calendar.html';
 import './components/datepicker.html';
+import './components/tooltip.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -85,13 +88,16 @@ const contentMap = {
   subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
+  subNav: './components/sub-nav.html',
   table: './components/table.html',
   popover: './components/popover.html',
   progress: './components/progress.html',
   toggle: './components/toggle.html',
+  timeline: './components/timeline.html',
   wizards: './components/wizards.html',
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
+  tooltip: './components/tooltip.html',
 };
 
 const content = document.querySelector('#component-content');

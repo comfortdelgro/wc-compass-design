@@ -4,6 +4,20 @@ template.innerHTML = `
 `;
 const ARROW_HEIGHT = 8;
 const OUTLINE_HEIGHT = 2;
+export const DIRECTIONS = [
+  'topLeft',
+  'top',
+  'topRight',
+  'leftTop',
+  'left',
+  'leftBottom',
+  'rightTop',
+  'right',
+  'rightBottom',
+  'bottomLeft',
+  'bottom',
+  'bottomRight',
+];
 
 function getScrollParent(node) {
   if (node == null) {
@@ -28,7 +42,9 @@ export class CdgFloatingContent extends HTMLElement {
 
   set position(value) {
     this._position = value;
-    this.classList = 'cdg-floating-content';
+    this.classList.remove(...DIRECTIONS);
+    this.classList.add('cdg-floating-content');
+    this.hasAttribute('hasArrow') && this.classList.add('hasArrow');
     this.classList.add(this._position);
   }
 
@@ -161,7 +177,10 @@ export function createFloating(
   const floatingElement = document.createElement('cdg-floating-content');
   floatingElement.setAttribute('placement', position);
   floatingElement.classList.add(position);
-  hasArrow && floatingElement.classList.add('hasArrow');
+  if (hasArrow) {
+    floatingElement.classList.add('hasArrow');
+    floatingElement.setAttribute('hasArrow', 'true');
+  }
   hasOutline && floatingElement.setAttribute('has-outline', true);
 
   // 100% width of the origin

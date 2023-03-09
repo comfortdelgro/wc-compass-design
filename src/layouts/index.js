@@ -37,6 +37,15 @@ import { CdgDialogConfirm } from './modal/dialog-confirm';
 import { CdgDialogConfirmCustom } from './modal/dialog-confirm-custom';
 import { CdgDialogWarning } from './modal/dialog-warning';
 import { CdgDialogActions } from './modal/dialog-actions';
+import { CdgTimeline } from './timeline/timeline';
+import { CdgTimelineGroup } from './timeline/timeline-group';
+import { CdgTimelineHeader } from './timeline/timeline-header';
+import { CdgTimelineCard } from './timeline/timeline-card';
+import { CdgTimelineCardTime } from './timeline/timeline-card-time';
+import { CdgTimelineCardHeader } from './timeline/timeline-card-header';
+import { CdgTimelineCardBody } from './timeline/timeline-card-body';
+import { CdgSubNav } from './sub-nav/sub-nav';
+import { CdgSubNavGroup } from './sub-nav/sub-nav-group';
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -79,6 +88,15 @@ customElements.define('cdg-dialog-confirm', CdgDialogConfirm);
 customElements.define('cdg-dialog-confirm-custom', CdgDialogConfirmCustom);
 customElements.define('cdg-dialog-warning', CdgDialogWarning);
 customElements.define('cdg-dialog-actions', CdgDialogActions);
+customElements.define('cdg-timeline', CdgTimeline);
+customElements.define('cdg-timeline-header', CdgTimelineHeader);
+customElements.define('cdg-timeline-group', CdgTimelineGroup);
+customElements.define('cdg-timeline-card', CdgTimelineCard);
+customElements.define('cdg-timeline-card-time', CdgTimelineCardTime);
+customElements.define('cdg-timeline-card-header', CdgTimelineCardHeader);
+customElements.define('cdg-timeline-card-body', CdgTimelineCardBody);
+customElements.define('cdg-sub-nav', CdgSubNav);
+customElements.define('cdg-sub-nav-group', CdgSubNavGroup);
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
@@ -121,4 +139,13 @@ export const LAYOUT_COMPONENTS = [
   CdgDialogWarning,
   CdgDialogConfirm,
   CdgDialogConfirmCustom,
+  CdgTimeline,
+  CdgTimelineHeader,
+  CdgTimelineGroup,
+  CdgTimelineCard,
+  CdgTimelineCardTime,
+  CdgTimelineCardHeader,
+  CdgTimelineCardBody,
+  CdgSubNav,
+  CdgSubNavGroup,
 ];
