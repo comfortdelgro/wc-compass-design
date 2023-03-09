@@ -5,6 +5,7 @@ import arrowLeft from '../../images/arrow-left.svg';
 import arrowRight from '../../images/arrow-right.svg';
 import calendar from '../../images/calendar.svg';
 import callCenter from '../../images/call-center.svg';
+import clipBoard from '../../images/clip-board.svg';
 import clock from '../../images/clock.svg';
 import close from '../../images/close.svg';
 import cloudUpload from '../../images/cloud-upload.svg';
@@ -44,6 +45,7 @@ import twitter from '../../images/twitter.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
+import shapes from '../../images/shapes.svg';
 import spinner from '../../images/spinner.svg';
 
 import wLogo from '../../images/w-logo.svg';
@@ -57,6 +59,7 @@ export const ICONS_IMAGES = [
   arrowRight,
   calendar,
   callCenter,
+  clipBoard,
   clock,
   close,
   cloudUpload,
@@ -96,6 +99,7 @@ export const ICONS_IMAGES = [
   userGroupSettings,
   userGroup,
   user,
+  shapes,
   spinner,
   wLogo,
   zigLogo,
