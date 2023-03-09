@@ -3,6 +3,7 @@ import addUser from '../../images/add-user.svg';
 import arrowDown from '../../images/arrow-down.svg';
 import arrowLeft from '../../images/arrow-left.svg';
 import arrowRight from '../../images/arrow-right.svg';
+import calendar from '../../images/calendar.svg';
 import callCenter from '../../images/call-center.svg';
 import clock from '../../images/clock.svg';
 import close from '../../images/close.svg';
@@ -34,6 +35,7 @@ import paste from '../../images/paste.svg';
 import profileCard from '../../images/profile-card.svg';
 import profile from '../../images/profile.svg';
 import question from '../../images/question.svg';
+import refresh from '../../images/refresh.svg';
 import search from '../../images/search.svg';
 import taxi from '../../images/taxi.svg';
 import ticks from '../../images/ticks.svg';
@@ -53,6 +55,7 @@ export const ICONS_IMAGES = [
   arrowDown,
   arrowLeft,
   arrowRight,
+  calendar,
   callCenter,
   clock,
   close,
@@ -84,6 +87,7 @@ export const ICONS_IMAGES = [
   profileCard,
   profile,
   question,
+  refresh,
   search,
   taxi,
   ticks,
