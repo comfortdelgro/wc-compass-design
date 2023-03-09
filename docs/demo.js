@@ -33,6 +33,7 @@ import './components/toggle.html';
 import './components/wizards.html';
 import './components/calendar.html';
 import './components/datepicker.html';
+import './components/tooltip.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -88,6 +89,7 @@ const contentMap = {
   wizards: './components/wizards.html',
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
+  tooltip: './components/tooltip.html',
 };
 
 const content = document.querySelector('#component-content');
