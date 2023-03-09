@@ -47,6 +47,16 @@ body .cdg-nav-rail .workbench-title {
   z-index: 0;
 }
 
+.page-body {
+  display: flex;
+  overflow: auto;
+  flex: 1;
+}
+
+.cdg-sub-nav.hide {
+  display: none;
+}
+
 .cdg-nav-rail-header {
   gap: 12px;
 }
@@ -114,6 +124,12 @@ cdg-nav-rail .cdg-nav-rail-inner,
 .sample-section.darker {
   background: #f5f5f5;
   padding: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .sample-section.darker {
+    background: #222;
+  }
 }
 
 .dark .sample-section.darker {
