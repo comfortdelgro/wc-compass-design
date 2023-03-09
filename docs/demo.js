@@ -26,6 +26,7 @@ import './components/action-bar.html';
 import './components/sub-header.html';
 import './components/tabs.html';
 import './components/text-field.html';
+import './components/sub-nav.html';
 import './components/table.html';
 import './components/dialog.html';
 import './components/dropdown.html';
@@ -87,6 +88,7 @@ const contentMap = {
   subHeader: './components/sub-header.html',
   tabs: './components/tabs.html',
   textField: './components/text-field.html',
+  subNav: './components/sub-nav.html',
   table: './components/table.html',
   popover: './components/popover.html',
   progress: './components/progress.html',

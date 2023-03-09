@@ -79,7 +79,7 @@ cdg-nav-rail .cdg-nav-rail-inner,
   padding: 20px;
 }
 
-.doc-container h3 {
+.doc-container .sample-section-title {
   background: var(--background);
   position: sticky;
   top: -20px;
