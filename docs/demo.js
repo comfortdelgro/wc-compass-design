@@ -39,25 +39,7 @@ import './components/calendar.html';
 import './components/datepicker.html';
 import './components/tooltip.html';
 
-function downloadHTMLContent(url) {
-  return new Promise((resolve, reject) => {
-    fetch(url, { cache: 'no-cache' })
-      .then((response) => response.text())
-      .then((data) => {
-        if (data) {
-          resolve(data);
-        } else {
-          reject(new Error('Loaded file is not valid HTML File"'));
-        }
-      })
-      .catch(() => {
-        reject(new Error('Error loading HTML'));
-      });
-  });
-}
-
 const contentMap = {
-  default: './pages/home.html',
   home: './pages/home.html',
   accordion: './components/accordion.html',
   alert: './components/alert.html',
@@ -100,34 +82,268 @@ const contentMap = {
   tooltip: './components/tooltip.html',
 };
 
+const documentContent = [
+  {
+    name: 'Layouts',
+    id: 'layouts',
+    icon: 'grid',
+    children: [
+      {
+        name: 'Accordion',
+        slug: 'accordion',
+      },
+      {
+        name: 'Action Bar',
+        slug: 'actionBar',
+      },
+      {
+        name: 'Alert',
+        slug: 'alert',
+      },
+      {
+        name: 'Breadcrumbs',
+        slug: 'breadcrumbs',
+      },
+      {
+        name: 'Cards',
+        slug: 'cards',
+      },
+      {
+        name: 'Carousel',
+        slug: 'carousel',
+      },
+      {
+        name: 'Dashboard Side Card',
+        slug: 'dashboardSideCard',
+      },
+      {
+        name: 'Page Header',
+        slug: 'pageHeader',
+      },
+      {
+        name: 'List View',
+        slug: 'listView',
+      },
+      {
+        name: 'Sub Header',
+        slug: 'subHeader',
+      },
+      {
+        name: 'Modal',
+        slug: 'modal',
+      },
+      {
+        name: 'Dialog',
+        slug: 'dialog',
+      },
+      {
+        name: 'Nav Rail',
+        slug: 'navRail',
+      },
+      {
+        name: 'Navbar',
+        slug: 'navbar',
+      },
+      {
+        name: 'Sub Nav',
+        slug: 'subNav',
+      },
+      {
+        name: 'Table',
+        slug: 'table',
+      },
+      {
+        name: 'Timeline',
+        slug: 'timeline',
+      },
+      {
+        name: 'Footer',
+        slug: 'footer',
+      },
+    ],
+  },
+  {
+    name: 'Form Controls',
+    id: 'formControls',
+    icon: 'clipBoard',
+    children: [
+      {
+        name: 'Calendar',
+        slug: 'calendar',
+      },
+      {
+        name: 'Checkboxes',
+        slug: 'checkboxes',
+      },
+      {
+        name: 'Datepicker',
+        slug: 'datepicker',
+      },
+      {
+        name: 'Dropdown',
+        slug: 'dropdown',
+      },
+      {
+        name: 'Text Field',
+        slug: 'textField',
+      },
+      {
+        name: 'Radios',
+        slug: 'radios',
+      },
+      {
+        name: 'Toggle',
+        slug: 'toggle',
+      },
+    ],
+  },
+  {
+    name: 'UI Controls',
+    id: 'ui-controls',
+    icon: 'shapes',
+    children: [
+      {
+        name: 'Avatar',
+        slug: 'avatar',
+      },
+      {
+        name: 'Alert Badges',
+        slug: 'alertBadges',
+      },
+      {
+        name: 'Button',
+        slug: 'button',
+      },
+      {
+        name: 'Icon',
+        slug: 'icon',
+      },
+      {
+        name: 'Inline Loading',
+        slug: 'inlineLoading',
+      },
+      {
+        name: 'Loading',
+        slug: 'loading',
+      },
+      {
+        name: 'Pagination',
+        slug: 'pagination',
+      },
+      {
+        name: 'Pill Badges',
+        slug: 'pillBadges',
+      },
+      {
+        name: 'Status',
+        slug: 'status',
+      },
+      {
+        name: 'Tabs',
+        slug: 'tabs',
+      },
+      {
+        name: 'Tooltip',
+        slug: 'tooltip',
+      },
+      {
+        name: 'Popover',
+        slug: 'popover',
+      },
+      {
+        name: 'Progress',
+        slug: 'progress',
+      },
+      {
+        name: 'Wizards',
+        slug: 'wizards',
+      },
+    ],
+  },
+];
+
+function downloadHTMLContent(url) {
+  return new Promise((resolve, reject) => {
+    fetch(url, { cache: 'no-cache' })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data) {
+          resolve(data);
+        } else {
+          reject(new Error('Loaded file is not valid HTML File"'));
+        }
+      })
+      .catch(() => {
+        reject(new Error('Error loading HTML'));
+      });
+  });
+}
+
 const content = document.querySelector('#component-content');
 const scriptElement = document.querySelector('#sample-script');
 
 let activatedMenu = null;
+let activeParent = null;
+
+function isParentContains(menu, child) {
+  if (menu.children.length) {
+    return menu.children.find((item) => item.slug === child);
+  }
+  return false;
+}
+
+function findParentMenu(hash) {
+  return documentContent.find((item) => isParentContains(item, hash));
+}
 
 function activeMenu(hash) {
-  if (activatedMenu) {
+  setTimeout(() => {
+    // Handle main nav active states
+    if (activeParent) {
+      activeParent.forEach((element) => {
+        element.classList.remove('active');
+      });
+    }
+
+    const parent = findParentMenu(hash);
+    if (parent) {
+      activeParent = document.querySelectorAll('#' + parent.id);
+
+      activeParent.forEach((element) => {
+        element.classList.add('active');
+      });
+
+      showSubMenu(parent);
+    }
+
+    if (activatedMenu) {
+      activatedMenu.forEach((element) => {
+        element.classList.remove('active');
+      });
+    }
+
+    activatedMenu = document.querySelectorAll('[href="#' + hash + '"]');
     activatedMenu.forEach((element) => {
-      element.classList.remove('active');
+      element.classList.add('active');
     });
-  }
 
-  activatedMenu = document.querySelectorAll('[href="#' + hash + '"]');
-  activatedMenu.forEach((element) => {
-    element.classList.add('active');
+    // Close menu
+    document.querySelector('cdg-nav-rail').open = false;
   });
-
-  // Close menu
-  document.querySelector('cdg-nav-rail').open = false;
 }
 
 function handlePageChange(url) {
   // Remove old script
   scriptElement.textContent = '';
 
-  const lastPrams = url.split('#')[1] || 'default';
+  const lastPrams = url.split('#')[1] || 'home';
   const hash = lastPrams.split('?')[0];
   activeMenu(hash);
+  if (hash === 'home') {
+    document.querySelector('cdg-sub-nav').classList.add('hide');
+  } else {
+    document.querySelector('cdg-sub-nav').classList.remove('hide');
+  }
 
   downloadHTMLContent(contentMap[hash]).then((data) => {
     content.innerHTML = data;
@@ -149,4 +365,59 @@ window.addEventListener('hashchange', function (event) {
   handlePageChange(event.newURL);
 });
 
-document.onreadystatechange = () => handlePageChange(window.location.href);
+const subTitle = document.querySelector('.cdg-sub-nav-title');
+const subNav = document.querySelector('.cdg-sub-nav-group-content');
+
+function createSubMenu(item) {
+  const menu = document.createElement('a');
+  menu.classList.add('cdg-sub-nav-item');
+  menu.textContent = item.name;
+  menu.setAttribute('href', '#' + item.slug);
+
+  return menu;
+}
+
+function showSubMenu(data, first) {
+  subNav.textContent = '';
+  subTitle.textContent = data.name;
+  if (data.children.length) {
+    data.children.forEach((item) => {
+      subNav.appendChild(createSubMenu(item));
+    });
+  }
+
+  if (first) {
+    window.location.href = '#' + data.children[0].slug;
+  }
+}
+
+function createNavMenu(item) {
+  const menu = document.createElement('a');
+  menu.classList.add('cdg-nav-item');
+  menu.setAttribute('id', item.id);
+  if (item.slug) {
+    menu.setAttribute('href', '#' + item.slug);
+  } else {
+    menu.addEventListener('click', () => showSubMenu(item, true));
+  }
+
+  const menuIcon = document.createElement('cdg-icon');
+  menuIcon.setAttribute('name', item.icon);
+  // menuIcon.setAttribute('source', 'host');
+
+  const menuText = document.createElement('span');
+  menuText.textContent = item.name;
+
+  menu.appendChild(menuIcon);
+  menu.appendChild(menuText);
+
+  return menu;
+}
+
+document.onreadystatechange = () => {
+  handlePageChange(window.location.href);
+  const navRail = document.querySelector('.cdg-nav-rail-body');
+  documentContent.forEach((item) => {
+    navRail.appendChild(createNavMenu(item));
+  });
+};

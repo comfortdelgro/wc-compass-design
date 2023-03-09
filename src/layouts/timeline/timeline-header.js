@@ -35,7 +35,7 @@ export class CdgTimelineHeader extends HTMLElement {
 
     const icon = document.createElement('cdg-icon');
     icon.setAttribute('name', 'calendar');
-    icon.setAttribute('source', 'host');
+    // icon.setAttribute('source', 'host');
     icon.setAttribute('size', '16');
 
     this.iconWrapper.appendChild(icon);
