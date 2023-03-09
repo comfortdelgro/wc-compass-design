@@ -18,13 +18,13 @@ cdg-sub-nav-group,
     }
   }
 
-  .cdg-expand-icon {
+  > button .cdg-expand-icon {
     transform: rotate(-90deg);
     @extend %smoothTransition;
   }
 
   &.open {
-    .cdg-expand-icon {
+    > button .cdg-expand-icon {
       transform: rotate(0deg);
       @extend %smoothTransition;
     }
