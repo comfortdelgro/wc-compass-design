@@ -416,8 +416,9 @@ function createNavMenu(item) {
 
 document.onreadystatechange = () => {
   handlePageChange(window.location.href);
-  const navRail = document.querySelector('.cdg-nav-rail-body');
-  documentContent.forEach((item) => {
-    navRail.appendChild(createNavMenu(item));
-  });
 };
+
+const navRail = document.querySelector('.cdg-nav-rail-body');
+documentContent.forEach((item) => {
+  navRail.appendChild(createNavMenu(item));
+});
