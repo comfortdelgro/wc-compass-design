@@ -79,6 +79,7 @@ cdg-nav-rail,
       display: none;
     }
 
+    &[open='true'],
     &:hover {
       .cdg-nav-rail-inner {
         width: 270px;
@@ -166,6 +167,7 @@ cdg-nav-rail,
   line-height: 21px;
   font-weight: 600;
   color: var(--grey80);
+  cursor: pointer;
   border-left: 3px solid transparent;
 
   &:hover {

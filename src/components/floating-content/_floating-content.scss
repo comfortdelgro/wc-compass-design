@@ -1,10 +1,10 @@
 @mixin arrowLeft {
-  border-left: 8px solid var(--background);
+  border-left: 8px solid currentColor;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
 }
 @mixin arrowRight {
-  border-left: 8px solid var(--background);
+  border-right: 8px solid currentColor;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
 }
@@ -28,15 +28,16 @@
       width: 0;
       height: 0;
       clear: both;
+      color: var(--background);
       border-left: 8px solid transparent;
       border-right: 8px solid transparent;
-      border-top: 8px solid var(--background);
+      border-top: 8px solid currentColor;
     }
 
     &.topLeft {
       &::after {
         bottom: 0;
-        left: 10%;
+        left: 48px;
         transform: translateY(8px);
       }
     }
@@ -52,14 +53,14 @@
     &.topRight {
       &::after {
         bottom: 0;
-        right: 10%;
+        right: 48px;
         transform: translateY(8px);
       }
     }
 
     &.leftTop {
       &::after {
-        top: 10%;
+        top: 48px;
         right: -8px;
         border-right: unset;
         @include arrowLeft;
@@ -78,7 +79,7 @@
 
     &.leftBottom {
       &::after {
-        bottom: 10%;
+        bottom: 48px;
         right: -8px;
         border-right: unset;
         @include arrowLeft;
@@ -87,7 +88,7 @@
 
     &.rightTop {
       &::after {
-        top: 10%;
+        top: 48px;
         left: -8px;
         border-left: unset;
         @include arrowRight;
@@ -106,7 +107,7 @@
 
     &.rightBottom {
       &::after {
-        bottom: 10%;
+        bottom: 48px;
         left: -8px;
         border-left: unset;
         @include arrowRight;
@@ -116,7 +117,7 @@
     &.bottomLeft {
       &::after {
         top: 0;
-        left: 10%;
+        left: 48px;
         transform: translateY(-8px) rotate(180deg);
       }
     }
@@ -132,7 +133,7 @@
     &.bottomRight {
       &::after {
         top: 0;
-        right: 10%;
+        right: 48px;
         transform: translateY(-8px) rotate(180deg);
       }
     }

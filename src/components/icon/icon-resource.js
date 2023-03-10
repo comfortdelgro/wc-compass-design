@@ -3,7 +3,9 @@ import addUser from '../../images/add-user.svg';
 import arrowDown from '../../images/arrow-down.svg';
 import arrowLeft from '../../images/arrow-left.svg';
 import arrowRight from '../../images/arrow-right.svg';
+import calendar from '../../images/calendar.svg';
 import callCenter from '../../images/call-center.svg';
+import clipBoard from '../../images/clip-board.svg';
 import clock from '../../images/clock.svg';
 import close from '../../images/close.svg';
 import cloudUpload from '../../images/cloud-upload.svg';
@@ -34,6 +36,7 @@ import paste from '../../images/paste.svg';
 import profileCard from '../../images/profile-card.svg';
 import profile from '../../images/profile.svg';
 import question from '../../images/question.svg';
+import refresh from '../../images/refresh.svg';
 import search from '../../images/search.svg';
 import taxi from '../../images/taxi.svg';
 import ticks from '../../images/ticks.svg';
@@ -42,6 +45,7 @@ import twitter from '../../images/twitter.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
+import shapes from '../../images/shapes.svg';
 import spinner from '../../images/spinner.svg';
 
 import wLogo from '../../images/w-logo.svg';
@@ -53,7 +57,9 @@ export const ICONS_IMAGES = [
   arrowDown,
   arrowLeft,
   arrowRight,
+  calendar,
   callCenter,
+  clipBoard,
   clock,
   close,
   cloudUpload,
@@ -84,6 +90,7 @@ export const ICONS_IMAGES = [
   profileCard,
   profile,
   question,
+  refresh,
   search,
   taxi,
   ticks,
@@ -92,6 +99,7 @@ export const ICONS_IMAGES = [
   userGroupSettings,
   userGroup,
   user,
+  shapes,
   spinner,
   wLogo,
   zigLogo,
