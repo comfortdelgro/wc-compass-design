@@ -52,6 +52,16 @@ import docWord from '../../images/doc-word.svg';
 import docExcel from '../../images/doc-excel.svg';
 import docSheet from '../../images/doc-sheet.svg';
 import docInvoice from '../../images/doc-invoice.svg';
+import mobBus from '../../images/mob-bus.svg';
+import mobBusCar from '../../images/mob-buscar.svg';
+import mobCapacity from '../../images/mob-capacity.svg';
+import mobCar from '../../images/mob-car.svg';
+import mobClassification from '../../images/mob-classification.svg';
+import mobInspect from '../../images/mob-inspect.svg';
+import mobMaintenance from '../../images/mob-maintenance.svg';
+import mobRoadTax from '../../images/mob-roadtax.svg';
+import mobShield from '../../images/mob-shield.svg';
+import mobTaxi from '../../images/mob-taxi.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -113,4 +123,14 @@ export const ICONS_IMAGES = [
   docInvoice,
   wLogo,
   zigLogo,
+  mobBus,
+  mobBusCar,
+  mobCapacity,
+  mobCar,
+  mobClassification,
+  mobInspect,
+  mobMaintenance,
+  mobRoadTax,
+  mobShield,
+  mobTaxi,
 ];
