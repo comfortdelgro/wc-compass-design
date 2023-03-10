@@ -137,14 +137,14 @@ zigLogo`.split(',');
     <span class="icon-name">{{name}}</span>`;
 
     const icon = iconTemplate.replace(/{{name}}/g, name);
-    const template = d.createElement('div');
+    const template = document.createElement('div');
     template.classList.add('icon-sample');
     template.innerHTML = icon;
 
     return template;
   }
 
-  const iconGrid = d.querySelector('#icon-grid');
+  const iconGrid = document.querySelector('#icon-grid');
 
   for (let icon of iconList) {
     iconGrid.appendChild(createIcon(icon.trim()));
