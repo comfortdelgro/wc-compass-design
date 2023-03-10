@@ -33,6 +33,7 @@ import './components/dropdown.html';
 import './components/popover.html';
 import './components/progress.html';
 import './components/timeline.html';
+import './components/toast.html';
 import './components/toggle.html';
 import './components/wizards.html';
 import './components/calendar.html';
@@ -74,6 +75,7 @@ const contentMap = {
   table: './components/table.html',
   popover: './components/popover.html',
   progress: './components/progress.html',
+  toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
   wizards: './components/wizards.html',
@@ -127,14 +129,6 @@ const documentContent = [
       {
         name: 'Sub Header',
         slug: 'subHeader',
-      },
-      {
-        name: 'Modal',
-        slug: 'modal',
-      },
-      {
-        name: 'Dialog',
-        slug: 'dialog',
       },
       {
         name: 'Nav Rail',
@@ -257,6 +251,25 @@ const documentContent = [
       {
         name: 'Wizards',
         slug: 'wizards',
+      },
+    ],
+  },
+  {
+    name: 'Services',
+    id: 'services',
+    icon: 'job',
+    children: [
+      {
+        name: 'Dialog',
+        slug: 'dialog',
+      },
+      {
+        name: 'Modal',
+        slug: 'modal',
+      },
+      {
+        name: 'Toast',
+        slug: 'toast',
       },
     ],
   },
