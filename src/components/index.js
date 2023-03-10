@@ -25,6 +25,7 @@ import { CdgDatePicker } from './datepicker/datepicker';
 import { CdgListview } from './list-view/list-view';
 import { CdgListItem } from './list-view/list-item';
 import { CdgTooltip } from './tooltip/tooltip';
+import { CdgRangeSlider } from './range-slider/range-slider';
 
 customElements.define('cdg-accordion', CdgAccordion);
 customElements.define('cdg-accordion-header', CdgAccordionHeader);
@@ -53,6 +54,8 @@ customElements.define('cdg-datepicker', CdgDatePicker);
 customElements.define('cdg-list-view', CdgListview);
 customElements.define('cdg-list-item', CdgListItem);
 customElements.define('cdg-tooltip', CdgTooltip);
+customElements.define('cdg-range-slider', CdgRangeSlider);
+
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -76,4 +79,5 @@ export const CONTROL_COMPONENTS = [
   CdgListItem,
   CdgTooltip,
   CdgDatePicker,
+  CdgRangeSlider,
 ];
