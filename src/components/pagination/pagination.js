@@ -1,11 +1,11 @@
 export class CdgPagination extends HTMLElement {
+  static get observedAttributes() {
+    return ['total', 'current-page', 'page-size'];
+  }
+
   totalPage = 0;
   constructor() {
     super();
-  }
-
-  static get observedAttributes() {
-    return ['total', 'current-page', 'page-size'];
   }
 
   get currentPage() {

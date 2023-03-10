@@ -1,19 +1,4 @@
-import { createFloating } from '../floating-content/floating-content';
-
-const DIRECTIONS = [
-  'topLeft',
-  'top',
-  'topRight',
-  'leftTop',
-  'left',
-  'leftBottom',
-  'rightTop',
-  'right',
-  'rightBottom',
-  'bottomLeft',
-  'bottom',
-  'bottomRight',
-];
+import { createFloating, DIRECTIONS } from '../floating-content/floating-content';
 
 export class CdgPopover extends HTMLElement {
   floatingElement;

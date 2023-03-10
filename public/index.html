@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Web Component Compass Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/agate.min.css"
@@ -12,9 +13,19 @@
     />
     <link rel="stylesheet" href="./main.min.css" />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekday.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekOfYear.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/customParseFormat.js"></script>
     <script>
       function toggleDark() {
         document.body.classList.toggle('dark');
+      }
+
+      function toggleMenu() {
+        const nav = document.querySelector('cdg-nav-rail');
+        nav.open = true;
+        nav.focus();
       }
     </script>
   </head>
@@ -36,132 +47,13 @@
           <cdg-icon name="home"></cdg-icon>
           <span>Home</span>
         </a>
-        <a href="#accordion" class="cdg-nav-item">
-          <cdg-avatar name="Accordion" size="24"></cdg-avatar>
-          <span>Accordion</span>
-        </a>
-        <a href="#actionBar" class="cdg-nav-item">
-          <cdg-avatar name="Action Bar" size="24"></cdg-avatar>
-          <span>Action Bar</span>
-        </a>
-        <a href="#alert" class="cdg-nav-item">
-          <cdg-avatar name="Alert" size="24"></cdg-avatar>
-          <span>Alert</span>
-        </a>
-        <a href="#breadcrumbs" class="cdg-nav-item">
-          <cdg-avatar name="Breadcrumbs" size="24"></cdg-avatar>
-          <span>Breadcrumbs</span>
-        </a>
-        <a href="#cards" class="cdg-nav-item">
-          <cdg-avatar name="Cards" size="24"></cdg-avatar>
-          <span>Cards</span>
-        </a>
-        <a href="#dashboardSideCard" class="cdg-nav-item">
-          <cdg-avatar name="Dashboard Side Card" size="24"></cdg-avatar>
-          <span>Dashboard Side Card</span>
-        </a>
-        <a href="#pageHeader" class="cdg-nav-item">
-          <cdg-avatar name="Page Header" size="24"></cdg-avatar>
-          <span>Page Header</span>
-        </a>
-        <a href="#subHeader" class="cdg-nav-item">
-          <cdg-avatar name="Sub Header" size="24"></cdg-avatar>
-          <span>Sub Header</span>
-        </a>
-        <a href="#navRail" class="cdg-nav-item">
-          <cdg-avatar name="Nav Rail" size="24"></cdg-avatar>
-          <span>Nav Rail</span>
-        </a>
-        <a href="#navbar" class="cdg-nav-item">
-          <cdg-avatar name="Navbar" size="24"></cdg-avatar>
-          <span>Navbar</span>
-        </a>
-        <a href="#table" class="cdg-nav-item">
-          <cdg-avatar name="Table" size="24"></cdg-avatar>
-          <span>Table</span>
-        </a>
-        <a href="#footer" class="cdg-nav-item">
-          <cdg-avatar name="Footer" size="24"></cdg-avatar>
-          <span>Footer</span>
-        </a>
-        <cdg-divider></cdg-divider>
-        <a href="#checkboxes" class="cdg-nav-item">
-          <cdg-avatar name="Checkboxes" size="24"></cdg-avatar>
-          <span>Checkboxes</span>
-        </a>
-        <a href="#dropdown" class="cdg-nav-item">
-          <cdg-avatar name="Dropdown" size="24"></cdg-avatar>
-          <span>Dropdown</span>
-        </a>
-        <a href="#textField" class="cdg-nav-item">
-          <cdg-avatar name="Text Field" size="24"></cdg-avatar>
-          <span>Text Field</span>
-        </a>
-        <a href="#radios" class="cdg-nav-item">
-          <cdg-avatar name="Radios" size="24"></cdg-avatar>
-          <span>Radios</span>
-        </a>
-        <a href="#toggle" class="cdg-nav-item">
-          <cdg-avatar name="Toggle" size="24"></cdg-avatar>
-          <span>Toggle</span>
-        </a>
-        <cdg-divider></cdg-divider>
-        <a href="#avatar" class="cdg-nav-item">
-          <cdg-avatar name="Avatar" size="24"></cdg-avatar>
-          <span>Avatar</span>
-        </a>
-        <a href="#alertBadges" class="cdg-nav-item">
-          <cdg-avatar name="Alert Badges" size="24"></cdg-avatar>
-          <span>Alert Badges</span>
-        </a>
-        <a href="#button" class="cdg-nav-item">
-          <cdg-avatar name="Button" size="24"></cdg-avatar>
-          <span>Button</span>
-        </a>
-        <a href="#icon" class="cdg-nav-item">
-          <cdg-avatar name="Icon" size="24"></cdg-avatar>
-          <span>Icon</span>
-        </a>
-        <a href="#inlineLoading" class="cdg-nav-item">
-          <cdg-avatar name="Inline Loading" size="24"></cdg-avatar>
-          <span>Inline Loading</span>
-        </a>
-        <a href="#loading" class="cdg-nav-item">
-          <cdg-avatar name="Loading" size="24"></cdg-avatar>
-          <span>Loading</span>
-        </a>
-        <a href="#pagination" class="cdg-nav-item">
-          <cdg-avatar name="Pagination" size="24"></cdg-avatar>
-          <span>Pagination</span>
-        </a>
-        <a href="#pillBadges" class="cdg-nav-item">
-          <cdg-avatar name="Pill Badges" size="24"></cdg-avatar>
-          <span>Pill Badges</span>
-        </a>
-        <a href="#status" class="cdg-nav-item">
-          <cdg-avatar name="Status" size="24"></cdg-avatar>
-          <span>Status</span>
-        </a>
-        <a href="#tabs" class="cdg-nav-item">
-          <cdg-avatar name="Tabs" size="24"></cdg-avatar>
-          <span>Tabs</span>
-        </a>
-        <a href="#popover" class="cdg-nav-item">
-          <cdg-avatar name="Popover" size="24"></cdg-avatar>
-          <span>Popover</span>
-        </a>
-        <a href="#progress" class="cdg-nav-item">
-          <cdg-avatar name="Progress" size="24"></cdg-avatar>
-          <span>Progress</span>
-        </a>
-        <a href="#wizards" class="cdg-nav-item">
-          <cdg-avatar name="Wizards" size="24"></cdg-avatar>
-          <span>Wizards</span>
-        </a>
       </div>
     </cdg-nav-rail>
     <div class="page-content">
       <cdg-portal-navbar class="primary">
+        <button class="cdg-button icon" size="small" onclick="toggleMenu()">
+          <cdg-icon name="menu" size="16"></cdg-icon>
+        </button>
         <div class="portal-title">Compass Design</div>
         <div class="cdg-separator"></div>
         <div class="cdg-portal-nav-actions">
@@ -170,7 +62,15 @@
           </button>
         </div>
       </cdg-portal-navbar>
-      <div id="component-content" class="doc-container"></div>
+      <div class="page-body">
+        <cdg-sub-nav>
+          <div class="cdg-sub-nav-header">
+            <span class="cdg-sub-nav-title"></span>
+          </div>
+          <div class="cdg-sub-nav-group-content"></div>
+        </cdg-sub-nav>
+        <div id="component-content" class="doc-container"></div>
+      </div>
       <div id="sample-script"></div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     </div>
