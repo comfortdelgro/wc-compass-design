@@ -26,6 +26,7 @@ import { CdgPopoverContent } from './components/popover/popover-content';
 import { CdgProgress } from './components/progress/progress';
 import { CdgListview } from './components/list-view/list-view';
 import { CdgListItem } from './components/list-view/list-item';
+import { CdgRangeSlider } from './components/range-slider/range-slider';
 import {
   CdgActionBar,
   CdgCard,
@@ -86,6 +87,7 @@ customElements.define('cdg-popover-content', CdgPopoverContent);
 customElements.define('cdg-progress', CdgProgress);
 customElements.define('cdg-list-view', CdgListview);
 customElements.define('cdg-list-item', CdgListItem);
+customElements.define('cdg-range-slider', CdgRangeSlider);
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -166,6 +168,7 @@ export {
   CdgGroupAvatar,
   CdgListview,
   CdgListItem,
+  CdgRangeSlider,
   downloadSVGContent,
   toLowerCaseAndDash,
   ICONS_IMAGES,

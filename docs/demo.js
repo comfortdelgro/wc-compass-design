@@ -30,6 +30,7 @@ import './components/popover.html';
 import './components/progress.html';
 import './components/toggle.html';
 import './components/wizards.html';
+import './components/range-slider.html';
 
 function downloadHTMLContent(url) {
   return new Promise((resolve, reject) => {
@@ -82,6 +83,7 @@ const contentMap = {
   progress: './components/progress.html',
   toggle: './components/toggle.html',
   wizards: './components/wizards.html',
+  rangeSlider: './components/range-slider.html',
 };
 
 const content = document.querySelector('#component-content');
