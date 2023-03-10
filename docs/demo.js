@@ -21,6 +21,7 @@ import './components/page-header.html';
 import './components/pagination.html';
 import './components/pill-badges.html';
 import './components/radios.html';
+import './components/sidebar.html';
 import './components/status.html';
 import './components/action-bar.html';
 import './components/sub-header.html';
@@ -66,6 +67,7 @@ const contentMap = {
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
   radios: './components/radios.html',
+  sidebar: './components/sidebar.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
   subHeader: './components/sub-header.html',
@@ -266,6 +268,10 @@ const documentContent = [
       {
         name: 'Modal',
         slug: 'modal',
+      },
+      {
+        name: 'Sidebar',
+        slug: 'sidebar',
       },
       {
         name: 'Toast',

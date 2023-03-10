@@ -15,7 +15,7 @@ import {
 // Init a dialog service
 window.cdgDialogService = new DialogService();
 
-window.toastService = new ToastService();
+window.cdgToastService = new ToastService();
 
 export {
   CdgIconSize,

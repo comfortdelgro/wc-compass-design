@@ -52,6 +52,10 @@ import { CdgToastTime } from './toast/toast-time';
 import { CdgToastMessage } from './toast/toast-message';
 import { CdgToastHeader } from './toast/toast-header';
 import { CdgToastTitle } from './toast/toast-title';
+import { CdgSidebar } from './sidebar/sidebar';
+import { CdgSidebarHeader } from './sidebar/sidebar-header';
+import { CdgSidebarBody } from './sidebar/sidebar-body';
+import { CdgSidebarActions } from './sidebar/sidebar-actions';
 
 // Layouts
 customElements.define('cdg-action-bar', CdgActionBar);
@@ -109,6 +113,10 @@ customElements.define('cdg-toast-time', CdgToastTime);
 customElements.define('cdg-toast-message', CdgToastMessage);
 customElements.define('cdg-toast-header', CdgToastHeader);
 customElements.define('cdg-toast-title', CdgToastTitle);
+customElements.define('cdg-sidebar', CdgSidebar);
+customElements.define('cdg-sidebar-header', CdgSidebarHeader);
+customElements.define('cdg-sidebar-body', CdgSidebarBody);
+customElements.define('cdg-sidebar-actions', CdgSidebarActions);
 
 export const LAYOUT_COMPONENTS = [
   CdgGroupAvatar,
@@ -166,4 +174,8 @@ export const LAYOUT_COMPONENTS = [
   CdgToastMessage,
   CdgToastHeader,
   CdgToastTitle,
+  CdgSidebar,
+  CdgSidebarHeader,
+  CdgSidebarBody,
+  CdgSidebarActions,
 ];

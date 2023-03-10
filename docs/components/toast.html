@@ -29,7 +29,7 @@
         const toast = document.createElement(&apos;cdg-toast&apos;);
         const id = &apos;default&apos; + new Date().getTime();
         toast.textContent = &apos;Sample &apos; + id;
-        toastService.show(id, toast);
+        cdgToastService.show(id, toast);
     };
 &lt;/script&gt;</code>
 </pre>
@@ -88,9 +88,9 @@
         const closeButton = toast.querySelector(&apos;#toast-close-button&apos;);
         const id = &apos;simple&apos; + new Date().getTime();
         closeButton.addEventListener(&apos;click&apos;, () =&gt; {
-            toastService.close(id);
+            cdgToastService.close(id);
         });
-        toastService.show(id, toast, {
+        cdgToastService.show(id, toast, {
             autoHideAfter: 0, // By 0 - this toast will not auto close until user close it
         });
     };
@@ -256,11 +256,11 @@
 
 &lt;script&gt;
     function quickToast() {
-        toastService.toast(&apos;This is a quick toast&apos;);
+        cdgToastService.toast(&apos;This is a quick toast&apos;);
     };
 
     function quickToastIcon() {
-        toastService.toast(&apos;This is a quick toast with custom icon&apos;, {
+        cdgToastService.toast(&apos;This is a quick toast with custom icon&apos;, {
         name: &apos;shapes&apos;,
         color: &apos;#0142af&apos;,
         });
@@ -281,7 +281,7 @@
 
     const id = 'default' + new Date().getTime();
     toast.textContent = 'Sample ' + id;
-    toastService.show(id, toast);
+    cdgToastService.show(id, toast);
   };
 
   window.showSimple = function () {
@@ -293,9 +293,9 @@
     const closeButton = toast.querySelector('#toast-close-button');
     const id = 'simple' + new Date().getTime();
     closeButton.addEventListener('click', () => {
-      toastService.close(id);
+      cdgToastService.close(id);
     });
-    toastService.show(id, toast, {
+    cdgToastService.show(id, toast, {
       autoHideAfter: 0,
     });
   };
@@ -310,12 +310,12 @@
     const closeButton = toast.querySelector('#toast-close-button');
     const id = 'undo' + new Date().getTime();
     undoButton.addEventListener('click', () => {
-      toastService.close(id);
+      cdgToastService.close(id);
     });
     closeButton.addEventListener('click', () => {
-      toastService.close(id);
+      cdgToastService.close(id);
     });
-    toastService.show(id, toast, {
+    cdgToastService.show(id, toast, {
       autoHideAfter: 0,
     });
   };
@@ -330,12 +330,12 @@
     const dismissButton = toast.querySelector('#dismiss-button');
     const id = 'actions' + new Date().getTime();
     closeButton.addEventListener('click', () => {
-      toastService.close(id);
+      cdgToastService.close(id);
     });
     dismissButton.addEventListener('click', () => {
-      toastService.close(id);
+      cdgToastService.close(id);
     });
-    toastService.show(id, toast, {
+    cdgToastService.show(id, toast, {
       autoHideAfter: 5000,
     });
   };
@@ -351,25 +351,25 @@
     const dismissButton = toast.querySelector('#dismiss-button');
     const id = 'header' + new Date().getTime();
     executeButton.addEventListener('click', () => {
-      toastService.close(id);
+      cdgToastService.close(id);
     });
     closeButton.addEventListener('click', () => {
-      toastService.close(id);
+      cdgToastService.close(id);
     });
     dismissButton.addEventListener('click', () => {
-      toastService.close(id);
+      cdgToastService.close(id);
     });
-    toastService.show(id, toast, {
+    cdgToastService.show(id, toast, {
       autoHideAfter: 0,
     });
   };
 
   window.quickToast = () => {
-    toastService.toast('This is a quick toast');
+    cdgToastService.toast('This is a quick toast');
   };
 
   window.quickToastIcon = () => {
-    toastService.toast('This is a quick toast with custom icon', {
+    cdgToastService.toast('This is a quick toast with custom icon', {
       name: 'shapes',
       color: '#0142af',
     });
