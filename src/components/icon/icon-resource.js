@@ -11,9 +11,11 @@ import close from '../../images/close.svg';
 import cloudUpload from '../../images/cloud-upload.svg';
 import compassLogo from '../../images/compass-logo.svg';
 import copy from '../../images/copy.svg';
+import crossCircle from '../../images/cross-circle.svg';
 import customerService from '../../images/customer-service.svg';
 import dashboard from '../../images/dashboard.svg';
 import dots from '../../images/dots.svg';
+import download from '../../images/download.svg';
 import exclamation from '../../images/facebook.svg';
 import facebook from '../../images/exclamation.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
@@ -21,6 +23,7 @@ import filledArrowUp from '../../images/filled-arrow-up.svg';
 import globe from '../../images/globe.svg';
 import grid from '../../images/grid.svg';
 import home from '../../images/home.svg';
+import images from '../../images/images.svg';
 import info from '../../images/info.svg';
 import instagram from '../../images/instagram.svg';
 import job from '../../images/job.svg';
@@ -42,11 +45,13 @@ import taxi from '../../images/taxi.svg';
 import ticks from '../../images/ticks.svg';
 import tick from '../../images/tick.svg';
 import twitter from '../../images/twitter.svg';
+import upload from '../../images/upload.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
 import shapes from '../../images/shapes.svg';
 import spinner from '../../images/spinner.svg';
+import warning from '../../images/warning.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -65,9 +70,11 @@ export const ICONS_IMAGES = [
   cloudUpload,
   compassLogo,
   copy,
+  crossCircle,
   customerService,
   dashboard,
   dots,
+  download,
   exclamation,
   facebook,
   filledArrowDown,
@@ -75,6 +82,7 @@ export const ICONS_IMAGES = [
   globe,
   grid,
   home,
+  images,
   info,
   instagram,
   job,
@@ -96,11 +104,13 @@ export const ICONS_IMAGES = [
   ticks,
   tick,
   twitter,
+  upload,
   userGroupSettings,
   userGroup,
   user,
   shapes,
   spinner,
+  warning,
   wLogo,
   zigLogo,
 ];
