@@ -6,10 +6,8 @@ cdg-loading,
   box-sizing: border-box;
   position: relative;
   border: 10px solid var(--grey30);
-  transform: scale(0.3);
 
   &[size='large'] {
-    transform: scale(1);
   }
 
   &[text] {
@@ -17,11 +15,21 @@ cdg-loading,
   }
 
   &[size='medium'] {
-    transform: scale(0.6);
   }
 
   &[size='small'] {
-    transform: scale(0.2);
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+
+    &::before,
+    &::after {
+      width: 8px;
+      height: 8px;
+      clip-path: path(
+        'M8 0C8 1.05058 7.79307 2.09086 7.39104 3.06147C6.989 4.03207 6.39972 4.91399 5.65685 5.65686C4.91398 6.39973 4.03207 6.989 3.06146 7.39104C2.09086 7.79308 1.05057 8 -8.93276e-06 8L-6.72057e-06 6.01881C0.790395 6.01881 1.57306 5.86313 2.30329 5.56066C3.03353 5.25818 3.69704 4.81484 4.25594 4.25594C4.81484 3.69705 5.25818 3.03354 5.56065 2.3033C5.86313 1.57306 6.01881 0.790402 6.01881 0L8 0Z'
+      );
+    }
   }
 
   &::before,
