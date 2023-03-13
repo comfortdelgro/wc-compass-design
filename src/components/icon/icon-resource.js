@@ -13,7 +13,6 @@ import compassLogo from '../../images/compass-logo.svg';
 import copy from '../../images/copy.svg';
 import customerService from '../../images/customer-service.svg';
 import dashboard from '../../images/dashboard.svg';
-import exclamation from '../../images/facebook.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
 import globe from '../../images/globe.svg';
@@ -63,6 +62,7 @@ import emoHeart from '../../images/emoji/emo-heart.svg';
 import emoLaugh from '../../images/emoji/emo-laugh.svg';
 import emoFrown from '../../images/emoji/emo-frown.svg';
 import emoTear from '../../images/emoji/emo-tear.svg';
+import emoMeh from '../../images/emoji/emo-meh.svg';
 import instagram from '../../images/social-media/instagram.svg';
 import twitter from '../../images/social-media/twitter.svg';
 import facebook from '../../images/social-media/facebook.svg';
@@ -102,7 +102,6 @@ export const ICONS_IMAGES = [
   copy,
   customerService,
   dashboard,
-  exclamation,
   filledArrowDown,
   filledArrowUp,
   globe,
