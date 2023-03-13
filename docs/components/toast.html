@@ -246,12 +246,24 @@
   <button class="cdg-button" onclick="quickToastIcon()">
     Quick Toast + Icon
   </button>
+  <button
+    class="cdg-button"
+    onclick="cdgToastService.toast('You can toast a toast with inline function!')"
+  >
+    Toast
+  </button>
 </div>
 
 <pre>
     <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;quickToast()&quot;&gt;Quick Toast&lt;/button&gt;
 &lt;button class=&quot;cdg-button&quot; onclick=&quot;quickToastIcon()&quot;&gt;
     Quick Toast + Icon
+&lt;/button&gt;
+&lt;button
+  class=&quot;cdg-button&quot;
+  onclick=&quot;cdgToastService.toast(&apos;You can toast a toast with inline function!&apos;)&quot;
+&gt;
+  Toast
 &lt;/button&gt;
 
 &lt;script&gt;
@@ -311,6 +323,7 @@
     const id = 'undo' + new Date().getTime();
     undoButton.addEventListener('click', () => {
       cdgToastService.close(id);
+      cdgToastService.toast('User has selected Undo');
     });
     closeButton.addEventListener('click', () => {
       cdgToastService.close(id);
