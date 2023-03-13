@@ -203,7 +203,12 @@ export class CdgCarousel extends HTMLElement {
     // Stop transition timer
     this.scroller.style.transition = 'none';
 
-    this.setPointerCapture(event.pointerId);
+    // Buttons will not trigger click event if we set pointer capture
+    // This is to ignore buttons
+    if (event.target.tagName !== 'BUTTON') {
+      this.setPointerCapture(event.pointerId);
+    }
+
     this.pointer = new Pointer();
     this.pointer.start({ x: event.pageX, y: event.pageY });
 
@@ -217,6 +222,7 @@ export class CdgCarousel extends HTMLElement {
   }
 
   handlePointerMove(event) {
+    event.preventDefault();
     this.pointer.update({ x: event.pageX, y: event.pageY });
     this.scroller.position = this.scrollerPosition - this.pointer.distance.x;
   }

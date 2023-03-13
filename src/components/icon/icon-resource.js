@@ -21,6 +21,7 @@ import filledArrowUp from '../../images/filled-arrow-up.svg';
 import globe from '../../images/globe.svg';
 import grid from '../../images/grid.svg';
 import home from '../../images/home.svg';
+import images from '../../images/images.svg';
 import info from '../../images/info.svg';
 import instagram from '../../images/instagram.svg';
 import job from '../../images/job.svg';
@@ -96,6 +97,7 @@ export const ICONS_IMAGES = [
   globe,
   grid,
   home,
+  images,
   info,
   instagram,
   job,

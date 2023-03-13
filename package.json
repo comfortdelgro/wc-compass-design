@@ -29,5 +29,8 @@
     "node": "16.19.0",
     "npm": "9.4.0"
   },
-  "license": "(Unlicense OR MIT)"
+  "license": "(Unlicense OR MIT)",
+  "dependencies": {
+    "dayjs": "^1.11.7"
+  }
 }

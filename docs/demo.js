@@ -12,6 +12,7 @@ import './components/button.html';
 import './components/cards.html';
 import './components/carousel.html';
 import './components/inline-loading.html';
+import './components/layouts.html';
 import './components/list-view.html';
 import './components/loading.html';
 import './components/modal.html';
@@ -20,7 +21,9 @@ import './components/navbar.html';
 import './components/page-header.html';
 import './components/pagination.html';
 import './components/pill-badges.html';
+import './components/quantity-toggle.html';
 import './components/radios.html';
+import './components/sidebar.html';
 import './components/status.html';
 import './components/action-bar.html';
 import './components/sub-header.html';
@@ -33,6 +36,7 @@ import './components/dropdown.html';
 import './components/popover.html';
 import './components/progress.html';
 import './components/timeline.html';
+import './components/toast.html';
 import './components/toggle.html';
 import './components/wizards.html';
 import './components/calendar.html';
@@ -56,6 +60,7 @@ const contentMap = {
   cards: './components/cards.html',
   carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
+  layouts: './components/layouts.html',
   listView: './components/list-view.html',
   loading: './components/loading.html',
   modal: './components/modal.html',
@@ -64,7 +69,9 @@ const contentMap = {
   pageHeader: './components/page-header.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
+  quantityToggle: './components/quantity-toggle.html',
   radios: './components/radios.html',
+  sidebar: './components/sidebar.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
   subHeader: './components/sub-header.html',
@@ -74,6 +81,7 @@ const contentMap = {
   table: './components/table.html',
   popover: './components/popover.html',
   progress: './components/progress.html',
+  toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
   wizards: './components/wizards.html',
@@ -97,10 +105,6 @@ const documentContent = [
         slug: 'actionBar',
       },
       {
-        name: 'Alert',
-        slug: 'alert',
-      },
-      {
         name: 'Breadcrumbs',
         slug: 'breadcrumbs',
       },
@@ -121,20 +125,16 @@ const documentContent = [
         slug: 'pageHeader',
       },
       {
+        name: 'Layouts',
+        slug: 'layouts',
+      },
+      {
         name: 'List View',
         slug: 'listView',
       },
       {
         name: 'Sub Header',
         slug: 'subHeader',
-      },
-      {
-        name: 'Modal',
-        slug: 'modal',
-      },
-      {
-        name: 'Dialog',
-        slug: 'dialog',
       },
       {
         name: 'Nav Rail',
@@ -188,6 +188,10 @@ const documentContent = [
         slug: 'textField',
       },
       {
+        name: 'Quantity Toggle',
+        slug: 'quantityToggle',
+      },
+      {
         name: 'Radios',
         slug: 'radios',
       },
@@ -205,6 +209,10 @@ const documentContent = [
       {
         name: 'Avatar',
         slug: 'avatar',
+      },
+      {
+        name: 'Alert',
+        slug: 'alert',
       },
       {
         name: 'Alert Badges',
@@ -257,6 +265,29 @@ const documentContent = [
       {
         name: 'Wizards',
         slug: 'wizards',
+      },
+    ],
+  },
+  {
+    name: 'Services',
+    id: 'services',
+    icon: 'job',
+    children: [
+      {
+        name: 'Dialog',
+        slug: 'dialog',
+      },
+      {
+        name: 'Modal',
+        slug: 'modal',
+      },
+      {
+        name: 'Sidebar',
+        slug: 'sidebar',
+      },
+      {
+        name: 'Toast',
+        slug: 'toast',
       },
     ],
   },
