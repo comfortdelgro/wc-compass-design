@@ -62,6 +62,12 @@ import mobMaintenance from '../../images/mob-maintenance.svg';
 import mobRoadTax from '../../images/mob-roadtax.svg';
 import mobShield from '../../images/mob-shield.svg';
 import mobTaxi from '../../images/mob-taxi.svg';
+import emoSmile from '../../images/emo-smile.svg';
+import emoHeart from '../../images/emo-heart.svg';
+import emoLaugh from '../../images/emo-laugh.svg';
+import emoFrown from '../../images/emo-frown.svg';
+import emoTear from '../../images/emo-tear.svg';
+import emoMeh from '../../images/emo-meh.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -133,4 +139,10 @@ export const ICONS_IMAGES = [
   mobRoadTax,
   mobShield,
   mobTaxi,
+  emoSmile,
+  emoHeart,
+  emoLaugh,
+  emoFrown,
+  emoTear,
+  emoMeh,
 ];
