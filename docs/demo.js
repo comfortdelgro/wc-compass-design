@@ -12,6 +12,7 @@ import './components/button.html';
 import './components/cards.html';
 import './components/carousel.html';
 import './components/inline-loading.html';
+import './components/layouts.html';
 import './components/list-view.html';
 import './components/loading.html';
 import './components/modal.html';
@@ -20,6 +21,7 @@ import './components/navbar.html';
 import './components/page-header.html';
 import './components/pagination.html';
 import './components/pill-badges.html';
+import './components/quantity-toggle.html';
 import './components/radios.html';
 import './components/sidebar.html';
 import './components/status.html';
@@ -58,6 +60,7 @@ const contentMap = {
   cards: './components/cards.html',
   carousel: './components/carousel.html',
   inlineLoading: './components/inline-loading.html',
+  layouts: './components/layouts.html',
   listView: './components/list-view.html',
   loading: './components/loading.html',
   modal: './components/modal.html',
@@ -66,6 +69,7 @@ const contentMap = {
   pageHeader: './components/page-header.html',
   pagination: './components/pagination.html',
   pillBadges: './components/pill-badges.html',
+  quantityToggle: './components/quantity-toggle.html',
   radios: './components/radios.html',
   sidebar: './components/sidebar.html',
   status: './components/status.html',
@@ -101,10 +105,6 @@ const documentContent = [
         slug: 'actionBar',
       },
       {
-        name: 'Alert',
-        slug: 'alert',
-      },
-      {
         name: 'Breadcrumbs',
         slug: 'breadcrumbs',
       },
@@ -123,6 +123,10 @@ const documentContent = [
       {
         name: 'Page Header',
         slug: 'pageHeader',
+      },
+      {
+        name: 'Layouts',
+        slug: 'layouts',
       },
       {
         name: 'List View',
@@ -184,6 +188,10 @@ const documentContent = [
         slug: 'textField',
       },
       {
+        name: 'Quantity Toggle',
+        slug: 'quantityToggle',
+      },
+      {
         name: 'Radios',
         slug: 'radios',
       },
@@ -201,6 +209,10 @@ const documentContent = [
       {
         name: 'Avatar',
         slug: 'avatar',
+      },
+      {
+        name: 'Alert',
+        slug: 'alert',
       },
       {
         name: 'Alert Badges',
