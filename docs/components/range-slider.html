@@ -17,18 +17,14 @@
 <h3>Usage</h3>
 
 <pre>
-    <p>HTML :</p>
-    <code>
-        &lt;div style=&quot;width: 250px&quot;&gt;
-        &lt;cdg-range-slider min=&quot;0&quot; max=&quot;1000&quot; value=&quot;50&quot;&gt;&lt;/cdg-range-slider&gt;
-        &lt;/div&gt;
-    </code>
-    <p>Javascript :</p>
-    <code>
-        const rangeSlider = document.querySelector('cdg-range-slider');
-        rangeSlider.addEventListener('change', (event) => {
-            const newValue = event.detail.value;
-            console.log('Slider value changed:', newValue);
-          });
-    </code>
+    <code>&lt;div style=&quot;width: 250px&quot;&gt;
+&lt;cdg-range-slider min=&quot;0&quot; max=&quot;1000&quot; value=&quot;50&quot;&gt;&lt;/cdg-range-slider&gt;
+&lt;/div&gt;
+
+const rangeSlider = document.querySelector('cdg-range-slider');
+rangeSlider.addEventListener('change', (event) => {
+    const newValue = event.detail.value;
+    console.log('Slider value changed:', newValue);
+  });
+</code>
 </pre>
