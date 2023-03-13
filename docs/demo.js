@@ -6,6 +6,8 @@ import './components/avatar.html';
 import './components/breadcrumbs.html';
 import './components/checkboxes.html';
 import './components/dashboard-side-card.html';
+import './components/file.html';
+import './components/file-upload.html';
 import './components/footer.html';
 import './components/icon.html';
 import './components/button.html';
@@ -52,6 +54,8 @@ const contentMap = {
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
   dashboardSideCard: './components/dashboard-side-card.html',
+  file: './components/file.html',
+  fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
@@ -182,6 +186,14 @@ const documentContent = [
       {
         name: 'Dropdown',
         slug: 'dropdown',
+      },
+      {
+        name: 'File',
+        slug: 'file',
+      },
+      {
+        name: 'File Upload',
+        slug: 'fileUpload',
       },
       {
         name: 'Text Field',
