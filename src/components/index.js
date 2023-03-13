@@ -27,6 +27,7 @@ import { CdgDatePicker } from './datepicker/datepicker';
 import { CdgListview } from './list-view/list-view';
 import { CdgListItem } from './list-view/list-item';
 import { CdgTooltip } from './tooltip/tooltip';
+import { CdgRangeSlider } from './range-slider/range-slider';
 import { CdgQuantityToggle } from './quantity-toggle/quantity-toggle';
 
 customElements.define('cdg-accordion', CdgAccordion);
@@ -58,6 +59,7 @@ customElements.define('cdg-datepicker', CdgDatePicker);
 customElements.define('cdg-list-view', CdgListview);
 customElements.define('cdg-list-item', CdgListItem);
 customElements.define('cdg-tooltip', CdgTooltip);
+customElements.define('cdg-range-slider', CdgRangeSlider);
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle);
 
 export const CONTROL_COMPONENTS = [
@@ -84,5 +86,6 @@ export const CONTROL_COMPONENTS = [
   CdgListItem,
   CdgTooltip,
   CdgDatePicker,
+  CdgRangeSlider,
   CdgQuantityToggle,
 ];
