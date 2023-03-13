@@ -40,7 +40,6 @@
   style="flex-direction: column; align-items: flex-start"
 >
   <button class="cdg-button" onclick="showWarning()">Show Warning</button>
-  <div id="output1"></div>
 </div>
 
 <pre>
@@ -55,11 +54,10 @@
             executeLabel: 'Delete',
         });
 
-        const output1 = document.querySelector('#output1');
-
         dialog.addEventListener('close', (event) =&gt; {
-            output1.textContent =
-            'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel');
+          cdgToastService.toast(
+            &apos;User says: &apos; + (event.detail ? &apos;Yes, delete it!&apos; : &apos;Cancel&apos;)
+          );
         });
     };
 &lt;/script&gt;</code>
@@ -71,12 +69,10 @@
   style="flex-direction: column; align-items: flex-start"
 >
   <button class="cdg-button" onclick="showConfirm()">Show Confirm</button>
-  <div id="output2"></div>
 </div>
 
 <pre>
     <code class="language-html">&lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirm()&quot;&gt;Show Confirm&lt;/button&gt;
-&lt;div id=&quot;output2&quot;&gt;&lt;/div&gt;
 
 &lt;script&gt;
     function showConfirm() {
@@ -86,11 +82,10 @@
             executeLabel: 'Execute',
         });
 
-        const output2 = document.querySelector('#output2');
-
         dialog.addEventListener('close', (event) =&gt; {
-            output2.textContent =
-            'User says: ' + (event.detail ? 'Yes, do it!' : 'Cancel');
+          cdgToastService.toast(
+            &apos;User says: &apos; + (event.detail ? &apos;Yes, delete it!&apos; : &apos;Cancel&apos;)
+          );
         });
     };
 &lt;/script&gt;</code>
@@ -118,7 +113,6 @@
     </div>
   </template>
   <button class="cdg-button" onclick="showConfirmCustom()">Show Confirm</button>
-  <div id="output3"></div>
 </div>
 
 <pre>
@@ -139,7 +133,6 @@
     &lt;/div&gt;
     &lt;/template&gt;
     &lt;button class=&quot;cdg-button&quot; onclick=&quot;showConfirmCustom()&quot;&gt;Show Confirm&lt;/button&gt;
-&lt;div id=&quot;output3&quot;&gt;&lt;/div&gt;
 
 &lt;script&gt;
     function showConfirmCustom() {
@@ -154,14 +147,10 @@
             executeLabel: 'Submit',
         });
 
-        const output3 = document.querySelector('#output3');
-
         dialog.addEventListener('close', (event) =&gt; {
-            output3.textContent =
-            'User says: ' +
-            (event.detail
-                ? 'Submit with message &quot;' + textarea.value + '&quot;'
-                : 'Cancel');
+          cdgToastService.toast(
+            event.detail ? &apos;Submit with message &quot;&apos; + textarea.value + &apos;&quot;&apos; : &apos;Cancel&apos;
+          );
         });
     };
 &lt;/script&gt;</code>
@@ -188,11 +177,10 @@
       executeLabel: 'Delete',
     });
 
-    const output1 = document.querySelector('#output1');
-
     dialog.addEventListener('close', (event) => {
-      output1.textContent =
-        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel');
+      cdgToastService.toast(
+        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel')
+      );
     });
   };
 
@@ -203,11 +191,10 @@
       executeLabel: 'Execute',
     });
 
-    const output2 = document.querySelector('#output2');
-
     dialog.addEventListener('close', (event) => {
-      output2.textContent =
-        'User says: ' + (event.detail ? 'Yes, do it!' : 'Cancel');
+      cdgToastService.toast(
+        'User says: ' + (event.detail ? 'Yes, delete it!' : 'Cancel')
+      );
     });
   };
 
@@ -223,14 +210,10 @@
       executeLabel: 'Submit',
     });
 
-    const output3 = document.querySelector('#output3');
-
     dialog.addEventListener('close', (event) => {
-      output3.textContent =
-        'User says: ' +
-        (event.detail
-          ? 'Submit with message "' + textarea.value + '"'
-          : 'Cancel');
+      cdgToastService.toast(
+        event.detail ? 'Submit with message "' + textarea.value + '"' : 'Cancel'
+      );
     });
   };
 </script>
