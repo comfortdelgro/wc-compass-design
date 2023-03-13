@@ -44,6 +44,7 @@ import './components/wizards.html';
 import './components/calendar.html';
 import './components/datepicker.html';
 import './components/tooltip.html';
+import './components/range-slider.html';
 
 const contentMap = {
   home: './pages/home.html',
@@ -92,6 +93,7 @@ const contentMap = {
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
   tooltip: './components/tooltip.html',
+  rangeSlider: './components/range-slider.html'
 };
 
 const documentContent = [
@@ -206,6 +208,10 @@ const documentContent = [
       {
         name: 'Radios',
         slug: 'radios',
+      },
+      {
+        name: 'RangeSlider',
+        slug: 'rangeSlider',
       },
       {
         name: 'Toggle',
