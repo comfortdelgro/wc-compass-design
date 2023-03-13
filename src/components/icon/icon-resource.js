@@ -15,7 +15,6 @@ import customerService from '../../images/customer-service.svg';
 import dashboard from '../../images/dashboard.svg';
 import dots from '../../images/dots.svg';
 import exclamation from '../../images/facebook.svg';
-import facebook from '../../images/exclamation.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
 import globe from '../../images/globe.svg';
@@ -23,7 +22,6 @@ import grid from '../../images/grid.svg';
 import home from '../../images/home.svg';
 import images from '../../images/images.svg';
 import info from '../../images/info.svg';
-import instagram from '../../images/instagram.svg';
 import job from '../../images/job.svg';
 import menu from '../../images/menu.svg';
 import notification from '../../images/notification.svg';
@@ -42,33 +40,35 @@ import search from '../../images/search.svg';
 import taxi from '../../images/taxi.svg';
 import ticks from '../../images/ticks.svg';
 import tick from '../../images/tick.svg';
-import twitter from '../../images/twitter.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
 import shapes from '../../images/shapes.svg';
 import spinner from '../../images/spinner.svg';
-import docPDF from '../../images/doc-pdf.svg';
-import docWord from '../../images/doc-word.svg';
-import docExcel from '../../images/doc-excel.svg';
-import docSheet from '../../images/doc-sheet.svg';
-import docInvoice from '../../images/doc-invoice.svg';
-import mobBus from '../../images/mob-bus.svg';
-import mobBusCar from '../../images/mob-buscar.svg';
-import mobCapacity from '../../images/mob-capacity.svg';
-import mobCar from '../../images/mob-car.svg';
-import mobClassification from '../../images/mob-classification.svg';
-import mobInspect from '../../images/mob-inspect.svg';
-import mobMaintenance from '../../images/mob-maintenance.svg';
-import mobRoadTax from '../../images/mob-roadtax.svg';
-import mobShield from '../../images/mob-shield.svg';
-import mobTaxi from '../../images/mob-taxi.svg';
-import emoSmile from '../../images/emo-smile.svg';
-import emoHeart from '../../images/emo-heart.svg';
-import emoLaugh from '../../images/emo-laugh.svg';
-import emoFrown from '../../images/emo-frown.svg';
-import emoTear from '../../images/emo-tear.svg';
-import emoMeh from '../../images/emo-meh.svg';
+import docPDF from '../../images/document/doc-pdf.svg';
+import docWord from '../../images/document/doc-word.svg';
+import docExcel from '../../images/document/doc-excel.svg';
+import docSheet from '../../images/document/doc-sheet.svg';
+import docInvoice from '../../images/document/doc-invoice.svg';
+import mobBus from '../../images/mobility/mob-bus.svg';
+import mobBusCar from '../../images/mobility/mob-buscar.svg';
+import mobCapacity from '../../images/mobility/mob-capacity.svg';
+import mobCar from '../../images/mobility/mob-car.svg';
+import mobClassification from '../../images/mobility/mob-classification.svg';
+import mobInspect from '../../images/mobility/mob-inspect.svg';
+import mobMaintenance from '../../images/mobility/mob-maintenance.svg';
+import mobRoadTax from '../../images/mobility/mob-roadtax.svg';
+import mobShield from '../../images/mobility/mob-shield.svg';
+import mobTaxi from '../../images/mobility/mob-taxi.svg';
+import emoSmile from '../../images/emoji/emo-smile.svg';
+import emoHeart from '../../images/emoji/emo-heart.svg';
+import emoLaugh from '../../images/emoji/emo-laugh.svg';
+import emoFrown from '../../images/emoji/emo-frown.svg';
+import emoTear from '../../images/emoji/emo-tear.svg';
+import instagram from '../../images/social-media/instagram.svg';
+import twitter from '../../images/social-media/twitter.svg';
+import facebook from '../../images/social-media/facebook.svg';
+import linkedin from '../../images/social-media/linkedin.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -91,7 +91,6 @@ export const ICONS_IMAGES = [
   dashboard,
   dots,
   exclamation,
-  facebook,
   filledArrowDown,
   filledArrowUp,
   globe,
@@ -99,7 +98,6 @@ export const ICONS_IMAGES = [
   home,
   images,
   info,
-  instagram,
   job,
   menu,
   notification,
@@ -118,7 +116,6 @@ export const ICONS_IMAGES = [
   taxi,
   ticks,
   tick,
-  twitter,
   userGroupSettings,
   userGroup,
   user,
@@ -147,4 +144,8 @@ export const ICONS_IMAGES = [
   emoFrown,
   emoTear,
   emoMeh,
+  instagram,
+  twitter,
+  facebook,
+  linkedin,
 ];
