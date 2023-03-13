@@ -3,10 +3,12 @@ cdg-quantity-toggle,
   display: flex;
   align-items: stretch;
   width: 328px;
+  min-width: 160px;
   font-size: 14px;
   line-height: 21px;
   border-radius: 4px;
   border: 1px solid var(--border-color);
+
   @extend %smoothTransition;
 
   &:focus-within {
@@ -44,6 +46,7 @@ cdg-quantity-toggle,
     text-align: center;
     border-radius: 0;
     font-weight: 600;
+    min-width: 0;
     outline: none;
     font-family: var(--font-family);
 

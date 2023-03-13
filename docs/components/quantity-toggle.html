@@ -29,8 +29,13 @@ function handleOnchange (event) {
 </pre>
 
 <h3>Max & min</h3>
+<style>
+  .sample-size {
+    width: 160px;
+  }
+</style>
 <div class="sample-section">
-  <cdg-quantity-toggle max="10" min="1" id="maxMinSample">
+  <cdg-quantity-toggle max="10" min="1" id="maxMinSample" class="sample-size">
     <button class="cdg-button">-</button>
     <input type="number" placeholder="Input quantity" value="0" />
     <button class="cdg-button">+</button>
@@ -38,7 +43,13 @@ function handleOnchange (event) {
 </div>
 
 <pre>
-    <code class="language-html">&lt;cdg-quantity-toggle max=&quot;10&quot; min=&quot;1&quot; id=&quot;maxMinSample&quot;&gt;
+    <code class="language-html">&lt;style&gt;
+/** To customize size. It should not be smaller than 160px **/
+.sample-size {
+    width: 160px;
+}
+&lt;/style&gt;
+&lt;cdg-quantity-toggle max=&quot;10&quot; min=&quot;1&quot; id=&quot;maxMinSample&quot; class=&quot;sample-size&quot;&gt;
     &lt;button class=&quot;cdg-button&quot;&gt;-&lt;/button&gt;
     &lt;input type=&quot;number&quot; placeholder=&quot;Input quantity&quot; value=&quot;0&quot; /&gt;
     &lt;button class=&quot;cdg-button&quot;&gt;+&lt;/button&gt;
