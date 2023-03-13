@@ -13,7 +13,6 @@ import compassLogo from '../../images/compass-logo.svg';
 import copy from '../../images/copy.svg';
 import customerService from '../../images/customer-service.svg';
 import dashboard from '../../images/dashboard.svg';
-import dots from '../../images/dots.svg';
 import exclamation from '../../images/facebook.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
@@ -39,7 +38,6 @@ import refresh from '../../images/refresh.svg';
 import search from '../../images/search.svg';
 import taxi from '../../images/taxi.svg';
 import ticks from '../../images/ticks.svg';
-import tick from '../../images/tick.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
@@ -69,6 +67,21 @@ import instagram from '../../images/social-media/instagram.svg';
 import twitter from '../../images/social-media/twitter.svg';
 import facebook from '../../images/social-media/facebook.svg';
 import linkedin from '../../images/social-media/linkedin.svg';
+import alt from '../../images/operations/alt.svg';
+import browser from '../../images/operations/browser.svg';
+import cancelled from '../../images/operations/cancelled.svg';
+import cross from '../../images/operations/cross.svg';
+import dots from '../../images/operations/dots.svg';
+import eyeSlash from '../../images/operations/eye-slash.svg';
+import eyeSolid from '../../images/operations/eye-solid.svg';
+import map from '../../images/operations/map.svg';
+import marked from '../../images/operations/marked.svg';
+import minus from '../../images/operations/minus.svg';
+import plus from '../../images/operations/plus.svg';
+import project from '../../images/operations/project.svg';
+import thumbsDown from '../../images/operations/thumbs-down.svg';
+import thumbsUp from '../../images/operations/thumbs-up.svg';
+import tick from '../../images/operations/tick.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -89,7 +102,6 @@ export const ICONS_IMAGES = [
   copy,
   customerService,
   dashboard,
-  dots,
   exclamation,
   filledArrowDown,
   filledArrowUp,
@@ -115,7 +127,6 @@ export const ICONS_IMAGES = [
   search,
   taxi,
   ticks,
-  tick,
   userGroupSettings,
   userGroup,
   user,
@@ -148,4 +159,19 @@ export const ICONS_IMAGES = [
   twitter,
   facebook,
   linkedin,
+  alt,
+  browser,
+  cancelled,
+  cross,
+  dots,
+  eyeSlash,
+  eyeSolid,
+  map,
+  marked,
+  minus,
+  plus,
+  project,
+  thumbsDown,
+  thumbsUp,
+  tick,
 ];
