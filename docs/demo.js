@@ -40,11 +40,13 @@ import './components/progress.html';
 import './components/timeline.html';
 import './components/toast.html';
 import './components/toggle.html';
+import './components/volume.html';
 import './components/wizards.html';
 import './components/calendar.html';
 import './components/datepicker.html';
 import './components/tooltip.html';
 import './components/range-slider.html';
+import './components/video.html';
 
 const contentMap = {
   home: './pages/home.html',
@@ -89,11 +91,13 @@ const contentMap = {
   toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
+  volume: './components/volume.html',
   wizards: './components/wizards.html',
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
   tooltip: './components/tooltip.html',
-  rangeSlider: './components/range-slider.html'
+  rangeSlider: './components/range-slider.html',
+  video: './components/video.html',
 };
 
 const documentContent = [
@@ -279,6 +283,14 @@ const documentContent = [
       {
         name: 'Progress',
         slug: 'progress',
+      },
+      {
+        name: 'Video',
+        slug: 'video',
+      },
+      {
+        name: 'Volume',
+        slug: 'volume',
       },
       {
         name: 'Wizards',

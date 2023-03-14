@@ -29,6 +29,9 @@ import { CdgListItem } from './list-view/list-item';
 import { CdgTooltip } from './tooltip/tooltip';
 import { CdgRangeSlider } from './range-slider/range-slider';
 import { CdgQuantityToggle } from './quantity-toggle/quantity-toggle';
+import { CdgVideoPlayer } from './video/video';
+import { CdgVideoControls } from './video/video-controls';
+import { CdgVolume } from './volume/volume';
 
 customElements.define('cdg-accordion', CdgAccordion);
 customElements.define('cdg-accordion-header', CdgAccordionHeader);
@@ -61,6 +64,9 @@ customElements.define('cdg-list-item', CdgListItem);
 customElements.define('cdg-tooltip', CdgTooltip);
 customElements.define('cdg-range-slider', CdgRangeSlider);
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle);
+customElements.define('cdg-video-player', CdgVideoPlayer);
+customElements.define('cdg-video-controls', CdgVideoControls);
+customElements.define('cdg-volume', CdgVolume);
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -88,4 +94,7 @@ export const CONTROL_COMPONENTS = [
   CdgDatePicker,
   CdgRangeSlider,
   CdgQuantityToggle,
+  CdgVideoPlayer,
+  CdgVideoControls,
+  CdgVolume,
 ];
