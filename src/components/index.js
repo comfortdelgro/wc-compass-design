@@ -7,6 +7,8 @@ import { CdgAlertContent } from './alert/alert-content';
 import { CdgAvatar } from './avatar/avatar';
 import { CdgIcon } from './icon/icon';
 import { CdgInlineLoading } from './inline-loading/inline-loading';
+import { CdgFile } from './file/file';
+import { CdgFileUpload } from './file/file-upload';
 import { CdgLoading } from './loading/loading';
 import { CdgPagination } from './pagination/pagination';
 import { CdgPillBadge } from './pill-badge/pill-badge';
@@ -25,6 +27,7 @@ import { CdgDatePicker } from './datepicker/datepicker';
 import { CdgListview } from './list-view/list-view';
 import { CdgListItem } from './list-view/list-item';
 import { CdgTooltip } from './tooltip/tooltip';
+import { CdgRangeSlider } from './range-slider/range-slider';
 import { CdgQuantityToggle } from './quantity-toggle/quantity-toggle';
 
 customElements.define('cdg-accordion', CdgAccordion);
@@ -36,6 +39,8 @@ customElements.define('cdg-alert-content', CdgAlertContent);
 customElements.define('cdg-avatar', CdgAvatar);
 customElements.define('cdg-icon', CdgIcon);
 customElements.define('cdg-inline-loading', CdgInlineLoading);
+customElements.define('cdg-file', CdgFile);
+customElements.define('cdg-file-upload', CdgFileUpload);
 customElements.define('cdg-loading', CdgLoading);
 customElements.define('cdg-pagination', CdgPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
@@ -54,6 +59,7 @@ customElements.define('cdg-datepicker', CdgDatePicker);
 customElements.define('cdg-list-view', CdgListview);
 customElements.define('cdg-list-item', CdgListItem);
 customElements.define('cdg-tooltip', CdgTooltip);
+customElements.define('cdg-range-slider', CdgRangeSlider);
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle);
 
 export const CONTROL_COMPONENTS = [
@@ -65,6 +71,8 @@ export const CONTROL_COMPONENTS = [
   CdgAlertBadge,
   CdgAvatar,
   CdgIcon,
+  CdgFile,
+  CdgFileUpload,
   CdgInlineLoading,
   CdgLoading,
   CdgPagination,
@@ -78,5 +86,6 @@ export const CONTROL_COMPONENTS = [
   CdgListItem,
   CdgTooltip,
   CdgDatePicker,
+  CdgRangeSlider,
   CdgQuantityToggle,
 ];

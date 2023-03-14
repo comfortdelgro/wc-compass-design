@@ -11,6 +11,7 @@ import close from '../../images/close.svg';
 import cloudUpload from '../../images/cloud-upload.svg';
 import compassLogo from '../../images/compass-logo.svg';
 import copy from '../../images/copy.svg';
+import crossCircle from '../../images/cross-circle.svg';
 import customerService from '../../images/customer-service.svg';
 import dashboard from '../../images/dashboard.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
@@ -82,6 +83,7 @@ import project from '../../images/operations/project.svg';
 import thumbsDown from '../../images/operations/thumbs-down.svg';
 import thumbsUp from '../../images/operations/thumbs-up.svg';
 import tick from '../../images/operations/tick.svg';
+import warning from '../../images/warning.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -100,6 +102,7 @@ export const ICONS_IMAGES = [
   cloudUpload,
   compassLogo,
   copy,
+  crossCircle,
   customerService,
   dashboard,
   filledArrowDown,
@@ -136,6 +139,7 @@ export const ICONS_IMAGES = [
   docWord,
   docSheet,
   docInvoice,
+  warning,
   wLogo,
   zigLogo,
   mobBus,

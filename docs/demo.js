@@ -6,6 +6,8 @@ import './components/avatar.html';
 import './components/breadcrumbs.html';
 import './components/checkboxes.html';
 import './components/dashboard-side-card.html';
+import './components/file.html';
+import './components/file-upload.html';
 import './components/footer.html';
 import './components/icon.html';
 import './components/button.html';
@@ -42,6 +44,7 @@ import './components/wizards.html';
 import './components/calendar.html';
 import './components/datepicker.html';
 import './components/tooltip.html';
+import './components/range-slider.html';
 
 const contentMap = {
   home: './pages/home.html',
@@ -52,6 +55,8 @@ const contentMap = {
   breadcrumbs: './components/breadcrumbs.html',
   checkboxes: './components/checkboxes.html',
   dashboardSideCard: './components/dashboard-side-card.html',
+  file: './components/file.html',
+  fileUpload: './components/file-upload.html',
   footer: './components/footer.html',
   icon: './components/icon.html',
   dialog: './components/dialog.html',
@@ -88,6 +93,7 @@ const contentMap = {
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
   tooltip: './components/tooltip.html',
+  rangeSlider: './components/range-slider.html'
 };
 
 const documentContent = [
@@ -184,6 +190,14 @@ const documentContent = [
         slug: 'dropdown',
       },
       {
+        name: 'File',
+        slug: 'file',
+      },
+      {
+        name: 'File Upload',
+        slug: 'fileUpload',
+      },
+      {
         name: 'Text Field',
         slug: 'textField',
       },
@@ -194,6 +208,10 @@ const documentContent = [
       {
         name: 'Radios',
         slug: 'radios',
+      },
+      {
+        name: 'RangeSlider',
+        slug: 'rangeSlider',
       },
       {
         name: 'Toggle',
