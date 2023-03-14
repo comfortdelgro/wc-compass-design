@@ -8,6 +8,13 @@ export class DialogService {
     document.body.appendChild(modalElement);
   }
 
+  showSidebar(id, modal, placement = 'right') {
+    const modalElement = this.wrapByOverlay(modal, placement);
+    modal.id = id;
+    this.modals[id] = modalElement;
+    document.body.appendChild(modalElement);
+  }
+
   alert({ dialogTitle = '', message = '', buttonLabel = 'Okay' }) {
     const alert = document.createElement('cdg-dialog-alert');
     alert.setAttribute('dialogTitle', dialogTitle);
@@ -79,9 +86,12 @@ export class DialogService {
     delete this.modals[id];
   }
 
-  wrapByOverlay(modal) {
+  wrapByOverlay(modal, placement = '') {
     const wrapper = document.createElement('div');
     wrapper.classList.add('cdg-modal-overlay');
+    if (placement) {
+      wrapper.classList.add(placement);
+    }
     wrapper.appendChild(modal);
     return wrapper;
   }

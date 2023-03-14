@@ -6,6 +6,10 @@
   align-items: center;
   justify-content: center;
   inset: 0;
+  &.right {
+    justify-content: flex-end;
+    align-items: stretch;
+  }
 }
 
 cdg-modal,
