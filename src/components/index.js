@@ -29,6 +29,8 @@ import { CdgListItem } from './list-view/list-item';
 import { CdgTooltip } from './tooltip/tooltip';
 import { CdgRangeSlider } from './range-slider/range-slider';
 import { CdgQuantityToggle } from './quantity-toggle/quantity-toggle';
+import { CdgTagBoxContainer } from './tag-box/tag-box';
+import { CdgTagBoxItem } from './tag-box/tag-box-item';
 
 customElements.define('cdg-accordion', CdgAccordion);
 customElements.define('cdg-accordion-header', CdgAccordionHeader);
@@ -61,6 +63,8 @@ customElements.define('cdg-list-item', CdgListItem);
 customElements.define('cdg-tooltip', CdgTooltip);
 customElements.define('cdg-range-slider', CdgRangeSlider);
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle);
+customElements.define('cdg-tag-box-container', CdgTagBoxContainer);
+customElements.define('cdg-tag-box-item', CdgTagBoxItem);
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,

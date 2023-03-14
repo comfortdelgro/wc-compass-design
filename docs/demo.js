@@ -45,6 +45,7 @@ import './components/calendar.html';
 import './components/datepicker.html';
 import './components/tooltip.html';
 import './components/range-slider.html';
+import './components/tag-box.html';
 
 const contentMap = {
   home: './pages/home.html',
@@ -93,7 +94,8 @@ const contentMap = {
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
   tooltip: './components/tooltip.html',
-  rangeSlider: './components/range-slider.html'
+  rangeSlider: './components/range-slider.html',
+  tagBox: './components/tag-box.html',
 };
 
 const documentContent = [
@@ -271,6 +273,10 @@ const documentContent = [
       {
         name: 'Tooltip',
         slug: 'tooltip',
+      },
+      {
+        name: 'Tag Box',
+        slug: 'tag-box',
       },
       {
         name: 'Popover',
