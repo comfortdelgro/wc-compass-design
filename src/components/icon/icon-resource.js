@@ -29,7 +29,6 @@ import outlineTick from '../../images/outline-tick.svg';
 import outlineTrash from '../../images/outline-trash.svg';
 import outlineUserGroupSettings from '../../images/outline-user-group-settings.svg';
 import paste from '../../images/paste.svg';
-import pause from '../../images/pause.svg';
 import profileCard from '../../images/profile-card.svg';
 import profile from '../../images/profile.svg';
 import question from '../../images/question.svg';
@@ -38,7 +37,6 @@ import ticks from '../../images/ticks.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
-import setting from '../../images/setting.svg';
 import shapes from '../../images/shapes.svg';
 import spinner from '../../images/spinner.svg';
 import docPDF from '../../images/document/doc-pdf.svg';
@@ -158,7 +156,6 @@ export const ICONS_IMAGES = [
   outlineTrash,
   outlineUserGroupSettings,
   paste,
-  pause,
   profileCard,
   profile,
   question,
@@ -167,7 +164,6 @@ export const ICONS_IMAGES = [
   userGroupSettings,
   userGroup,
   user,
-  setting,
   shapes,
   spinner,
   docPDF,
