@@ -78,7 +78,9 @@ export class CdgRangeSlider extends HTMLElement {
     this.thumb.setPointerCapture(event.pointerId);
     this.isMouseDown = true;
     const startX = event.clientX;
-    const thumbX = this.querySelector('.thumb').offsetLeft;
+    const sliderRect = this.slider.getBoundingClientRect();
+    const thumbRect = this.thumb.getBoundingClientRect();
+    const thumbX = thumbRect.left - sliderRect.left;
     const moveHandler = (event) => {
       const deltaX = event.clientX - startX;
       const newThumbX = Math.min(Math.max(thumbX + deltaX, 0), this.width);
