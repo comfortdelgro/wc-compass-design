@@ -3,8 +3,10 @@ import addUser from '../../images/add-user.svg';
 import arrowDown from '../../images/arrow-down.svg';
 import arrowLeft from '../../images/arrow-left.svg';
 import arrowRight from '../../images/arrow-right.svg';
+import backward from '../../images/backward.svg';
 import calendar from '../../images/calendar.svg';
 import callCenter from '../../images/call-center.svg';
+import caretRight from '../../images/caret-right.svg';
 import clipBoard from '../../images/clip-board.svg';
 import clock from '../../images/clock.svg';
 import close from '../../images/close.svg';
@@ -20,6 +22,7 @@ import exclamation from '../../images/facebook.svg';
 import facebook from '../../images/exclamation.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
+import forward from '../../images/forward.svg';
 import globe from '../../images/globe.svg';
 import grid from '../../images/grid.svg';
 import home from '../../images/home.svg';
@@ -36,6 +39,7 @@ import outlineTick from '../../images/outline-tick.svg';
 import outlineTrash from '../../images/outline-trash.svg';
 import outlineUserGroupSettings from '../../images/outline-user-group-settings.svg';
 import paste from '../../images/paste.svg';
+import pause from '../../images/pause.svg';
 import profileCard from '../../images/profile-card.svg';
 import profile from '../../images/profile.svg';
 import question from '../../images/question.svg';
@@ -49,9 +53,13 @@ import upload from '../../images/upload.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
 import user from '../../images/user.svg';
 import userGroup from '../../images/user-group.svg';
+import setting from '../../images/setting.svg';
 import shapes from '../../images/shapes.svg';
 import spinner from '../../images/spinner.svg';
 import warning from '../../images/warning.svg';
+import volumeLoud from '../../images/volume-loud.svg';
+import volumeLow from '../../images/volume-low.svg';
+import volumeMute from '../../images/volume-mute.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -62,8 +70,10 @@ export const ICONS_IMAGES = [
   arrowDown,
   arrowLeft,
   arrowRight,
+  backward,
   calendar,
   callCenter,
+  caretRight,
   clipBoard,
   clock,
   close,
@@ -79,6 +89,7 @@ export const ICONS_IMAGES = [
   facebook,
   filledArrowDown,
   filledArrowUp,
+  forward,
   globe,
   grid,
   home,
@@ -95,6 +106,7 @@ export const ICONS_IMAGES = [
   outlineTrash,
   outlineUserGroupSettings,
   paste,
+  pause,
   profileCard,
   profile,
   question,
@@ -108,9 +120,13 @@ export const ICONS_IMAGES = [
   userGroupSettings,
   userGroup,
   user,
+  setting,
   shapes,
   spinner,
   warning,
+  volumeLoud,
+  volumeLow,
+  volumeMute,
   wLogo,
   zigLogo,
 ];
