@@ -11,14 +11,12 @@ import close from '../../images/close.svg';
 import cloudUpload from '../../images/cloud-upload.svg';
 import compassLogo from '../../images/compass-logo.svg';
 import copy from '../../images/copy.svg';
-import crossCircle from '../../images/cross-circle.svg';
 import customerService from '../../images/customer-service.svg';
 import dashboard from '../../images/dashboard.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
 import globe from '../../images/globe.svg';
 import grid from '../../images/grid.svg';
-import home from '../../images/home.svg';
 import images from '../../images/images.svg';
 import info from '../../images/info.svg';
 import job from '../../images/job.svg';
@@ -35,7 +33,6 @@ import profileCard from '../../images/profile-card.svg';
 import profile from '../../images/profile.svg';
 import question from '../../images/question.svg';
 import refresh from '../../images/refresh.svg';
-import search from '../../images/search.svg';
 import taxi from '../../images/taxi.svg';
 import ticks from '../../images/ticks.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
@@ -84,6 +81,21 @@ import thumbsDown from '../../images/operations/thumbs-down.svg';
 import thumbsUp from '../../images/operations/thumbs-up.svg';
 import tick from '../../images/operations/tick.svg';
 import warning from '../../images/warning.svg';
+import checkmark from '../../images/assesibility/checkmark.svg';
+import crossCircle from '../../images/assesibility/cross-circle.svg';
+import hide from '../../images/assesibility/hide.svg';
+import home from '../../images/assesibility/home.svg';
+import infoCircle from '../../images/assesibility/info-circle.svg';
+import lowVolume from '../../images/assesibility/low-volume.svg';
+import mute from '../../images/assesibility/mute.svg';
+import pause from '../../images/assesibility/pause.svg';
+import reveal from '../../images/assesibility/reveal.svg';
+import search from '../../images/assesibility/search.svg';
+import setting from '../../images/assesibility/setting.svg';
+import settings from '../../images/assesibility/settings.svg';
+import volume from '../../images/assesibility/volume.svg';
+import zoomMinus from '../../images/assesibility/zoom-minus.svg';
+import zoomPlus from '../../images/assesibility/zoom-plus.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -102,14 +114,12 @@ export const ICONS_IMAGES = [
   cloudUpload,
   compassLogo,
   copy,
-  crossCircle,
   customerService,
   dashboard,
   filledArrowDown,
   filledArrowUp,
   globe,
   grid,
-  home,
   images,
   info,
   job,
@@ -126,7 +136,6 @@ export const ICONS_IMAGES = [
   profile,
   question,
   refresh,
-  search,
   taxi,
   ticks,
   userGroupSettings,
@@ -177,4 +186,19 @@ export const ICONS_IMAGES = [
   thumbsDown,
   thumbsUp,
   tick,
+  checkmark,
+  crossCircle,
+  hide,
+  home,
+  infoCircle,
+  lowVolume,
+  mute,
+  pause,
+  reveal,
+  search,
+  setting,
+  settings,
+  volume,
+  zoomMinus,
+  zoomPlus,
 ];
