@@ -1,3 +1,5 @@
+import { isIphone } from '../../shared/browser';
+
 const IDLE_TIME = 10000;
 
 export class CdgVideoPlayer extends HTMLElement {
@@ -43,17 +45,27 @@ export class CdgVideoPlayer extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-video-player');
+    // We will not support custom controls for Safari on iOS
+    // Let's use the default browser behavior
+    if (isIphone()) {
+      this.video = this.querySelector('video');
+      this.video.controls = true;
+      return;
+    } else {
+      this.addEventListener('pointermove', this.handlePointerMove.bind(this));
+      this.addEventListener('pointerleave', this.handlePointerLeave.bind(this));
 
-    this.addEventListener('pointermove', this.handlePointerMove.bind(this));
-    this.addEventListener('pointerleave', this.handlePointerLeave.bind(this));
+      this.video = this.querySelector('video');
+      this.video.addEventListener(
+        'timeupdate',
+        this.handleTimeUpdate.bind(this)
+      );
+      this.video.addEventListener('progress', this.handleProgress.bind(this));
+      this.video.addEventListener('suspend', this.handleSuspend.bind(this));
+      this.video.addEventListener('loadedmetadata', this.handleLoad.bind(this));
 
-    this.video = this.querySelector('video');
-    this.video.addEventListener('timeupdate', this.handleTimeUpdate.bind(this));
-    this.video.addEventListener('progress', this.handleProgress.bind(this));
-    this.video.addEventListener('suspend', this.handleSuspend.bind(this));
-    this.video.addEventListener('loadedmetadata', this.handleLoad.bind(this));
-
-    this.attachControls();
+      this.attachControls();
+    }
   }
 
   attachControls() {
