@@ -12,7 +12,6 @@ import cloudUpload from '../../images/cloud-upload.svg';
 import compassLogo from '../../images/compass-logo.svg';
 import copy from '../../images/copy.svg';
 import customerService from '../../images/customer-service.svg';
-import dashboard from '../../images/dashboard.svg';
 import filledArrowDown from '../../images/filled-arrow-down.svg';
 import filledArrowUp from '../../images/filled-arrow-up.svg';
 import globe from '../../images/globe.svg';
@@ -20,8 +19,6 @@ import grid from '../../images/grid.svg';
 import images from '../../images/images.svg';
 import info from '../../images/info.svg';
 import job from '../../images/job.svg';
-import menu from '../../images/menu.svg';
-import notification from '../../images/notification.svg';
 import organization from '../../images/organization.svg';
 import outlineAddGroup from '../../images/outline-add-group.svg';
 import outlineAddUser from '../../images/outline-add-user.svg';
@@ -32,7 +29,6 @@ import paste from '../../images/paste.svg';
 import profileCard from '../../images/profile-card.svg';
 import profile from '../../images/profile.svg';
 import question from '../../images/question.svg';
-import refresh from '../../images/refresh.svg';
 import taxi from '../../images/taxi.svg';
 import ticks from '../../images/ticks.svg';
 import userGroupSettings from '../../images/user-group-settings.svg';
@@ -96,6 +92,28 @@ import settings from '../../images/assesibility/settings.svg';
 import volume from '../../images/assesibility/volume.svg';
 import zoomMinus from '../../images/assesibility/zoom-minus.svg';
 import zoomPlus from '../../images/assesibility/zoom-plus.svg';
+import bid from '../../images/dashboards/bid.svg';
+import chartLine from '../../images/dashboards/chart-line.svg';
+import chartPie from '../../images/dashboards/chart-pie.svg';
+import cities from '../../images/dashboards/cities.svg';
+import dashboard from '../../images/dashboards/dashboard.svg';
+import document from '../../images/dashboards/document.svg';
+import driver from '../../images/dashboards/driver.svg';
+import filter from '../../images/dashboards/filter.svg';
+import flag from '../../images/dashboards/flag.svg';
+import grids from '../../images/dashboards/grids.svg';
+import gridBox from '../../images/dashboards/grid-box.svg';
+import menu from '../../images/dashboards/menu.svg';
+import money from '../../images/dashboards/money.svg';
+import notification from '../../images/dashboards/notification.svg';
+import refresh from '../../images/dashboards/refresh.svg';
+import school from '../../images/dashboards/school.svg';
+import signature from '../../images/dashboards/signature.svg';
+import status from '../../images/dashboards/status.svg';
+import store from '../../images/dashboards/store.svg';
+import tableColumn from '../../images/dashboards/table-column.svg';
+import table from '../../images/dashboards/table.svg';
+import timeline from '../../images/dashboards/timeline.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -115,7 +133,6 @@ export const ICONS_IMAGES = [
   compassLogo,
   copy,
   customerService,
-  dashboard,
   filledArrowDown,
   filledArrowUp,
   globe,
@@ -123,8 +140,6 @@ export const ICONS_IMAGES = [
   images,
   info,
   job,
-  menu,
-  notification,
   organization,
   outlineAddGroup,
   outlineAddUser,
@@ -135,7 +150,6 @@ export const ICONS_IMAGES = [
   profileCard,
   profile,
   question,
-  refresh,
   taxi,
   ticks,
   userGroupSettings,
@@ -201,4 +215,26 @@ export const ICONS_IMAGES = [
   volume,
   zoomMinus,
   zoomPlus,
+  bid,
+  chartLine,
+  chartPie,
+  cities,
+  dashboard,
+  document,
+  driver,
+  filter,
+  flag,
+  grids,
+  gridBox,
+  menu,
+  money,
+  notification,
+  refresh,
+  school,
+  signature,
+  status,
+  store,
+  tableColumn,
+  table,
+  timeline,
 ];
