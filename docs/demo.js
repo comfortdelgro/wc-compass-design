@@ -40,6 +40,7 @@ import './components/progress.html';
 import './components/timeline.html';
 import './components/toast.html';
 import './components/toggle.html';
+import './components/volume.html';
 import './components/wizards.html';
 import './components/calendar.html';
 import './components/datepicker.html';
@@ -90,6 +91,7 @@ const contentMap = {
   toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
+  volume: './components/volume.html',
   wizards: './components/wizards.html',
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
@@ -285,6 +287,10 @@ const documentContent = [
       {
         name: 'Video',
         slug: 'video',
+      },
+      {
+        name: 'Volume',
+        slug: 'volume',
       },
       {
         name: 'Wizards',

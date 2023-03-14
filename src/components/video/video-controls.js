@@ -1,6 +1,7 @@
 import { toDisplayTime } from './video.util';
 
 const CONTROLS_TEMPLATE = `
+<cdg-volume></cdg-volume>
 <div class="video-time-control">
     <span class="current-time">00:00</span>
     <span class="video-progressbar">
@@ -26,7 +27,7 @@ const CONTROLS_TEMPLATE = `
 
 export class CdgVideoControls extends HTMLElement {
   static get observedAttributes() {
-    return ['current-time', 'duration', 'playing', 'buffering'];
+    return ['current-time', 'duration', 'playing', 'buffering', 'volume'];
   }
 
   get playing() {
@@ -39,6 +40,14 @@ export class CdgVideoControls extends HTMLElement {
     } else {
       this.removeAttribute('playing');
     }
+  }
+
+  get volume() {
+    return Number(this.getAttribute('volume')) || 0;
+  }
+
+  set volume(volume) {
+    this.setAttribute('volume', volume);
   }
 
   get currentTime() {
@@ -72,6 +81,7 @@ export class CdgVideoControls extends HTMLElement {
   btnBackward;
   btnForward;
   btnSetting;
+  volumeBar;
 
   constructor() {
     super();
@@ -84,6 +94,14 @@ export class CdgVideoControls extends HTMLElement {
     this.currentTimeElement = this.querySelector('.current-time');
     this.durationElement = this.querySelector('.total-time');
     this.seekBar = this.querySelector('cdg-range-slider');
+    this.volumeBar = this.querySelector('cdg-volume');
+    this.volumeBar.volume = this.volume;
+    this.volumeBar.addEventListener(
+      'volumechange',
+      this.handleVolume.bind(this)
+    );
+    this.volumeBar.addEventListener('mute', this.handleMute.bind(this));
+
     this.seekBar.addEventListener('change', this.handleSeekbar.bind(this));
 
     this.btnPlayPause = this.querySelector('.play-pause');
@@ -91,6 +109,8 @@ export class CdgVideoControls extends HTMLElement {
       'click',
       this.handlePlayPause.bind(this)
     );
+
+    this.updatePlayIcon();
 
     this.btnBackward = this.querySelector('.backward');
     this.btnBackward.addEventListener('click', this.handleBackward.bind(this));
@@ -124,14 +144,16 @@ export class CdgVideoControls extends HTMLElement {
 
       case 'playing':
         if (this.btnPlayPause) {
-          const iconElement = this.btnPlayPause.querySelector('cdg-icon');
-          const iconName = this.playing ? 'pause' : 'caretRight';
-          iconElement.name = iconName;
+          this.updatePlayIcon();
         }
         break;
 
       case 'buffering':
         this.seekBar.buffering = this.buffering;
+        break;
+
+      case 'volume':
+        this.volumeBar.volume = this.volume;
         break;
 
       default:
@@ -159,5 +181,22 @@ export class CdgVideoControls extends HTMLElement {
 
   handleSetting() {
     this.dispatchEvent(new CustomEvent('setting'));
+  }
+
+  updatePlayIcon() {
+    const iconElement = this.btnPlayPause.querySelector('cdg-icon');
+    const iconName = this.playing ? 'pause' : 'caretRight';
+
+    iconElement.name = iconName;
+  }
+
+  handleVolume(event) {
+    this.dispatchEvent(
+      new CustomEvent('adjustvolume', { detail: event.detail })
+    );
+  }
+
+  handleMute(event) {
+    this.dispatchEvent(new CustomEvent('mute', { detail: event.detail }));
   }
 }

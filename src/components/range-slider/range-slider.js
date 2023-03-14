@@ -142,11 +142,11 @@ export class CdgRangeSlider extends HTMLElement {
     };
     const upHandler = () => {
       this.dragging = false;
-      document.removeEventListener('pointermove', moveHandler);
-      document.removeEventListener('pointerup', upHandler);
+      this.removeEventListener('pointermove', moveHandler);
+      this.removeEventListener('pointerup', upHandler);
     };
-    document.addEventListener('pointermove', moveHandler);
-    document.addEventListener('pointerup', upHandler);
+    this.addEventListener('pointermove', moveHandler);
+    this.addEventListener('pointerup', upHandler);
   }
 
   // Handle click on slider

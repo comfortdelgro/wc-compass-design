@@ -26,7 +26,6 @@ export class CdgIcon extends CdgIconSize {
   }
 
   fetchAndShowIcon() {
-    this.textContent = '';
     if (this.getAttribute('source') === 'host') {
       this.iconSource = './images/';
     }
@@ -38,6 +37,7 @@ export class CdgIcon extends CdgIconSize {
 
   download(url) {
     downloadSVGContent(url).then((data) => {
+      this.textContent = '';
       this.appendChild(data);
     });
   }

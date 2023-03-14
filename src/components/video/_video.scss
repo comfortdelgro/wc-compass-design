@@ -7,6 +7,29 @@ cdg-video-player,
   video {
     width: 100%;
   }
+
+  &[controls] {
+    cdg-video-controls,
+    .cdg-video-controls {
+      opacity: 1;
+      visibility: visible;
+      @extend %smoothTransition;
+      &.hidden {
+        opacity: 0;
+        visibility: hidden;
+        @extend %smoothTransition;
+      }
+    }
+  }
+
+  &[idle] {
+    cdg-video-controls,
+    .cdg-video-controls {
+      opacity: 0;
+      visibility: hidden;
+      @extend %smoothTransition;
+    }
+  }
 }
 
 cdg-video-controls,
@@ -21,6 +44,15 @@ cdg-video-controls,
   gap: 12px;
   color: #ffffff;
   background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0;
+  visibility: hidden;
+  @extend %smoothTransition;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   .video-navigation {
     display: flex;
     align-items: center;
@@ -46,7 +78,7 @@ cdg-video-controls,
 
   .current-time,
   .total-time {
-    width: 60px;
+    width: 50px;
     text-align: center;
     font-size: 12px;
     line-height: 18px;
@@ -57,5 +89,12 @@ cdg-video-controls,
     .range-slider {
       background-color: #ffffff;
     }
+  }
+
+  cdg-volume,
+  .cdg-volume {
+    position: absolute;
+    bottom: 160px;
+    right: 16px;
   }
 }

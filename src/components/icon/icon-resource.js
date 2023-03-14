@@ -57,6 +57,9 @@ import setting from '../../images/setting.svg';
 import shapes from '../../images/shapes.svg';
 import spinner from '../../images/spinner.svg';
 import warning from '../../images/warning.svg';
+import volumeLoud from '../../images/volume-loud.svg';
+import volumeLow from '../../images/volume-low.svg';
+import volumeMute from '../../images/volume-mute.svg';
 
 import wLogo from '../../images/w-logo.svg';
 import zigLogo from '../../images/zig-logo.svg';
@@ -121,6 +124,9 @@ export const ICONS_IMAGES = [
   shapes,
   spinner,
   warning,
+  volumeLoud,
+  volumeLow,
+  volumeMute,
   wLogo,
   zigLogo,
 ];
