@@ -213,12 +213,23 @@ export class CdgCarousel extends HTMLElement {
     this.pointer.start({ x: event.pageX, y: event.pageY });
 
     this.addEventListener('pointermove', this.handlePointerMove);
+    this.addEventListener('touchmove', this.handleTouchMove);
     this.addEventListener('pointerup', this.handlePointerUp, {
       once: true,
     });
     this.addEventListener('pointercancel', this.handlePointerUp, {
       once: true,
     });
+  }
+
+  /**
+   * To prevent page scroll on mobile when user is dragging
+   * @param {TouchEvent} event
+   */
+  handleTouchMove(event) {
+    if (Math.abs(this.pointer.distance.x) > 10) {
+      event.preventDefault();
+    }
   }
 
   handlePointerMove(event) {

@@ -3,7 +3,7 @@ import { downloadSVGContent, toLowerCaseAndDash } from '../../shared/utilities';
 
 export class CdgIcon extends CdgIconSize {
   static get observedAttributes() {
-    return ['name'];
+    return ['name', 'size'];
   }
 
   get name() {
@@ -42,7 +42,8 @@ export class CdgIcon extends CdgIconSize {
     });
   }
 
-  attributeChangedCallback(attr) {
+  attributeChangedCallback(attr, oldValue, newValue) {
+    super.attributeChangedCallback(attr, oldValue, newValue);
     switch (attr) {
       case 'name':
         this.fetchAndShowIcon();

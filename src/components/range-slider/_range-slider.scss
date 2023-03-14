@@ -5,6 +5,7 @@
   background: var(--blue10);
   border-radius: 6.25rem;
   position: relative;
+  touch-action: none;
   cursor: pointer;
 
   .range-slider {

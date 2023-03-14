@@ -8,6 +8,7 @@ cdg-volume,
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  touch-action: none;
 
   .cdg-button.ghost {
     padding: 0;
