@@ -1,0 +1,27 @@
+<h2>Video Player</h2>
+<p>
+  Video player is a type of control used to allow users to playback or fast
+  forward videos content, giving them full control of video properties (eg.
+  settings, volume) whilst watching a video.
+</p>
+
+<h3>Default</h3>
+<div class="sample-section">
+  <cdg-video-player id="player">
+    <video
+      src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+      muted
+    ></video>
+  </cdg-video-player>
+</div>
+
+<script>
+  const player = document.querySelector('#player');
+  player.addEventListener('navigate', (event) => {
+    cdgToastService.toast(event.detail);
+  });
+
+  player.addEventListener('play', (event) => {
+    cdgToastService.toast('Video is ' + (event.detail ? 'playing' : 'paused'));
+  });
+</script>

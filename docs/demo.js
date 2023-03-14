@@ -45,6 +45,7 @@ import './components/calendar.html';
 import './components/datepicker.html';
 import './components/tooltip.html';
 import './components/range-slider.html';
+import './components/video.html';
 
 const contentMap = {
   home: './pages/home.html',
@@ -93,7 +94,8 @@ const contentMap = {
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
   tooltip: './components/tooltip.html',
-  rangeSlider: './components/range-slider.html'
+  rangeSlider: './components/range-slider.html',
+  video: './components/video.html',
 };
 
 const documentContent = [
@@ -279,6 +281,10 @@ const documentContent = [
       {
         name: 'Progress',
         slug: 'progress',
+      },
+      {
+        name: 'Video',
+        slug: 'video',
       },
       {
         name: 'Wizards',
