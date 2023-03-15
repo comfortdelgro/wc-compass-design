@@ -43,6 +43,15 @@ cdg-modal-header,
   border-bottom: 1px solid var(--grey30);
 }
 
+.cdg-dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  .cdg-dialog-title {
+    flex: 1;
+  }
+}
+
 cdg-modal-body,
 .cdg-modal-body {
   padding: 16px;
