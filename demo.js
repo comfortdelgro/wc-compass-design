@@ -25,6 +25,7 @@ import './components/pagination.html';
 import './components/pill-badges.html';
 import './components/quantity-toggle.html';
 import './components/radios.html';
+import './components/rating.html';
 import './components/sidebar.html';
 import './components/status.html';
 import './components/action-bar.html';
@@ -78,6 +79,7 @@ const contentMap = {
   pillBadges: './components/pill-badges.html',
   quantityToggle: './components/quantity-toggle.html',
   radios: './components/radios.html',
+  rating: './components/rating.html',
   sidebar: './components/sidebar.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
@@ -263,6 +265,10 @@ const documentContent = [
       {
         name: 'Pill Badges',
         slug: 'pillBadges',
+      },
+      {
+        name: 'Rating',
+        slug: 'rating',
       },
       {
         name: 'Status',
