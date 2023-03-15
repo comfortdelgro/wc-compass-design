@@ -5,7 +5,7 @@
   <cdg-pagination
     id="simple-pagination"
     current-page="1"
-    total="50"
+    total="30"
     page-size="10"
   ></cdg-pagination>
 </div>
@@ -14,7 +14,7 @@
   <code class="language-html">&lt;cdg-pagination
   id=&quot;simple-pagination&quot;
   current-page=&quot;1&quot;
-  total=&quot;50&quot;
+  total=&quot;30&quot;
   page-size=&quot;10&quot;
 &gt;&lt;/cdg-pagination&gt;
 &lt;script&gt;
@@ -53,10 +53,10 @@ paging.addEventListener(&apos;navigate&apos;, (data) =&gt; {
 &lt;/script&gt;</code>
 </pre>
 
-<h3 class="sample-section-title">Active page 2</h3>
+<h3 class="sample-section-title">Active page 10</h3>
 <div class="sample-section">
   <cdg-pagination
-    current-page="2"
+    current-page="10"
     total="250"
     page-size="10"
     id="sample-pagination1"
@@ -78,6 +78,25 @@ paging1.addEventListener(&apos;navigate&apos;, (data) =&gt; {
   paging1.currentPage = data.detail;
 });
 &lt;/script&gt;</code>
+</pre>
+
+<h3 class="sample-section-title">Number of buttons</h3>
+<div class="sample-section">
+  <cdg-pagination
+    current-page="20"
+    total="600"
+    page-size="10"
+    display-button-count="10"
+  ></cdg-pagination>
+</div>
+
+<pre>
+  <code class="language-html">&lt;cdg-pagination
+  current-page=&quot;20&quot;
+  total=&quot;600&quot;
+  page-size=&quot;10&quot;
+  display-button-count=&quot;10&quot;
+&gt;&lt;/cdg-pagination&gt;</code>
 </pre>
 
 <script>

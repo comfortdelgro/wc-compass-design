@@ -20,9 +20,22 @@
     &.active {
       color: #ffffff;
       background-color: var(--accent);
+      &:hover {
+        background-color: var(--accent);
+      }
     }
-    &:not(.active):hover {
+    &:hover {
       background-color: var(--hover-background);
     }
+    &[disabled] {
+      color: var(--grey40);
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  .cdg-pagination-pages {
+    display: flex;
+    gap: 1rem;
   }
 }
