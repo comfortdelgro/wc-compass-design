@@ -276,7 +276,7 @@ const documentContent = [
       },
       {
         name: 'Tag Box',
-        slug: 'tag-box',
+        slug: 'tagBox',
       },
       {
         name: 'Popover',
