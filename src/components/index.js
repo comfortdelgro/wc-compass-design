@@ -11,6 +11,7 @@ import { CdgFile } from './file/file';
 import { CdgFileUpload } from './file/file-upload';
 import { CdgLoading } from './loading/loading';
 import { CdgPagination } from './pagination/pagination';
+import { CdgLinkPagination } from './pagination/link-pagination';
 import { CdgPillBadge } from './pill-badge/pill-badge';
 import { CdgStatus } from './status/status';
 import { CdgTab } from './tab/tab';
@@ -46,6 +47,7 @@ customElements.define('cdg-file', CdgFile);
 customElements.define('cdg-file-upload', CdgFileUpload);
 customElements.define('cdg-loading', CdgLoading);
 customElements.define('cdg-pagination', CdgPagination);
+customElements.define('cdg-link-pagination', CdgLinkPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
 customElements.define('cdg-tab', CdgTab);
@@ -82,6 +84,7 @@ export const CONTROL_COMPONENTS = [
   CdgInlineLoading,
   CdgLoading,
   CdgPagination,
+  CdgLinkPagination,
   CdgPillBadge,
   CdgStatus,
   CdgTab,
