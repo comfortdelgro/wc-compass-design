@@ -22,6 +22,7 @@ export class CdgRating extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('cdg-rating');
+    this.tabIndex = 0;
     this.attachButton();
   }
 

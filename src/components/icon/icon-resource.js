@@ -82,6 +82,7 @@ import tick from '../../images/operations/tick.svg';
 import warning from '../../images/warning.svg';
 import checkmark from '../../images/assesibility/checkmark.svg';
 import crossCircle from '../../images/assesibility/cross-circle.svg';
+import gripDots from '../../images/grip-dots.svg';
 import hide from '../../images/assesibility/hide.svg';
 import home from '../../images/assesibility/home.svg';
 import infoCircle from '../../images/assesibility/info-circle.svg';
@@ -178,6 +179,7 @@ export const ICONS_IMAGES = [
   grid,
   gridBox,
   grids,
+  gripDots,
   hide,
   home,
   images,
