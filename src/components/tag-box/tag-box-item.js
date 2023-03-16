@@ -1,40 +1,33 @@
 export class CdgTagBoxItem extends HTMLElement {
   closeElement;
   iconContainer;
-  _hasError;
-  _disabled;
 
-  get hasError() {
-    return this._hasError;
+  get error() {
+    return this.hasAttribute('error');
   }
 
-  set hasError(value) {
-    this._hasError = value;
-    if (this._hasError) {
-      this.classList.add('cdg-tag-box-item-has-error');
+  set error(value) {
+    if (value) {
+      this.setAttribute('error', '');
     } else {
-      this.classList.remove('cdg-tag-box-item-has-error');
+      this.removeAttribute('error');
     }
   }
 
-  get disabled() {
-    return this._disabled;
+  get error() {
+    return this.hasAttribute('disabled');
   }
 
   set disabled(value) {
-    this._disabled = !!value;
-    if (this.iconContainer) {
-      this.iconContainer.disabled = this._disabled;
-    }
-    if (this._disabled) {
-      this.classList.add('cdg-tag-box-item-disabled');
+    if (value) {
+      this.setAttribute('disabled', '');
     } else {
-      this.classList.remove('cdg-tag-box-item-disabled');
+      this.removeAttribute('disabled');
     }
   }
 
   static get observedAttributes() {
-    return ['has-error', 'persist', 'disabled'];
+    return ['error', 'persist', 'disabled'];
   }
 
   constructor() {
@@ -49,12 +42,8 @@ export class CdgTagBoxItem extends HTMLElement {
       if (!this.querySelector('button.cdg-tag-box-item-close-button')) {
         this.appendChild(this.iconContainer);
       }
-      if (this.hasAttribute('has-error')) {
-        this.hasError = true;
-      }
-      if (this.hasAttribute('disabled')) {
-        this.disabled = true;
-      }
+      this.error = this.hasAttribute('error');
+      this.disabled = this.hasAttribute('disabled');
       this.iconContainer.addEventListener('click', () =>
         this.handleDispatchEvent('onRemoveItem')
       );
@@ -73,7 +62,7 @@ export class CdgTagBoxItem extends HTMLElement {
   }
 
   handleDispatchEvent(eventName) {
-    if (this.disabled) return;
+    if (this.hasAttribute('disabled')) return;
     this.dispatchEvent(
       new CustomEvent(eventName, {
         detail: { value: this.getAttribute('value') || this.textContent },
@@ -89,8 +78,8 @@ export class CdgTagBoxItem extends HTMLElement {
     if (oldValue === newValue) return;
 
     switch (attr) {
-      case 'has-error':
-        this.hasError = !!newValue;
+      case 'error':
+        this.error = this.hasAttribute('error');
         break;
       case 'disabled':
         this.disabled = this.hasAttribute('disabled');

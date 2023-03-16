@@ -86,7 +86,7 @@
 
 .cdg-tag-box-item {
   padding: 8px;
-  background: var(--modal-action-background);
+  background: var(--tag-box-background);
   border-radius: 4px;
   font-weight: 600;
   font-size: 12px;
@@ -98,6 +98,7 @@
   white-space: nowrap;
 
   .cdg-tag-box-item-close-button {
+    color: var(--primary-color);
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -106,7 +107,7 @@
   &:hover {
     background-color: var(--darker-background);
   }
-  &.cdg-tag-box-item-disabled {
+  &[disabled] {
     background-color: var(--secondary-background);
     opacity: 0.8;
     cursor: not-allowed;
@@ -115,7 +116,7 @@
       cursor: not-allowed;
     }
   }
-  &.cdg-tag-box-item-has-error {
+  &[error] {
     border: 1px solid var(--danger);
   }
 }
