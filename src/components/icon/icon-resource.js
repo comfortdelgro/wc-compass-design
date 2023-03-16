@@ -68,7 +68,7 @@ import alt from '../../images/operations/alt.svg';
 import browser from '../../images/operations/browser.svg';
 import cancelled from '../../images/operations/cancelled.svg';
 import cross from '../../images/operations/cross.svg';
-import dots from '../../images/operations/dots.svg';
+import dots from '../../images/dots.svg';
 import eyeSlash from '../../images/operations/eye-slash.svg';
 import eyeSolid from '../../images/operations/eye-solid.svg';
 import map from '../../images/operations/map.svg';
