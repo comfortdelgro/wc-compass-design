@@ -11,16 +11,16 @@ const CONTROLS_TEMPLATE = `
 </div>
 <div class="video-navigation">
     <button class="cdg-button video-button icon backward" size="small">
-        <cdg-icon name="backward" source="host"></cdg-icon>
+        <cdg-icon name="backward"></cdg-icon>
     </button>
     <button class="cdg-button video-button icon play-pause">
-        <cdg-icon name="caretRight" source="host"></cdg-icon>
+        <cdg-icon name="caretRight"></cdg-icon>
     </button>
     <button class="cdg-button video-button icon forward" size="small">
-        <cdg-icon name="forward" source="host"></cdg-icon>
+        <cdg-icon name="forward"></cdg-icon>
     </button>
     <button class="cdg-button video-button icon setting" size="small">
-        <cdg-icon name="setting" source="host"></cdg-icon>
+        <cdg-icon name="setting"></cdg-icon>
     </button>
 </div>
 `;

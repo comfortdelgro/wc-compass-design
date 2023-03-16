@@ -5,7 +5,7 @@ const TEMPLATE = `
     <div class="volume"></div>
 </button>
 <button class="cdg-button icon ghost">
-    <cdg-icon name="volumeLoud" source="host"></cdg-icon>
+    <cdg-icon name="volumeLoud"></cdg-icon>
 </button>
 `;
 
