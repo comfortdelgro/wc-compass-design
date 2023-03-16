@@ -68,7 +68,7 @@ import alt from '../../images/operations/alt.svg';
 import browser from '../../images/operations/browser.svg';
 import cancelled from '../../images/operations/cancelled.svg';
 import cross from '../../images/operations/cross.svg';
-import dots from '../../images/operations/dots.svg';
+import dots from '../../images/dots.svg';
 import eyeSlash from '../../images/operations/eye-slash.svg';
 import eyeSolid from '../../images/operations/eye-solid.svg';
 import map from '../../images/operations/map.svg';
@@ -82,6 +82,7 @@ import tick from '../../images/operations/tick.svg';
 import warning from '../../images/warning.svg';
 import checkmark from '../../images/assesibility/checkmark.svg';
 import crossCircle from '../../images/assesibility/cross-circle.svg';
+import gripDots from '../../images/grip-dots.svg';
 import hide from '../../images/assesibility/hide.svg';
 import home from '../../images/assesibility/home.svg';
 import infoCircle from '../../images/assesibility/info-circle.svg';
@@ -178,6 +179,7 @@ export const ICONS_IMAGES = [
   grid,
   gridBox,
   grids,
+  gripDots,
   hide,
   home,
   images,
