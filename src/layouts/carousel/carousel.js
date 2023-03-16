@@ -35,7 +35,7 @@ export class CdgCarousel extends HTMLElement {
   }
 
   get length() {
-    return this.scroller.children.length;
+    return this.scroller.children.length || 0;
   }
 
   container;
@@ -94,11 +94,11 @@ export class CdgCarousel extends HTMLElement {
     }
 
     // Should get length after mobile actions has removed
-    this.indicator.length = this.length;
-    this.indicator.current = this.current;
+    this.indicator.setAttribute('length', this.length);
+    this.indicator.setAttribute('current', this.current);
 
     // Init first state of scroller
-    this.scroller.current = this.current;
+    this.scroller.setAttribute('current', this.current);
 
     this.attachNavigation();
     this.listenEvents();
@@ -143,10 +143,13 @@ export class CdgCarousel extends HTMLElement {
   attributeChangedCallback(attr) {
     switch (attr) {
       case 'current':
-        this.scroller.current = this.current;
-        this.indicator.current = this.current;
-        this.switchSlide();
+        if (this.scroller && this.indicator) {
+          this.scroller.setAttribute('current', this.current);
+          this.indicator.setAttribute('current', this.current);
+          this.switchSlide();
+        }
         break;
+
       case 'autoSwitch':
         if (this.autoSwitch) {
           this.switchSlide();
@@ -235,7 +238,10 @@ export class CdgCarousel extends HTMLElement {
   handlePointerMove(event) {
     event.preventDefault();
     this.pointer.update({ x: event.pageX, y: event.pageY });
-    this.scroller.position = this.scrollerPosition - this.pointer.distance.x;
+    this.scroller.setAttribute(
+      'position',
+      this.scrollerPosition - this.pointer.distance.x
+    );
   }
 
   handlePointerUp() {
@@ -251,7 +257,7 @@ export class CdgCarousel extends HTMLElement {
         this.prev();
       }
     } else {
-      this.scroller.position = this.scrollerPosition;
+      this.scroller.setAttribute('position', this.scrollerPosition);
     }
   }
 }
