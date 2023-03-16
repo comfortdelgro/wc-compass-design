@@ -5,12 +5,25 @@
   background: var(--blue10);
   border-radius: 6.25rem;
   position: relative;
+  touch-action: none;
   cursor: pointer;
 
   .range-slider {
     background: var(--accent);
     height: 100%;
     position: relative;
+    border-radius: 6.25rem;
+    z-index: 2;
+  }
+
+  .cdg-buffering-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-top-left-radius: 6.25rem;
+    border-bottom-left-radius: 6.25rem;
+    background-color: rgba(255, 255, 255, 0.4);
   }
 
   .thumb {
@@ -25,10 +38,11 @@
     position: absolute;
     top: 50%;
     transform: translate3d(100%, -50%, 0);
+    z-index: 3;
     cursor: pointer;
   }
 
-  &:focus {
+  &:not([hidePopup]):focus {
     .thumb {
       &::after {
         content: attr(value);

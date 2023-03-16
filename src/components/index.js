@@ -11,6 +11,7 @@ import { CdgFile } from './file/file';
 import { CdgFileUpload } from './file/file-upload';
 import { CdgLoading } from './loading/loading';
 import { CdgPagination } from './pagination/pagination';
+import { CdgLinkPagination } from './pagination/link-pagination';
 import { CdgPillBadge } from './pill-badge/pill-badge';
 import { CdgStatus } from './status/status';
 import { CdgTab } from './tab/tab';
@@ -31,6 +32,10 @@ import { CdgRangeSlider } from './range-slider/range-slider';
 import { CdgQuantityToggle } from './quantity-toggle/quantity-toggle';
 import { CdgTagBoxContainer } from './tag-box/tag-box';
 import { CdgTagBoxItem } from './tag-box/tag-box-item';
+import { CdgVideoPlayer } from './video/video';
+import { CdgVideoControls } from './video/video-controls';
+import { CdgVolume } from './volume/volume';
+import { CdgRating } from './rating/rating';
 
 customElements.define('cdg-accordion', CdgAccordion);
 customElements.define('cdg-accordion-header', CdgAccordionHeader);
@@ -45,6 +50,7 @@ customElements.define('cdg-file', CdgFile);
 customElements.define('cdg-file-upload', CdgFileUpload);
 customElements.define('cdg-loading', CdgLoading);
 customElements.define('cdg-pagination', CdgPagination);
+customElements.define('cdg-link-pagination', CdgLinkPagination);
 customElements.define('cdg-pill-badge', CdgPillBadge);
 customElements.define('cdg-status', CdgStatus);
 customElements.define('cdg-tab', CdgTab);
@@ -65,6 +71,10 @@ customElements.define('cdg-range-slider', CdgRangeSlider);
 customElements.define('cdg-quantity-toggle', CdgQuantityToggle);
 customElements.define('cdg-tag-box-container', CdgTagBoxContainer);
 customElements.define('cdg-tag-box-item', CdgTagBoxItem);
+customElements.define('cdg-video-player', CdgVideoPlayer);
+customElements.define('cdg-video-controls', CdgVideoControls);
+customElements.define('cdg-volume', CdgVolume);
+customElements.define('cdg-rating', CdgRating);
 
 export const CONTROL_COMPONENTS = [
   CdgAccordion,
@@ -80,6 +90,7 @@ export const CONTROL_COMPONENTS = [
   CdgInlineLoading,
   CdgLoading,
   CdgPagination,
+  CdgLinkPagination,
   CdgPillBadge,
   CdgStatus,
   CdgTab,
@@ -92,4 +103,8 @@ export const CONTROL_COMPONENTS = [
   CdgDatePicker,
   CdgRangeSlider,
   CdgQuantityToggle,
+  CdgVideoPlayer,
+  CdgVideoControls,
+  CdgVolume,
+  CdgRating,
 ];

@@ -3,7 +3,10 @@ cdg-carousel,
   display: flex;
   flex-direction: column;
   width: 100%;
-  touch-action: none;
+  // touch-action: pan-y;
+  // To let both of drag event and pointer event work
+  touch-action: manipulation;
+
   &[mobileMode] {
     .cdg-promotion-title {
       font-size: 18px;

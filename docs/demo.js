@@ -25,6 +25,7 @@ import './components/pagination.html';
 import './components/pill-badges.html';
 import './components/quantity-toggle.html';
 import './components/radios.html';
+import './components/rating.html';
 import './components/sidebar.html';
 import './components/status.html';
 import './components/action-bar.html';
@@ -40,12 +41,14 @@ import './components/progress.html';
 import './components/timeline.html';
 import './components/toast.html';
 import './components/toggle.html';
+import './components/volume.html';
 import './components/wizards.html';
 import './components/calendar.html';
 import './components/datepicker.html';
 import './components/tooltip.html';
 import './components/range-slider.html';
 import './components/tag-box.html';
+import './components/video.html';
 
 const contentMap = {
   home: './pages/home.html',
@@ -77,6 +80,7 @@ const contentMap = {
   pillBadges: './components/pill-badges.html',
   quantityToggle: './components/quantity-toggle.html',
   radios: './components/radios.html',
+  rating: './components/rating.html',
   sidebar: './components/sidebar.html',
   status: './components/status.html',
   actionBar: './components/action-bar.html',
@@ -90,12 +94,14 @@ const contentMap = {
   toast: './components/toast.html',
   toggle: './components/toggle.html',
   timeline: './components/timeline.html',
+  volume: './components/volume.html',
   wizards: './components/wizards.html',
   calendar: './components/calendar.html',
   datepicker: './components/datepicker.html',
   tooltip: './components/tooltip.html',
   rangeSlider: './components/range-slider.html',
   tagBox: './components/tag-box.html',
+  video: './components/video.html',
 };
 
 const documentContent = [
@@ -263,6 +269,10 @@ const documentContent = [
         slug: 'pillBadges',
       },
       {
+        name: 'Rating',
+        slug: 'rating',
+      },
+      {
         name: 'Status',
         slug: 'status',
       },
@@ -285,6 +295,14 @@ const documentContent = [
       {
         name: 'Progress',
         slug: 'progress',
+      },
+      {
+        name: 'Video',
+        slug: 'video',
+      },
+      {
+        name: 'Volume',
+        slug: 'volume',
       },
       {
         name: 'Wizards',
