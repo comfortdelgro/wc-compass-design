@@ -1,8 +1,9 @@
 import { isElement } from '../../main';
 
-const paddingContainer = 32;
 const hiddenNumberWidth = 32;
 const iconToggleWidth = 24;
+const gapSpace = 8;
+const lastItemWidth = hiddenNumberWidth + gapSpace + iconToggleWidth;
 
 function createTagBoxItem(content) {
   const template = document.createElement('template');
@@ -64,57 +65,33 @@ export class CdgTagBoxContainer extends HTMLElement {
     this.containerElement = document.createElement('div');
     this.containerElement.classList.add('cdg-tag-box-container');
     this.containerElement.tabIndex = 0;
-    this.inputElement = document.createElement('input');
-    this.inputElement.classList.add('cdg-tag-box-input-text');
-    const currentComponent = this;
-    this.containerElement.addEventListener('focus', function () {
-      const canOpenInput = currentComponent._show || currentComponent.type !== 'text-box';
-      if (canOpenInput) {
-        currentComponent.containerElement.appendChild(
-          currentComponent.inputElement
-        );
-        currentComponent.inputElement.focus();
-      }
-    });
-    this.containerElement.addEventListener('blur', function (event) {
-      const canOpenInput = currentComponent._show || currentComponent.type !== 'text-box';
-      if (canOpenInput) {
-        if (event.relatedTarget === currentComponent.inputElement) return;
-        currentComponent.containerElement.removeChild(
-          currentComponent.inputElement
-        );
-      }
-    });
 
-    this.inputElement.addEventListener('blur', function (event) {
-      const canOpenInput = currentComponent._show || currentComponent.type !== 'text-box';
-      if (canOpenInput) {
-        if (
-          event.relatedTarget === currentComponent.containerElement ||
-          currentComponent.containerElement.contains(event.relatedTarget)
-        )
-          return;
-        currentComponent.containerElement.removeChild(
-          currentComponent.inputElement
-        );
-      }
-    });
+    if (this.hasAttribute('inputable')) {
+      this.inputElement = document.createElement('input');
+      this.inputElement.classList.add('cdg-tag-box-input-text');
+      this.containerElement.addEventListener(
+        'focus',
+        this.handleContainerFocus.bind(this)
+      );
+      this.containerElement.addEventListener(
+        'blur',
+        this.handleContainerBlur.bind(this)
+      );
 
-    this.inputElement.addEventListener('keyup', function (event) {
-      const canOpenInput = currentComponent._show || currentComponent.type !== 'text-box';
-      if (canOpenInput) {
-        if (event.key === 'Enter' && event.target.value) {
-          currentComponent.containerElement.appendChild(
-            createTagBoxItem(event.target.value).content.cloneNode(true)
-          );
-          currentComponent.inputElement.blur();
-          currentComponent.inputElement.value = '';
-        }
-      }
-    });
+      this.inputElement.addEventListener(
+        'blur',
+        this.handleInputTextBlur.bind(this)
+      );
+
+      this.inputElement.addEventListener(
+        'keyup',
+        this.handleInputTextKeyUp.bind(this)
+      );
+    }
 
     this.type = this.getAttribute('type') || 'text-box';
 
+    // Add icon to first order
     if (this.hasAttribute('icon-name')) {
       const icon = document.createElement('cdg-icon');
       const iconContainer = document.createElement('div');
@@ -128,9 +105,14 @@ export class CdgTagBoxContainer extends HTMLElement {
     for (let index = 0; index < this.childNodes.length; index++) {
       const element = this.childNodes.item(index);
       if (this.isTagBoxItem(element)) {
-        isElement(element) && this.containerElement.appendChild(element);
+        element.addEventListener(
+          'onRemoveItem',
+          this.handleTagBoxItemRemoveClick.bind(this)
+        );
+        this.containerElement.appendChild(element);
       }
     }
+
     this.mainElement.appendChild(this.containerElement);
     this.appendChild(this.mainElement);
     // Show/hide items for only text-box depends on the number of lines of tags
@@ -139,34 +121,131 @@ export class CdgTagBoxContainer extends HTMLElement {
     }
   }
 
-  canOpenInput() {
-    return this._show || this.type !== ' text-box';
+  handleContainerFocus() {
+    if (this.canOpenInput()) {
+      this.containerElement.appendChild(this.inputElement);
+      this.inputElement.focus();
+    }
   }
 
-  toggleItemForTextBox() {
-    let totalWidth = 0;
-    for (
-      let index = 0;
-      index < this.containerElement.childNodes.length;
-      index++
-    ) {
-      const element = this.containerElement.childNodes.item(index);
-      if (isElement(element)) {
-        totalWidth += element.offsetWidth + 8;
-        const mainContentWidth =
-          this.containerElement.offsetWidth -
-          paddingContainer -
-          hiddenNumberWidth -
-          iconToggleWidth;
+  handleContainerBlur(event) {
+    if (this.canOpenInput()) {
+      if (event.relatedTarget === this.inputElement) return;
+      this.containerElement.removeChild(this.inputElement);
+    }
+  }
 
-        // Hide tag-box-item when over width
-        if (totalWidth > mainContentWidth && this.isTagBoxItem(element)) {
-          element.style.display = 'none';
-          this.hiddenItemElements.push(element);
+  handleInputTextBlur(event) {
+    if (this.canOpenInput()) {
+      if (
+        event.relatedTarget === this.containerElement ||
+        this.containerElement.contains(event.relatedTarget)
+      )
+        return;
+      this.containerElement.removeChild(this.inputElement);
+    }
+  }
+
+  handleInputTextKeyUp(event) {
+    if (this.canOpenInput()) {
+      if (event.key === 'Enter' && event.target.value) {
+        const newTagBox = createTagBoxItem(
+          event.target.value
+        ).content.cloneNode(true);
+        this.containerElement.appendChild(newTagBox);
+        this.containerElement.lastElementChild.addEventListener(
+          'onRemoveItem',
+          this.handleTagBoxItemRemoveClick.bind(this)
+        );
+        this.inputElement.blur();
+        this.inputElement.value = '';
+        this.dispatchEvent(
+          new CustomEvent('onAddItem', {
+            detail: { item: this.containerElement.lastElementChild },
+          })
+        );
+        this.dispatchChangeEvent();
+      }
+    }
+  }
+
+  handleTagBoxItemRemoveClick(event) {
+    const isInHidden = this.hiddenItemElements.includes(event.target);
+    this.containerElement.removeChild(event.target);
+    this.dispatchChangeEvent();
+    if (this.type === 'message-box') return;
+
+    if (
+      this.hiddenNumberElement &&
+      this.containerElement.contains(this.hiddenNumberElement)
+    ) {
+      this.containerElement.removeChild(this.hiddenNumberElement);
+    }
+
+    if (isInHidden) {
+      this.hiddenItemElements = this.hiddenItemElements.filter(
+        (item) => item !== event.target
+      );
+      if (this.hiddenItemElements.length > 0) {
+        this.hiddenNumberElement.innerText = `+${this.hiddenItemElements.length}`;
+        this.containerElement.appendChild(this.hiddenNumberElement);
+      }
+    } else {
+      if (this.hiddenItemElements.length) {
+        const hiddenItems = [...this.hiddenItemElements].reverse();
+        const removeIndex = [];
+        let isStop = false;
+        this.hiddenItemElements = hiddenItems
+          .filter((hidItem, index) => {
+            if (!isStop) {
+              const itemWidth = this.realWidth(hidItem);
+              const containerWidth = this.realWidth(
+                this.containerElement,
+                true
+              );
+              if (
+                containerWidth + itemWidth + lastItemWidth <=
+                this.containerElement.offsetWidth
+              ) {
+                this.containerElement.appendChild(hidItem);
+                removeIndex.push(index);
+                return false;
+              }
+            }
+            isStop = true;
+            return true;
+          })
+          .reverse();
+        if (this.hiddenItemElements.length > 0) {
+          this.hiddenNumberElement.innerText = `+${this.hiddenItemElements.length}`;
+          this.containerElement.appendChild(this.hiddenNumberElement);
         }
       }
     }
+  }
 
+  canOpenInput() {
+    return this._show || this.type !== 'text-box';
+  }
+
+  toggleItemForTextBox() {
+    let isNext = true;
+    while (isNext) {
+      const containerWidth = this.realWidth(this.containerElement, true);
+      const index = this.containerElement.childNodes.length - 1;
+      const element = this.containerElement.childNodes.item(index);
+      isNext =
+        containerWidth + lastItemWidth + 8 >= this.containerElement.offsetWidth;
+      if (isNext) {
+        this.containerElement.removeChild(element);
+        this.hiddenItemElements.push(element);
+      }
+    }
+
+    this.createHiddenControl();
+  }
+
+  createHiddenControl() {
     if (this.hiddenItemElements.length > 0) {
       this.hiddenNumberElement = document.createElement('div');
       this.hiddenNumberElement.classList.add('cdg-tag-box-item');
@@ -192,10 +271,53 @@ export class CdgTagBoxContainer extends HTMLElement {
     this._show = !this._show;
     this.toggleIconELement.classList.toggle('cdg-tag-box-toggle-icon-show');
     this.containerElement.classList.toggle('open');
-    this.hiddenItemElements.forEach((hidItem) => {
-      hidItem.style.display = this._show ? 'flex' : 'none';
-      this.hiddenNumberElement.style.display = !this._show ? 'flex' : 'none';
+    this.hiddenNumberElement.style.display = !this._show ? 'flex' : 'none';
+    const removeIndex = [];
+
+    if (!this._show) {
+      if (this.containerElement.contains(this.inputElement)) {
+        this.containerElement.removeChild(this.inputElement);
+      }
+    }
+
+    this.hiddenItemElements.reverse().forEach((hidItem, index) => {
+      if (this._show) {
+        this.containerElement.appendChild(hidItem);
+      } else {
+        const containerWidth = this.realWidth(this.containerElement, true);
+        if (containerWidth >= this.containerElement.offsetWidth) {
+          this.containerElement.removeChild(hidItem);
+        } else {
+          removeIndex.push(index);
+        }
+      }
     });
+    removeIndex.forEach((index) => this.hiddenItemElements.splice(index, 1));
+
+    if (this.hiddenItemElements.length > 0) {
+      this.hiddenNumberElement.innerText = `+${this.hiddenItemElements.length}`;
+    } else {
+      if (this.containerElement.contains(this.hiddenNumberElement)) {
+        this.containerElement.removeChild(this.hiddenNumberElement);
+      }
+    }
+
+    if (this._show && !this.containerElement.contains(this.inputElement)) {
+      this.containerElement.appendChild(this.inputElement);
+      this.inputElement.focus();
+    }
+  }
+
+  realWidth(obj, fitContent = false) {
+    const clone = obj.cloneNode(true);
+    clone.style.visibility = 'hidden';
+    if (fitContent) {
+      clone.style.width = 'fit-content';
+    }
+    document.querySelector('body').append(clone);
+    const width = clone.offsetWidth;
+    clone.remove();
+    return width;
   }
 
   isTagBoxItem(el) {
@@ -237,5 +359,9 @@ export class CdgTagBoxContainer extends HTMLElement {
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue === newValue) return;
     this[attr] = newValue;
+  }
+
+  dispatchChangeEvent() {
+    this.dispatchEvent(new CustomEvent('onChange'));
   }
 }
