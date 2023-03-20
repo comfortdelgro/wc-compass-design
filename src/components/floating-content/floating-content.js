@@ -185,7 +185,7 @@ export function createFloating(
 
   // 100% width of the origin
   if (isFullWidth) {
-    floatingElement.style.width = `${anchorElement.clientWidth}px`;
+    floatingElement.style.minWidth = `${anchorElement.clientWidth}px`;
   }
 
   floatingElement.appendChild(contentElement || this);

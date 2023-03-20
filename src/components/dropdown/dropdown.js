@@ -130,11 +130,11 @@ export class CdgDropdown extends HTMLElement {
     this.buttonTextElement = this.displayInputElement.querySelector(
       'div.cdg-dropdown-button-text'
     );
-    if (!this.test) {
-      this.test = this.handleToggle.bind(this);
+    if (!this.toggleFn) {
+      this.toggleFn = this.handleToggle.bind(this);
     }
     if (!this.hasAttribute('disabled')) {
-      this.displayInputElement.addEventListener('click', this.test, true);
+      this.displayInputElement.addEventListener('click', this.toggleFn, true);
     }
     this.displayInputElement.addEventListener(
       'blur',
@@ -169,13 +169,13 @@ export class CdgDropdown extends HTMLElement {
         this.displayInputElement &&
           this.displayInputElement.removeEventListener(
             'click',
-            this.test,
+            this.toggleFn,
             true
           );
       } else {
         this.classList.remove('disabled');
         this.displayInputElement &&
-          this.displayInputElement.addEventListener('click', this.test, true);
+          this.displayInputElement.addEventListener('click', this.toggleFn, true);
       }
     }
   }
@@ -307,7 +307,6 @@ export class CdgDropdown extends HTMLElement {
   handleCloseContent() {
     this.isOpen = false;
     this.classList.remove('opening');
-    this.contentElement.removeAttribute('opening');
     this.contentElement.removeAttribute('opening');
   }
 

@@ -10,11 +10,10 @@ import { CdgCardBody } from './card/card-body';
 import { CdgCardActions } from './card/card-actions';
 import { CdgTable } from './table/table';
 import { CdgTableBody } from './table/table-body';
-import { CdgTableHead } from './table/table-header';
+import { CdgTableHead } from './table/table-head';
 import { CdgTableRow } from './table/table-row';
-import { CdgTableHeaderCell } from './table/table-header-cell';
+import { CdgTableHeadCell } from './table/table-head-cell';
 import { CdgTableCell } from './table/table-cell';
-import { CdgSortingAsc, CdgSortingDesc } from './table/table-sorting-indicator';
 import { CdgCardCover } from './card/card-cover';
 import { CdgDashboardSideCard } from './dashboard-side-card/dashboard-side-card';
 import { CdgCardActivity } from './dashboard-side-card/side-card-activity';
@@ -67,10 +66,8 @@ customElements.define('cdg-table', CdgTable);
 customElements.define('cdg-table-head', CdgTableHead);
 customElements.define('cdg-table-body', CdgTableBody);
 customElements.define('cdg-table-cell', CdgTableCell);
-customElements.define('cdg-table-header-cell', CdgTableHeaderCell);
+customElements.define('cdg-table-head-cell', CdgTableHeadCell);
 customElements.define('cdg-table-row', CdgTableRow);
-customElements.define('cdg-sorting-asc', CdgSortingAsc);
-customElements.define('cdg-sorting-desc', CdgSortingDesc);
 customElements.define('cdg-card-cover', CdgCardCover);
 customElements.define('cdg-page-title', CdgPageTitle);
 customElements.define('cdg-page-header', CdgPageHeader);
@@ -133,10 +130,8 @@ export const LAYOUT_COMPONENTS = [
   CdgTableBody,
   CdgTableHead,
   CdgTableRow,
-  CdgTableHeaderCell,
+  CdgTableHeadCell,
   CdgTableCell,
-  CdgSortingAsc,
-  CdgSortingDesc,
   CdgCardCover,
   CdgDashboardSideCard,
   CdgCardActivity,

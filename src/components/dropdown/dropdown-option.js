@@ -38,7 +38,9 @@ export class CdgDropdownOption extends HTMLElement {
             if (this.getAttribute('current-color')) {
               this.color.removeChild(this.tickElement);
             } else {
-              this.removeChild(this.tickElement);
+              if (this.contains(this.tickElement)) {
+                this.removeChild(this.tickElement);
+              }
             }
           }
           this.classList.remove('cdg-dropdown-option-selected');
